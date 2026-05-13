@@ -1,0 +1,2500 @@
+{
+  "level": "configurable",
+  "level_score": 0.75,
+  "evidence": [
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/api/handler_test.go",
+      "line": 33,
+      "snippet": "\ttlsDial   func(network, addr string, config *tls.Config) (*tls.Conn, error)",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/api/handler_test.go",
+      "line": 38,
+      "snippet": "func (m *mockClient) TLSDial(network, addr string, config *tls.Config) (*tls.Conn, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/challenge.go",
+      "line": 241,
+      "snippet": "\tconfig := &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/challenge.go",
+      "line": 242,
+      "snippet": "\t\tNextProtos: []string{\"acme-tls/1\"},",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/challenge.go",
+      "line": 246,
+      "snippet": "\t\tMinVersion:         tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/challenge_test.go",
+      "line": 3780,
+      "snippet": "\t\t\t\t\"x5c\": []interface{}{makeLeaf(mustSigner(\"OKP\", \"Ed25519\", 0), serialNumber).Raw, ca.Intermediate.Raw},",
+      "algorithm": "Ed25519"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/challenge_test.go",
+      "line": 51,
+      "snippet": "\ttlsDial   func(network, addr string, config *tls.Config) (*tls.Conn, error)",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/challenge_test.go",
+      "line": 56,
+      "snippet": "func (m *mockClient) TLSDial(network, addr string, tlsConfig *tls.Config) (*tls.Conn, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/challenge_test.go",
+      "line": 719,
+      "snippet": "\t\t\t\t\ttlsDial: func(network, addr string, config *tls.Config) (*tls.Conn, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/challenge_test.go",
+      "line": 2205,
+      "snippet": "type tlsDialer func(network, addr string, config *tls.Config) (conn *tls.Conn, err error)",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/challenge_test.go",
+      "line": 2219,
+      "snippet": "\tsrv.TLS = &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/challenge_test.go",
+      "line": 2226,
+      "snippet": "\t\tNextProtos: []string{",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/challenge_test.go",
+      "line": 2240,
+      "snippet": "\treturn srv, func(network, addr string, config *tls.Config) (conn *tls.Conn, err error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/challenge_test.go",
+      "line": 2328,
+      "snippet": "\t\t\t\t\ttlsDial: func(network, addr string, config *tls.Config) (*tls.Conn, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/challenge_test.go",
+      "line": 2359,
+      "snippet": "\t\t\t\t\ttlsDial: func(network, addr string, config *tls.Config) (*tls.Conn, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/challenge_test.go",
+      "line": 2423,
+      "snippet": "\t\t\t\t\ttlsDial: func(network, addr string, config *tls.Config) (*tls.Conn, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/challenge_test.go",
+      "line": 2454,
+      "snippet": "\t\t\t\t\ttlsDial: func(network, addr string, config *tls.Config) (*tls.Conn, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/challenge_test.go",
+      "line": 2491,
+      "snippet": "\t\t\t\t\ttlsDial: func(network, addr string, config *tls.Config) (*tls.Conn, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/challenge_test.go",
+      "line": 2529,
+      "snippet": "\t\t\t\t\ttlsDial: func(network, addr string, config *tls.Config) (*tls.Conn, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/challenge_wire_test.go",
+      "line": 2151,
+      "snippet": "\tjwkBytes := []byte(`{\"crv\": \"Ed25519\", \"kty\": \"OKP\", \"x\": \"1L1eH2a6AgVvzTp5ZalKRfq6pVPOtEjI7h8TPzBYFgM\"}`)",
+      "algorithm": "Ed25519"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/client.go",
+      "line": 21,
+      "snippet": "\tTLSDial(network, addr string, config *tls.Config) (*tls.Conn, error)",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/client.go",
+      "line": 59,
+      "snippet": "\t\t\t\tTLSClientConfig: &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/acme/client.go",
+      "line": 79,
+      "snippet": "func (c *client) TLSDial(network, addr string, config *tls.Config) (*tls.Conn, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/api/api_test.go",
+      "line": 1500,
+      "snippet": "\t\t{\"ed25519\", args{edPub, edPriv, nil}, \"Ed25519\"},",
+      "algorithm": "Ed25519"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config.go",
+      "line": 25,
+      "snippet": "// CipherSuites is an alias to support older APIs.",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config.go",
+      "line": 26,
+      "snippet": "type CipherSuites = config.CipherSuites",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/config.go",
+      "line": 340,
+      "snippet": "\t\tif len(c.TLS.CipherSuites) == 0 {",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/config.go",
+      "line": 341,
+      "snippet": "\t\t\tc.TLS.CipherSuites = DefaultTLSOptions.CipherSuites",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/config.go",
+      "line": 343,
+      "snippet": "\t\tif c.TLS.MaxVersion == 0 {",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/config.go",
+      "line": 344,
+      "snippet": "\t\t\tc.TLS.MaxVersion = DefaultTLSOptions.MaxVersion",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/config.go",
+      "line": 346,
+      "snippet": "\t\tif c.TLS.MinVersion == 0 {",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/config.go",
+      "line": 347,
+      "snippet": "\t\t\tc.TLS.MinVersion = DefaultTLSOptions.MinVersion",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/config.go",
+      "line": 349,
+      "snippet": "\t\tif c.TLS.MinVersion > c.TLS.MaxVersion {",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/config_test.go",
+      "line": 167,
+      "snippet": "\t\t\t\t\t\tCipherSuites: CipherSuites{",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/config_test.go",
+      "line": 170,
+      "snippet": "\t\t\t\t\t\tMinVersion:    1.0,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/config_test.go",
+      "line": 171,
+      "snippet": "\t\t\t\t\t\tMaxVersion:    1.1,",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/config_test.go",
+      "line": 176,
+      "snippet": "\t\t\t\t\tCipherSuites: CipherSuites{",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/config_test.go",
+      "line": 179,
+      "snippet": "\t\t\t\t\tMinVersion:    1.0,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/config_test.go",
+      "line": 180,
+      "snippet": "\t\t\t\t\tMaxVersion:    1.1,",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/config_test.go",
+      "line": 196,
+      "snippet": "\t\t\t\t\t\tCipherSuites: CipherSuites{",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/config_test.go",
+      "line": 199,
+      "snippet": "\t\t\t\t\t\tMinVersion:    1.2,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/config_test.go",
+      "line": 200,
+      "snippet": "\t\t\t\t\t\tMaxVersion:    1.1,",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options.go",
+      "line": 19,
+      "snippet": "\tDefaultTLSCipherSuites = CipherSuites{",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options.go",
+      "line": 24,
+      "snippet": "\tApprovedTLSCipherSuites = CipherSuites{",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options.go",
+      "line": 42,
+      "snippet": "\t\tCipherSuites:  DefaultTLSCipherSuites,",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options.go",
+      "line": 43,
+      "snippet": "\t\tMinVersion:    DefaultTLSMinVersion,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options.go",
+      "line": 44,
+      "snippet": "\t\tMaxVersion:    DefaultTLSMaxVersion,",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options.go",
+      "line": 94,
+      "snippet": "// CipherSuites represents an array of string codes representing the cipher",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options.go",
+      "line": 96,
+      "snippet": "type CipherSuites []string",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options.go",
+      "line": 100,
+      "snippet": "func (c CipherSuites) Validate() error {",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options.go",
+      "line": 110,
+      "snippet": "func (c CipherSuites) Value() []uint16 {",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options.go",
+      "line": 154,
+      "snippet": "// TLSOptions represents the TLS options that can be specified on *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options.go",
+      "line": 157,
+      "snippet": "\tCipherSuites  CipherSuites `json:\"cipherSuites\"`",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options.go",
+      "line": 158,
+      "snippet": "\tMinVersion    TLSVersion   `json:\"minVersion\"`",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options.go",
+      "line": 159,
+      "snippet": "\tMaxVersion    TLSVersion   `json:\"maxVersion\"`",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options.go",
+      "line": 163,
+      "snippet": "// TLSConfig returns the tls.Config equivalent of the TLSOptions.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options.go",
+      "line": 164,
+      "snippet": "func (t *TLSOptions) TLSConfig() *tls.Config {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options.go",
+      "line": 172,
+      "snippet": "\treturn &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options.go",
+      "line": 173,
+      "snippet": "\t\tCipherSuites:  t.CipherSuites.Value(),",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options.go",
+      "line": 174,
+      "snippet": "\t\tMinVersion:    t.MinVersion.Value(),",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options.go",
+      "line": 175,
+      "snippet": "\t\tMaxVersion:    t.MaxVersion.Value(),",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 56,
+      "snippet": "\t\tc       CipherSuites",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 59,
+      "snippet": "\t\t{\"TLS_RSA_WITH_RC4_128_SHA\", CipherSuites{\"TLS_RSA_WITH_RC4_128_SHA\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 60,
+      "snippet": "\t\t{\"TLS_RSA_WITH_3DES_EDE_CBC_SHA\", CipherSuites{\"TLS_RSA_WITH_3DES_EDE_CBC_SHA\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 61,
+      "snippet": "\t\t{\"TLS_RSA_WITH_AES_128_CBC_SHA\", CipherSuites{\"TLS_RSA_WITH_AES_128_CBC_SHA\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 62,
+      "snippet": "\t\t{\"TLS_RSA_WITH_AES_256_CBC_SHA\", CipherSuites{\"TLS_RSA_WITH_AES_256_CBC_SHA\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 63,
+      "snippet": "\t\t{\"TLS_RSA_WITH_AES_128_CBC_SHA256\", CipherSuites{\"TLS_RSA_WITH_AES_128_CBC_SHA256\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 64,
+      "snippet": "\t\t{\"TLS_RSA_WITH_AES_128_GCM_SHA256\", CipherSuites{\"TLS_RSA_WITH_AES_128_GCM_SHA256\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 65,
+      "snippet": "\t\t{\"TLS_RSA_WITH_AES_256_GCM_SHA384\", CipherSuites{\"TLS_RSA_WITH_AES_256_GCM_SHA384\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 66,
+      "snippet": "\t\t{\"TLS_ECDHE_ECDSA_WITH_RC4_128_SHA\", CipherSuites{\"TLS_ECDHE_ECDSA_WITH_RC4_128_SHA\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 67,
+      "snippet": "\t\t{\"TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA\", CipherSuites{\"TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 68,
+      "snippet": "\t\t{\"TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256\", CipherSuites{\"TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 69,
+      "snippet": "\t\t{\"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\", CipherSuites{\"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 70,
+      "snippet": "\t\t{\"TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA\", CipherSuites{\"TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 71,
+      "snippet": "\t\t{\"TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\", CipherSuites{\"TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 72,
+      "snippet": "\t\t{\"TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305\", CipherSuites{\"TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 73,
+      "snippet": "\t\t{\"TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA\", CipherSuites{\"TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 74,
+      "snippet": "\t\t{\"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA\", CipherSuites{\"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 75,
+      "snippet": "\t\t{\"TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\", CipherSuites{\"TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 76,
+      "snippet": "\t\t{\"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256\", CipherSuites{\"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 77,
+      "snippet": "\t\t{\"TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA\", CipherSuites{\"TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 78,
+      "snippet": "\t\t{\"TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\", CipherSuites{\"TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 79,
+      "snippet": "\t\t{\"TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305\", CipherSuites{\"TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 80,
+      "snippet": "\t\t{\"multiple\", CipherSuites{\"TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305\", \"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\"}, false},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 81,
+      "snippet": "\t\t{\"fail\", CipherSuites{\"TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305\", \"TLS_BAD_CIPHERSUITE\"}, true},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 86,
+      "snippet": "\t\t\t\tt.Errorf(\"CipherSuites.Validate() error = %v, wantErr %v\", err, tt.wantErr)",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 95,
+      "snippet": "\t\tc    CipherSuites",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 98,
+      "snippet": "\t\t{\"TLS_RSA_WITH_RC4_128_SHA\", CipherSuites{\"TLS_RSA_WITH_RC4_128_SHA\"}, []uint16{tls.TLS_RSA_WITH_RC4_128_SHA}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 99,
+      "snippet": "\t\t{\"TLS_RSA_WITH_3DES_EDE_CBC_SHA\", CipherSuites{\"TLS_RSA_WITH_3DES_EDE_CBC_SHA\"}, []uint16{tls.TLS_RSA_WITH_3DES_EDE_CBC_SHA}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 100,
+      "snippet": "\t\t{\"TLS_RSA_WITH_AES_128_CBC_SHA\", CipherSuites{\"TLS_RSA_WITH_AES_128_CBC_SHA\"}, []uint16{tls.TLS_RSA_WITH_AES_128_CBC_SHA}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 101,
+      "snippet": "\t\t{\"TLS_RSA_WITH_AES_256_CBC_SHA\", CipherSuites{\"TLS_RSA_WITH_AES_256_CBC_SHA\"}, []uint16{tls.TLS_RSA_WITH_AES_256_CBC_SHA}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 102,
+      "snippet": "\t\t{\"TLS_RSA_WITH_AES_128_CBC_SHA256\", CipherSuites{\"TLS_RSA_WITH_AES_128_CBC_SHA256\"}, []uint16{tls.TLS_RSA_WITH_AES_128_CBC_SHA256}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 103,
+      "snippet": "\t\t{\"TLS_RSA_WITH_AES_128_GCM_SHA256\", CipherSuites{\"TLS_RSA_WITH_AES_128_GCM_SHA256\"}, []uint16{tls.TLS_RSA_WITH_AES_128_GCM_SHA256}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 104,
+      "snippet": "\t\t{\"TLS_RSA_WITH_AES_256_GCM_SHA384\", CipherSuites{\"TLS_RSA_WITH_AES_256_GCM_SHA384\"}, []uint16{tls.TLS_RSA_WITH_AES_256_GCM_SHA384}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 105,
+      "snippet": "\t\t{\"TLS_ECDHE_ECDSA_WITH_RC4_128_SHA\", CipherSuites{\"TLS_ECDHE_ECDSA_WITH_RC4_128_SHA\"}, []uint16{tls.TLS_ECDHE_ECDSA_WITH_RC4_128_SHA}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 106,
+      "snippet": "\t\t{\"TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA\", CipherSuites{\"TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA\"}, []uint16{tls.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 107,
+      "snippet": "\t\t{\"TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256\", CipherSuites{\"TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256\"}, []uint16{tls.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 108,
+      "snippet": "\t\t{\"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\", CipherSuites{\"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\"}, []uint16{tls.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 109,
+      "snippet": "\t\t{\"TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA\", CipherSuites{\"TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA\"}, []uint16{tls.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 110,
+      "snippet": "\t\t{\"TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\", CipherSuites{\"TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\"}, []uint16{tls.TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 111,
+      "snippet": "\t\t{\"TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305\", CipherSuites{\"TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305\"}, []uint16{tls.TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 112,
+      "snippet": "\t\t{\"TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA\", CipherSuites{\"TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA\"}, []uint16{tls.TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 113,
+      "snippet": "\t\t{\"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA\", CipherSuites{\"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA\"}, []uint16{tls.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 114,
+      "snippet": "\t\t{\"TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\", CipherSuites{\"TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\"}, []uint16{tls.TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 115,
+      "snippet": "\t\t{\"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256\", CipherSuites{\"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256\"}, []uint16{tls.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 116,
+      "snippet": "\t\t{\"TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA\", CipherSuites{\"TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA\"}, []uint16{tls.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 117,
+      "snippet": "\t\t{\"TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\", CipherSuites{\"TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\"}, []uint16{tls.TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 118,
+      "snippet": "\t\t{\"TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305\", CipherSuites{\"TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305\"}, []uint16{tls.TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 119,
+      "snippet": "\t\t{\"multiple\", CipherSuites{\"TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305\", \"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\"}, []uint16{tls.TLS_ECDHE_ECDSA_WITH_CHACHA20_POL",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 120,
+      "snippet": "\t\t{\"fail\", CipherSuites{\"TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305\", \"TLS_BAD_CIPHERSUITE\"}, []uint16{tls.TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305, 0}},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 125,
+      "snippet": "\t\t\t\tt.Errorf(\"CipherSuites.Value() = %v, want %v\", got, tt.want)",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 133,
+      "snippet": "\t\tCipherSuites  CipherSuites",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 134,
+      "snippet": "\t\tMinVersion    TLSVersion",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 135,
+      "snippet": "\t\tMaxVersion    TLSVersion",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 141,
+      "snippet": "\t\twant   *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 143,
+      "snippet": "\t\t{\"default\", fields{DefaultTLSCipherSuites, DefaultTLSMinVersion, DefaultTLSMaxVersion, DefaultTLSRenegotiation}, &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 144,
+      "snippet": "\t\t\tCipherSuites:  []uint16{tls.TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305, tls.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 145,
+      "snippet": "\t\t\tMinVersion:    tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 146,
+      "snippet": "\t\t\tMaxVersion:    tls.VersionTLS13,",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 149,
+      "snippet": "\t\t{\"renegotation\", fields{DefaultTLSCipherSuites, DefaultTLSMinVersion, DefaultTLSMaxVersion, true}, &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 150,
+      "snippet": "\t\t\tCipherSuites:  []uint16{tls.TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305, tls.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256},",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 151,
+      "snippet": "\t\t\tMinVersion:    tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 152,
+      "snippet": "\t\t\tMaxVersion:    tls.VersionTLS13,",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 159,
+      "snippet": "\t\t\t\tCipherSuites:  tt.fields.CipherSuites,",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 160,
+      "snippet": "\t\t\t\tMinVersion:    tt.fields.MinVersion,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/config/tls_options_test.go",
+      "line": 161,
+      "snippet": "\t\t\t\tMaxVersion:    tt.fields.MaxVersion,",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/export.go",
+      "line": 172,
+      "snippet": "\t\t\tMinVersion:    v.MinVersion.String(),",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/export.go",
+      "line": 173,
+      "snippet": "\t\t\tMaxVersion:    v.MaxVersion.String(),",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/export.go",
+      "line": 176,
+      "snippet": "\t\tfor _, cs := range v.CipherSuites.Value() {",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/export.go",
+      "line": 177,
+      "snippet": "\t\t\tc.Tls.CipherSuites = append(c.Tls.CipherSuites, linkedca.TLS_CiperSuite(cs))",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/http_client.go",
+      "line": 47,
+      "snippet": "\t\ttr.TLSClientConfig = &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/http_client.go",
+      "line": 48,
+      "snippet": "\t\t\tMinVersion: tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/http_client.go",
+      "line": 49,
+      "snippet": "\t\t\tRootCAs:    pool,",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/http_client_test.go",
+      "line": 84,
+      "snippet": "\t\tsrv.TLS = &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/linkedca.go",
+      "line": 105,
+      "snippet": "\trenewer, err := tlsutil.NewRenewer(cert, tlsConfig, func() (*tls.Certificate, *tls.Config, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/linkedca.go",
+      "line": 482,
+      "snippet": "\tconn, err := grpc.NewClient(endpoint, grpc.WithTransportCredentials(credentials.NewTLS(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/linkedca.go",
+      "line": 531,
+      "snippet": "func login(authority, token string, csr *x509.CertificateRequest, signer crypto.PrivateKey, endpoint string, rootCAs *x509.CertPool) (*tls.Certificate, *tls.Con",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/linkedca.go",
+      "line": 532,
+      "snippet": "\tconn, err := grpc.NewClient(endpoint, grpc.WithTransportCredentials(credentials.NewTLS(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/linkedca.go",
+      "line": 533,
+      "snippet": "\t\tMinVersion: tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/linkedca.go",
+      "line": 534,
+      "snippet": "\t\tRootCAs:    rootCAs,",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/linkedca.go",
+      "line": 609,
+      "snippet": "\treturn cert, &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/linkedca.go",
+      "line": 610,
+      "snippet": "\t\tMinVersion: tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/linkedca.go",
+      "line": 611,
+      "snippet": "\t\tRootCAs:    rootCAs,",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/provisioner/webhook_test.go",
+      "line": 652,
+      "snippet": "\t\ttransport.TLSClientConfig = &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/root.go",
+      "line": 33,
+      "snippet": "// that will be set in the tls.Config while GetRoots will be used by the",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/tls_test.go",
+      "line": 1481,
+      "snippet": "\t\t\t\tCipherSuites: CipherSuites{",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/tls_test.go",
+      "line": 1485,
+      "snippet": "\t\t\t\tMinVersion:    1.0,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/authority/tls_test.go",
+      "line": 1486,
+      "snippet": "\t\t\t\tMaxVersion:    1.1,",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/bootstrap.go",
+      "line": 69,
+      "snippet": "\t// Make sure the tlsConfig has all supported roots on RootCAs.",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/bootstrap.go",
+      "line": 128,
+      "snippet": "\t// Make sure the tlsConfig has all supported roots on RootCAs.",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/bootstrap.go",
+      "line": 177,
+      "snippet": "\t// Make sure the tlsConfig has all supported roots on RootCAs.",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/bootstrap_test.go",
+      "line": 194,
+      "snippet": "\t\t\t\t\tif !equalPools(gotTR.TLSClientConfig.RootCAs, wantTR.TLSClientConfig.RootCAs) {",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/bootstrap_test.go",
+      "line": 195,
+      "snippet": "\t\t\t\t\t\tt.Errorf(\"Bootstrap() certPool = %v, want %v\", gotTR.TLSClientConfig.RootCAs, wantTR.TLSClientConfig.RootCAs)",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/bootstrap_test.go",
+      "line": 232,
+      "snippet": "\t\t{\"fail with TLSConfig\", args{context.Background(), token(), &http.Server{TLSConfig: &tls.Config{}}}, true},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/bootstrap_test.go",
+      "line": 253,
+      "snippet": "\t\t\t\tif got.TLSConfig == nil || got.TLSConfig.ClientCAs == nil || got.TLSConfig.RootCAs == nil || got.TLSConfig.GetCertificate == nil || got.TLSConfig.GetClientC",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/bootstrap_test.go",
+      "line": 290,
+      "snippet": "\t\t{\"fail with TLSConfig\", args{context.Background(), token(), &http.Server{TLSConfig: &tls.Config{}}}, true},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/bootstrap_test.go",
+      "line": 311,
+      "snippet": "\t\t\t\tif got.TLSConfig == nil || got.TLSConfig.ClientCAs == nil || got.TLSConfig.RootCAs == nil || got.TLSConfig.GetCertificate == nil || got.TLSConfig.GetClientC",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/bootstrap_test.go",
+      "line": 360,
+      "snippet": "\t\t\t\tif tlsConfig == nil || tlsConfig.ClientCAs != nil || tlsConfig.GetClientCertificate == nil || tlsConfig.RootCAs == nil || tlsConfig.GetCertificate != nil {",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/ca.go",
+      "line": 57,
+      "snippet": "\ttlsConfig       *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/ca.go",
+      "line": 125,
+      "snippet": "func WithTLSConfig(t *tls.Config) Option {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/ca.go",
+      "line": 212,
+      "snippet": "\tvar tlsConfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/ca.go",
+      "line": 213,
+      "snippet": "\tvar clientTLSConfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/ca.go",
+      "line": 611,
+      "snippet": "func (ca *CA) getTLSConfig(auth *authority.Authority) (*tls.Config, *tls.Config, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/ca.go",
+      "line": 630,
+      "snippet": "\tvar serverTLSConfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/ca.go",
+      "line": 634,
+      "snippet": "\t\tserverTLSConfig = &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/ca.go",
+      "line": 635,
+      "snippet": "\t\t\tMinVersion: tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/ca.go",
+      "line": 681,
+      "snippet": "\tserverTLSConfig.ClientCAs = certPool",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/ca.go",
+      "line": 683,
+      "snippet": "\tclientTLSConfig.RootCAs = rootCAsPool",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/client.go",
+      "line": 70,
+      "snippet": "\t\t\tTransport: getDefaultTransport(&tls.Config{InsecureSkipVerify: true}),",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/client.go",
+      "line": 257,
+      "snippet": "\t\t\t\ttr.TLSClientConfig = &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/client.go",
+      "line": 258,
+      "snippet": "\t\t\t\t\tMinVersion: tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/client.go",
+      "line": 267,
+      "snippet": "\t\t\t\ttr.TLSClientConfig = &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/client.go",
+      "line": 268,
+      "snippet": "\t\t\t\t\tMinVersion: tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/client.go",
+      "line": 311,
+      "snippet": "\t\t\tTLSClientConfig: &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/client.go",
+      "line": 312,
+      "snippet": "\t\t\t\tMinVersion: tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/client.go",
+      "line": 433,
+      "snippet": "\treturn getDefaultTransport(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/client.go",
+      "line": 434,
+      "snippet": "\t\tMinVersion:               tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/client.go",
+      "line": 436,
+      "snippet": "\t\tRootCAs:                  pool,",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/client.go",
+      "line": 452,
+      "snippet": "\treturn getDefaultTransport(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/client.go",
+      "line": 453,
+      "snippet": "\t\tMinVersion:               tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/client.go",
+      "line": 455,
+      "snippet": "\t\tRootCAs:                  pool,",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/client.go",
+      "line": 464,
+      "snippet": "\treturn getDefaultTransport(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/client.go",
+      "line": 465,
+      "snippet": "\t\tMinVersion:               tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/client.go",
+      "line": 467,
+      "snippet": "\t\tRootCAs:                  pool,",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/client.go",
+      "line": 640,
+      "snippet": "// GetRootCAs returns the RootCAs certificate pool from the configured",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/client.go",
+      "line": 646,
+      "snippet": "\t\t\treturn t.TLSClientConfig.RootCAs",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/client.go",
+      "line": 651,
+      "snippet": "\t\t\treturn t.TLSClientConfig.RootCAs",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/identity/client.go",
+      "line": 65,
+      "snippet": "\ttr.TLSClientConfig = &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/identity/client.go",
+      "line": 66,
+      "snippet": "\t\tMinVersion:           tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/identity/client.go",
+      "line": 70,
+      "snippet": "\t// RootCAs",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/identity/client.go",
+      "line": 77,
+      "snippet": "\t\ttr.TLSClientConfig.RootCAs = pool",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/identity/client_test.go",
+      "line": 59,
+      "snippet": "\tokServer.TLS = &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/identity/client_test.go",
+      "line": 61,
+      "snippet": "\t\tClientCAs:    pool,",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/identity/client_test.go",
+      "line": 63,
+      "snippet": "\t\tMinVersion:   tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/identity/client_test.go",
+      "line": 135,
+      "snippet": "\ttr.TLSClientConfig = &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/identity/client_test.go",
+      "line": 137,
+      "snippet": "\t\tRootCAs:      pool,",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/identity/client_test.go",
+      "line": 138,
+      "snippet": "\t\tMinVersion:   tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/identity/client_test.go",
+      "line": 204,
+      "snippet": "\t\t\t\tcase !reflect.DeepEqual(got.CaURL, tt.want.CaURL) || !equalPools(gotTransport.TLSClientConfig.RootCAs, wantTransport.TLSClientConfig.RootCAs):",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/identity/identity.go",
+      "line": 253,
+      "snippet": "// GetClientCertificate property in a tls.Config.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/identity/identity.go",
+      "line": 300,
+      "snippet": "\t\ttr.TLSClientConfig = &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/identity/identity.go",
+      "line": 302,
+      "snippet": "\t\t\tRootCAs:                  client.GetRootCAs(),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/identity/identity.go",
+      "line": 303,
+      "snippet": "\t\t\tMinVersion:               tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/mutable_tls_config.go",
+      "line": 11,
+      "snippet": "// mutableTLSConfig allows to use a tls.Config with mutable cert pools.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/mutable_tls_config.go",
+      "line": 14,
+      "snippet": "\tconfig         *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/mutable_tls_config.go",
+      "line": 22,
+      "snippet": "// initialized with a tls.Config.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/mutable_tls_config.go",
+      "line": 32,
+      "snippet": "// Init initializes the mutable tls.Config with the given tls.Config.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/mutable_tls_config.go",
+      "line": 33,
+      "snippet": "func (c *mutableTLSConfig) Init(base *tls.Config) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/mutable_tls_config.go",
+      "line": 39,
+      "snippet": "// TLSConfig returns the updated tls.Config it it has changed. It's used in the",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/mutable_tls_config.go",
+      "line": 40,
+      "snippet": "// tls.Config GetConfigForClient.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/mutable_tls_config.go",
+      "line": 41,
+      "snippet": "func (c *mutableTLSConfig) TLSConfig() (config *tls.Config) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/mutable_tls_config.go",
+      "line": 48,
+      "snippet": "// Reload reloads the tls.Config with the new CAs.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/mutable_tls_config.go",
+      "line": 72,
+      "snippet": "\tc.config.RootCAs = rootCAs",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/mutable_tls_config.go",
+      "line": 73,
+      "snippet": "\tc.config.ClientCAs = clientCAs",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/mutable_tls_config.go",
+      "line": 79,
+      "snippet": "// AddImmutableClientCACert add an immutable cert to ClientCAs.",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/mutable_tls_config.go",
+      "line": 93,
+      "snippet": "// AddClientCAs add mutable certs to ClientCAs.",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/mutable_tls_config.go",
+      "line": 102,
+      "snippet": "// AddRootCAs add mutable certs to RootCAs.",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/renew.go",
+      "line": 111,
+      "snippet": "// This method is set in the tls.Config GetCertificate property.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/renew.go",
+      "line": 120,
+      "snippet": "// This method is set in the tls.Config GetCertificate property.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/renew.go",
+      "line": 127,
+      "snippet": "// This method is set in the tls.Config GetClientCertificate property.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 66,
+      "snippet": "\t\t\t\tConfig: &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 67,
+      "snippet": "\t\t\t\t\tMinVersion:           tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 68,
+      "snippet": "\t\t\t\t\tRootCAs:              pool,",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 102,
+      "snippet": "// GetClientTLSConfig returns a tls.Config for client use configured with the",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 105,
+      "snippet": "func (c *Client) GetClientTLSConfig(ctx context.Context, sign *api.SignResponse, pk crypto.PrivateKey, options ...TLSOption) (*tls.Config, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 113,
+      "snippet": "func (c *Client) getClientTLSConfig(ctx context.Context, sign *api.SignResponse, pk crypto.PrivateKey, options []TLSOption) (*tls.Config, http.RoundTripper, err",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 128,
+      "snippet": "\t// Apply options and initialize mutable tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 150,
+      "snippet": "// GetServerTLSConfig returns a tls.Config for server use configured with the",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 152,
+      "snippet": "// The returned tls.Config will only verify the client certificate if provided.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 154,
+      "snippet": "func (c *Client) GetServerTLSConfig(ctx context.Context, sign *api.SignResponse, pk crypto.PrivateKey, options ...TLSOption) (*tls.Config, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 172,
+      "snippet": "\t// Apply options and initialize mutable tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 180,
+      "snippet": "\t// tls.Config instead of the default one.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 211,
+      "snippet": "// callback in tls.Config.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 213,
+      "snippet": "// If the implementation returns a nil tls.Config, the original Config will be",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 216,
+      "snippet": "func (c *Client) buildGetConfigForClient(ctx *TLSOptionCtx) func(*tls.ClientHelloInfo) (*tls.Config, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 217,
+      "snippet": "\treturn func(*tls.ClientHelloInfo) (*tls.Config, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 294,
+      "snippet": "func getDefaultTLSConfig(sign *api.SignResponse) *tls.Config {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 298,
+      "snippet": "\treturn &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 299,
+      "snippet": "\t\tMinVersion: tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 313,
+      "snippet": "// http.DefaultTransport, but adds the given tls.Config and configures the",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls.go",
+      "line": 315,
+      "snippet": "func getDefaultTransport(tlsConfig *tls.Config) *http.Transport {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 10,
+      "snippet": "// TLSOption defines the type of a function that modifies a tls.Config.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 16,
+      "snippet": "\tConfig        *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 25,
+      "snippet": "func newTLSOptionCtx(c *Client, config *tls.Config, sign *api.SignResponse) *TLSOptionCtx {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 41,
+      "snippet": "\t// Initialize mutable config with the fully configured tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 44,
+      "snippet": "\t// Build RootCAs and ClientCAs with given root certificate if necessary",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 47,
+      "snippet": "\t\t\tif ctx.Config.RootCAs == nil {",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 48,
+      "snippet": "\t\t\t\tctx.Config.RootCAs = x509.NewCertPool()",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 50,
+      "snippet": "\t\t\tctx.Config.RootCAs.AddCert(root)",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 55,
+      "snippet": "\t\t\tif ctx.Config.ClientCAs == nil {",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 56,
+      "snippet": "\t\t\t\tctx.Config.ClientCAs = x509.NewCertPool()",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 58,
+      "snippet": "\t\t\tctx.Config.ClientCAs.AddCert(root)",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 63,
+      "snippet": "\t// Update tls.Config with mutable data",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 64,
+      "snippet": "\tif ctx.Config.RootCAs == nil && len(ctx.mutableConfig.mutRootCerts) > 0 {",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 65,
+      "snippet": "\t\tctx.Config.RootCAs = x509.NewCertPool()",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 67,
+      "snippet": "\tif ctx.Config.ClientCAs == nil && len(ctx.mutableConfig.mutClientCerts) > 0 {",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 68,
+      "snippet": "\t\tctx.Config.ClientCAs = x509.NewCertPool()",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 72,
+      "snippet": "\t\tctx.Config.RootCAs.AddCert(cert)",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 75,
+      "snippet": "\t\tctx.Config.ClientCAs.AddCert(cert)",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 92,
+      "snippet": "// RequireAndVerifyClientCert is a tls.Config option used on servers to enforce",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 101,
+      "snippet": "// VerifyClientCertIfGiven is a tls.Config option used on on servers to validate",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 110,
+      "snippet": "// AddRootCA adds to the tls.Config RootCAs the given certificate. RootCAs",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 115,
+      "snippet": "\t\tif ctx.Config.RootCAs == nil {",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 116,
+      "snippet": "\t\t\tctx.Config.RootCAs = x509.NewCertPool()",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 119,
+      "snippet": "\t\tctx.Config.RootCAs.AddCert(cert)",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 125,
+      "snippet": "// AddClientCA adds to the tls.Config ClientCAs the given certificate. ClientCAs",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 130,
+      "snippet": "\t\tif ctx.Config.ClientCAs == nil {",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 131,
+      "snippet": "\t\t\tctx.Config.ClientCAs = x509.NewCertPool()",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 134,
+      "snippet": "\t\tctx.Config.ClientCAs.AddCert(cert)",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 140,
+      "snippet": "// AddRootsToRootCAs does a roots request and adds to the tls.Config RootCAs all",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 141,
+      "snippet": "// the certificates in the response. RootCAs defines the set of root certificate",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 162,
+      "snippet": "// AddRootsToClientCAs does a roots request and adds to the tls.Config ClientCAs",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 163,
+      "snippet": "// all the certificates in the response. ClientCAs defines the set of root",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 185,
+      "snippet": "// AddFederationToRootCAs does a federation request and adds to the tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 186,
+      "snippet": "// RootCAs all the certificates in the response. RootCAs defines the set of root",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 203,
+      "snippet": "// AddFederationToClientCAs does a federation request and adds to the tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 204,
+      "snippet": "// ClientCAs all the certificates in the response. ClientCAs defines the set of",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 223,
+      "snippet": "// tls.Config RootCAs and ClientCAs. Combines the functionality of",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 244,
+      "snippet": "// tls.Config RootCAs and ClientCAs. Combines the functionality of",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 253,
+      "snippet": "\t\t\tif ctx.Config.RootCAs == nil {",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 254,
+      "snippet": "\t\t\t\tctx.Config.RootCAs = x509.NewCertPool()",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 256,
+      "snippet": "\t\t\tif ctx.Config.ClientCAs == nil {",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 257,
+      "snippet": "\t\t\t\tctx.Config.ClientCAs = x509.NewCertPool()",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 260,
+      "snippet": "\t\t\t\tctx.Config.RootCAs.AddCert(cert.Certificate)",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options.go",
+      "line": 261,
+      "snippet": "\t\t\t\tctx.Config.ClientCAs.AddCert(cert.Certificate)",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 27,
+      "snippet": "\t\tconfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 35,
+      "snippet": "\t\t{\"ok\", args{client, &tls.Config{}, &api.SignResponse{}}, &TLSOptionCtx{Client: client, Config: &tls.Config{}, Sign: &api.SignResponse{}, mutableConfig: newMut",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 55,
+      "snippet": "\t\tConfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 66,
+      "snippet": "\t\t{\"ok\", fields{&tls.Config{}}, args{[]TLSOption{RequireAndVerifyClientCert()}}, false},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 67,
+      "snippet": "\t\t{\"ok\", fields{&tls.Config{}}, args{[]TLSOption{VerifyClientCertIfGiven()}}, false},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 68,
+      "snippet": "\t\t{\"fail\", fields{&tls.Config{}}, args{[]TLSOption{VerifyClientCertIfGiven(), fail()}}, true},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 87,
+      "snippet": "\t\twant *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 89,
+      "snippet": "\t\t{\"ok\", &tls.Config{ClientAuth: tls.RequireAndVerifyClientCert}},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 94,
+      "snippet": "\t\t\t\tConfig:        &tls.Config{},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 112,
+      "snippet": "\t\twant *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 114,
+      "snippet": "\t\t{\"ok\", &tls.Config{ClientAuth: tls.VerifyClientCertIfGiven}},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 119,
+      "snippet": "\t\t\t\tConfig:        &tls.Config{},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 145,
+      "snippet": "\t\twant *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 147,
+      "snippet": "\t\t{\"ok\", args{cert}, &tls.Config{RootCAs: pool}},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 152,
+      "snippet": "\t\t\t\tConfig:        &tls.Config{},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 159,
+      "snippet": "\t\t\tif !reflect.DeepEqual(ctx.Config, tt.want) && !equalPools(ctx.Config.RootCAs, tt.want.RootCAs) {",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 178,
+      "snippet": "\t\twant *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 180,
+      "snippet": "\t\t{\"ok\", args{cert}, &tls.Config{ClientCAs: pool}},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 185,
+      "snippet": "\t\t\t\tConfig:        &tls.Config{},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 192,
+      "snippet": "\t\t\tif !reflect.DeepEqual(ctx.Config, tt.want) && !equalPools(ctx.Config.ClientCAs, tt.want.ClientCAs) {",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 219,
+      "snippet": "\t\tconfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 224,
+      "snippet": "\t\twant    *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 227,
+      "snippet": "\t\t{\"ok\", args{client, &tls.Config{}}, &tls.Config{RootCAs: pool}, false},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 228,
+      "snippet": "\t\t{\"fail\", args{clientFail, &tls.Config{}}, &tls.Config{}, true},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 241,
+      "snippet": "\t\t\tif !equalPools(ctx.Config.RootCAs, tt.want.RootCAs) {",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 268,
+      "snippet": "\t\tconfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 273,
+      "snippet": "\t\twant    *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 276,
+      "snippet": "\t\t{\"ok\", args{client, &tls.Config{}}, &tls.Config{ClientCAs: pool}, false},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 277,
+      "snippet": "\t\t{\"fail\", args{clientFail, &tls.Config{}}, &tls.Config{}, true},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 290,
+      "snippet": "\t\t\tif !equalPools(ctx.Config.ClientCAs, tt.want.ClientCAs) {",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 322,
+      "snippet": "\t\tconfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 327,
+      "snippet": "\t\twant    *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 330,
+      "snippet": "\t\t{\"ok\", args{client, &tls.Config{}}, &tls.Config{RootCAs: pool}, false},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 331,
+      "snippet": "\t\t{\"fail\", args{clientFail, &tls.Config{}}, &tls.Config{}, true},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 346,
+      "snippet": "\t\t\t\tif !equalPools(ctx.Config.RootCAs, tt.want.RootCAs) || ctx.Config.ClientCAs != nil {",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 379,
+      "snippet": "\t\tconfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 384,
+      "snippet": "\t\twant    *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 387,
+      "snippet": "\t\t{\"ok\", args{client, &tls.Config{}}, &tls.Config{ClientCAs: pool}, false},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 388,
+      "snippet": "\t\t{\"fail\", args{clientFail, &tls.Config{}}, &tls.Config{}, true},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 403,
+      "snippet": "\t\t\t\tif !equalPools(ctx.Config.ClientCAs, tt.want.ClientCAs) || ctx.Config.RootCAs != nil {",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 431,
+      "snippet": "\t\tconfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 436,
+      "snippet": "\t\twant    *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 439,
+      "snippet": "\t\t{\"ok\", args{client, &tls.Config{}}, &tls.Config{ClientCAs: pool, RootCAs: pool}, false},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 440,
+      "snippet": "\t\t{\"fail\", args{clientFail, &tls.Config{}}, &tls.Config{}, true},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 453,
+      "snippet": "\t\t\tif !equalPools(ctx.Config.RootCAs, tt.want.RootCAs) || !equalPools(ctx.Config.ClientCAs, tt.want.ClientCAs) {",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 485,
+      "snippet": "\t\tconfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 490,
+      "snippet": "\t\twant    *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 493,
+      "snippet": "\t\t{\"ok\", args{client, &tls.Config{}}, &tls.Config{ClientCAs: pool, RootCAs: pool}, false},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 494,
+      "snippet": "\t\t{\"fail\", args{clientFail, &tls.Config{}}, &tls.Config{}, true},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_options_test.go",
+      "line": 509,
+      "snippet": "\t\t\t\tif !equalPools(ctx.Config.ClientCAs, tt.want.ClientCAs) || !equalPools(ctx.Config.RootCAs, tt.want.RootCAs) {",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_test.go",
+      "line": 62,
+      "snippet": "func startTestServer(baseContext context.Context, tlsConfig *tls.Config, handler http.Handler) *httptest.Server {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_test.go",
+      "line": 196,
+      "snippet": "\t\t\ttlsConfig.RootCAs = x509.NewCertPool()",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_test.go",
+      "line": 197,
+      "snippet": "\t\t\ttlsConfig.RootCAs.AddCert(root)",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_test.go",
+      "line": 285,
+      "snippet": "\ttlsConfig.RootCAs = x509.NewCertPool()",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/ca/tls_test.go",
+      "line": 286,
+      "snippet": "\ttlsConfig.RootCAs.AddCert(root)",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/examples/basic-client/client.go",
+      "line": 89,
+      "snippet": "\t// Get tls.Config for a server",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/examples/basic-client/client.go",
+      "line": 96,
+      "snippet": "\t// An http server will use the tls.Config like:",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/examples/basic-client/client.go",
+      "line": 106,
+      "snippet": "\t// Get tls.Config for a client",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/pki/helm.go",
+      "line": 147,
+      "snippet": "          {{- range .TLS.CipherSuites }}",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/pki/helm.go",
+      "line": 150,
+      "snippet": "          minVersion: {{ .TLS.MinVersion }}",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/pki/helm.go",
+      "line": 151,
+      "snippet": "          maxVersion: {{ .TLS.MaxVersion }}",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/scep/authority.go",
+      "line": 135,
+      "snippet": "\t\t\"SHA-1\",",
+      "algorithm": "SHA-1"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/server/server.go",
+      "line": 29,
+      "snippet": "// address, http.Handler and tls.Config.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/server/server.go",
+      "line": 30,
+      "snippet": "func New(addr string, handler http.Handler, tlsConfig *tls.Config) *Server {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/server/server.go",
+      "line": 39,
+      "snippet": "// tls.Config.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/server/server.go",
+      "line": 40,
+      "snippet": "func newHTTPServer(addr string, handler http.Handler, tlsConfig *tls.Config) *http.Server {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/test/integration/requestid_test.go",
+      "line": 280,
+      "snippet": "\tsrv.TLS = &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/test/integration/requestid_test.go",
+      "line": 288,
+      "snippet": "\t\tClientCAs:  trustedRoots,",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/test/integration/scep/common_test.go",
+      "line": 178,
+      "snippet": "\ttransport.TLSClientConfig = &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/test/integration/scep/common_test.go",
+      "line": 179,
+      "snippet": "\t\tRootCAs: trustedRoots,",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/test/integration/scep/internal/x509/x509.go",
+      "line": 95,
+      "snippet": "\tEd25519: \"Ed25519\",",
+      "algorithm": "Ed25519"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/step-ca/test/integration/scep/internal/x509/x509.go",
+      "line": 204,
+      "snippet": "\t{PureEd25519, \"Ed25519\", oidSignatureEd25519, emptyRawValue, Ed25519, crypto.Hash(0) /* no pre-hashing */, false},",
+      "algorithm": "Ed25519"
+    }
+  ],
+  "scanner_version": "sezar-agility/0.1.0-dev",
+  "rubric_version": "qra-rubric/v1.0"
+}

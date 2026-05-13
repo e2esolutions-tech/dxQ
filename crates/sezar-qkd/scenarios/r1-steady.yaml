@@ -1,0 +1,14 @@
+id: r1-steady
+description: "R1 — 24-hour steady-state at 1.8% QBER, 12 kbps. Baseline."
+duration_seconds: 86400
+events:
+  - at_seconds: 0
+    op:
+      op: set_qber
+      qber: 0.018
+    label: "steady QBER"
+  - at_seconds: 0
+    op:
+      op: set_key_rate
+      rate_bps: 12000
+    label: "steady key rate"

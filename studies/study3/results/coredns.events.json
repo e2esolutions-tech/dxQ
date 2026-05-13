@@ -1,0 +1,736 @@
+{
+  "level": "configurable",
+  "level_score": 0.75,
+  "evidence": [
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/config.go",
+      "line": 61,
+      "snippet": "\tTLSConfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_grpc.go",
+      "line": 45,
+      "snippet": "\ttlsConfig      *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_grpc.go",
+      "line": 58,
+      "snippet": "\tvar tlsConfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_grpc.go",
+      "line": 68,
+      "snippet": "\t\ttlsConfig.NextProtos = []string{\"h2\"}",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_grpc_test.go",
+      "line": 56,
+      "snippet": "\tconfig.TLSConfig = &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_grpc_test.go",
+      "line": 69,
+      "snippet": "\tif len(server.tlsConfig.NextProtos) == 0 || server.tlsConfig.NextProtos[0] != \"h2\" {",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_grpc_test.go",
+      "line": 70,
+      "snippet": "\t\tt.Error(\"Expected NextProtos to include h2 for gRPC\")",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_https.go",
+      "line": 37,
+      "snippet": "\ttlsConfig      *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_https.go",
+      "line": 66,
+      "snippet": "\tvar tlsConfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_https.go",
+      "line": 77,
+      "snippet": "\t\ttlsConfig.NextProtos = []string{\"h2\", \"http/1.1\"}",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_https3.go",
+      "line": 36,
+      "snippet": "\ttlsConfig    *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_https3.go",
+      "line": 50,
+      "snippet": "\tvar tlsConfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_https3.go",
+      "line": 61,
+      "snippet": "\ttlsConfig.NextProtos = []string{\"h3\"}",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_https3_test.go",
+      "line": 30,
+      "snippet": "\t\tTLSConfig:               &tls.Config{},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_https3_test.go",
+      "line": 81,
+      "snippet": "\t\tTLSConfig:        &tls.Config{},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_https3_test.go",
+      "line": 110,
+      "snippet": "\t\tTLSConfig:   &tls.Config{},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_https3_test.go",
+      "line": 135,
+      "snippet": "\t\tTLSConfig:        &tls.Config{},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_https3_test.go",
+      "line": 161,
+      "snippet": "\t\tTLSConfig:   &tls.Config{},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_https_test.go",
+      "line": 37,
+      "snippet": "\t\tTLSConfig:               &tls.Config{},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_https_test.go",
+      "line": 88,
+      "snippet": "\t\tTLSConfig:           &tls.Config{},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_https_test.go",
+      "line": 108,
+      "snippet": "\t\tTLSConfig:   &tls.Config{},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_https_test.go",
+      "line": 128,
+      "snippet": "\t\tTLSConfig:           &tls.Config{},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_https_test.go",
+      "line": 170,
+      "snippet": "\t\tTLSConfig:   &tls.Config{},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_https_test.go",
+      "line": 273,
+      "snippet": "\t\tTLSConfig:   &tls.Config{},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_https_test.go",
+      "line": 435,
+      "snippet": "\t\tTLSConfig:   &tls.Config{},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_quic.go",
+      "line": 50,
+      "snippet": "\ttlsConfig         *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_quic.go",
+      "line": 65,
+      "snippet": "\tvar tlsConfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_quic.go",
+      "line": 74,
+      "snippet": "\t\ttlsConfig.NextProtos = []string{\"doq\"}",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_quic_test.go",
+      "line": 59,
+      "snippet": "\tconfig.TLSConfig = &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_quic_test.go",
+      "line": 72,
+      "snippet": "\tif len(server.tlsConfig.NextProtos) == 0 || server.tlsConfig.NextProtos[0] != \"doq\" {",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_quic_test.go",
+      "line": 73,
+      "snippet": "\t\tt.Error(\"Expected NextProtos to include doq for QUIC\")",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_quic_test.go",
+      "line": 556,
+      "snippet": "func mustMakeQUICServerTLSConfig(t *testing.T) *tls.Config {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_quic_test.go",
+      "line": 588,
+      "snippet": "\treturn &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_quic_test.go",
+      "line": 590,
+      "snippet": "\t\tNextProtos:   []string{\"doq\"},",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_quic_test.go",
+      "line": 594,
+      "snippet": "func mustMakeQUICClientTLSConfig() *tls.Config {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_quic_test.go",
+      "line": 595,
+      "snippet": "\treturn &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_quic_test.go",
+      "line": 597,
+      "snippet": "\t\tNextProtos:         []string{\"doq\"},",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_tls.go",
+      "line": 21,
+      "snippet": "\ttlsConfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/core/dnsserver/server_tls.go",
+      "line": 32,
+      "snippet": "\tvar tlsConfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/pb/dns.pb.go",
+      "line": 18,
+      "snippet": "\t_ = protoimpl.EnforceVersion(20 - protoimpl.MinVersion)",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/pb/dns.pb.go",
+      "line": 20,
+      "snippet": "\t_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/dnstap/io.go",
+      "line": 72,
+      "snippet": "\t\tconfig := &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/etcd/setup.go",
+      "line": 46,
+      "snippet": "\t\ttlsConfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/etcd/setup.go",
+      "line": 135,
+      "snippet": "func newEtcdClient(endpoints []string, cc *tls.Config, username, password string) (*etcdcv3.Client, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/forward/forward.go",
+      "line": 48,
+      "snippet": "\ttlsConfig                  *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/forward/forward.go",
+      "line": 72,
+      "snippet": "\tf := &Forward{maxfails: 2, tlsConfig: new(tls.Config), expire: defaultExpire, p: new(random), from: \".\", hcInterval: hcInterval, opts: proxyPkg.Options{ForceTC",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/forward/setup.go",
+      "line": 188,
+      "snippet": "\tperServerNameTlsConfig := make(map[string]*tls.Config)",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/forward/setup.go",
+      "line": 200,
+      "snippet": "\t// Initialize ClientSessionCache in tls.Config. This may speed up a TLS handshake",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/grpc/grpc.go",
+      "line": 27,
+      "snippet": "\ttlsConfig     *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/grpc/proxy.go",
+      "line": 45,
+      "snippet": "func newProxy(addr string, tlsConfig *tls.Config) (*Proxy, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/grpc/setup.go",
+      "line": 84,
+      "snippet": "\t\t\tg.tlsConfig = new(tls.Config)",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/metrics/metrics_test.go",
+      "line": 221,
+      "snippet": "\t\t\tTLSClientConfig: &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/metrics/metrics_test.go",
+      "line": 222,
+      "snippet": "\t\t\t\tRootCAs: func() *x509.CertPool {",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/proxy/health.go",
+      "line": 17,
+      "snippet": "\tSetTLSConfig(*tls.Config)",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/proxy/health.go",
+      "line": 18,
+      "snippet": "\tGetTLSConfig() *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/proxy/health.go",
+      "line": 60,
+      "snippet": "func (h *dnsHc) SetTLSConfig(cfg *tls.Config) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/proxy/health.go",
+      "line": 65,
+      "snippet": "func (h *dnsHc) GetTLSConfig() *tls.Config {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/proxy/persistent.go",
+      "line": 27,
+      "snippet": "\ttlsConfig    *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/proxy/persistent.go",
+      "line": 166,
+      "snippet": "func (t *Transport) SetTLSConfig(cfg *tls.Config) { t.tlsConfig = cfg }",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/proxy/persistent.go",
+      "line": 169,
+      "snippet": "func (t *Transport) GetTLSConfig() *tls.Config { return t.tlsConfig }",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/proxy/proxy.go",
+      "line": 47,
+      "snippet": "func (p *Proxy) SetTLSConfig(cfg *tls.Config) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/proxy/proxy_test.go",
+      "line": 61,
+      "snippet": "\tp.SetTLSConfig(&tls.Config{})",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls.go",
+      "line": 14,
+      "snippet": "func setTLSDefaults(ctls *tls.Config) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls.go",
+      "line": 15,
+      "snippet": "\tctls.MinVersion = tls.VersionTLS12",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls.go",
+      "line": 16,
+      "snippet": "\tctls.MaxVersion = tls.VersionTLS13",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls.go",
+      "line": 17,
+      "snippet": "\tctls.CipherSuites = []uint16{",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls.go",
+      "line": 59,
+      "snippet": "func NewTLSConfigFromArgs(args ...string) (*tls.Config, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls.go",
+      "line": 61,
+      "snippet": "\tvar c *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls.go",
+      "line": 97,
+      "snippet": "func NewTLSConfig(certPath, keyPath, caPath string) (*tls.Config, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls.go",
+      "line": 108,
+      "snippet": "\t// #nosec G402 -- MinVersion and MaxVersion are set in setTLSDefaults",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls.go",
+      "line": 109,
+      "snippet": "\ttlsConfig := &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls.go",
+      "line": 111,
+      "snippet": "\t\tRootCAs:      roots,",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls.go",
+      "line": 120,
+      "snippet": "func NewTLSClientConfig(caPath string) (*tls.Config, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls.go",
+      "line": 126,
+      "snippet": "\t// #nosec G402 -- MinVersion and MaxVersion are set in setTLSDefaults",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls.go",
+      "line": 127,
+      "snippet": "\ttlsConfig := &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls.go",
+      "line": 128,
+      "snippet": "\t\tRootCAs: roots,",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls.go",
+      "line": 152,
+      "snippet": "// NewHTTPSTransport returns an HTTP transport configured using tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls.go",
+      "line": 153,
+      "snippet": "func NewHTTPSTransport(cc *tls.Config) *http.Transport {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls_test.go",
+      "line": 53,
+      "snippet": "\tif c.RootCAs == nil {",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls_test.go",
+      "line": 54,
+      "snippet": "\t\tt.Error(\"RootCAs should not be nil when one arg passed\")",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls_test.go",
+      "line": 61,
+      "snippet": "\tif c.RootCAs != nil {",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls_test.go",
+      "line": 62,
+      "snippet": "\t\tt.Error(\"RootCAs should be nil when two args passed\")",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls_test.go",
+      "line": 72,
+      "snippet": "\tif c.RootCAs == nil {",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls_test.go",
+      "line": 73,
+      "snippet": "\t\tt.Error(\"RootCAs should not be nil when three args passed\")",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls_test.go",
+      "line": 95,
+      "snippet": "\tif c.RootCAs == nil {",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/pkg/tls/tls_test.go",
+      "line": 96,
+      "snippet": "\t\tt.Error(\"RootCAs should not be nil when three args passed\")",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/tls/tls.go",
+      "line": 85,
+      "snippet": "\t\t// NewTLSConfigFromArgs only sets RootCAs, so we need to let ClientCAs refer to it.",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/tls/tls.go",
+      "line": 86,
+      "snippet": "\t\ttls.ClientCAs = tls.RootCAs",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/plugin/tls/tls_test.go",
+      "line": 84,
+      "snippet": "\t\tif cfg.TLSConfig.ClientCAs == nil {",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/test/grpc_test.go",
+      "line": 124,
+      "snippet": "\ttlsConfig := &tls.Config{InsecureSkipVerify: true}",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/test/grpc_test.go",
+      "line": 172,
+      "snippet": "\ttlsConfig := &tls.Config{InsecureSkipVerify: true}",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/test/https3_test.go",
+      "line": 31,
+      "snippet": "func generateHTTPS3TLSConfig() *tls.Config {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/test/https_test.go",
+      "line": 36,
+      "snippet": "\ttlsConfig := &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/test/https_test.go",
+      "line": 103,
+      "snippet": "\t\t\tTLSClientConfig: &tls.Config{InsecureSkipVerify: true},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/test/https_test.go",
+      "line": 147,
+      "snippet": "\t\tconn, err := tls.Dial(\"tcp\", tcp, &tls.Config{InsecureSkipVerify: true})",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/test/https_test.go",
+      "line": 159,
+      "snippet": "\t\t&tls.Config{InsecureSkipVerify: true},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/test/https_test.go",
+      "line": 172,
+      "snippet": "\tconn, err = tls.Dial(\"tcp\", tcp, &tls.Config{InsecureSkipVerify: true})",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/test/quic_test.go",
+      "line": 354,
+      "snippet": "func generateTLSConfig() *tls.Config {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/test/quic_test.go",
+      "line": 364,
+      "snippet": "\ttlsConfig.NextProtos = []string{\"doq\"}",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/test/tls_test.go",
+      "line": 24,
+      "snippet": "\t\ttlsConfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/test/tls_test.go",
+      "line": 27,
+      "snippet": "\t\t\t&tls.Config{InsecureSkipVerify: true},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/test/tls_test.go",
+      "line": 30,
+      "snippet": "\t\t\t&tls.Config{InsecureSkipVerify: true, NextProtos: []string{\"dot\"}},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/test/tls_test.go",
+      "line": 33,
+      "snippet": "\t\t\t&tls.Config{InsecureSkipVerify: true},",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/coredns/test/tls_test.go",
+      "line": 36,
+      "snippet": "\t\t\t&tls.Config{InsecureSkipVerify: true, NextProtos: []string{\"dot\"}},",
+      "algorithm": "tls.Config"
+    }
+  ],
+  "scanner_version": "sezar-agility/0.1.0-dev",
+  "rubric_version": "qra-rubric/v1.0"
+}

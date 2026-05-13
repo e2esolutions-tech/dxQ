@@ -6,6 +6,10 @@ rust-version = { workspace = true }
 license     = { workspace = true }
 description = "Sezar collector + REST API + dashboard backend"
 
+[lib]
+name = "sezar_server"
+path = "src/lib.rs"
+
 [[bin]]
 name = "sezar-server"
 path = "src/main.rs"
@@ -21,3 +25,8 @@ tracing            = { workspace = true }
 tracing-subscriber = { workspace = true }
 anyhow             = { workspace = true }
 chrono             = { workspace = true }
+dashmap            = "6"
+clap               = { version = "4", features = ["derive"] }
+
+[dev-dependencies]
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }

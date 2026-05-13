@@ -1,0 +1,36 @@
+{
+  "level": "configurable",
+  "level_score": 0.75,
+  "evidence": [
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/redis/src/cli_common.c",
+      "line": 73,
+      "snippet": "        if (config.ciphers && !SSL_CTX_set_cipher_list(ssl_ctx, config.ciphers)) {",
+      "algorithm": "SSL_CTX_set_cipher_list"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/redis/src/cli_common.c",
+      "line": 78,
+      "snippet": "        if (config.ciphersuites && !SSL_CTX_set_ciphersuites(ssl_ctx, config.ciphersuites)) {",
+      "algorithm": "SSL_CTX_set_ciphersuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/redis/src/tls.c",
+      "line": 242,
+      "snippet": "    if (ctx_config->ciphers && !SSL_CTX_set_cipher_list(ctx, ctx_config->ciphers)) {",
+      "algorithm": "SSL_CTX_set_cipher_list"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/redis/src/tls.c",
+      "line": 248,
+      "snippet": "    if (ctx_config->ciphersuites && !SSL_CTX_set_ciphersuites(ctx, ctx_config->ciphersuites)) {",
+      "algorithm": "SSL_CTX_set_ciphersuites"
+    }
+  ],
+  "scanner_version": "sezar-agility/0.1.0-dev",
+  "rubric_version": "qra-rubric/v1.0"
+}

@@ -1,0 +1,19 @@
+id: r2-degradation
+description: "R2 — gradual QBER ramp from 1.8% to 8.5% over 4 hours. SAE policy should fail over to classical at the configured threshold."
+duration_seconds: 14400
+events:
+  - at_seconds: 0
+    op: { op: set_qber, qber: 0.018 }
+    label: "baseline"
+  - at_seconds: 3600
+    op: { op: set_qber, qber: 0.035 }
+    label: "T+1h elevated"
+  - at_seconds: 7200
+    op: { op: set_qber, qber: 0.055 }
+    label: "T+2h crosses warn threshold (degraded)"
+  - at_seconds: 10800
+    op: { op: set_qber, qber: 0.075 }
+    label: "T+3h"
+  - at_seconds: 14400
+    op: { op: set_qber, qber: 0.085 }
+    label: "T+4h sustained high QBER"

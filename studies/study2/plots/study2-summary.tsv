@@ -1,0 +1,14 @@
+scenario	at_s	op	expected	observed_t	latency_s	label
+r1-steady	0	set_qber	ok	0.71	0.71	steady QBER
+r2-degradation	0	set_qber	ok	0.71	0.71	baseline
+r2-degradation	15	set_qber	ok	15.71	0.71	elevated
+r2-degradation	30	set_qber	degraded	30.71	0.71	crosses warn threshold (degraded)
+r2-degradation	45	set_qber	degraded	45.71	0.71	sustained degraded
+r2-degradation	60	set_qber	degraded	60.71	0.71	high
+r3-hard-failure	0	set_qber	ok	0.70	0.70	
+r3-hard-failure	10	force_failure	failed	10.70	0.70	KME dark
+r3-hard-failure	30	clear_failure	ok	30.70	0.70	KME recovers
+r4-stale-psk	0	set_qber	ok	0.70	0.70	
+r5-bifurcated	0	set_qber	ok	0.71	0.71	
+r5-bifurcated	10	force_failure	failed	10.71	0.71	KME-A dark; KME-B steady
+r5-bifurcated	30	clear_failure	ok	30.71	0.71	KME-A recovers

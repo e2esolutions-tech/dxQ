@@ -1,0 +1,12 @@
+id: strongswan-ike-proposals
+description: "strongSwan `ike` / `esp` proposal lists: IKE/ESP algorithm choice exposed in `swanctl.conf` or `ipsec.conf`."
+applies_to:
+  - kind: config
+    path_glob: "**/swanctl.conf"
+  - kind: config
+    path_glob: "**/ipsec.conf"
+  - kind: config
+    path_glob: "**/strongswan.conf"
+pattern: '^\s*(ike|esp|ah)\s*='
+emit_level: configurable
+evidence_kind: config_pattern

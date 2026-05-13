@@ -1,0 +1,61 @@
+{
+  "n_classical": 30,
+  "n_ok_classical": 30,
+  "tls_versions": {
+    "TLSv1.3": 30
+  },
+  "ciphersuites": {
+    "TLS_AES_256_GCM_SHA384": 20,
+    "TLS_AES_128_GCM_SHA256": 7,
+    "TLS_CHACHA20_POLY1305_SHA256": 3
+  },
+  "cert_signature_algorithms": {
+    "ECDSA-P256": 18,
+    "RSA-PKCS1-SHA384": 1,
+    "RSA-PKCS1-SHA256": 11
+  },
+  "n_pq": 30,
+  "n_ok_pq": 30,
+  "pq_kex_negotiated": 17,
+  "pq_kex_rate": 0.5666666666666667,
+  "kex_groups": {
+    "X25519MLKEM768": 17,
+    "x25519": 10,
+    "secp256r1": 2,
+    "secp384r1": 1
+  },
+  "pq_adopters": [
+    "anthropic.com",
+    "apple.com",
+    "cloudflare.com",
+    "debian.org",
+    "e2esolutions.tech",
+    "etsi.org",
+    "facebook.com",
+    "google.com",
+    "ietf.org",
+    "instagram.com",
+    "openai.com",
+    "python.org",
+    "reddit.com",
+    "rust-lang.org",
+    "twitter.com",
+    "wikipedia.org",
+    "youtube.com"
+  ],
+  "pq_holdouts": [
+    "amazon.com",
+    "archlinux.org",
+    "github.com",
+    "gnu.org",
+    "go.dev",
+    "kernel.org",
+    "linkedin.com",
+    "microsoft.com",
+    "mozilla.org",
+    "netflix.com",
+    "nist.gov",
+    "openssl.org",
+    "ubuntu.com"
+  ]
+}

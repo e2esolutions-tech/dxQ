@@ -1,0 +1,12 @@
+id: r5-bifurcated
+description: "R5 — bifurcated SAE: one SAE sees a healthy KME while another sees a failed one (simulates partial KME outage). Driven against KME-A only; the operator runs a paired scenario against KME-B that holds steady so the cross-KME divergence is observable."
+duration_seconds: 1800
+events:
+  - at_seconds: 0
+    op: { op: set_qber, qber: 0.018 }
+  - at_seconds: 600
+    op: { op: force_failure, reason: "partial outage — this KME only" }
+    label: "T+10min: KME-A goes dark; KME-B remains healthy"
+  - at_seconds: 1500
+    op: { op: clear_failure }
+    label: "T+25min: KME-A recovers"

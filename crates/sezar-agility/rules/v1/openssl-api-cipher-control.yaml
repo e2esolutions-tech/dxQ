@@ -1,0 +1,21 @@
+id: openssl-api-cipher-control
+description: "Source-level call into OpenSSL/BoringSSL cipher-control API: project exposes operator-level cipher choice."
+applies_to:
+  - kind: code
+    path_glob: "**/*.c"
+  - kind: code
+    path_glob: "**/*.cc"
+  - kind: code
+    path_glob: "**/*.cpp"
+  - kind: code
+    path_glob: "**/*.h"
+  - kind: code
+    path_glob: "**/*.go"
+  - kind: code
+    path_glob: "**/*.rs"
+  - kind: code
+    path_glob: "**/*.py"
+pattern: '\b(SSL_CTX_set_cipher_list|SSL_CTX_set_ciphersuites|SSL_set_cipher_list|SSL_set_ciphersuites|tls\.CipherSuites|CipherSuites:|set_ciphers\b|set_protocol_version|CipherString|MinProtocol|set1_groups_list|SSL_CTX_set1_groups_list|SSL_CONF_cmd)\b'
+emit_level: configurable
+evidence_kind: code_pattern
+algorithm_capture: 1

@@ -1,0 +1,10 @@
+id: openssl-cipherstring
+description: "openssl.cnf `CipherString` / `Ciphersuites` / `MinProtocol`: algorithm choice exposed to ops via the system OpenSSL config."
+applies_to:
+  - kind: config
+    path_glob: "**/openssl*.cnf"
+  - kind: config
+    path_glob: "**/openssl*.conf"
+pattern: '^\s*(CipherString|Ciphersuites|MinProtocol|MaxProtocol)\s*='
+emit_level: configurable
+evidence_kind: config_pattern

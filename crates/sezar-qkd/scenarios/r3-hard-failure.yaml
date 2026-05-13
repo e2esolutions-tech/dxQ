@@ -1,0 +1,12 @@
+id: r3-hard-failure
+description: "R3 — hard failure: KME unreachable for 30 minutes, then recovers. SAE should fail closed or fall back to classical per policy."
+duration_seconds: 2400
+events:
+  - at_seconds: 0
+    op: { op: set_qber, qber: 0.018 }
+  - at_seconds: 300
+    op: { op: force_failure, reason: "fibre cut at relay" }
+    label: "T+5min KME goes dark"
+  - at_seconds: 2100
+    op: { op: clear_failure }
+    label: "T+35min KME recovers"

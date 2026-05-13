@@ -1,0 +1,43 @@
+{
+  "level": "configurable",
+  "level_score": 0.75,
+  "evidence": [
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/haproxy/src/quic_ssl.c",
+      "line": 770,
+      "snippet": "\tif (SSL_CTX_set_ciphersuites(ctx, ciphersuites) != 1) {",
+      "algorithm": "SSL_CTX_set_ciphersuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/haproxy/src/ssl_sock.c",
+      "line": 4692,
+      "snippet": "\t    !SSL_CTX_set_cipher_list(ctx, conf_ciphers)) {",
+      "algorithm": "SSL_CTX_set_cipher_list"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/haproxy/src/ssl_sock.c",
+      "line": 4701,
+      "snippet": "\t    !SSL_CTX_set_ciphersuites(ctx, conf_ciphersuites)) {",
+      "algorithm": "SSL_CTX_set_ciphersuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/haproxy/src/ssl_sock.c",
+      "line": 5223,
+      "snippet": "\t\t!SSL_CTX_set_cipher_list(ctx, srv->ssl_ctx.ciphers)) {",
+      "algorithm": "SSL_CTX_set_cipher_list"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/haproxy/src/ssl_sock.c",
+      "line": 5241,
+      "snippet": "\t\t!SSL_CTX_set_ciphersuites(ctx, srv->ssl_ctx.ciphersuites)) {",
+      "algorithm": "SSL_CTX_set_ciphersuites"
+    }
+  ],
+  "scanner_version": "sezar-agility/0.1.0-dev",
+  "rubric_version": "qra-rubric/v1.0"
+}

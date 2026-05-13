@@ -1,0 +1,13 @@
+project,category,repo_url,pinned_ref,expected_level,reviewer_notes
+haproxy,http_server,https://github.com/haproxy/haproxy,master,configurable,"ssl-default-bind-ciphers / ssl-default-server-ciphers in haproxy.cfg; OpenSSL-backed."
+caddy,http_server,https://github.com/caddyserver/caddy,master,configurable,"Caddy TLS app exposes protocols + cipher_suites in JSON/Caddyfile."
+wireguard-tools,vpn_secure_shell,https://github.com/WireGuard/wireguard-tools,master,pinned,"Wireguard intentionally hard-codes Curve25519+ChaCha20-Poly1305+BLAKE2s; pinned by spec."
+unbound,dns_server,https://github.com/NLnetLabs/unbound,master,configurable,"tls-ciphers + tls-ciphersuites in unbound.conf."
+coredns,dns_server,https://github.com/coredns/coredns,master,configurable,"tls plugin protocol + ciphers configurable."
+chrony,time,https://github.com/mlichvar/chrony,master,configurable,"NTS keys + key types configurable in chrony.conf."
+prosody,messaging,https://github.com/bjc/prosody,trunk,configurable,"ssl block in prosody.cfg.lua exposes protocol + ciphers."
+nats-server,message_broker,https://github.com/nats-io/nats-server,main,configurable,"tls block in nats.conf exposes cipher_suites + curve_preferences."
+step-ca,certificate_authority,https://github.com/smallstep/certificates,master,configurable,"ca.json tls section + key.type per signer."
+nginx,http_server,https://github.com/nginx/nginx,master,configurable,"ssl_protocols + ssl_ciphers directives + OpenSSL API calls in source."
+postfix-mirror,mail_server,https://github.com/vdukhovni/postfix,master,configurable,"smtp(d)_tls_protocols + smtp(d)_tls_ciphers in main.cf."
+redis,database,https://github.com/redis/redis,unstable,configurable,"tls-ciphers / tls-ciphersuites / tls-protocols in redis.conf."

@@ -1,0 +1,10 @@
+id: nginx-ssl-ciphers
+description: "nginx `ssl_ciphers` or `ssl_protocols` directive: TLS suite chosen at deployment time, changeable by config reload."
+applies_to:
+  - kind: config
+    path_glob: "**/nginx*.conf"
+  - kind: config
+    path_glob: "**/sites-*/*"
+pattern: '^\s*(ssl_ciphers|ssl_protocols)\s+'
+emit_level: configurable
+evidence_kind: config_pattern

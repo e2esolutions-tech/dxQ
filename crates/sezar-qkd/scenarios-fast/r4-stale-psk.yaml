@@ -1,0 +1,8 @@
+id: r4-stale-psk
+description: "R4 (compressed, 30s) — KME healthy at low QBER, no rate change. The point of this scenario is that the KME alone cannot distinguish a fresh PSK from a stale one — SAE-side instrumentation is the only signal."
+duration_seconds: 30
+events:
+  - at_seconds: 0
+    op: { op: set_qber, qber: 0.018 }
+  - at_seconds: 0
+    op: { op: set_key_rate, rate_bps: 12000 }

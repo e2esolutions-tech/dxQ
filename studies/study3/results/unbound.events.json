@@ -1,0 +1,57 @@
+{
+  "level": "configurable",
+  "level_score": 0.75,
+  "evidence": [
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/unbound/sldns/wire2str.c",
+      "line": 62,
+      "snippet": "\t{ LDNS_SHA1, \"SHA1\" },",
+      "algorithm": "SHA1"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/unbound/util/net_help.c",
+      "line": 1297,
+      "snippet": "\t\tif(!SSL_CTX_set_cipher_list(ctx, \"TLS13-CHACHA20-POLY1305-SHA256:TLS13-AES-256-GCM-SHA384:TLS13-AES-128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHA",
+      "algorithm": "SSL_CTX_set_cipher_list"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/unbound/util/net_help.c",
+      "line": 1298,
+      "snippet": "\t\t\tlog_crypto_err(\"could not set cipher list with SSL_CTX_set_cipher_list\");",
+      "algorithm": "SSL_CTX_set_cipher_list"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/unbound/util/net_help.c",
+      "line": 1411,
+      "snippet": "\t\tif (!SSL_CTX_set_cipher_list(ctx, tls_ciphers)) {",
+      "algorithm": "SSL_CTX_set_cipher_list"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/unbound/util/net_help.c",
+      "line": 1414,
+      "snippet": "\t\t\tlog_crypto_err(\"Error in SSL_CTX_set_cipher_list\");",
+      "algorithm": "SSL_CTX_set_cipher_list"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/unbound/util/net_help.c",
+      "line": 1421,
+      "snippet": "\t\tif (!SSL_CTX_set_ciphersuites(ctx, tls_ciphersuites)) {",
+      "algorithm": "SSL_CTX_set_ciphersuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/unbound/util/net_help.c",
+      "line": 1424,
+      "snippet": "\t\t\tlog_crypto_err(\"Error in SSL_CTX_set_ciphersuites\");",
+      "algorithm": "SSL_CTX_set_ciphersuites"
+    }
+  ],
+  "scanner_version": "sezar-agility/0.1.0-dev",
+  "rubric_version": "qra-rubric/v1.0"
+}

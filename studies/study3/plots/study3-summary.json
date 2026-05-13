@@ -1,0 +1,48 @@
+{
+  "project_count": 11,
+  "agreed": 10,
+  "agreement_rate": 0.9090909090909091,
+  "cohen_kappa": 0.6206896551724135,
+  "disagreements": [
+    {
+      "project": "chrony",
+      "expected": "configurable",
+      "scanner": "pinned",
+      "evidence_count": 11
+    }
+  ],
+  "per_category": {
+    "http_server": {
+      "count": 3,
+      "agreed": 3
+    },
+    "vpn_secure_shell": {
+      "count": 1,
+      "agreed": 1
+    },
+    "dns_server": {
+      "count": 2,
+      "agreed": 2
+    },
+    "time": {
+      "count": 1,
+      "agreed": 0
+    },
+    "message_broker": {
+      "count": 1,
+      "agreed": 1
+    },
+    "certificate_authority": {
+      "count": 1,
+      "agreed": 1
+    },
+    "mail_server": {
+      "count": 1,
+      "agreed": 1
+    },
+    "database": {
+      "count": 1,
+      "agreed": 1
+    }
+  }
+}

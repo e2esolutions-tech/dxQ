@@ -1,0 +1,715 @@
+{
+  "level": "configurable",
+  "level_score": 0.75,
+  "evidence": [
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/admin.go",
+      "line": 565,
+      "snippet": "\ttlsConfig.NextProtos = nil // this server does not solve ACME challenges",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/admin.go",
+      "line": 567,
+      "snippet": "\ttlsConfig.ClientCAs = clientCertPool",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/caddyconfig/httpcaddyfile/builtins.go",
+      "line": 232,
+      "snippet": "\t\t\t\tcp.CipherSuites = append(cp.CipherSuites, h.Val())",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/caddyconfig/httpcaddyfile/httptype.go",
+      "line": 1123,
+      "snippet": "\t\t\t\tif len(cps[i].CipherSuites) > 0 &&",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/caddyconfig/httpcaddyfile/httptype.go",
+      "line": 1124,
+      "snippet": "\t\t\t\t\tlen(cps[j].CipherSuites) > 0 &&",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/caddyconfig/httpcaddyfile/httptype.go",
+      "line": 1125,
+      "snippet": "\t\t\t\t\t!reflect.DeepEqual(cps[i].CipherSuites, cps[j].CipherSuites) {",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/caddyconfig/httpcaddyfile/httptype.go",
+      "line": 1127,
+      "snippet": "\t\t\t\t\t\tcps[i].CipherSuites, cps[j].CipherSuites)",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/caddyconfig/httpcaddyfile/httptype.go",
+      "line": 1181,
+      "snippet": "\t\t\t\tif len(cps[i].CipherSuites) == 0 && len(cps[j].CipherSuites) > 0 {",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/caddyconfig/httpcaddyfile/httptype.go",
+      "line": 1182,
+      "snippet": "\t\t\t\t\tcps[i].CipherSuites = cps[j].CipherSuites",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/caddyconfig/httploader.go",
+      "line": 176,
+      "snippet": "\t\tvar tlsConfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/caddyconfig/httploader.go",
+      "line": 186,
+      "snippet": "\t\t\ttlsConfig = &tls.Config{Certificates: certs}",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/caddyconfig/httploader.go",
+      "line": 193,
+      "snippet": "\t\t\ttlsConfig = &tls.Config{Certificates: []tls.Certificate{cert}}",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/caddyconfig/httploader.go",
+      "line": 207,
+      "snippet": "\t\t\t\ttlsConfig = new(tls.Config)",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/caddyconfig/httploader.go",
+      "line": 209,
+      "snippet": "\t\t\ttlsConfig.RootCAs = rootPool",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/caddytest/caddytest.go",
+      "line": 359,
+      "snippet": "\t\tTLSClientConfig:       &tls.Config{InsecureSkipVerify: true}, //nolint:gosec",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/caddytest/integration/h2listener_test.go",
+      "line": 32,
+      "snippet": "\ttr.TLSClientConfig.NextProtos = clientVersions",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/caddytest/integration/proxyprotocol_test.go",
+      "line": 210,
+      "snippet": "// tlsConfig returns the *tls.Config used by the backend server.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/caddytest/integration/proxyprotocol_test.go",
+      "line": 212,
+      "snippet": "func (b *tlsProxyProtoBackend) tlsConfig() *tls.Config {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/listeners.go",
+      "line": 434,
+      "snippet": "func (na NetworkAddress) ListenQUIC(ctx context.Context, portOffset uint, config net.ListenConfig, tlsConf *tls.Config, pcWrappers []PacketConnWrapper, allow0rt",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/listeners.go",
+      "line": 465,
+      "snippet": "\t\tquicTlsConfig := &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/listeners.go",
+      "line": 499,
+      "snippet": "\t// add current tls.Config to sqs, so GetConfigForClient will always return the latest tls.Config in case of context cancellation",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/listeners.go",
+      "line": 525,
+      "snippet": "\ttlsConfs      map[*tls.Config]contextAndCancelFunc",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/listeners.go",
+      "line": 526,
+      "snippet": "\tactiveTlsConf *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/listeners.go",
+      "line": 530,
+      "snippet": "func newSharedQUICState(tlsConfig *tls.Config) *sharedQUICState {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/listeners.go",
+      "line": 532,
+      "snippet": "\t\ttlsConfs:      make(map[*tls.Config]contextAndCancelFunc),",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/listeners.go",
+      "line": 539,
+      "snippet": "// getConfigForClient is used as tls.Config's GetConfigForClient field",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/listeners.go",
+      "line": 540,
+      "snippet": "func (sqs *sharedQUICState) getConfigForClient(ch *tls.ClientHelloInfo) (*tls.Config, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/listeners.go",
+      "line": 546,
+      "snippet": "// getEncryptedClientHelloKeys is used as tls.Config's GetEncryptedClientHelloKeys field.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/listeners.go",
+      "line": 556,
+      "snippet": "// addState adds tls.Config and activeRequests to the map if not present and returns the corresponding context and its cancelFunc",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/listeners.go",
+      "line": 557,
+      "snippet": "// so that when cancelled, the active tls.Config will change",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/listeners.go",
+      "line": 558,
+      "snippet": "func (sqs *sharedQUICState) addState(tlsConfig *tls.Config) (context.Context, context.CancelCauseFunc) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/listeners.go",
+      "line": 575,
+      "snippet": "\t\t\t// select another tls.Config, if there is none,",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/listeners_test.go",
+      "line": 184,
+      "snippet": "\tinitialConfig := &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/listeners_test.go",
+      "line": 185,
+      "snippet": "\t\tGetConfigForClient: func(*tls.ClientHelloInfo) (*tls.Config, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/listeners_test.go",
+      "line": 203,
+      "snippet": "\tupdatedConfig := &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/listeners_test.go",
+      "line": 204,
+      "snippet": "\t\tGetConfigForClient: func(*tls.ClientHelloInfo) (*tls.Config, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddyhttp/app.go",
+      "line": 428,
+      "snippet": "\t\tfor i, np := range cp.TLSConfig.NextProtos {",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddyhttp/app.go",
+      "line": 430,
+      "snippet": "\t\t\t\tcp.TLSConfig.NextProtos = append(cp.TLSConfig.NextProtos[:i], cp.TLSConfig.NextProtos[i+1:]...)",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddyhttp/app.go",
+      "line": 490,
+      "snippet": "\t\t\t// skip setting h2 because if NextProtos is present, it's list of alpn versions will take precedence.",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddyhttp/app.go",
+      "line": 496,
+      "snippet": "\t\t\t// when h2c is enabled but h2 disabled, we already removed h2 from NextProtos",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddyhttp/replacer.go",
+      "line": 525,
+      "snippet": "\t\treturn tls.CipherSuiteName(req.TLS.CipherSuite), true",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddyhttp/reverseproxy/httptransport.go",
+      "line": 443,
+      "snippet": "\t\t\t\t\ttlsConfig.NextProtos = nil",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddyhttp/reverseproxy/httptransport.go",
+      "line": 692,
+      "snippet": "// MakeTLSClientConfig returns a tls.Config usable by a client to a backend.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddyhttp/reverseproxy/httptransport.go",
+      "line": 694,
+      "snippet": "func (t *TLSConfig) MakeTLSClientConfig(ctx caddy.Context) (*tls.Config, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddyhttp/reverseproxy/httptransport.go",
+      "line": 695,
+      "snippet": "\tcfg := new(tls.Config)",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddyhttp/reverseproxy/httptransport.go",
+      "line": 757,
+      "snippet": "\t\tcfg.RootCAs = rootPool",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddyhttp/reverseproxy/httptransport.go",
+      "line": 772,
+      "snippet": "\t\tcfg.RootCAs = ca.CertPool()",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddyhttp/reverseproxy/httptransport.go",
+      "line": 798,
+      "snippet": "\t\t\tcfg.CurvePreferences = append(cfg.CurvePreferences, curveID)",
+      "algorithm": "CurvePreferences"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddyhttp/reverseproxy/httptransport.go",
+      "line": 803,
+      "snippet": "\tif reflect.DeepEqual(cfg, new(tls.Config)) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddyhttp/server.go",
+      "line": 658,
+      "snippet": "func (s *Server) serveHTTP3(addr caddy.NetworkAddress, tlsCfg *tls.Config) error {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/capools.go",
+      "line": 590,
+      "snippet": "// MakeTLSClientConfig returns a tls.Config usable by a client to a backend.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/capools.go",
+      "line": 592,
+      "snippet": "func (t *TLSConfig) makeTLSClientConfig(ctx caddy.Context) (*tls.Config, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/capools.go",
+      "line": 597,
+      "snippet": "\tcfg := new(tls.Config)",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/capools.go",
+      "line": 605,
+      "snippet": "\t\tcfg.RootCAs = ca.CertPool()",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/capools.go",
+      "line": 627,
+      "snippet": "\tif reflect.DeepEqual(cfg, new(tls.Config)) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/certmanagers.go",
+      "line": 134,
+      "snippet": "\tsuites := make([]string, len(hello.CipherSuites))",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/certmanagers.go",
+      "line": 135,
+      "snippet": "\tfor i, cs := range hello.CipherSuites {",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 98,
+      "snippet": "func (cp ConnectionPolicies) TLSConfig(ctx caddy.Context) *tls.Config {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 117,
+      "snippet": "\tgetConfigForClient := func(hello *tls.ClientHelloInfo) (*tls.Config, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 141,
+      "snippet": "\ttlsCfg := &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 142,
+      "snippet": "\t\tMinVersion:         tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 196,
+      "snippet": "\tCipherSuites []string `json:\"cipher_suites,omitempty\"`",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 254,
+      "snippet": "\t// if necessary (like to adjust NextProtos to disable HTTP/2),",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 256,
+      "snippet": "\tTLSConfig *tls.Config `json:\"-\"`",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 279,
+      "snippet": "\tcfg := &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 280,
+      "snippet": "\t\tNextProtos: p.ALPN,",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 318,
+      "snippet": "\t\tMinVersion: tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 319,
+      "snippet": "\t\tMaxVersion: tls.VersionTLS13,",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 341,
+      "snippet": "\tfor _, csName := range p.CipherSuites {",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 348,
+      "snippet": "\t\t\tcfg.CipherSuites = append(cfg.CipherSuites, csID)",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 358,
+      "snippet": "\t\t\tcfg.CurvePreferences = append(cfg.CurvePreferences, curveID)",
+      "algorithm": "CurvePreferences"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 364,
+      "snippet": "\tif !alpnFound && (cfg.NextProtos == nil || len(cfg.NextProtos) > 0) {",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 365,
+      "snippet": "\t\tcfg.NextProtos = append(cfg.NextProtos, acmez.ACMETLS1Protocol)",
+      "algorithm": "NextProtos"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 373,
+      "snippet": "\t\tcfg.MinVersion = SupportedProtocols[p.ProtocolMin]",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 376,
+      "snippet": "\t\tcfg.MaxVersion = SupportedProtocols[p.ProtocolMax]",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 439,
+      "snippet": "\t\tp.CipherSuites == nil &&",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 520,
+      "snippet": "\t\t\tcp.CipherSuites = append(cp.CipherSuites, d.RemainingArgs()...)",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 833,
+      "snippet": "func (clientauth *ClientAuthentication) ConfigureTLSConfig(cfg *tls.Config) error {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 866,
+      "snippet": "\t// enforce CA verification by adding CA certs to the ClientCAs pool",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 868,
+      "snippet": "\t\tcfg.ClientCAs = clientauth.ca.CertPool()",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 892,
+      "snippet": "// verifyConnection is for use as a tls.Config.VerifyConnection callback",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 929,
+      "snippet": "func setDefaultTLSParams(cfg *tls.Config) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 930,
+      "snippet": "\tif len(cfg.CipherSuites) == 0 {",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 931,
+      "snippet": "\t\tcfg.CipherSuites = getOptimalDefaultCipherSuites()",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 936,
+      "snippet": "\tcfg.CipherSuites = append([]uint16{tls.TLS_FALLBACK_SCSV}, cfg.CipherSuites...)",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 938,
+      "snippet": "\tif len(cfg.CurvePreferences) == 0 {",
+      "algorithm": "CurvePreferences"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 939,
+      "snippet": "\t\tcfg.CurvePreferences = defaultCurves",
+      "algorithm": "CurvePreferences"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 943,
+      "snippet": "\t// \"If EncryptedClientHelloKeys is set, MinVersion, if set, must be VersionTLS13.\"",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 944,
+      "snippet": "\tif cfg.EncryptedClientHelloKeys != nil && cfg.MinVersion != 0 && cfg.MinVersion < tls.VersionTLS13 {",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/connpolicy.go",
+      "line": 945,
+      "snippet": "\t\tcfg.MinVersion = tls.VersionTLS13",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/ech.go",
+      "line": 644,
+      "snippet": "\t\tCipherSuites: []hpkeSymmetricCipherSuite{",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/ech.go",
+      "line": 942,
+      "snippet": "\tCipherSuites []hpkeSymmetricCipherSuite",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/ech.go",
+      "line": 1004,
+      "snippet": "\techCfg.CipherSuites = echCfg.CipherSuites[:0]",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/ech.go",
+      "line": 1018,
+      "snippet": "\t\techCfg.CipherSuites = append(echCfg.CipherSuites, hpkeSymmetricCipherSuite{",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/ech.go",
+      "line": 1059,
+      "snippet": "\t\t\tfor _, cs := range echCfg.CipherSuites {",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/sessiontickets.go",
+      "line": 51,
+      "snippet": "\tconfigs     map[*tls.Config]struct{}",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/sessiontickets.go",
+      "line": 58,
+      "snippet": "\ts.configs = make(map[*tls.Config]struct{})",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/sessiontickets.go",
+      "line": 165,
+      "snippet": "func (s *SessionTicketService) register(cfg *tls.Config) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/sessiontickets.go",
+      "line": 179,
+      "snippet": "func (s *SessionTicketService) unregister(cfg *tls.Config) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/values.go",
+      "line": 46,
+      "snippet": "\treturn tls.CipherSuites()",
+      "algorithm": "tls.CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/caddy/modules/caddytls/values.go",
+      "line": 46,
+      "snippet": "\treturn tls.CipherSuites()",
+      "algorithm": "tls.CipherSuites"
+    }
+  ],
+  "scanner_version": "sezar-agility/0.1.0-dev",
+  "rubric_version": "qra-rubric/v1.0"
+}

@@ -1,0 +1,12 @@
+project	category	expected	scanner	match	evidence_count
+haproxy	http_server	configurable	configurable	yes	5
+caddy	http_server	configurable	configurable	yes	101
+wireguard-tools	vpn_secure_shell	pinned	pinned	yes	0
+unbound	dns_server	configurable	configurable	yes	7
+coredns	dns_server	configurable	configurable	yes	104
+chrony	time	configurable	pinned	no	11
+nats-server	message_broker	configurable	configurable	yes	380
+step-ca	certificate_authority	configurable	configurable	yes	356
+nginx	http_server	configurable	configurable	yes	5
+postfix-mirror	mail_server	configurable	configurable	yes	2
+redis	database	configurable	configurable	yes	4

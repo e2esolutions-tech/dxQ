@@ -1,0 +1,43 @@
+{
+  "level": "configurable",
+  "level_score": 0.75,
+  "evidence": [
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nginx/src/event/ngx_event_openssl.c",
+      "line": 928,
+      "snippet": "    if (SSL_CTX_set_cipher_list(ssl->ctx, (char *) ciphers->data) == 0) {",
+      "algorithm": "SSL_CTX_set_cipher_list"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nginx/src/event/ngx_event_openssl.c",
+      "line": 930,
+      "snippet": "                      \"SSL_CTX_set_cipher_list(\\\"%V\\\") failed\",",
+      "algorithm": "SSL_CTX_set_cipher_list"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nginx/src/event/ngx_event_openssl.c",
+      "line": 1918,
+      "snippet": "        if (SSL_CONF_cmd(cctx, (char *) key, (char *) value) <= 0) {",
+      "algorithm": "SSL_CONF_cmd"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nginx/src/event/ngx_event_openssl.c",
+      "line": 1920,
+      "snippet": "                          \"SSL_CONF_cmd(\\\"%s\\\", \\\"%s\\\") failed\", key, value);",
+      "algorithm": "SSL_CONF_cmd"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nginx/src/event/ngx_event_openssl.c",
+      "line": 1939,
+      "snippet": "                  \"SSL_CONF_cmd() is not available on this platform\");",
+      "algorithm": "SSL_CONF_cmd"
+    }
+  ],
+  "scanner_version": "sezar-agility/0.1.0-dev",
+  "rubric_version": "qra-rubric/v1.0"
+}

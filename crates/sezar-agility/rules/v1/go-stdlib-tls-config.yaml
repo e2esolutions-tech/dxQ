@@ -1,0 +1,9 @@
+id: go-stdlib-tls-config
+description: "Source-level configuration of Go's `crypto/tls` Config: project exposes operator-controllable cipher / version / curve choice."
+applies_to:
+  - kind: code
+    path_glob: "**/*.go"
+pattern: '\b(CipherSuites|MinVersion|MaxVersion|CurvePreferences|CipherSuiteName|InsecureCipherSuites|ClientCAs|RootCAs|NextProtos|tls\.Config|tls\.CipherSuites|tls\.VersionName)\b'
+emit_level: configurable
+evidence_kind: code_pattern
+algorithm_capture: 1

@@ -1,0 +1,119 @@
+[
+  {
+    "scenario": "r1-steady",
+    "at_seconds": 0,
+    "label": "steady QBER",
+    "op": "set_qber",
+    "expected": "ok",
+    "observed_t": 0.7107431888580322,
+    "latency_s": 0.7107431888580322
+  },
+  {
+    "scenario": "r2-degradation",
+    "at_seconds": 0,
+    "label": "baseline",
+    "op": "set_qber",
+    "expected": "ok",
+    "observed_t": 0.7080163955688477,
+    "latency_s": 0.7080163955688477
+  },
+  {
+    "scenario": "r2-degradation",
+    "at_seconds": 15,
+    "label": "elevated",
+    "op": "set_qber",
+    "expected": "ok",
+    "observed_t": 15.707277297973633,
+    "latency_s": 0.7072772979736328
+  },
+  {
+    "scenario": "r2-degradation",
+    "at_seconds": 30,
+    "label": "crosses warn threshold (degraded)",
+    "op": "set_qber",
+    "expected": "degraded",
+    "observed_t": 30.707845449447632,
+    "latency_s": 0.7078454494476318
+  },
+  {
+    "scenario": "r2-degradation",
+    "at_seconds": 45,
+    "label": "sustained degraded",
+    "op": "set_qber",
+    "expected": "degraded",
+    "observed_t": 45.70802044868469,
+    "latency_s": 0.7080204486846924
+  },
+  {
+    "scenario": "r2-degradation",
+    "at_seconds": 60,
+    "label": "high",
+    "op": "set_qber",
+    "expected": "degraded",
+    "observed_t": 60.70759630203247,
+    "latency_s": 0.7075963020324707
+  },
+  {
+    "scenario": "r3-hard-failure",
+    "at_seconds": 0,
+    "label": "",
+    "op": "set_qber",
+    "expected": "ok",
+    "observed_t": 0.703728437423706,
+    "latency_s": 0.703728437423706
+  },
+  {
+    "scenario": "r3-hard-failure",
+    "at_seconds": 10,
+    "label": "KME dark",
+    "op": "force_failure",
+    "expected": "failed",
+    "observed_t": 10.703566551208496,
+    "latency_s": 0.7035665512084961
+  },
+  {
+    "scenario": "r3-hard-failure",
+    "at_seconds": 30,
+    "label": "KME recovers",
+    "op": "clear_failure",
+    "expected": "ok",
+    "observed_t": 30.703843593597412,
+    "latency_s": 0.7038435935974121
+  },
+  {
+    "scenario": "r4-stale-psk",
+    "at_seconds": 0,
+    "label": "",
+    "op": "set_qber",
+    "expected": "ok",
+    "observed_t": 0.7035965919494629,
+    "latency_s": 0.7035965919494629
+  },
+  {
+    "scenario": "r5-bifurcated",
+    "at_seconds": 0,
+    "label": "",
+    "op": "set_qber",
+    "expected": "ok",
+    "observed_t": 0.7133810520172119,
+    "latency_s": 0.7133810520172119
+  },
+  {
+    "scenario": "r5-bifurcated",
+    "at_seconds": 10,
+    "label": "KME-A dark; KME-B steady",
+    "op": "force_failure",
+    "expected": "failed",
+    "observed_t": 10.713660955429077,
+    "latency_s": 0.7136609554290771
+  },
+  {
+    "scenario": "r5-bifurcated",
+    "at_seconds": 30,
+    "label": "KME-A recovers",
+    "op": "clear_failure",
+    "expected": "ok",
+    "observed_t": 30.712986946105957,
+    "latency_s": 0.712986946105957
+  }
+]

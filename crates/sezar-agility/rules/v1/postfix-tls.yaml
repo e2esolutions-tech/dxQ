@@ -1,0 +1,8 @@
+id: postfix-tls-protocols
+description: "Postfix `smtp(d)_tls_protocols` / `smtp(d)_tls_ciphers`: TLS suite/protocol policy exposed in `main.cf`."
+applies_to:
+  - kind: config
+    path_glob: "**/main.cf"
+pattern: '^\s*(smtp_tls_protocols|smtpd_tls_protocols|smtp_tls_ciphers|smtpd_tls_ciphers|smtp_tls_mandatory_protocols|smtpd_tls_mandatory_protocols)\s*='
+emit_level: configurable
+evidence_kind: config_pattern

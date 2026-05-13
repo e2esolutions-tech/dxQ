@@ -1,0 +1,85 @@
+{
+  "level": "pinned",
+  "level_score": 0.5,
+  "evidence": [
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/chrony/client.c",
+      "line": 3295,
+      "snippet": "  type = \"SHA1\";",
+      "algorithm": "SHA1"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/chrony/client.c",
+      "line": 3297,
+      "snippet": "  type = \"MD5\";",
+      "algorithm": "MD5"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/chrony/cmdparse.c",
+      "line": 437,
+      "snippet": "    *type = \"MD5\";",
+      "algorithm": "MD5"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/chrony/test/unit/hash.c",
+      "line": 42,
+      "snippet": "    { \"MD5\",       \"\\xfc\\x24\\x97\\x1b\\x52\\x66\\xdc\\x46\\xef\\xe0\\xe8\\x08\\x46\\x89\\xb6\\x88\", 16 },",
+      "algorithm": "MD5"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/chrony/test/unit/hash.c",
+      "line": 43,
+      "snippet": "    { \"SHA1\",      \"\\xd8\\x85\\xb3\\x86\\xce\\xea\\x93\\xeb\\x92\\xcd\\x7b\\x94\\xb9\\x8d\\xc2\\x8e\"",
+      "algorithm": "SHA1"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/chrony/test/unit/keys.c",
+      "line": 46,
+      "snippet": "      type = \"SHA1\";",
+      "algorithm": "SHA1"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/chrony/test/unit/keys.c",
+      "line": 69,
+      "snippet": "      type = \"MD5\";",
+      "algorithm": "MD5"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/chrony/test/unit/util.c",
+      "line": 618,
+      "snippet": "  TEST_CHECK(UTI_HashNameToAlgorithm(\"MD5\") == HSH_MD5);",
+      "algorithm": "MD5"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/chrony/test/unit/util.c",
+      "line": 619,
+      "snippet": "  TEST_CHECK(UTI_HashNameToAlgorithm(\"SHA1\") == HSH_SHA1);",
+      "algorithm": "SHA1"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/chrony/util.c",
+      "line": 1067,
+      "snippet": "  if (strcmp(name, \"MD5\") == 0)",
+      "algorithm": "MD5"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/chrony/util.c",
+      "line": 1069,
+      "snippet": "  else if (strcmp(name, \"SHA1\") == 0)",
+      "algorithm": "SHA1"
+    }
+  ],
+  "scanner_version": "sezar-agility/0.1.0-dev",
+  "rubric_version": "qra-rubric/v1.0"
+}

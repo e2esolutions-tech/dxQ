@@ -1,0 +1,10 @@
+id: sshd-config-kex
+description: "sshd_config `KexAlgorithms` / `Ciphers` / `MACs` directive: algorithm choice changeable by config + reload."
+applies_to:
+  - kind: config
+    path_glob: "**/sshd_config"
+  - kind: config
+    path_glob: "**/ssh_config"
+pattern: '^\s*(KexAlgorithms|Ciphers|MACs|HostKeyAlgorithms|PubkeyAcceptedAlgorithms)\s+'
+emit_level: configurable
+evidence_kind: config_pattern

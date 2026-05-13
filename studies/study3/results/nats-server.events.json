@@ -1,0 +1,2668 @@
+{
+  "level": "configurable",
+  "level_score": 0.75,
+  "evidence": [
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/auth_callout.go",
+      "line": 389,
+      "snippet": "\t\tct.Cipher = tls.CipherSuiteName(cs.CipherSuite)",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/auth_callout_test.go",
+      "line": 682,
+      "snippet": "\t\tnats.RootCAs(\"../test/configs/certs/tlsauth/ca.pem\"))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/auth_callout_test.go",
+      "line": 688,
+      "snippet": "\t\tnats.RootCAs(\"../test/configs/certs/tlsauth/ca.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/auth_callout_test.go",
+      "line": 2080,
+      "snippet": "\t\tnats.RootCAs(\"../test/configs/certs/tlsauth/ca.pem\"))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/auth_callout_test.go",
+      "line": 2086,
+      "snippet": "\t\tnats.RootCAs(\"../test/configs/certs/tlsauth/ca.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/certstore/certstore_other.go",
+      "line": 29,
+      "snippet": "func TLSConfig(_ StoreType, _ MatchByType, _ string, _ []string, _ bool, _ *tls.Config) error {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/certstore/certstore_windows.go",
+      "line": 108,
+      "snippet": "\t\tcrypto.SHA1:   winWide(\"SHA1\"),   // BCRYPT_SHA1_ALGORITHM",
+      "algorithm": "SHA1"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/certstore/certstore_windows.go",
+      "line": 202,
+      "snippet": "func TLSConfig(certStore StoreType, certMatchBy MatchByType, certMatch string, caCertsMatch []string, skipInvalid bool, config *tls.Config) error {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/certstore/certstore_windows.go",
+      "line": 257,
+      "snippet": "\t\t\tconfig.ClientCAs = caPool",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/certstore_windows_test.go",
+      "line": 241,
+      "snippet": "\t\t\tnc, _ := nats.Connect(srvServer.clientConnectURLs[0], nats.RootCAs(tc.clientCA))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/certstore_windows_test.go",
+      "line": 249,
+      "snippet": "\t\t\t\tnc, _ = nats.Connect(srvServer.clientConnectURLs[0], nats.RootCAs(tc.clientCA))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/certstore_windows_test.go",
+      "line": 341,
+      "snippet": "\t\t\ttc := &tls.Config{MaxVersion: version, MinVersion: version, InsecureSkipVerify: true}",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/ciphersuites.go",
+      "line": 47,
+      "snippet": "\t\"X25519\":         tls.X25519,",
+      "algorithm": "X25519"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/ciphersuites.go",
+      "line": 22,
+      "snippet": "\tfor _, cs := range tls.CipherSuites() {",
+      "algorithm": "tls.CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/ciphersuites.go",
+      "line": 36,
+      "snippet": "\tciphers := tls.CipherSuites()",
+      "algorithm": "tls.CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/ciphersuites.go",
+      "line": 22,
+      "snippet": "\tfor _, cs := range tls.CipherSuites() {",
+      "algorithm": "tls.CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/ciphersuites.go",
+      "line": 26,
+      "snippet": "\tfor _, cs := range tls.InsecureCipherSuites() {",
+      "algorithm": "InsecureCipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/ciphersuites.go",
+      "line": 36,
+      "snippet": "\tciphers := tls.CipherSuites()",
+      "algorithm": "tls.CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client.go",
+      "line": 6459,
+      "snippet": "func (c *client) doTLSServerHandshake(typ string, tlsConfig *tls.Config, timeout float64, pCerts PinnedCertSet) error {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client.go",
+      "line": 6464,
+      "snippet": "func (c *client) doTLSClientHandshake(typ string, url *url.URL, tlsConfig *tls.Config, tlsName string, timeout float64, pCerts PinnedCertSet) (bool, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client.go",
+      "line": 6473,
+      "snippet": "func (c *client) doTLSHandshake(typ string, solicit bool, url *url.URL, tlsConfig *tls.Config, tlsName string, timeout float64, pCerts PinnedCertSet) (bool, err",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client_proxyproto_test.go",
+      "line": 642,
+      "snippet": "// proxyProtoTLSClientConfig builds a tls.Config trusting the test CA. The",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client_proxyproto_test.go",
+      "line": 644,
+      "snippet": "func proxyProtoTLSClientConfig(t *testing.T) *tls.Config {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client_proxyproto_test.go",
+      "line": 650,
+      "snippet": "\treturn &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client_proxyproto_test.go",
+      "line": 651,
+      "snippet": "\t\tRootCAs:    pool,",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client_test.go",
+      "line": 1438,
+      "snippet": "\ttlsConn := tls.Client(conn, &tls.Config{InsecureSkipVerify: true})",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client_test.go",
+      "line": 2898,
+      "snippet": "\t\topts := []nats.Option{nats.RootCAs(\"../test/configs/certs/ca.pem\")}",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client_test.go",
+      "line": 3030,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client_test.go",
+      "line": 3032,
+      "snippet": "\t\t\tMinVersion: tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client_test.go",
+      "line": 3034,
+      "snippet": "\t\tnats.RootCAs(\"./configs/certs/tls/benchmark-ca-cert.pem\"))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client_test.go",
+      "line": 3057,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client_test.go",
+      "line": 3059,
+      "snippet": "\t\t\tMinVersion: tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client_test.go",
+      "line": 3061,
+      "snippet": "\t\tnats.RootCAs(\"./configs/certs/tls/benchmark-ca-cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client_test.go",
+      "line": 3096,
+      "snippet": "\t\tnats.RootCAs(\"../test/configs/certs/ca.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client_test.go",
+      "line": 3109,
+      "snippet": "\tnc, err = nats.Connect(url, nats.RootCAs(\"../test/configs/certs/ca.pem\"))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client_test.go",
+      "line": 3127,
+      "snippet": "\t\tnats.RootCAs(\"../test/configs/certs/ca.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client_test.go",
+      "line": 3158,
+      "snippet": "\tnc, err = nats.Connect(url, nats.RootCAs(\"../test/configs/certs/ca.pem\"))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client_test.go",
+      "line": 3198,
+      "snippet": "\t\tnats.RootCAs(\"../test/configs/certs/ca.pem\"))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/client_test.go",
+      "line": 3214,
+      "snippet": "\t\tnats.RootCAs(\"../test/configs/certs/ca.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/core_benchmarks_test.go",
+      "line": 161,
+      "snippet": "\t\t\t\t\t\t\t\t\t\t\topts = append(opts, nats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/gateway.go",
+      "line": 851,
+      "snippet": "\t\tvar tlsConfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/gateway.go",
+      "line": 936,
+      "snippet": "\t\tc.Debugf(\"TLS version %s, cipher suite %s\", tlsVersion(cs.Version), tls.CipherSuiteName(cs.CipherSuite))",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/gateway_test.go",
+      "line": 388,
+      "snippet": "\to.Gateway.TLSConfig.RootCAs = o.Gateway.TLSConfig.ClientCAs",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/gateway_test.go",
+      "line": 1166,
+      "snippet": "\to2.Gateway.TLSConfig.RootCAs = o2.Gateway.TLSConfig.ClientCAs",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/gateway_test.go",
+      "line": 6250,
+      "snippet": "\ttlsConn := tls.Client(conn, &tls.Config{InsecureSkipVerify: true})",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/gateway_test.go",
+      "line": 6593,
+      "snippet": "\trequire_True(t, tc.ClientCAs == nil)",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/leafnode.go",
+      "line": 326,
+      "snippet": "\t// If MinVersion is defined, check that it is valid.",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/leafnode.go",
+      "line": 327,
+      "snippet": "\tif mv := o.LeafNode.MinVersion; mv != _EMPTY_ {",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/leafnode.go",
+      "line": 2192,
+      "snippet": "\tif mv := s.getOpts().LeafNode.MinVersion; mv != _EMPTY_ {",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/leafnode.go",
+      "line": 3454,
+      "snippet": "func (c *client) leafNodeGetTLSConfigForSolicit(remote *leafNodeCfg) (bool, *tls.Config, string, float64) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/leafnode.go",
+      "line": 3456,
+      "snippet": "\t\ttlsConfig  *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/leafnode.go",
+      "line": 3469,
+      "snippet": "\t\t\ttlsConfig = &tls.Config{MinVersion: tls.VersionTLS12}",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/leafnode_test.go",
+      "line": 1012,
+      "snippet": "\ttlsConn := tls.Client(conn, &tls.Config{InsecureSkipVerify: true})",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/leafnode_test.go",
+      "line": 1825,
+      "snippet": "\t\t\tsltlsc := &tls.Config{}",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/leafnode_test.go",
+      "line": 2835,
+      "snippet": "\t\t// GenTLSConfig sets the CA in ClientCAs, but since here we act",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/leafnode_test.go",
+      "line": 2836,
+      "snippet": "\t\t// as a client, set RootCAs...",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/leafnode_test.go",
+      "line": 2837,
+      "snippet": "\t\ttlsConf.RootCAs = tlsConf.ClientCAs",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/leafnode_test.go",
+      "line": 6209,
+      "snippet": "\t\t\to.LeafNode.MinVersion = test.version",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/monitor.go",
+      "line": 604,
+      "snippet": "\t\t\tci.TLSCipher = tls.CipherSuiteName(cs.CipherSuite)",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/monitor.go",
+      "line": 1477,
+      "snippet": "func tlsCertNotAfter(config *tls.Config) time.Time {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/monitor_test.go",
+      "line": 2377,
+      "snippet": "\t\tnats.RootCAs(\"../test/configs/certs/ca.pem\"))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/monitor_test.go",
+      "line": 5625,
+      "snippet": "\ttlsConfig.RootCAs = tlsConfig.ClientCAs",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/monitor_test.go",
+      "line": 5626,
+      "snippet": "\ttlsConfig.ClientCAs = nil",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/mqtt.go",
+      "line": 652,
+      "snippet": "\t\tc.Debugf(\"TLS version %s, cipher suite %s\", tlsVersion(cs.Version), tls.CipherSuiteName(cs.CipherSuite))",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/mqtt_test.go",
+      "line": 774,
+      "snippet": "\ttlsc      *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/mqtt_test.go",
+      "line": 873,
+      "snippet": "\t\t\t\ttc = &tls.Config{InsecureSkipVerify: true}",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/mqtt_test.go",
+      "line": 1089,
+      "snippet": "\t\t\ttlscc := &tls.Config{}",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/mqtt_test.go",
+      "line": 1103,
+      "snippet": "\t\t\t\ttlscc.MinVersion = tls.VersionTLS13",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/ocsp.go",
+      "line": 357,
+      "snippet": "func (srv *Server) NewOCSPMonitor(config *tlsConfigKind) (*tls.Config, *OCSPMonitor, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/ocsp.go",
+      "line": 578,
+      "snippet": "\ttlsConfig   *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/ocsp.go",
+      "line": 582,
+      "snippet": "\tapply       func(*tls.Config)",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/ocsp.go",
+      "line": 596,
+      "snippet": "\t\t\tapply:     func(tc *tls.Config) { sopts.TLSConfig = tc },",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/ocsp.go",
+      "line": 606,
+      "snippet": "\t\t\tapply:     func(tc *tls.Config) { sopts.Websocket.TLSConfig = tc },",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/ocsp.go",
+      "line": 616,
+      "snippet": "\t\t\tapply:     func(tc *tls.Config) { sopts.MQTT.TLSConfig = tc },",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/ocsp.go",
+      "line": 626,
+      "snippet": "\t\t\tapply:     func(tc *tls.Config) { sopts.Cluster.TLSConfig = tc },",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/ocsp.go",
+      "line": 636,
+      "snippet": "\t\t\tapply:     func(tc *tls.Config) { sopts.LeafNode.TLSConfig = tc },",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/ocsp.go",
+      "line": 650,
+      "snippet": "\t\t\t\tapply:       func(tc *tls.Config) { r.TLSConfig = tc },",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/ocsp.go",
+      "line": 661,
+      "snippet": "\t\t\tapply:     func(tc *tls.Config) { sopts.Gateway.TLSConfig = tc },",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/ocsp.go",
+      "line": 672,
+      "snippet": "\t\t\t\tapply:     func(tc *tls.Config) { gw.TLSConfig = tc },",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/ocsp_peer.go",
+      "line": 138,
+      "snippet": "func (s *Server) plugTLSOCSPPeer(config *tlsConfigKind) (*tls.Config, bool, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/ocsp_peer.go",
+      "line": 163,
+      "snippet": "func (s *Server) plugClientTLSOCSPPeer(config *tlsConfigKind) (*tls.Config, bool, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/ocsp_peer.go",
+      "line": 183,
+      "snippet": "func (s *Server) plugServerTLSOCSPPeer(config *tlsConfigKind) (*tls.Config, bool, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 74,
+      "snippet": "\tTLSConfig         *tls.Config        `json:\"-\"`",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 150,
+      "snippet": "\tTLSConfig         *tls.Config          `json:\"-\"`",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 176,
+      "snippet": "\tTLSConfig     *tls.Config `json:\"-\"`",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 193,
+      "snippet": "\tTLSConfig      *tls.Config   `json:\"-\"`",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 226,
+      "snippet": "\tMinVersion string",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 255,
+      "snippet": "\tTLSConfig         *tls.Config      `json:\"-\"`",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 491,
+      "snippet": "\tTLSConfig                  *tls.Config       `json:\"-\"`",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 520,
+      "snippet": "\tAccountResolverTLSConfig *tls.Config           `json:\"-\"`",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 649,
+      "snippet": "\tTLSConfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 738,
+      "snippet": "\tTLSConfig *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 879,
+      "snippet": "\tCurvePreferences     []tls.CurveID",
+      "algorithm": "CurvePreferences"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 888,
+      "snippet": "\tMinVersion           uint16",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 1672,
+      "snippet": "\t\t// GenTLSConfig loads the CA file into ClientCAs, but since this will",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 1673,
+      "snippet": "\t\t// be used as a client connection, we need to set RootCAs.",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 1674,
+      "snippet": "\t\to.AccountResolverTLSConfig.RootCAs = tlsConfig.ClientCAs",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 2871,
+      "snippet": "\t\t\topts.LeafNode.MinVersion = version",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 3116,
+      "snippet": "\t\t\t\t// If ca_file is defined, GenTLSConfig() sets TLSConfig.ClientCAs.",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 3117,
+      "snippet": "\t\t\t\t// Set RootCAs since this tls.Config is used when soliciting",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 3119,
+      "snippet": "\t\t\t\tremote.TLSConfig.RootCAs = remote.TLSConfig.ClientCAs",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 3251,
+      "snippet": "func getTLSConfig(tk token) (*tls.Config, *TLSConfigOpts, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 3265,
+      "snippet": "\tconfig.RootCAs = config.ClientCAs",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 5047,
+      "snippet": "\t\treturn 0, fmt.Errorf(\"unsupported TLS version: %s\", tls.VersionName(tlsVersionNumber))",
+      "algorithm": "tls.VersionName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 5146,
+      "snippet": "\t\t\ttc.CurvePreferences = make([]tls.CurveID, 0, len(ra))",
+      "algorithm": "CurvePreferences"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 5153,
+      "snippet": "\t\t\t\ttc.CurvePreferences = append(tc.CurvePreferences, cps)",
+      "algorithm": "CurvePreferences"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 5338,
+      "snippet": "\t\t\ttc.MinVersion = minVersion",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 5353,
+      "snippet": "\tif tc.CurvePreferences == nil {",
+      "algorithm": "CurvePreferences"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 5354,
+      "snippet": "\t\ttc.CurvePreferences = defaultCurvePreferences()",
+      "algorithm": "CurvePreferences"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 5748,
+      "snippet": "func GenTLSConfig(tc *TLSConfigOpts) (*tls.Config, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 5749,
+      "snippet": "\t// Create the tls.Config from our options before including the certs.",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 5752,
+      "snippet": "\tconfig := tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 5753,
+      "snippet": "\t\tMinVersion:               tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 5754,
+      "snippet": "\t\tCipherSuites:             tc.Ciphers,",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 5756,
+      "snippet": "\t\tCurvePreferences:         tc.CurvePreferences,",
+      "algorithm": "CurvePreferences"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 5814,
+      "snippet": "\t\tconfig.ClientCAs = pool",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 5817,
+      "snippet": "\tif tc.MinVersion > 0 {",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 5818,
+      "snippet": "\t\tif tc.MinVersion < tls.VersionTLS12 {",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 5819,
+      "snippet": "\t\t\treturn nil, fmt.Errorf(\"unsupported minimum TLS version: %s\", tls.VersionName(tc.MinVersion))",
+      "algorithm": "tls.VersionName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 5821,
+      "snippet": "\t\tconfig.MinVersion = tc.MinVersion",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts.go",
+      "line": 6127,
+      "snippet": "func getDefaultAuthTimeout(tls *tls.Config, tlsTimeout float64) float64 {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts_test.go",
+      "line": 166,
+      "snippet": "\t// CipherSuites",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts_test.go",
+      "line": 168,
+      "snippet": "\tif !reflect.DeepEqual(tlsConfig.CipherSuites, ciphers) {",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts_test.go",
+      "line": 169,
+      "snippet": "\t\tt.Fatalf(\"Got incorrect cipher suite list: [%+v]\", tlsConfig.CipherSuites)",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts_test.go",
+      "line": 171,
+      "snippet": "\tif tlsConfig.MinVersion != tls.VersionTLS12 {",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts_test.go",
+      "line": 172,
+      "snippet": "\t\tt.Fatalf(\"Expected MinVersion of 1.2 [%v], got [%v]\", tls.VersionTLS12, tlsConfig.MinVersion)",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts_test.go",
+      "line": 207,
+      "snippet": "\t// CipherSuites listed in the config - test all of them.",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts_test.go",
+      "line": 217,
+      "snippet": "\tif !reflect.DeepEqual(tlsConfig.CipherSuites, ciphers) {",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts_test.go",
+      "line": 218,
+      "snippet": "\t\tt.Fatalf(\"Got incorrect cipher suite list: [%+v]\", tlsConfig.CipherSuites)",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts_test.go",
+      "line": 242,
+      "snippet": "\tif !reflect.DeepEqual(opts.TLSConfig.CurvePreferences, defaultCurvePreferences()) {",
+      "algorithm": "CurvePreferences"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts_test.go",
+      "line": 243,
+      "snippet": "\t\tt.Fatalf(\"Got incorrect curve preference list: [%+v]\", tlsConfig.CurvePreferences)",
+      "algorithm": "CurvePreferences"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts_test.go",
+      "line": 252,
+      "snippet": "\tif !reflect.DeepEqual(opts.TLSConfig.CurvePreferences, curves) {",
+      "algorithm": "CurvePreferences"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts_test.go",
+      "line": 253,
+      "snippet": "\t\tt.Fatalf(\"Got incorrect cipher suite list: [%+v]\", tlsConfig.CurvePreferences)",
+      "algorithm": "CurvePreferences"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts_test.go",
+      "line": 1597,
+      "snippet": "\tif !reflect.DeepEqual(opts.TLSConfig.CipherSuites, defaultCipherSuites()) {",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/opts_test.go",
+      "line": 1598,
+      "snippet": "\t\tt.Fatalf(\"Default ciphers not set, expected %v, got %v\", defaultCipherSuites(), opts.TLSConfig.CipherSuites)",
+      "algorithm": "CipherSuites"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/reload.go",
+      "line": 236,
+      "snippet": "\tnewValue *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/reload.go",
+      "line": 1564,
+      "snippet": "\tcase string, bool, uint8, uint16, uint64, int, int32, int64, time.Duration, float64, nil, LeafNodeOpts, ClusterOpts, *tls.Config, PinnedCertSet,",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/reload.go",
+      "line": 1661,
+      "snippet": "\t\t\tdiffOpts = append(diffOpts, &tlsOption{newValue: newValue.(*tls.Config)})",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/reload_test.go",
+      "line": 401,
+      "snippet": "\tnc, err := nats.Connect(addr, nats.Secure(&tls.Config{InsecureSkipVerify: true}))",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/reload_test.go",
+      "line": 419,
+      "snippet": "\tif _, err := nats.Connect(addr, nats.Secure(&tls.Config{InsecureSkipVerify: true})); err == nil {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/reload_test.go",
+      "line": 425,
+      "snippet": "\tconn, err := nats.Connect(addr, cert, nats.RootCAs(\"./configs/certs/cert.new.pem\"))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/reload_test.go",
+      "line": 468,
+      "snippet": "\tnc, err = nats.Connect(addr, nats.Secure(&tls.Config{InsecureSkipVerify: true}))",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/reload_test.go",
+      "line": 485,
+      "snippet": "\tnc, err := nats.Connect(addr, nats.Secure(&tls.Config{InsecureSkipVerify: true}))",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/reload_test.go",
+      "line": 498,
+      "snippet": "\tif _, err := nats.Connect(addr, nats.Secure(&tls.Config{InsecureSkipVerify: true})); err == nil {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/reload_test.go",
+      "line": 518,
+      "snippet": "\tnc, err := nats.Connect(addr, nats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/reload_test.go",
+      "line": 542,
+      "snippet": "\tif _, err := nats.Connect(addr, nats.Secure(&tls.Config{InsecureSkipVerify: true})); err == nil {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/reload_test.go",
+      "line": 548,
+      "snippet": "\tconn, err := nats.Connect(addr, cert, nats.RootCAs(\"../test/configs/certs/ca.pem\"), nats.Secure(&tls.Config{",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/reload_test.go",
+      "line": 578,
+      "snippet": "\tnc, err = nats.Connect(addr, nats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/route.go",
+      "line": 2055,
+      "snippet": "\t\tc.Debugf(\"TLS version %s, cipher suite %s\", tlsVersion(cs.Version), tls.CipherSuiteName(cs.CipherSuite))",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/routes_test.go",
+      "line": 1319,
+      "snippet": "\ttlsConn := tls.Client(conn, &tls.Config{InsecureSkipVerify: true})",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server.go",
+      "line": 3047,
+      "snippet": "// from being used. By setting this function in tls.Config.GetConfigForClient",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server.go",
+      "line": 3051,
+      "snippet": "func (s *Server) getMonitoringTLSConfig(_ *tls.ClientHelloInfo) (*tls.Config, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server.go",
+      "line": 3524,
+      "snippet": "\t\tc.Debugf(\"TLS version %s, cipher suite %s\", tlsVersion(cs.Version), tls.CipherSuiteName(cs.CipherSuite))",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_fuzz_test.go",
+      "line": 339,
+      "snippet": "\tclientTlsCfg := &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_fuzz_test.go",
+      "line": 393,
+      "snippet": "\t\ttlsCfg.MaxVersion = tlsVersion",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_fuzz_test.go",
+      "line": 394,
+      "snippet": "\t\ttlsCfg.MinVersion = tlsVersion",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 275,
+      "snippet": "\tconnect := func(t *testing.T, tlsConf *tls.Config, expectedErr error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 281,
+      "snippet": "\t\topts = append(opts, nats.RootCAs(\"../test/configs/certs/ca.pem\"))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 297,
+      "snippet": "\tconnect(t, &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 298,
+      "snippet": "\t\tMaxVersion: tls.VersionTLS12,",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 302,
+      "snippet": "\tconnect(t, &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 303,
+      "snippet": "\t\tMinVersion: tls.VersionTLS13,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 331,
+      "snippet": "\tconnect(t, &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 332,
+      "snippet": "\t\tMaxVersion: tls.VersionTLS12,",
+      "algorithm": "MaxVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 334,
+      "snippet": "\tconnect(t, &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 335,
+      "snippet": "\t\tMinVersion: tls.VersionTLS13,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 351,
+      "snippet": "\t\tMinVersion: tls.VersionTLS11,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 360,
+      "snippet": "\trequire_Equal(t, tls.CipherSuiteName(0x0005), \"TLS_RSA_WITH_RC4_128_SHA\")",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 361,
+      "snippet": "\trequire_Equal(t, tls.CipherSuiteName(0x000a), \"TLS_RSA_WITH_3DES_EDE_CBC_SHA\")",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 362,
+      "snippet": "\trequire_Equal(t, tls.CipherSuiteName(0x002f), \"TLS_RSA_WITH_AES_128_CBC_SHA\")",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 363,
+      "snippet": "\trequire_Equal(t, tls.CipherSuiteName(0x0035), \"TLS_RSA_WITH_AES_256_CBC_SHA\")",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 364,
+      "snippet": "\trequire_Equal(t, tls.CipherSuiteName(0xc007), \"TLS_ECDHE_ECDSA_WITH_RC4_128_SHA\")",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 365,
+      "snippet": "\trequire_Equal(t, tls.CipherSuiteName(0xc009), \"TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA\")",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 366,
+      "snippet": "\trequire_Equal(t, tls.CipherSuiteName(0xc00a), \"TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA\")",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 367,
+      "snippet": "\trequire_Equal(t, tls.CipherSuiteName(0xc011), \"TLS_ECDHE_RSA_WITH_RC4_128_SHA\")",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 368,
+      "snippet": "\trequire_Equal(t, tls.CipherSuiteName(0xc012), \"TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA\")",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 369,
+      "snippet": "\trequire_Equal(t, tls.CipherSuiteName(0xc013), \"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA\")",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 370,
+      "snippet": "\trequire_Equal(t, tls.CipherSuiteName(0xc014), \"TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA\")",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 371,
+      "snippet": "\trequire_Equal(t, tls.CipherSuiteName(0xc02f), \"TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\")",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 372,
+      "snippet": "\trequire_Equal(t, tls.CipherSuiteName(0xc02b), \"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\")",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 373,
+      "snippet": "\trequire_Equal(t, tls.CipherSuiteName(0xc030), \"TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\")",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 374,
+      "snippet": "\trequire_Equal(t, tls.CipherSuiteName(0xc02c), \"TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\")",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 375,
+      "snippet": "\trequire_Equal(t, tls.CipherSuiteName(0x1301), \"TLS_AES_128_GCM_SHA256\")",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 376,
+      "snippet": "\trequire_Equal(t, tls.CipherSuiteName(0x1302), \"TLS_AES_256_GCM_SHA384\")",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 377,
+      "snippet": "\trequire_Equal(t, tls.CipherSuiteName(0x1303), \"TLS_CHACHA20_POLY1305_SHA256\")",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/server_test.go",
+      "line": 378,
+      "snippet": "\trequire_Equal(t, tls.CipherSuiteName(0x9999), \"0x9999\")",
+      "algorithm": "CipherSuiteName"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/websocket.go",
+      "line": 1279,
+      "snippet": "\tvar config *tls.Config",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/websocket.go",
+      "line": 1371,
+      "snippet": "// from being used. By setting this function in tls.Config.GetConfigForClient",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/websocket.go",
+      "line": 1375,
+      "snippet": "func (s *Server) wsGetTLSConfig(_ *tls.ClientHelloInfo) (*tls.Config, error) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/websocket_test.go",
+      "line": 2027,
+      "snippet": "\t\twsc = tls.Client(wsc, &tls.Config{InsecureSkipVerify: true})",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/websocket_test.go",
+      "line": 2520,
+      "snippet": "\t\t\t\twsc = tls.Client(wsc, &tls.Config{InsecureSkipVerify: true})",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/websocket_test.go",
+      "line": 2578,
+      "snippet": "\t\t\ttlsc := &tls.Config{}",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/websocket_test.go",
+      "line": 2682,
+      "snippet": "\t\t\ttlscc := &tls.Config{}",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/websocket_test.go",
+      "line": 2785,
+      "snippet": "\twsc = tls.Client(wsc, &tls.Config{InsecureSkipVerify: true})",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/websocket_test.go",
+      "line": 2824,
+      "snippet": "\twsc = tls.Client(wsc, &tls.Config{InsecureSkipVerify: true})",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/websocket_test.go",
+      "line": 4422,
+      "snippet": "\tcheck := func(tlsConfig *tls.Config, handshakeFail bool, errTxt string) {",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/websocket_test.go",
+      "line": 4468,
+      "snippet": "\ttlsConfig.RootCAs = tlsConfig.ClientCAs",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/server/websocket_test.go",
+      "line": 4469,
+      "snippet": "\ttlsConfig.ClientCAs = nil",
+      "algorithm": "ClientCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/gateway_test.go",
+      "line": 677,
+      "snippet": "\t\t\ttlsConfig.RootCAs = tlsConfig.ClientCAs",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/leafnode_test.go",
+      "line": 1186,
+      "snippet": "\tremote.TLSConfig = &tls.Config{MinVersion: tls.VersionTLS12}",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/leafnode_test.go",
+      "line": 3561,
+      "snippet": "\tremote.TLSConfig = &tls.Config{MinVersion: tls.VersionTLS12}",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/leafnode_test.go",
+      "line": 3571,
+      "snippet": "\tremote.TLSConfig.RootCAs = pool",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/monitor_test.go",
+      "line": 360,
+      "snippet": "\tnc, err := nats.Connect(nurl, nats.RootCAs(rootCAFile))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/monitor_test.go",
+      "line": 373,
+      "snippet": "\ttlsConfig := &tls.Config{}",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/monitor_test.go",
+      "line": 380,
+      "snippet": "\ttlsConfig.RootCAs = caCertPool",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 127,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 151,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 180,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 260,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 334,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 358,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 382,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 406,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 484,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 508,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 903,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 932,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 1026,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 1055,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 1648,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 1681,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 1799,
+      "snippet": "\t\t\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 1812,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 1844,
+      "snippet": "\t\t\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 1857,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 1945,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 1972,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 2043,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 2070,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 2146,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 2188,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 2230,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 2272,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 2354,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 2398,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 2504,
+      "snippet": "\t\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 2509,
+      "snippet": "\t\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 2635,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 2707,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 2779,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 2862,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 2894,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 3003,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 3031,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/ocsp_peer/mini-ca/root/root_cert.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 3069,
+      "snippet": "\t\t\ttlsConfig := &tls.Config{}",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_peer_test.go",
+      "line": 3084,
+      "snippet": "\t\t\ttlsConfig.RootCAs = caCertPool",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 80,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 92,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 121,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 178,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 190,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 219,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 255,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 267,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 297,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 309,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 364,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 373,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 401,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 449,
+      "snippet": "\t\t\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 472,
+      "snippet": "\t\t\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 493,
+      "snippet": "\t\t\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 518,
+      "snippet": "\t\t\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 593,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 605,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 648,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 658,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 702,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 715,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 785,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 793,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 812,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 825,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 894,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 902,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 944,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 956,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 1062,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 1070,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 1128,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 1136,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 1144,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 1152,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 1334,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 1342,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 1393,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 1401,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 1409,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 1417,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 1611,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 1619,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 1670,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 1678,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 1686,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 1694,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 1884,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 1892,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2007,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2016,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2127,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2135,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2189,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2197,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2205,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2213,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2662,
+      "snippet": "\t\t\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2671,
+      "snippet": "\t\t\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2693,
+      "snippet": "\t\t\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2702,
+      "snippet": "\t\t\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2726,
+      "snippet": "\t\t\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2735,
+      "snippet": "\t\t\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2762,
+      "snippet": "\t\t\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2771,
+      "snippet": "\t\t\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2796,
+      "snippet": "\t\t\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2805,
+      "snippet": "\t\t\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2830,
+      "snippet": "\t\t\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2839,
+      "snippet": "\t\t\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2918,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2926,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2970,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 2978,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3020,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3028,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3070,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3078,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3091,
+      "snippet": "\to.TLSConfig = &tls.Config{ServerName: \"localhost\"}",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3233,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3241,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3362,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3370,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3380,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3388,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3492,
+      "snippet": "\t\t\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3501,
+      "snippet": "\t\t\t\tnats.RootCAs(clientTrustBundle),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3528,
+      "snippet": "\t\t\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3537,
+      "snippet": "\t\t\t\tnats.RootCAs(clientTrustBundle),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3564,
+      "snippet": "\t\t\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3573,
+      "snippet": "\t\t\t\tnats.RootCAs(clientTrustBundle),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3600,
+      "snippet": "\t\t\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3609,
+      "snippet": "\t\t\t\tnats.RootCAs(clientTrustBundle),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3636,
+      "snippet": "\t\t\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3645,
+      "snippet": "\t\t\t\tnats.RootCAs(clientTrustBundle),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3833,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3841,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3901,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3909,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3919,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 3927,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 4048,
+      "snippet": "\t\tnats.Secure(&tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ocsp_test.go",
+      "line": 4060,
+      "snippet": "\t\tnats.RootCAs(caCert),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/ping_test.go",
+      "line": 63,
+      "snippet": "\tc = tls.Client(c, &tls.Config{InsecureSkipVerify: true})",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 64,
+      "snippet": "\tnc, err = nats.Connect(nurl, nats.RootCAs(\"./configs/certs/ca.pem\"))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 132,
+      "snippet": "\tconfig := &tls.Config{",
+      "algorithm": "tls.Config"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 135,
+      "snippet": "\t\tRootCAs:      pool,",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 136,
+      "snippet": "\t\tMinVersion:   tls.VersionTLS12,",
+      "algorithm": "MinVersion"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 158,
+      "snippet": "\t\tnats.RootCAs(\"./configs/certs/ca.pem\"))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 188,
+      "snippet": "\t\tnats.RootCAs(\"./configs/certs/ca.pem\"))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 207,
+      "snippet": "\t\tnats.RootCAs(\"./configs/certs/tlsauth/ca.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 220,
+      "snippet": "\t\tnats.RootCAs(\"./configs/certs/tlsauth/ca.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 295,
+      "snippet": "\t\tnats.RootCAs(\"./configs/certs/sans/ca.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 314,
+      "snippet": "\t\tnats.RootCAs(\"./configs/certs/sans/ca.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 333,
+      "snippet": "\t\tnats.RootCAs(\"./configs/certs/sans/ca.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 469,
+      "snippet": "\t\t\tnats.RootCAs(ca.certPath),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 478,
+      "snippet": "\t\tnc, err := nats.Connect(nurl, nats.RootCAs(ca.certPath))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 566,
+      "snippet": "\t\tnats.RootCAs(\"./configs/certs/sans/ca.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 585,
+      "snippet": "\t\tnats.RootCAs(\"./configs/certs/sans/ca.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 604,
+      "snippet": "\t\tnats.RootCAs(\"./configs/certs/sans/ca.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 968,
+      "snippet": "\t\tnats.RootCAs(\"./configs/certs/ca.pem\"))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 1039,
+      "snippet": "\tnc, err := nats.Connect(surl, nats.RootCAs(\"./configs/certs/ca.pem\"))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 1089,
+      "snippet": "\t\tnc, err := nats.Connect(url, nats.RootCAs(\"./configs/certs/ca.pem\"))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 1168,
+      "snippet": "\t_, err := nats.Connect(nurl, nats.RootCAs(\"./configs/certs/ca.pem\"))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 1181,
+      "snippet": "\tif len(opts.TLSConfig.CurvePreferences) != 1 {",
+      "algorithm": "CurvePreferences"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 1185,
+      "snippet": "\tif opts.TLSConfig.CurvePreferences[0] != tls.CurveP256 {",
+      "algorithm": "CurvePreferences"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 1186,
+      "snippet": "\t\tt.Fatalf(\"Invalid curve preference loaded [%v].\", opts.TLSConfig.CurvePreferences[0])",
+      "algorithm": "CurvePreferences"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 1206,
+      "snippet": "\tnc, err = nats.Connect(nurl, nats.RootCAs(\"./configs/certs/ca.pem\"))",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 1660,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/rdns/ca.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 1779,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/rdns/ca.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 1911,
+      "snippet": "\t\t\t\tnats.RootCAs(\"./configs/certs/svid/ca.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 1964,
+      "snippet": "\t\tnats.RootCAs(\"configs/certs/ca.pem\"),",
+      "algorithm": "RootCAs"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/nats-server/test/tls_test.go",
+      "line": 2035,
+      "snippet": "\t\tnc, err = nats.Connect(srv.ClientURL(), nats.RootCAs(\"./configs/certs/ca.pem\"))",
+      "algorithm": "RootCAs"
+    }
+  ],
+  "scanner_version": "sezar-agility/0.1.0-dev",
+  "rubric_version": "qra-rubric/v1.0"
+}

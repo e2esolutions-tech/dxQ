@@ -1,0 +1,8 @@
+id: haproxy-ssl
+description: "HAProxy `ssl-default-bind-ciphers` / `ssl-default-server-ciphers`: TLS suite policy in haproxy.cfg."
+applies_to:
+  - kind: config
+    path_glob: "**/haproxy.cfg"
+pattern: '^\s*(ssl-default-bind-ciphers|ssl-default-server-ciphers|ssl-default-bind-ciphersuites|ssl-default-server-ciphersuites)\s+'
+emit_level: configurable
+evidence_kind: config_pattern

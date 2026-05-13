@@ -1,0 +1,842 @@
+[
+  {
+    "host": "cloudflare.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "ECDSA-P256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-256-GCM",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-384",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "github.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "ECDSA-P256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-128-GCM",
+        "pq_resistant": false
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-256",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "google.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "ECDSA-P256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-256-GCM",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-384",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "microsoft.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA384",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "RSA-PKCS1-SHA384",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA384"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-256-GCM",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-384",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "amazon.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "RSA-PKCS1-SHA256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-128-GCM",
+        "pq_resistant": false
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-256",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "youtube.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "ECDSA-P256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-256-GCM",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-384",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "wikipedia.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "ECDSA-P256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA384"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-128-GCM",
+        "pq_resistant": false
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-256",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "twitter.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "ECDSA-P256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA384"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-256-GCM",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-384",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "facebook.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_CHACHA20_POLY1305_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "ECDSA-P256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "ChaCha20-Poly1305",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-256",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "instagram.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_CHACHA20_POLY1305_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "ECDSA-P256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "ChaCha20-Poly1305",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-256",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "linkedin.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "RSA-PKCS1-SHA256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-256-GCM",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-384",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "reddit.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "RSA-PKCS1-SHA256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-128-GCM",
+        "pq_resistant": false
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-256",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "netflix.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "ECDSA-P256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA384"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-256-GCM",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-384",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "apple.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "ECDSA-P256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-256-GCM",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-384",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "mozilla.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "RSA-PKCS1-SHA256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-256-GCM",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-384",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "python.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "RSA-PKCS1-SHA256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-128-GCM",
+        "pq_resistant": false
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-256",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "rust-lang.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "RSA-PKCS1-SHA256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-128-GCM",
+        "pq_resistant": false
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-256",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "go.dev",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "RSA-PKCS1-SHA256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-256-GCM",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-384",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "debian.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "RSA-PKCS1-SHA256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-128-GCM",
+        "pq_resistant": false
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-256",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "ubuntu.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "RSA-PKCS1-SHA256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-256-GCM",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-384",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "archlinux.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "ECDSA-P256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA384"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-256-GCM",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-384",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "kernel.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "ECDSA-P256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA384"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-256-GCM",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-384",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "gnu.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "RSA-PKCS1-SHA256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-256-GCM",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-384",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "ietf.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "ECDSA-P256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-256-GCM",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-384",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "nist.gov",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "ECDSA-P256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA384"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-256-GCM",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-384",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "etsi.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "ECDSA-P256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-256-GCM",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-384",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "openssl.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "RSA-PKCS1-SHA256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-256-GCM",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-384",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "anthropic.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "ECDSA-P256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA384"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-256-GCM",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-384",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "openai.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "ECDSA-P256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA256"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "AES-256-GCM",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-384",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "host": "e2esolutions.tech",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_CHACHA20_POLY1305_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "primitives": [
+      {
+        "role": "sig",
+        "algorithm": "ECDSA-P256",
+        "pq_resistant": false,
+        "parameters": {
+          "signature_hash": "SHA384"
+        }
+      },
+      {
+        "role": "encrypt",
+        "algorithm": "ChaCha20-Poly1305",
+        "pq_resistant": true
+      },
+      {
+        "role": "hash",
+        "algorithm": "SHA-256",
+        "pq_resistant": true
+      }
+    ],
+    "error": null
+  }
+]

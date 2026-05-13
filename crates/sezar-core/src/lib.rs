@@ -32,6 +32,17 @@ use ts_rs::TS;
 /// long as they're optional.
 pub const SCHEMA_VERSION: u32 = 1;
 
+/// Current event schema minor version. Incremented on every additive,
+/// non-breaking extension to the event shape. v1.1 introduces the
+/// `channel_protection` and `agility` blocks and the `QkdLink`/`QkdKme`
+/// asset kinds. v1.0 producers emit `0` (or omit the field, which
+/// defaults to `0`); v1.0 consumers ignore the new fields.
+pub const SCHEMA_MINOR: u32 = 1;
+
+fn default_schema_minor() -> u32 {
+    0
+}
+
 /// One observation about one crypto-bearing asset, normalised to a
 /// shape that's identical regardless of whether it came from
 /// `sezar-net`, `sezar-cert`, `sezar-chain`, or `sezar-id`.
@@ -44,6 +55,12 @@ pub struct CryptoInventoryEvent {
     /// emission; consumers may see older values during rolling
     /// upgrades.
     pub schema_version: u32,
+    /// Schema minor version. v1.0 producers omit (defaults to `0`);
+    /// v1.1 producers set to `1` to advertise that `channel_protection`
+    /// and `agility` blocks may be present. Consumers must accept any
+    /// minor ≥ their compiled value.
+    #[serde(default = "default_schema_minor")]
+    pub schema_minor: u32,
     /// Which Sezar module produced the event.
     pub source_module: String,
     /// Wall-clock observation time (UTC), RFC 3339 string on the wire.
@@ -54,6 +71,18 @@ pub struct CryptoInventoryEvent {
     /// The cryptographic primitives in use on this asset, decomposed
     /// by role (key exchange, signature, encryption, hash).
     pub primitives: Vec<Primitive>,
+    /// v1.1 — Quantum-secure key-delivery telemetry for the channel
+    /// carrying this asset's session. `None` defaults to classical
+    /// channel for posture-rollup purposes. Emitted by `sezar-qkd`
+    /// directly, or attached to session events by cooperating SAEs.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub channel_protection: Option<ChannelProtection>,
+    /// v1.1 — Crypto-agility classification for this asset, scored on
+    /// the five-level ordinal scale of [`AgilityLevel`]. `None` means
+    /// the agility axis was not assessed; consumers treat it as
+    /// `unknown` in posture computation.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub agility: Option<AgilityBlock>,
     /// Sezar's verdict on this asset.
     pub posture: Posture,
 }
@@ -78,7 +107,7 @@ pub struct Asset {
 
 /// Closed enumeration of asset kinds. New variants are a schema
 /// version bump.
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq, Hash)]
 #[serde(rename_all = "snake_case")]
 #[cfg_attr(feature = "schema", derive(JsonSchema))]
 #[cfg_attr(feature = "ts-types", derive(TS))]
@@ -98,6 +127,13 @@ pub enum AssetKind {
     HsmSlot,
     /// A DNSSEC RRSIG observation forwarded from Nizam.
     DnsDnssec,
+    /// v1.1 — A QKD link, emitted by `sezar-qkd` independently of
+    /// the sessions consuming its keys. Identity = endpoint URL hash
+    /// (e.g. sha256 of the KME's `/status` URL).
+    QkdLink,
+    /// v1.1 — An individual Key Management Entity (KME) observed via
+    /// ETSI GS QKD 014. Identity = KME ID per ETSI 014 status.
+    QkdKme,
 }
 
 /// One primitive role used by the asset (kex / sig / encrypt / hash /
@@ -160,6 +196,197 @@ pub enum NistLevel {
     L5,
 }
 
+/// v1.1 — Telemetry block describing how the session key reached
+/// the endpoint. Populated by `sezar-qkd` for QKD-protected sessions,
+/// or by cooperating SAEs that retrieve PSKs over ETSI GS QKD 014.
+/// Absent (`None`) is interpreted as a classical channel.
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+#[cfg_attr(feature = "schema", derive(JsonSchema))]
+#[cfg_attr(feature = "ts-types", derive(TS))]
+#[cfg_attr(feature = "ts-types", ts(export))]
+pub struct ChannelProtection {
+    /// Categorical state of the channel.
+    pub state: ChannelState,
+    /// ETSI 014 base URL of the KME serving this channel. Omitted
+    /// when state = `Classical`.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub kme_endpoint: Option<String>,
+    /// UUID of the consumed key, when reported by the SAE.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub key_id_observed: Option<String>,
+    /// Age of the PSK when the session began (seconds).
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub psk_age_seconds: Option<u64>,
+    /// Observed QBER, on [0.0, 1.0]. Reported by the KME.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub link_qber: Option<f32>,
+    /// Average key-generation rate (bits per second) over the prior
+    /// observation interval. Reported by the KME.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub link_key_rate_bps: Option<u64>,
+    /// Aggregate health flag derived from QBER and key-rate thresholds.
+    pub link_health: LinkHealth,
+    /// One-sentence reason when `link_health` is degraded/failed;
+    /// `None` when healthy.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub degraded_reason: Option<String>,
+}
+
+/// v1.1 — Categorical channel-protection state. Distinguishes
+/// classical key delivery (no QKD), hybrid PSK (XOR/HKDF of QKD
+/// material with negotiated KEM), and pure-QKD transports.
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "schema", derive(JsonSchema))]
+#[cfg_attr(feature = "ts-types", derive(TS))]
+#[cfg_attr(feature = "ts-types", ts(export))]
+pub enum ChannelState {
+    /// Session key derived solely from negotiated cryptography.
+    Classical,
+    /// Session key derived from QKD-PSK combined with negotiated KEM
+    /// (NIST SP 1800-38 hybrid PSK pattern).
+    QkdHybridPsk,
+    /// Session key derived entirely from QKD material
+    /// (MACsec-class transport).
+    QkdOnly,
+}
+
+/// v1.1 — Aggregate health of a QKD link as observed by the KME.
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "schema", derive(JsonSchema))]
+#[cfg_attr(feature = "ts-types", derive(TS))]
+#[cfg_attr(feature = "ts-types", ts(export))]
+pub enum LinkHealth {
+    /// QBER and key rate within policy thresholds.
+    Ok,
+    /// One or more thresholds exceeded; SAEs may consider failover.
+    Degraded,
+    /// KME unreachable or link unable to deliver keys.
+    Failed,
+}
+
+/// v1.1 — Crypto-agility classification for an asset. The level
+/// expresses how quickly the asset's algorithm choice can be changed
+/// in operational practice. Derived from static analysis of the
+/// asset's implementation surface plus, where present, FIPS scope.
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+#[cfg_attr(feature = "schema", derive(JsonSchema))]
+#[cfg_attr(feature = "ts-types", derive(TS))]
+#[cfg_attr(feature = "ts-types", ts(export))]
+pub struct AgilityBlock {
+    /// The categorical agility level.
+    pub level: AgilityLevel,
+    /// Numeric score derived from `level`, on [0.0, 1.0]. Allows the
+    /// posture engine to consume the level without re-applying the
+    /// rubric. Always equals the canonical score for `level`.
+    pub level_score: f32,
+    /// Evidence supporting the chosen level. At least one entry must
+    /// be present; conservative-min aggregation governs the level
+    /// when entries disagree.
+    pub evidence: Vec<AgilityEvidence>,
+    /// Version of the scanner that produced this block, e.g.
+    /// `"sezar-agility/0.3.1"`.
+    pub scanner_version: String,
+    /// Version of the public scoring rubric used, e.g.
+    /// `"qra-rubric/v1.0"`. Allows reviewers to reproduce the score.
+    pub rubric_version: String,
+}
+
+/// v1.1 — Five-level ordinal scale for crypto-agility. Cf. paper §2.3.
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq, Eq, Hash)]
+#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "schema", derive(JsonSchema))]
+#[cfg_attr(feature = "ts-types", derive(TS))]
+#[cfg_attr(feature = "ts-types", ts(export))]
+pub enum AgilityLevel {
+    /// Algorithm selected per-session by protocol negotiation
+    /// (TLS 1.3 server, modern SSH server, IKEv2 responder).
+    Negotiated,
+    /// Algorithm fixed per-deployment but changeable by configuration
+    /// alone (library config file, environment variable).
+    Configurable,
+    /// Algorithm fixed in code; changeable only by software upgrade.
+    Pinned,
+    /// Algorithm fixed in firmware or by FIPS validation scope;
+    /// changeable only by vendor update or revalidation cycle.
+    Locked,
+    /// Algorithm fixed in silicon, ROM, or otherwise unchangeable
+    /// without hardware replacement.
+    Frozen,
+}
+
+impl AgilityLevel {
+    /// Canonical numeric score for this level. Used to populate
+    /// `AgilityBlock::level_score` and consumed by the rollup.
+    pub fn score(self) -> f32 {
+        match self {
+            AgilityLevel::Negotiated => 1.00,
+            AgilityLevel::Configurable => 0.75,
+            AgilityLevel::Pinned => 0.50,
+            AgilityLevel::Locked => 0.20,
+            AgilityLevel::Frozen => 0.00,
+        }
+    }
+}
+
+/// v1.1 — One evidentiary finding supporting an [`AgilityLevel`]
+/// classification. Tagged union so future evidence types are additive.
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+#[serde(tag = "type", rename_all = "snake_case")]
+#[cfg_attr(feature = "schema", derive(JsonSchema))]
+#[cfg_attr(feature = "ts-types", derive(TS))]
+#[cfg_attr(feature = "ts-types", ts(export))]
+pub enum AgilityEvidence {
+    /// Wire-level protocol negotiation observed (e.g. TLS 1.3
+    /// ClientHello/ServerHello exchange listing algorithm choices).
+    ProtocolNegotiation {
+        /// Wire-protocol identifier, e.g. `"tls1.3"`.
+        protocol: String,
+        /// Negotiated algorithms observed, in negotiated order.
+        observed_algorithms: Vec<String>,
+    },
+    /// A configuration file pattern exposing algorithm choice.
+    ConfigPattern {
+        /// Absolute or repo-relative path.
+        file: String,
+        /// 1-indexed line number of the matching pattern.
+        line: u32,
+        /// Verbatim snippet (truncated). Useful for review.
+        snippet: String,
+    },
+    /// A source-code pattern referencing a fixed algorithm name.
+    CodePattern {
+        /// Repo-relative path.
+        file: String,
+        /// 1-indexed line number of the matching pattern.
+        line: u32,
+        /// Verbatim snippet (truncated).
+        snippet: String,
+        /// The algorithm name as it appears in code.
+        algorithm: String,
+    },
+    /// An algorithm name extracted from a binary's strings table.
+    FirmwareString {
+        /// Path to the binary or firmware blob.
+        path: String,
+        /// The extracted algorithm name.
+        algorithm: String,
+    },
+    /// Whether the asset is running in FIPS mode (kernel `fips=1`,
+    /// openssl FIPS provider loaded, etc.).
+    FipsMode {
+        /// `true` when FIPS mode is positively detected.
+        detected: bool,
+    },
+    /// Operator-supplied vendor declaration of algorithm scope (e.g.
+    /// the asset's FIPS 140-3 validation lists exactly these algos).
+    VendorDeclaration {
+        /// Free-form statement, captured verbatim for audit trail.
+        statement: String,
+    },
+}
+
 /// Sezar's verdict on an asset, derived from its [`Primitive`] list.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[cfg_attr(feature = "schema", derive(JsonSchema))]
@@ -188,6 +415,7 @@ mod tests {
     fn fixture(kind: AssetKind, identity: &str, primitives: Vec<Primitive>) -> CryptoInventoryEvent {
         CryptoInventoryEvent {
             schema_version: SCHEMA_VERSION,
+            schema_minor: SCHEMA_MINOR,
             source_module: "test".into(),
             observed_at: chrono::Utc::now(),
             asset: Asset {
@@ -196,6 +424,8 @@ mod tests {
                 host: Some("test.example.com".into()),
             },
             primitives,
+            channel_protection: None,
+            agility: None,
             posture: Posture {
                 score: 50,
                 rationale: "fixture".into(),
@@ -224,6 +454,7 @@ mod tests {
     fn event_round_trips_through_json() {
         let ev = CryptoInventoryEvent {
             schema_version: SCHEMA_VERSION,
+            schema_minor: SCHEMA_MINOR,
             source_module: "sezar-net".into(),
             observed_at: chrono::Utc::now(),
             asset: Asset {
@@ -238,6 +469,8 @@ mod tests {
                 pq_resistant: Some(false),
                 nist_classification: None,
             }],
+            channel_protection: None,
+            agility: None,
             posture: Posture {
                 score: 40,
                 rationale: "X25519 is classical-only".into(),
@@ -396,5 +629,119 @@ mod tests {
             let s = serde_json::to_string(&level).unwrap();
             assert_eq!(s, format!("\"{expected}\""));
         }
+    }
+
+    // ---------- v1.1 schema extensions ----------
+
+    /// A v1.0-shaped event (no schema_minor, no channel_protection,
+    /// no agility) must deserialize cleanly under v1.1 consumers.
+    /// schema_minor defaults to 0, the two new blocks default to None.
+    #[test]
+    fn v1_0_event_accepted_by_v1_1_consumer() {
+        let json_v1_0 = r#"{
+            "schema_version": 1,
+            "source_module": "sezar-net",
+            "observed_at": "2026-01-01T00:00:00Z",
+            "asset": {"kind": "tls_session", "identity": "abc"},
+            "primitives": [{"role": "kex", "algorithm": "X25519"}],
+            "posture": {"score": 30, "rationale": "classical"}
+        }"#;
+        let ev: CryptoInventoryEvent =
+            serde_json::from_str(json_v1_0).expect("v1.0 event must parse");
+        assert_eq!(ev.schema_minor, 0);
+        assert!(ev.channel_protection.is_none());
+        assert!(ev.agility.is_none());
+    }
+
+    /// A v1.1 event with channel_protection populated must round-trip.
+    #[test]
+    fn channel_protection_round_trips() {
+        let cp = ChannelProtection {
+            state: ChannelState::QkdHybridPsk,
+            kme_endpoint: Some("https://kme-1.dc.example/api/v1".into()),
+            key_id_observed: Some("9c45e0a2-b7f4-4ed9-9e2a-1d33c2b9a0bb".into()),
+            psk_age_seconds: Some(47),
+            link_qber: Some(0.018),
+            link_key_rate_bps: Some(12_480),
+            link_health: LinkHealth::Ok,
+            degraded_reason: None,
+        };
+        let json = serde_json::to_string(&cp).unwrap();
+        let back: ChannelProtection = serde_json::from_str(&json).unwrap();
+        assert_eq!(back.state, ChannelState::QkdHybridPsk);
+        assert_eq!(back.link_health, LinkHealth::Ok);
+        assert_eq!(back.psk_age_seconds, Some(47));
+    }
+
+    /// A v1.1 event with agility populated must round-trip,
+    /// including the tagged-union evidence variants.
+    #[test]
+    fn agility_block_round_trips_with_mixed_evidence() {
+        let ab = AgilityBlock {
+            level: AgilityLevel::Configurable,
+            level_score: AgilityLevel::Configurable.score(),
+            evidence: vec![
+                AgilityEvidence::ConfigPattern {
+                    file: "/etc/nginx/nginx.conf".into(),
+                    line: 142,
+                    snippet: "ssl_ciphers HIGH:!aNULL;".into(),
+                },
+                AgilityEvidence::FipsMode { detected: false },
+                AgilityEvidence::ProtocolNegotiation {
+                    protocol: "tls1.3".into(),
+                    observed_algorithms: vec!["X25519".into(), "AES-256-GCM".into()],
+                },
+            ],
+            scanner_version: "sezar-agility/0.3.1".into(),
+            rubric_version: "qra-rubric/v1.0".into(),
+        };
+        let json = serde_json::to_string(&ab).unwrap();
+        let back: AgilityBlock = serde_json::from_str(&json).unwrap();
+        assert_eq!(back.level, AgilityLevel::Configurable);
+        assert_eq!(back.evidence.len(), 3);
+        // Verify the tagged-union evidence preserves variant identity.
+        matches!(back.evidence[1], AgilityEvidence::FipsMode { detected: false });
+    }
+
+    /// AgilityLevel::score must match the paper's §2.3 rubric exactly.
+    #[test]
+    fn agility_level_scores_match_rubric() {
+        assert_eq!(AgilityLevel::Negotiated.score(), 1.00);
+        assert_eq!(AgilityLevel::Configurable.score(), 0.75);
+        assert_eq!(AgilityLevel::Pinned.score(), 0.50);
+        assert_eq!(AgilityLevel::Locked.score(), 0.20);
+        assert_eq!(AgilityLevel::Frozen.score(), 0.00);
+    }
+
+    /// New v1.1 asset kinds (QkdLink, QkdKme) round-trip cleanly.
+    #[test]
+    fn qkd_asset_kinds_round_trip() {
+        for (kind, ident) in [
+            (AssetKind::QkdLink, "sha256:fd14e0..."),
+            (AssetKind::QkdKme, "KME-A"),
+        ] {
+            let ev = fixture(kind.clone(), ident, vec![]);
+            let json = serde_json::to_string(&ev).unwrap();
+            let back: CryptoInventoryEvent = serde_json::from_str(&json).unwrap();
+            assert_eq!(back.asset.kind, kind);
+            assert_eq!(back.asset.identity, ident);
+        }
+    }
+
+    /// When channel_protection and agility are None, they must not
+    /// appear in the serialized JSON — keeps payloads small and
+    /// preserves wire compatibility with v1.0 consumers.
+    #[test]
+    fn null_v1_1_blocks_omitted_from_wire() {
+        let ev = fixture(AssetKind::TlsSession, "abc", vec![]);
+        let json = serde_json::to_string(&ev).unwrap();
+        assert!(
+            !json.contains("\"channel_protection\""),
+            "absent channel_protection must be omitted: {json}"
+        );
+        assert!(
+            !json.contains("\"agility\""),
+            "absent agility must be omitted: {json}"
+        );
     }
 }

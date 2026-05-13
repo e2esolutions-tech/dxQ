@@ -1,0 +1,12 @@
+id: r3-hard-failure
+description: "R3 (compressed, 45s) — KME unreachable from T+10s to T+30s, then recovers."
+duration_seconds: 45
+events:
+  - at_seconds: 0
+    op: { op: set_qber, qber: 0.018 }
+  - at_seconds: 10
+    op: { op: force_failure, reason: "synthetic fibre cut" }
+    label: "KME dark"
+  - at_seconds: 30
+    op: { op: clear_failure }
+    label: "KME recovers"

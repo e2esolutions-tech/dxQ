@@ -1,0 +1,12 @@
+id: r5-bifurcated
+description: "R5 (compressed, 45s) — KME-A goes dark T+10s to T+30s. Paired with a KME-B running r1-steady; the operator observes the divergence."
+duration_seconds: 45
+events:
+  - at_seconds: 0
+    op: { op: set_qber, qber: 0.018 }
+  - at_seconds: 10
+    op: { op: force_failure, reason: "partial outage — KME-A only" }
+    label: "KME-A dark; KME-B steady"
+  - at_seconds: 30
+    op: { op: clear_failure }
+    label: "KME-A recovers"

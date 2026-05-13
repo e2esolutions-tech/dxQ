@@ -1,0 +1,21 @@
+id: code-hardcoded-algorithm
+description: "Hard-coded algorithm name in source code (Go, Rust, Python, C/C++). Suggests `pinned`: requires software upgrade to change."
+applies_to:
+  - kind: code
+    path_glob: "**/*.go"
+  - kind: code
+    path_glob: "**/*.rs"
+  - kind: code
+    path_glob: "**/*.py"
+  - kind: code
+    path_glob: "**/*.c"
+  - kind: code
+    path_glob: "**/*.h"
+  - kind: code
+    path_glob: "**/*.cpp"
+  - kind: code
+    path_glob: "**/*.java"
+pattern: '"(ECDSA-P256|ECDSA_P256|SHA-1|SHA1|MD5|RSA-1024|RSA1024|RSA-2048|DES|3DES|RC4|AES-128-CBC|AES_128_CBC|ECDH-P256|X25519|Ed25519|Kyber512|Kyber768|Kyber1024|Dilithium2|Dilithium3|Dilithium5|ML-KEM-512|ML-KEM-768|ML-KEM-1024|ML-DSA-44|ML-DSA-65|ML-DSA-87)"'
+emit_level: pinned
+evidence_kind: code_pattern
+algorithm_capture: 1

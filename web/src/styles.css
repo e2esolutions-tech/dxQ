@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply antialiased font-sans;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white border border-ink-200 rounded-lg shadow-sm;
+  }
+  .nav-link {
+    @apply px-3 py-2 rounded-md text-sm font-medium text-ink-600 hover:text-ink-900 hover:bg-ink-100;
+  }
+  .nav-link-active {
+    @apply bg-ink-900 text-white hover:bg-ink-800 hover:text-white;
+  }
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium;
+  }
+  .table th {
+    @apply text-left text-xs font-semibold text-ink-600 uppercase tracking-wide;
+  }
+  .table td {
+    @apply text-sm;
+  }
+}

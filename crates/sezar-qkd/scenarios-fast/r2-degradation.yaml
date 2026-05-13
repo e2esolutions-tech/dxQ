@@ -1,0 +1,19 @@
+id: r2-degradation
+description: "R2 (compressed, 60s) — QBER ramps 1.8% → 8.5% in steps. Crosses 5% warn threshold around T+30s, 11% fail threshold not reached."
+duration_seconds: 60
+events:
+  - at_seconds: 0
+    op: { op: set_qber, qber: 0.018 }
+    label: "baseline"
+  - at_seconds: 15
+    op: { op: set_qber, qber: 0.035 }
+    label: "elevated"
+  - at_seconds: 30
+    op: { op: set_qber, qber: 0.055 }
+    label: "crosses warn threshold (degraded)"
+  - at_seconds: 45
+    op: { op: set_qber, qber: 0.075 }
+    label: "sustained degraded"
+  - at_seconds: 60
+    op: { op: set_qber, qber: 0.085 }
+    label: "high"

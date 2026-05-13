@@ -1,0 +1,22 @@
+{
+  "level": "configurable",
+  "level_score": 0.75,
+  "evidence": [
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/postfix-mirror/postfix/src/tls/tls_misc.c",
+      "line": 343,
+      "snippet": " * Protocol name => numeric version, for MinProtocol and MaxProtocol",
+      "algorithm": "MinProtocol"
+    },
+    {
+      "type": "code_pattern",
+      "file": "/home/tempu/sezar/studies/study3/sources/postfix-mirror/postfix/src/tls/tls_misc.c",
+      "line": 984,
+      "snippet": "    if (SSL_set_cipher_list(TLScontext->con, vstring_str(buf)) == 0) {",
+      "algorithm": "SSL_set_cipher_list"
+    }
+  ],
+  "scanner_version": "sezar-agility/0.1.0-dev",
+  "rubric_version": "qra-rubric/v1.0"
+}

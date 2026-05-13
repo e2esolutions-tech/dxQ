@@ -1,84 +1,58 @@
-//! `sezar-server` — collector + REST API + dashboard backend.
+//! `sezar-server` — V1 collector binary.
 //!
-//! V1 lands the smallest possible HTTP surface:
-//!
-//!   POST /v1/events           — ingest one or many events
-//!   GET  /v1/inventory        — current asset list
-//!   GET  /v1/posture          — org-level rollup
-//!   GET  /healthz             — liveness probe
-//!
-//! Storage and authentication are stubbed in this initial commit;
-//! Postgres + mTLS bootstrap land in V1 issues #SEZ-2 and #SEZ-6.
+//! Wires CLI flags into the [`sezar_server::AppState`] and serves
+//! the router on a configurable address.
 
 use anyhow::Result;
-use axum::{
-    extract::Json,
-    http::StatusCode,
-    routing::{get, post},
-    Router,
-};
-use sezar_core::CryptoInventoryEvent;
-use tracing::{info, warn};
+use clap::Parser;
+use sezar_server::{router, AppState};
+use tracing::info;
+use tracing_subscriber::EnvFilter;
+
+#[derive(Parser, Debug)]
+#[command(name = "sezar-server", author, version, about)]
+struct Args {
+    /// Bind address (e.g. `0.0.0.0:8090`).
+    #[arg(long, default_value = "0.0.0.0:8090")]
+    listen: String,
+
+    /// Deadline used for org-level posture, RFC 3339. Defaults to the
+    /// NSA CNSA 2.0 browser/server-class deadline (2030-01-01).
+    #[arg(long)]
+    deadline: Option<String>,
+
+    /// Horizon constant for deadline-tension computation (years).
+    #[arg(long, default_value_t = 5.0)]
+    horizon_years: f32,
+}
 
 #[tokio::main]
 async fn main() -> Result<()> {
     tracing_subscriber::fmt()
         .with_env_filter(
-            tracing_subscriber::EnvFilter::try_from_default_env()
-                .unwrap_or_else(|_| "info".into()),
+            EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("info")),
         )
         .init();
 
-    info!(version = env!("CARGO_PKG_VERSION"), "Starting sezar-server (V1 stub)");
+    let args = Args::parse();
 
-    let app = Router::new()
-        .route("/healthz", get(healthz))
-        .route("/v1/events", post(ingest_event))
-        .route("/v1/inventory", get(inventory_stub))
-        .route("/v1/posture", get(posture_stub));
+    let mut state = AppState::new_in_memory();
+    if let Some(d) = args.deadline.as_deref() {
+        state.default_deadline = chrono::DateTime::parse_from_rfc3339(d)?
+            .with_timezone(&chrono::Utc);
+    }
+    state.horizon_years = args.horizon_years;
 
-    let addr = "0.0.0.0:8090";
-    let listener = tokio::net::TcpListener::bind(addr).await?;
-    info!(%addr, "sezar-server listening");
+    info!(
+        version = env!("CARGO_PKG_VERSION"),
+        deadline = %state.default_deadline.to_rfc3339(),
+        horizon = state.horizon_years,
+        "starting sezar-server"
+    );
+
+    let app = router(state);
+    let listener = tokio::net::TcpListener::bind(&args.listen).await?;
+    info!(addr = %args.listen, "sezar-server listening");
     axum::serve(listener, app).await?;
     Ok(())
-}
-
-async fn healthz() -> &'static str {
-    "ok"
-}
-
-/// Stub: accept the event, log it, drop it on the floor. V1 issue
-/// #SEZ-2 wires Postgres persistence behind this handler.
-async fn ingest_event(Json(ev): Json<CryptoInventoryEvent>) -> StatusCode {
-    if ev.schema_version != sezar_core::SCHEMA_VERSION {
-        warn!(
-            got = ev.schema_version,
-            expected = sezar_core::SCHEMA_VERSION,
-            "rejecting event with unsupported schema_version"
-        );
-        return StatusCode::UNPROCESSABLE_ENTITY;
-    }
-    info!(
-        module = %ev.source_module,
-        asset_kind = ?ev.asset.kind,
-        score = ev.posture.score,
-        "event ingested (stub — not persisted yet)"
-    );
-    StatusCode::ACCEPTED
-}
-
-async fn inventory_stub() -> Json<serde_json::Value> {
-    Json(serde_json::json!({
-        "assets": [],
-        "note": "V1 stub — storage lands in #SEZ-2",
-    }))
-}
-
-async fn posture_stub() -> Json<serde_json::Value> {
-    Json(serde_json::json!({
-        "org_score": null,
-        "by_kind": {},
-        "note": "V1 stub — rollup engine lands in #SEZ-4",
-    }))
 }
