@@ -31,9 +31,33 @@ tokio-rustls       = "0.26"
 rustls-pki-types   = "1"
 webpki-roots       = "0.26"
 x509-parser        = "0.16"
+# Phase 2.0 live mode — passive pcap-file observation. Pure-Rust so
+# the crate builds on machines without libpcap-devel; live-interface
+# capture (libpcap) is gated behind the `live-interface` feature in
+# Phase 2.1.
+pcap-file          = "2"
+etherparse         = "0.16"
 
 [dev-dependencies]
-# (none — every dep needed for tests lives in [dependencies] already)
+tempfile = "3"
+
+[features]
+# Default build is offline-pcap only (no system deps beyond libc).
+default = []
+# Phase 2.1 live interface capture via aya + the kernel-side
+# `sezar-net-ebpf` crate. Requires `aya` 0.13 + a pre-built BPF
+# object at `target/bpfel-unknown-none/release/sezar-net-ebpf`.
+# Pulls in aya the userspace runtime; see crates/sezar-net-ebpf/README.md
+# for the build dance.
+live-interface = ["dep:aya", "dep:aya-log"]
+
+[dependencies.aya]
+version = "0.13"
+optional = true
+
+[dependencies.aya-log]
+version = "0.2"
+optional = true
 
 # Phase-1 binary: pipe zgrab2 JSON output into crypto_inventory_event records.
 # Phase 2 (eBPF live observation) lands in #SEZ-3 and adds aya deps.

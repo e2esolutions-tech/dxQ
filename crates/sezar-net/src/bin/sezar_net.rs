@@ -20,7 +20,7 @@ use std::path::PathBuf;
 use std::time::Duration;
 
 use clap::{Parser, Subcommand};
-use sezar_net::{pq_probe, tls, zgrab};
+use sezar_net::{live, pq_probe, tls, zgrab};
 use tracing::{error, info, warn};
 use tracing_subscriber::EnvFilter;
 
@@ -65,6 +65,18 @@ enum Cmd {
         #[arg(long, default_value_t = 1000)]
         rate_delay_ms: u64,
     },
+    /// Phase 2.0 — passively observe TLS handshakes from a pcap file.
+    /// Emits one `crypto_inventory_event` per ClientHello/ServerHello.
+    Live {
+        /// Path to a `.pcap` or `.pcapng` capture (e.g. from
+        /// `tcpdump -w f.pcap port 443`).
+        #[arg(long)]
+        pcap: String,
+        /// Optional downstream collector URL. When set, POST each
+        /// event; otherwise print NDJSON to stdout.
+        #[arg(long)]
+        collector: Option<String>,
+    },
 }
 
 fn main() -> anyhow::Result<()> {
@@ -87,7 +99,39 @@ fn main() -> anyhow::Result<()> {
             timeout_s,
             rate_delay_ms,
         } => run_pq_probe(hosts, port, timeout_s, rate_delay_ms),
+        Cmd::Live { pcap, collector } => run_live(pcap, collector),
     }
+}
+
+fn run_live(pcap_path: String, collector: Option<String>) -> anyhow::Result<()> {
+    let client = collector
+        .as_deref()
+        .map(|_| reqwest::blocking::Client::builder().build())
+        .transpose()
+        .map_err(|e| anyhow::anyhow!("client build: {e}"))?;
+
+    let stats = live::observe_pcap(&pcap_path, |ev| {
+        if let Some(url) = collector.as_deref() {
+            match client.as_ref().unwrap().post(url).json(&ev).send() {
+                Ok(r) if r.status().is_success() => {}
+                Ok(r) => warn!(status = %r.status(), "downstream rejected event"),
+                Err(e) => error!(error = %e, "downstream POST failed"),
+            }
+        } else {
+            match serde_json::to_string(&ev) {
+                Ok(s) => println!("{s}"),
+                Err(e) => error!(error = %e, "serialize failed"),
+            }
+        }
+    })?;
+    info!(
+        packets_seen = stats.packets_seen,
+        handshake_packets = stats.handshake_packets,
+        events_emitted = stats.events_emitted,
+        skipped_unparseable = stats.packets_skipped_unparseable,
+        "pcap observation complete"
+    );
+    Ok(())
 }
 
 fn run_pq_probe(

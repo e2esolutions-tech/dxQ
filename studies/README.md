@@ -95,5 +95,6 @@ when a grade flips.
 
 - **Scale Study 1 up.** Replace `hosts.txt` with the Tranco-top-1k snapshot and increase the rate cap with care; ethical envelope per §9.2 of the paper.
 - **Add a PQ-capable probe variant.** Already shipped — `sezar-net pq-probe` (rustls 0.23 + rustls-post-quantum 0.2). The 30-host sample gives 17/30 (57%) X25519MLKEM768 negotiation; rerun on the Tranco-top-1k for an Internet-wide estimate.
+- **Switch from active to passive observation.** Already shipped — `sezar-net live --pcap <file>` (Phase 2.0). Drop a `tcpdump -w` capture in, get NDJSON events out. The integration test under `crates/sezar-net/tests/live_pcap.rs` synthesises a one-packet ClientHello pcap end-to-end. Live-interface capture (Phase 2.1) is scaffolded in `crates/sezar-net-ebpf/` and behind the `live-interface` feature.
 - **Add more replay scenarios.** Drop a YAML file into `crates/sezar-qkd/scenarios-fast/` and the `study2/run.sh` runner will pick it up automatically.
 - **Add more rules.** Drop a YAML rule into `crates/sezar-agility/rules/v1/` and re-run `study3/run.sh`. Cohen's κ is recomputed by `analyse.py`.
