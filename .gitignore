@@ -38,3 +38,8 @@ studies/study3/sources/
 # matplotlib caches
 .cache/
 **/__pycache__/
+
+# local tooling local-only overrides.
+# .config/settings.json and .config/skills/ ARE committed; the
+# .local.json variant is for per-machine overrides only.
+.config/settings.local.json
