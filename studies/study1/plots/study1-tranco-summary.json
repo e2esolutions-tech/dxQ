@@ -1,0 +1,41 @@
+{
+  "tranco_list_id": "6G8PX",
+  "tranco_list_date": "2026-05-13",
+  "host_count": 1000,
+  "classical": {
+    "ok": 724,
+    "tls_versions": {
+      "TLSv1.3": 602,
+      "TLSv1.2": 122
+    },
+    "ciphersuites": {
+      "TLS_AES_256_GCM_SHA384": 384,
+      "TLS_AES_128_GCM_SHA256": 207,
+      "ECDHE-RSA-AES128-GCM-SHA256": 66,
+      "ECDHE-RSA-AES256-GCM-SHA384": 25,
+      "TLS_CHACHA20_POLY1305_SHA256": 11,
+      "ECDHE-RSA-CHACHA20-POLY1305": 11,
+      "ECDHE-ECDSA-AES128-GCM-SHA256": 9,
+      "ECDHE-ECDSA-CHACHA20-POLY1305": 5,
+      "ECDHE-ECDSA-AES256-GCM-SHA384": 3,
+      "ECDHE-RSA-AES256-SHA": 3
+    },
+    "cert_sig_algorithms": {
+      "RSA-PKCS1-SHA256": 451,
+      "ECDSA-P256": 244,
+      "RSA-PKCS1-SHA384": 19,
+      "ECDSA-P384": 10
+    }
+  },
+  "pq_capable": {
+    "ok": 724,
+    "pq_kem_negotiated": 317,
+    "pq_kem_rate": 0.43784530386740333,
+    "kex_groups": {
+      "X25519MLKEM768": 317,
+      "x25519": 312,
+      "secp256r1": 80,
+      "secp384r1": 15
+    }
+  }
+}

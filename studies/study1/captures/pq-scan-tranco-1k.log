@@ -1,0 +1,1001 @@
+[2m2026-05-13T23:23:56.917672Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m pq probe loaded host list [3mcount[0m[2m=[0m1000
+[2m2026-05-13T23:23:57.144427Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [  1/1000] google.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:23:57.814070Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [  2/1000] gtld-servers.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:23:58.537735Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [  3/1000] cloudflare.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:23:59.301627Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [  4/1000] gstatic.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:00.007680Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [  5/1000] facebook.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:00.813808Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [  6/1000] microsoft.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:24:01.622265Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [  7/1000] googleapis.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:02.404606Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [  8/1000] youtube.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:03.403012Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [  9/1000] mail.ru TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:24:04.364969Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 10/1000] amazonaws.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:24:05.129449Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 11/1000] apple.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:05.817965Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 12/1000] instagram.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:06.472788Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 13/1000] akamai.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:24:07.185007Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 14/1000] fbcdn.net TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:08.034290Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 15/1000] dzen.ru TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:24:08.710149Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 16/1000] twitter.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:09.543568Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 17/1000] linkedin.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp384r1 pq=false
+[2m2026-05-13T23:24:10.309802Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 18/1000] googletagmanager.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:11.145976Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 19/1000] office.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp384r1 pq=false
+[2m2026-05-13T23:24:11.972497Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 20/1000] live.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp384r1 pq=false
+[2m2026-05-13T23:24:12.752106Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 21/1000] googlevideo.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:13.399087Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 22/1000] akamaiedge.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:24:14.042902Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 23/1000] akadns.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:24:15.002031Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 24/1000] amazon.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:24:15.779162Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 25/1000] googleusercontent.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:16.560867Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 26/1000] azure.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:24:17.374820Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 27/1000] wikipedia.org TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:18.074795Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 28/1000] domaincontrol.com FAIL: tls handshake: Connection reset by peer (os error 104)
+[2m2026-05-13T23:24:18.836719Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 29/1000] github.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:24:19.633066Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 30/1000] doubleclick.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:20.285603Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 31/1000] microsoftonline.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:24:21.091989Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 32/1000] bing.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp384r1 pq=false
+[2m2026-05-13T23:24:21.876295Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 33/1000] fastly.net TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:24:22.593473Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 34/1000] appsflyersdk.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:23.300280Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 35/1000] whatsapp.net TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:23.982414Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 36/1000] office.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:24:24.926628Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 37/1000] ezviz7.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:24:25.595507Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 38/1000] trafficmanager.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:24:26.535211Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 39/1000] digicert.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:27.381902Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 40/1000] netflix.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:24:28.058133Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 41/1000] apple-dns.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:24:29.033408Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 42/1000] wordpress.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:29.688806Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 43/1000] aaplimg.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:24:31.725317Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 44/1000] skype.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:24:32.578201Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 45/1000] sharepoint.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp384r1 pq=false
+[2m2026-05-13T23:24:33.389349Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 46/1000] youtu.be TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:34.130849Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 47/1000] pinterest.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:34.848471Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 48/1000] keenetic.io FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:24:35.607391Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 49/1000] chatgpt.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:36.339417Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 50/1000] whatsapp.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:41.941110Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 51/1000] ripn.net FAIL: connect timeout
+[2m2026-05-13T23:24:42.770515Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 52/1000] gandi.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:24:43.419440Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 53/1000] cloudfront.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:24:44.261077Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 54/1000] goo.gl TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:45.018456Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 55/1000] googlesyndication.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:46.014298Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 56/1000] yahoo.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:24:46.701752Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 57/1000] x.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:47.683594Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 58/1000] cloud.microsoft TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:24:48.440435Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 59/1000] icloud.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:49.133911Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 60/1000] tiktok.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:24:49.936168Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 61/1000] msn.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp384r1 pq=false
+[2m2026-05-13T23:24:50.686577Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 62/1000] workers.dev TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:51.415754Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 63/1000] spotify.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:24:52.113035Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 64/1000] gvt1.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:24:52.852635Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 65/1000] adobe.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:24:53.557943Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 66/1000] vimeo.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:54.210085Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 67/1000] windowsupdate.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:24:55.338792Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 68/1000] ntp.org TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:24:56.049840Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 69/1000] cloudflare.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:57.112877Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 70/1000] windows.net TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:24:57.900732Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 71/1000] googledomains.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:24:58.932774Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 72/1000] hicloudcam.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:24:59.589831Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 73/1000] tiktokcdn.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:25:00.449188Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 74/1000] telekom.de TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:25:01.172871Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 75/1000] wa.me TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:25:01.976336Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 76/1000] myfritz.net TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:25:02.666485Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 77/1000] gvt2.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:25:03.479220Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 78/1000] zoom.us TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:25:04.135754Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 79/1000] akam.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:25:04.909491Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 80/1000] tiktokv.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:25:05.594679Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 81/1000] ytimg.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:25:06.407096Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 82/1000] roblox.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:25:07.667434Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 83/1000] qq.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:25:08.393569Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 84/1000] cloudflare-dns.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:25:09.041782Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 85/1000] pv-cdn.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:25:10.452228Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 86/1000] baidu.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:25:11.310594Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 87/1000] yandex.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:25:12.146929Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 88/1000] nginx.org TLSv1_2 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:25:12.805561Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [ 89/1000] edgekey.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:25:13.581856Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 90/1000] opera.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:25:14.674267Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 91/1000] nic.ru TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:25:15.449131Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 92/1000] google-analytics.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:25:16.214870Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 93/1000] mozilla.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:25:17.063753Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 94/1000] yandex.ru TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:25:18.646763Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 95/1000] samsung.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:25:19.403951Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 96/1000] sentry.io TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:25:20.259241Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 97/1000] nginx.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:25:21.032518Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 98/1000] windows.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:25:22.333973Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [ 99/1000] office365.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp384r1 pq=false
+[2m2026-05-13T23:25:23.069195Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [100/1000] wordpress.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:25:23.917703Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [101/1000] bit.ly TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:25:24.573163Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [102/1000] edgesuite.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:25:25.305629Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [103/1000] ui.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:25:25.984421Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [104/1000] root-servers.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:25:26.900306Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [105/1000] okcdn.ru TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:25:27.642963Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [106/1000] reddit.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:25:28.318863Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [107/1000] cdninstagram.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:25:29.068882Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [108/1000] discord.gg TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:25:29.831746Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [109/1000] googleadservices.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:25:30.575080Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [110/1000] criteo.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:25:31.248984Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [111/1000] a2z.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:25:32.272995Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [112/1000] trbcdn.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp384r1 pq=false
+[2m2026-05-13T23:25:33.067910Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [113/1000] blogspot.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:25:33.853293Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [114/1000] t.me TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:25:34.652646Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [115/1000] b-cdn.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:25:35.587203Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [116/1000] vedcdnlb.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:25:36.409969Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [117/1000] europa.eu TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:25:37.251680Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [118/1000] vk.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:25:38.308516Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [119/1000] mailinabox.email TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:25:39.224142Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [120/1000] f5.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:25:40.073960Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [121/1000] unity3d.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:25:40.923525Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [122/1000] intuit.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:25:41.662179Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [123/1000] snapchat.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:25:42.377707Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [124/1000] github.io TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:25:43.332656Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [125/1000] amazon-adsystem.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:25:43.987542Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [126/1000] cdn77.org FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:25:44.742036Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [127/1000] app-measurement.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:25:45.430017Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [128/1000] amazonvideo.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:25:46.173285Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [129/1000] apache.org TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:25:47.010526Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [130/1000] dns.google TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:25:47.660981Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [131/1000] msftncsi.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:25:48.910210Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [132/1000] outlook.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp384r1 pq=false
+[2m2026-05-13T23:25:50.270696Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [133/1000] kaspersky.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:25:51.457686Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [134/1000] nih.gov TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:25:52.489514Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [135/1000] gravatar.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:25:53.207602Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [136/1000] amazon.dev FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:25:53.993304Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [137/1000] dropbox.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:25:54.892628Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [138/1000] registrar-servers.com FAIL: connect: Connection refused (os error 111)
+[2m2026-05-13T23:25:55.829675Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [139/1000] epicgames.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:25:56.591253Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [140/1000] app-analytics-services.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:25:57.264641Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [141/1000] spo-msedge.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:25:58.588990Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [142/1000] xiaomi.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:25:59.351515Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [143/1000] prodregistryv2.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:26:00.170980Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [144/1000] forms.gle TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:26:00.819960Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [145/1000] msftconnecttest.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:26:01.868497Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [146/1000] archive.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:26:02.617961Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [147/1000] yccdn.ru FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:26:03.396247Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [148/1000] iiko.it FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:26:04.305444Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [149/1000] one.one TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:26:04.963801Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [150/1000] steamserver.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:26:05.658108Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [151/1000] godaddy.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:26:06.418089Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [152/1000] tumblr.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:26:07.181570Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [153/1000] nytimes.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:26:08.074778Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [154/1000] reg.ru TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:26:08.736637Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [155/1000] bytefcdn-oversea.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:26:09.389098Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [156/1000] azurefd.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:26:10.432316Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [157/1000] miit.gov.cn FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:26:11.196602Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [158/1000] paypal.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:26:11.867435Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [159/1000] ax-msedge.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:26:12.776483Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [160/1000] vkuserphoto.ru TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:26:13.544085Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [161/1000] applovin.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:26:14.227869Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [162/1000] 3gppnetwork.org FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:26:14.917503Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [163/1000] shopify.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:26:15.618893Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [164/1000] dnsowl.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:26:16.884653Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [165/1000] aliyuncs.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:26:17.573449Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [166/1000] ggpht.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:26:18.233966Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [167/1000] nflxso.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:26:18.953043Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [168/1000] discord.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:26:20.217213Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [169/1000] webex.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:26:21.143608Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [170/1000] adobe.io TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:26:21.809402Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [171/1000] wac-msedge.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:26:22.457130Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [172/1000] cdn-apple.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:26:28.059619Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [173/1000] macromedia.com FAIL: connect timeout
+[2m2026-05-13T23:26:28.765488Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [174/1000] flickr.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:26:29.439258Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [175/1000] azurewebsites.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:26:30.251851Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [176/1000] example.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:26:30.959265Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [177/1000] soundcloud.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:26:31.689153Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [178/1000] medium.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:26:32.556702Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [179/1000] userapi.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:26:33.865735Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [180/1000] rubiconproject.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:26:34.569403Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [181/1000] w3.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:26:35.341547Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [182/1000] adtrafficquality.google TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:26:36.083876Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [183/1000] cnn.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:26:36.856350Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [184/1000] taboola.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:26:37.611730Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [185/1000] theguardian.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:26:38.340241Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [186/1000] vungle.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:26:39.159006Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [187/1000] nominetdns.uk FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:26:39.893520Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [188/1000] avast.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:26:40.567223Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [189/1000] aws.dev FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:26:41.246535Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [190/1000] ttdns2.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:26:46.848217Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [191/1000] msedge.net FAIL: connect timeout
+[2m2026-05-13T23:26:48.091027Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [192/1000] oracle.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:26:48.763113Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [193/1000] static.microsoft FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:26:49.566636Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [194/1000] forbes.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:26:50.431257Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [195/1000] creativecommons.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:26:51.550951Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [196/1000] adnxs.com TLSv1_2 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:26:57.153093Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [197/1000] shifen.com FAIL: connect timeout
+[2m2026-05-13T23:26:57.959651Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [198/1000] pubmatic.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:26:58.795081Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [199/1000] ozon.ru TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:26:59.465211Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [200/1000] fastly-edge.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:27:00.204456Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [201/1000] bbc.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:00.920889Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [202/1000] dns-parking.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:27:01.575015Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [203/1000] tiktokcdn-us.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:27:02.276803Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [204/1000] sfx.ms FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:27:02.974782Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [205/1000] spov-msedge.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:27:03.677640Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [206/1000] t.co TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:04.406857Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [207/1000] roku.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:05.197962Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [208/1000] weather.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:27:06.180663Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [209/1000] jomodns.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:27:06.837702Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [210/1000] azureedge.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:27:07.602923Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [211/1000] twitch.tv TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:08.635017Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [212/1000] cpanel.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:27:09.340418Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [213/1000] sciencedirect.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:10.070746Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [214/1000] researchgate.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:10.853514Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [215/1000] bbc.co.uk TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:11.673268Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [216/1000] oxylabs.io TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:12.450846Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [217/1000] gmail.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:13.253446Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [218/1000] youtube-nocookie.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:13.902810Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [219/1000] akamaized.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:27:14.767711Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [220/1000] ebay.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:27:15.557621Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [221/1000] comcast.net FAIL: connect: Connection refused (os error 111)
+[2m2026-05-13T23:27:21.159457Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [222/1000] ipv4only.arpa FAIL: connect timeout
+[2m2026-05-13T23:27:21.971183Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [223/1000] pki.goog TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:22.738976Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [224/1000] sourceforge.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:23.733220Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [225/1000] hichina.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:27:24.648619Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [226/1000] mit.edu TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:27:25.435986Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [227/1000] ubuntu.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:27:26.139350Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [228/1000] vecdnlb.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:27:26.850397Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [229/1000] canva.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:27.689612Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [230/1000] doi.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:28.632304Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [231/1000] scorecardresearch.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:27:29.404225Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [232/1000] android.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:30.095946Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [233/1000] meraki.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:30.759665Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [234/1000] shopifysvc.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:27:31.596009Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [235/1000] telekom.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:27:32.394930Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [236/1000] adsafeprotected.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:33.513279Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [237/1000] nist.gov TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:27:34.231504Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [238/1000] doubleverify.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:34.918631Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [239/1000] akamaitech.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:27:35.719665Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [240/1000] lencr.org TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:27:36.576265Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [241/1000] t-online.de TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:42.178159Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [242/1000] cdngslb.com FAIL: connect timeout
+[2m2026-05-13T23:27:42.854264Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [243/1000] tm-azurefd.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:27:43.563146Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [244/1000] casalemedia.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:44.518246Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [245/1000] imdb.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:27:45.380093Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [246/1000] stripe.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:27:46.178276Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [247/1000] who.int TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:47.533246Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [248/1000] miui.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:27:48.212161Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [249/1000] wsdvs.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:27:48.966983Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [250/1000] telegram.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:27:50.122033Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [251/1000] cisco.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:27:50.859671Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [252/1000] hubspot.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:51.817824Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [253/1000] ksyuncdn.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:27:52.534783Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [254/1000] forter.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:53.231319Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [255/1000] wixsite.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:27:54.086291Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [256/1000] linktr.ee TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:27:54.747600Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [257/1000] playstation.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:27:55.439907Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [258/1000] openai.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:56.128673Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [259/1000] booking.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:56.795646Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [260/1000] omtrdc.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:27:57.711448Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [261/1000] alibabadns.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:27:58.531509Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [262/1000] adsrvr.org TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:27:59.321772Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [263/1000] launchpad.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:28:00.144408Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [264/1000] dropcatch.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:28:01.140056Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [265/1000] autodesk.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:28:01.953954Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [266/1000] wikimedia.org TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:28:02.695461Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [267/1000] smartadserver.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:28:03.537482Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [268/1000] hp.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:28:04.502732Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [269/1000] salesforce.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:28:05.252988Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [270/1000] mts.ru TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:28:06.396770Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [271/1000] springer.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:28:11.998746Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [272/1000] mangosip.ru FAIL: connect timeout
+[2m2026-05-13T23:28:12.654719Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [273/1000] ttvnw.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:28:13.325912Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [274/1000] facebook.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:28:14.369525Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [275/1000] mzstatic.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:28:15.105238Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [276/1000] tinyurl.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:28:16.059654Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [277/1000] inmobi.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:28:16.843607Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [278/1000] ampproject.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:28:22.444758Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [279/1000] jsdelivr.net FAIL: connect timeout
+[2m2026-05-13T23:28:23.120668Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [280/1000] heytapmobile.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:28:23.889159Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [281/1000] mozilla.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:28:24.592286Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [282/1000] samsungcloud.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:28:25.364287Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [283/1000] openx.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:28:30.965869Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [284/1000] duckdns.org FAIL: connect timeout
+[2m2026-05-13T23:28:32.128744Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [285/1000] reuters.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:28:32.928959Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [286/1000] etsy.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:28:33.784593Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [287/1000] drom.ru TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:28:34.924274Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [288/1000] wiley.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:28:35.640872Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [289/1000] shalltry.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:28:36.488453Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [290/1000] libp2p.direct FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:28:37.405036Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [291/1000] www.gov.uk TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:28:38.137972Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [292/1000] pages.dev TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:28:39.034648Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [293/1000] ok.ru TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:28:40.039183Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [294/1000] alibaba.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:28:40.867269Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [295/1000] ibm.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:28:41.967240Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [296/1000] appsflyer.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:28:42.695821Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [297/1000] 3lift.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:28:43.505754Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [298/1000] harvard.edu TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:28:45.103681Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [299/1000] media.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:28:45.911276Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [300/1000] googleblog.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:28:46.585343Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [301/1000] samsungqbe.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:28:47.570381Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [302/1000] dnsmadeeasy.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:28:48.354082Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [303/1000] nature.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:28:49.117758Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [304/1000] steampowered.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:28:50.404469Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [305/1000] amplitude.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:28:51.506942Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [306/1000] afternic.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:28:52.207240Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [307/1000] nr-data.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:28:52.986592Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [308/1000] debian.org TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:28:53.688851Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [309/1000] mtgglobals.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:28:54.549454Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [310/1000] name-services.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:28:55.209057Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [311/1000] byteoversea.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:28:56.002263Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [312/1000] php.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:28:56.680277Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [313/1000] media-amazon.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:28:57.563427Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [314/1000] amazon.co.uk TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:28:58.420984Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [315/1000] trueconf.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:28:59.214567Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [316/1000] launchdarkly.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:29:00.587805Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [317/1000] mi.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:29:01.238115Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [318/1000] akamaihd.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:29:01.922959Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [319/1000] myshopify.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:29:07.525064Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [320/1000] clarity.ms FAIL: connect timeout
+[2m2026-05-13T23:29:09.132436Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [321/1000] alidns.com TLSv1_2 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:29:10.801078Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [322/1000] weibo.com TLSv1_2 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:29:11.628164Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [323/1000] aol.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:29:12.352932Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [324/1000] ea.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:29:13.124974Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [325/1000] issuu.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:29:13.920953Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [326/1000] slack.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:29:14.856030Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [327/1000] cnbc.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:29:20.457989Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [328/1000] wbx2.com FAIL: connect timeout
+[2m2026-05-13T23:29:21.312292Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [329/1000] wildberries.ru TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:29:22.261651Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [330/1000] gnu.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:29:23.259031Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [331/1000] telecid.ru TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:29:23.942074Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [332/1000] douyincdn.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:29:24.774663Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [333/1000] vk.ru TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:29:25.549336Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [334/1000] crashlytics.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:29:26.355544Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [335/1000] checkpoint.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:29:27.045819Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [336/1000] tradingview.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:29:28.096600Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [337/1000] moe.video TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:29:29.067809Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [338/1000] rocket-cdn.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:29:29.778675Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [339/1000] weebly.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:29:35.380309Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [340/1000] inner-active.mobi FAIL: connect timeout
+[2m2026-05-13T23:29:36.231081Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [341/1000] cdc.gov TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:29:36.938772Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [342/1000] onelink.me TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:29:38.146078Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [343/1000] un.org TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:29:43.748511Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [344/1000] vkuser.net FAIL: connect timeout
+[2m2026-05-13T23:29:44.568486Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [345/1000] ivi.ru TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:29:45.243419Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [346/1000] namebrightdns.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:29:46.518673Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [347/1000] naver.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:29:47.328465Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [348/1000] washingtonpost.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:29:48.165854Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [349/1000] yandex.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:29:48.841685Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [350/1000] demdex.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:29:49.508963Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [351/1000] allawnos.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:29:50.231794Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [352/1000] wsj.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:29:51.160638Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [353/1000] trustpilot.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:29:51.814760Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [354/1000] kaspersky-labs.com FAIL: tls handshake: Connection reset by peer (os error 104)
+[2m2026-05-13T23:29:53.454774Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [355/1000] aliyun.com TLSv1_2 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:29:59.055975Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [356/1000] tbcache.com FAIL: connect timeout
+[2m2026-05-13T23:29:59.976162Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [357/1000] ezvizlife.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:30:00.677023Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [358/1000] cdnbuild.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:30:01.899051Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [359/1000] dell.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:30:03.109757Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [360/1000] bilibili.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:30:03.767039Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [361/1000] samsungcloudsolution.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:30:04.501716Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [362/1000] dailymail.co.uk TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:30:05.372015Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [363/1000] dailymotion.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:30:06.648004Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [364/1000] stanford.edu TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:30:07.720804Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [365/1000] opendns.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:30:08.395930Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [366/1000] capcutapi.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:30:09.376525Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [367/1000] bloomberg.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:30:10.079109Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [368/1000] kwai-pro.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:30:11.102741Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [369/1000] nic.direct TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:30:11.952593Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [370/1000] quickconnect.to TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:30:13.019578Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [371/1000] nvidia.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:30:13.752672Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [372/1000] plesk.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:30:15.311080Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [373/1000] triplinkintl.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:30:16.074810Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [374/1000] temu.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:30:16.751713Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [375/1000] rzone.de FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:30:17.405573Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [376/1000] tiktokv.us FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:30:18.354321Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [377/1000] arubanetworks.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:30:19.464111Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [378/1000] selectel.ru TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:30:20.177567Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [379/1000] tp-link.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:30:20.964205Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [380/1000] geobasket.ru FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:30:21.677345Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [381/1000] hcaptcha.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:30:22.347310Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [382/1000] heytapdl.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:30:23.117637Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [383/1000] nasa.gov TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:30:23.911719Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [384/1000] unsplash.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:30:25.184062Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [385/1000] vivoglobal.com TLSv1_2 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:30:26.367628Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [386/1000] globo.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:30:27.132522Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [387/1000] indeed.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:30:32.734899Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [388/1000] avsxappcaptiveportal.com FAIL: connect timeout
+[2m2026-05-13T23:30:33.390929Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [389/1000] ibyteimg.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:30:34.065015Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [390/1000] tiktokcdn-eu.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:30:34.863404Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [391/1000] xcal.tv FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:30:35.681059Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [392/1000] amazon.de TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:30:36.588001Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [393/1000] edgecdn.ru FAIL: tls handshake: received fatal alert: InternalError
+[2m2026-05-13T23:30:37.337065Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [394/1000] calendly.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:30:38.161537Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [395/1000] cookiedatabase.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:30:38.862748Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [396/1000] zendesk.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:30:39.549302Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [397/1000] kwaipros.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:30:40.265996Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [398/1000] virginm.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:30:41.147124Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [399/1000] adriver.ru TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:30:41.915645Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [400/1000] duckduckgo.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:30:42.629656Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [401/1000] espn.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:30:43.291421Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [402/1000] live-video.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:30:43.945317Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [403/1000] sc-cdn.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:30:44.616939Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [404/1000] tiktokv.eu FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:30:45.485928Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [405/1000] adobe.net TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:30:46.296769Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [406/1000] cloudns.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:30:47.363156Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [407/1000] t-mobile.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:30:48.132610Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [408/1000] google.cn TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:30:48.804564Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [409/1000] aliyuncsslbintl.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:30:49.575880Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [410/1000] telegram.me TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:30:50.399033Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [411/1000] businessinsider.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:30:51.308810Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [412/1000] ip-api.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:30:51.958761Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [413/1000] online-metrix.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:30:52.704112Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [414/1000] pixabay.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:30:53.354739Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [415/1000] sc-gw.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:30:54.646065Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [416/1000] line.me TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:30:55.720979Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [417/1000] intel.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:30:57.229595Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [418/1000] 163.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:30:58.862261Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [419/1000] yahoo.co.jp TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:30:59.994546Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [420/1000] go.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:31:00.795999Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [421/1000] walmart.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:31:01.520320Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [422/1000] supercell.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:31:02.435123Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [423/1000] ngenix.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:31:03.576019Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [424/1000] amazonalexa.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:31:04.247282Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [425/1000] pangle.io FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:31:05.136810Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [426/1000] brave.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:31:05.852946Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [427/1000] gitlab.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:31:06.633046Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [428/1000] steamcommunity.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:31:12.235172Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [429/1000] imcmdb.net FAIL: connect timeout
+[2m2026-05-13T23:31:13.438514Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [430/1000] taobao.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:31:14.106598Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [431/1000] avcdn.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:31:15.529900Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [432/1000] huawei.com FAIL: tls handshake: received fatal alert: HandshakeFailure
+[2m2026-05-13T23:31:16.267073Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [433/1000] mynetname.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:31:21.869430Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [434/1000] worldnic.com FAIL: connect timeout
+[2m2026-05-13T23:31:22.626794Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [435/1000] wp.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:31:23.279199Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [436/1000] awsglobalaccelerator.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:31:24.470526Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [437/1000] pushy.io TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:31:25.241161Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [438/1000] statista.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:31:26.285501Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [439/1000] gwfb.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:31:26.962465Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [440/1000] byteglb.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:31:27.624667Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [441/1000] dual-s-msedge.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:31:28.368681Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [442/1000] hostgator.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:31:29.042814Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [443/1000] enacdn.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:31:29.738348Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [444/1000] amazontrust.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:31:31.469902Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [445/1000] netease.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:31:32.232456Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [446/1000] discord.media TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:31:33.103233Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [447/1000] crpt.ru TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:31:34.462203Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [448/1000] mcafee.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:31:35.207895Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [449/1000] speedtest.net TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:31:40.810095Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [450/1000] list-manage.com FAIL: connect timeout
+[2m2026-05-13T23:31:41.894479Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [451/1000] duolingo.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:31:42.778522Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [452/1000] netangels.ru TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:31:43.870684Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [453/1000] quora.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:31:44.794499Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [454/1000] mikrotik.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:31:46.013962Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [455/1000] beian.gov.cn FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:31:48.373055Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [456/1000] mediatek.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:31:49.050541Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [457/1000] t-msedge.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:31:50.115589Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [458/1000] sberbank.ru TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:31:51.028788Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [459/1000] g.page TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:31:52.113990Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [460/1000] gamepass.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:31:53.097299Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [461/1000] goodreads.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:31:53.819260Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [462/1000] name.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:31:59.421656Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [463/1000] nflximg.com FAIL: connect timeout
+[2m2026-05-13T23:32:00.159641Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [464/1000] ietf.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:32:01.295570Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [465/1000] eye4.cn TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:32:02.012265Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [466/1000] eventbrite.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:32:02.854602Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [467/1000] foxnews.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:32:08.456527Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [468/1000] kwai.net FAIL: connect timeout
+[2m2026-05-13T23:32:14.058732Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [469/1000] firetvcaptiveportal.com FAIL: connect timeout
+[2m2026-05-13T23:32:14.729857Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [470/1000] awswaf.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:32:15.561104Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [471/1000] addtoany.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:32:16.400347Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [472/1000] gosuslugi.ru TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:32:17.085874Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [473/1000] 2mdn.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:32:18.325501Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [474/1000] mysql.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:32:18.975640Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [475/1000] svc.ms FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:32:19.691056Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [476/1000] npr.org TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:32:20.875300Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [477/1000] bsky.app TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:32:21.661015Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [478/1000] paloaltonetworks.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:32:27.262966Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [479/1000] myqcloud.com FAIL: connect timeout
+[2m2026-05-13T23:32:28.062024Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [480/1000] myhuaweicloud.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:32:29.066672Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [481/1000] deere.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:32:29.804552Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [482/1000] ipinfo.io TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:32:35.406817Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [483/1000] tencent-cloud.net FAIL: connect timeout
+[2m2026-05-13T23:32:36.300766Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [484/1000] skyhigh.cloud TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:32:37.646124Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [485/1000] sohu.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:32:38.409886Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [486/1000] giphy.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:32:39.155764Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [487/1000] scribd.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:32:40.111758Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [488/1000] browser-intake-datadoghq.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:32:41.166549Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [489/1000] nease.net FAIL: connect: Connection refused (os error 111)
+[2m2026-05-13T23:32:42.022629Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [490/1000] vkontakte.ru TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:32:43.162951Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [491/1000] nflxvideo.net FAIL: tls handshake: received fatal alert: InternalError
+[2m2026-05-13T23:32:43.904188Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [492/1000] amzn.to TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:32:49.506199Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [493/1000] elasticbeanstalk.com FAIL: connect timeout
+[2m2026-05-13T23:32:50.154446Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [494/1000] exp-tas.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:32:51.294841Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [495/1000] shein.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:32:51.997926Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [496/1000] nstld.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:32:52.664894Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [497/1000] adobedtm.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:32:53.393815Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [498/1000] stackoverflow.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:32:54.182866Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [499/1000] indiatimes.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:32:54.956075Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [500/1000] google.de TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:32:55.717563Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [501/1000] slideshare.net TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:32:57.240205Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [502/1000] aliexpress.com TLSv1_2 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:32:58.400842Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [503/1000] amazon.co.jp TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:32:59.143225Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [504/1000] easebar.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:32:59.849670Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [505/1000] atlassian.net TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:01.346912Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [506/1000] sina.com.cn TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:33:02.109263Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [507/1000] behance.net TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:03.717572Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [508/1000] lsrelayaccess.com FAIL: tls handshake: Connection reset by peer (os error 104)
+[2m2026-05-13T23:33:04.684302Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [509/1000] icloud-content.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:05.360646Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [510/1000] rbxcdn.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:33:06.586125Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [511/1000] nbcnews.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:33:07.443230Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [512/1000] 360yield.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:33:08.157532Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [513/1000] substack.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:08.915971Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [514/1000] gandi-ns.fr FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:33:09.631315Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [515/1000] okta.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:10.365796Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [516/1000] apnews.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:11.170876Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [517/1000] gcdn.co FAIL: tls handshake: received fatal alert: InternalError
+[2m2026-05-13T23:33:11.948106Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [518/1000] run.app TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:12.737275Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [519/1000] firefox.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:33:13.428851Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [520/1000] fandom.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:14.200723Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [521/1000] blogger.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:14.942202Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [522/1000] docker.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:15.788127Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [523/1000] wired.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:33:16.783951Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [524/1000] imgsmail.ru TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:33:17.641618Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [525/1000] palmplaystore.com TLSv1_2 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:33:18.349630Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [526/1000] jquery.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:19.084676Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [527/1000] featureassets.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:33:19.833702Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [528/1000] ft.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:20.611596Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [529/1000] dynatrace.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:21.529252Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [530/1000] 2gis.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:33:22.254673Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [531/1000] cloudflareinsights.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:22.982678Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [532/1000] vedsalb.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:33:23.698192Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [533/1000] capcut.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:33:25.187828Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [534/1000] uol.com.br TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:33:26.018211Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [535/1000] ya.ru TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:33:27.072511Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [536/1000] xboxlive.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:33:27.905881Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [537/1000] trendmicro.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp384r1 pq=false
+[2m2026-05-13T23:33:28.990854Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [538/1000] yieldmo.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp384r1 pq=false
+[2m2026-05-13T23:33:29.701275Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [539/1000] xhamster.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:30.515611Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [540/1000] time.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:32.094979Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [541/1000] 360.cn TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:33:32.824641Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [542/1000] patreon.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:33.871884Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [543/1000] uk.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:33:34.626941Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [544/1000] eset.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:33:35.553746Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [545/1000] netflix.net TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:33:36.441260Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [546/1000] usatoday.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:37.266442Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [547/1000] visualstudio.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp384r1 pq=false
+[2m2026-05-13T23:33:37.939086Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [548/1000] rlcdn.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:33:38.864609Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [549/1000] tplinkcloud.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:33:39.567074Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [550/1000] deviantart.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:40.272531Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [551/1000] grammarly.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:41.062012Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [552/1000] teamviewer.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:33:41.794717Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [553/1000] markmonitor.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:42.530927Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [554/1000] arxiv.org TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:43.368134Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [555/1000] wix.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:33:44.060901Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [556/1000] vidaahub.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:33:44.909673Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [557/1000] fast.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:33:45.581948Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [558/1000] live.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:33:46.233743Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [559/1000] azure-dns.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:33:47.081769Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [560/1000] spaceweb.pro FAIL: connect: Connection refused (os error 111)
+[2m2026-05-13T23:33:47.807553Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [561/1000] atlassian.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:48.523806Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [562/1000] hotjar.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:49.251620Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [563/1000] tandfonline.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:50.064049Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [564/1000] expireddomains.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:51.326266Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [565/1000] oraclecloud.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:33:52.276410Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [566/1000] oup.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:33:57.877956Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [567/1000] dnspod.net FAIL: connect timeout
+[2m2026-05-13T23:33:58.669343Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [568/1000] telegraph.co.uk TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:33:59.494836Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [569/1000] comcast.com FAIL: connect: Connection refused (os error 111)
+[2m2026-05-13T23:34:00.392311Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [570/1000] ca.gov TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:34:01.102701Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [571/1000] deepl.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:34:01.810980Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [572/1000] sharethrough.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:34:02.532808Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [573/1000] my.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:34:03.825501Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [574/1000] amagi.tv FAIL: tls handshake: Connection reset by peer (os error 104)
+[2m2026-05-13T23:34:04.554781Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [575/1000] tripadvisor.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:34:05.207307Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [576/1000] msidentity.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:34:06.108934Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [577/1000] google.com.hk TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:34:07.005886Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [578/1000] timeweb.ru TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:34:08.669249Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [579/1000] impervadns.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:34:09.904949Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [580/1000] rakuten.co.jp TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:34:10.578702Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [581/1000] adobedc.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:34:11.225067Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [582/1000] scdn.co FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:34:11.987805Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [583/1000] bidswitch.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:34:12.754234Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [584/1000] target.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:34:13.435670Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [585/1000] yahoodns.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:34:14.235169Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [586/1000] avito.ru TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:34:14.915787Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [587/1000] googlezip.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:34:16.117170Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [588/1000] cornell.edu TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:34:16.838852Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [589/1000] surveymonkey.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:34:17.514535Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [590/1000] qlivecdn.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:34:18.311274Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [591/1000] claude.ai TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:34:19.310171Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [592/1000] cdnvideo.ru TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp384r1 pq=false
+[2m2026-05-13T23:34:24.912832Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [593/1000] alicdn.com FAIL: connect timeout
+[2m2026-05-13T23:34:25.762262Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [594/1000] berkeley.edu TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:34:27.097784Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [595/1000] xiaomi.net TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:34:27.770961Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [596/1000] hicloud.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:34:28.443566Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [597/1000] cdn20.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:34:29.681863Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [598/1000] playstation.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:34:30.760612Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [599/1000] ieee.org TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:34:31.442587Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [600/1000] googletagservices.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:34:32.310615Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [601/1000] aboutads.info TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:34:33.062780Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [602/1000] onetrust.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:34:38.665020Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [603/1000] samsungapps.com FAIL: connect timeout
+[2m2026-05-13T23:34:39.382530Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [604/1000] digitalocean.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:34:40.197782Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [605/1000] free.fr TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:34:41.150904Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [606/1000] verisign.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:34:41.821537Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [607/1000] licdn.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:34:42.515533Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [608/1000] bamgrid.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:34:43.227439Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [609/1000] braze.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:34:43.899519Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [610/1000] a-msedge.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:34:44.701478Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [611/1000] jotform.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:34:45.470827Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [612/1000] accuweather.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:34:46.209412Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [613/1000] ikea.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:34:46.927139Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [614/1000] klaviyo.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:34:48.070054Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [615/1000] britannica.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:34:49.137928Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [616/1000] dyndns.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:34:49.967730Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [617/1000] mdpi.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:34:50.991150Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [618/1000] shopee.com.br TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:34:51.698558Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [619/1000] branch.io TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:34:52.412578Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [620/1000] fontawesome.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:34:53.088986Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [621/1000] volcfcdndvs.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:34:53.903100Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [622/1000] squarespace.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:34:54.678050Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [623/1000] loc.gov TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:34:55.514738Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [624/1000] abc.net.au TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:34:56.469018Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [625/1000] force.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:34:57.375234Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [626/1000] ozone.ru TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:35:02.977921Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [627/1000] typekit.net FAIL: connect timeout
+[2m2026-05-13T23:35:03.686133Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [628/1000] intercom.io TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:35:04.624106Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [629/1000] redhat.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:35:05.336607Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [630/1000] cookielaw.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:35:06.432058Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [631/1000] stackadapt.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp384r1 pq=false
+[2m2026-05-13T23:35:07.101815Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [632/1000] b-msedge.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:35:08.379387Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [633/1000] nintendo.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:35:09.269084Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [634/1000] consultant.ru TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:35:10.341021Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [635/1000] dreamhost.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:35:11.047617Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [636/1000] bluehost.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:35:12.325750Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [637/1000] abovedomains.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:35:13.042308Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [638/1000] conviva.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:35:13.840268Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [639/1000] cnet.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:35:14.593604Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [640/1000] outbrain.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:35:15.373341Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [641/1000] cbsnews.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:35:16.231429Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [642/1000] independent.co.uk TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:35:16.972063Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [643/1000] nike.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:35:17.725846Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [644/1000] elpais.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:35:18.588963Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [645/1000] amazon.fr TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:35:19.262896Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [646/1000] bunnyinfra.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:35:20.328117Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [647/1000] nic.network TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:35:21.273619Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [648/1000] viber.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:35:21.975859Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [649/1000] ui-dns.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:35:22.810045Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [650/1000] ovh.net TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:35:23.806114Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [651/1000] ups.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:35:25.058045Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [652/1000] dotomi.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:35:25.739964Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [653/1000] bytedns1.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:35:26.862219Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [654/1000] sagepub.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:35:27.742252Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [655/1000] unesco.org TLSv1_2 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:35:28.882735Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [656/1000] aljazeera.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:35:29.739115Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [657/1000] imgur.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:35:30.469732Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [658/1000] afilias-nst.info FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:35:31.148853Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [659/1000] fb-t-msedge.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:35:32.290949Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [660/1000] quantserve.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:35:32.987073Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [661/1000] agkn.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:35:33.701020Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [662/1000] threads.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:35:34.489996Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [663/1000] techcrunch.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:35:35.257702Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [664/1000] g.co TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:35:40.859959Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [665/1000] crwdcntrl.net FAIL: connect timeout
+[2m2026-05-13T23:35:41.919131Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [666/1000] amazon.ca TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:35:42.582934Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [667/1000] 1rx.io FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:35:43.792979Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [668/1000] noaa.gov TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:35:44.544615Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [669/1000] cambridge.org TLSv1_2 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:35:45.341745Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [670/1000] id5-sync.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:35:46.072105Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [671/1000] optimizely.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:35:46.891605Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [672/1000] yelp.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:35:47.657292Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [673/1000] withgoogle.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:35:48.971521Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [674/1000] att.net TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:35:49.709519Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [675/1000] mailchimp.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:35:50.473042Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [676/1000] pinimg.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:35:51.150179Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [677/1000] bx-msedge.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:35:52.260660Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [678/1000] ted.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:35:52.984071Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [679/1000] wattpad.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:35:53.798923Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [680/1000] lijit.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:35:54.859327Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [681/1000] telephony.goog TLSv1_2 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:35:55.579281Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [682/1000] safebrowsing.apple FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:35:56.448165Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [683/1000] hath.network TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:35:57.101830Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [684/1000] twimg.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:35:57.915965Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [685/1000] service.gov.uk TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:35:58.601756Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [686/1000] smaato.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:35:59.415651Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [687/1000] spiegel.de TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:36:00.252194Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [688/1000] lemonde.fr TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:36:03.309692Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [689/1000] tencent.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:36:04.552158Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [690/1000] hihonorcloud.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:36:05.282074Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [691/1000] fb.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:36:05.993614Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [692/1000] anydesk.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:36:06.666800Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [693/1000] nmrodam.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:36:07.594885Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [694/1000] mega.co.nz TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:36:08.361914Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [695/1000] creativecdn.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:36:09.058175Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [696/1000] bidr.io FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:36:09.732860Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [697/1000] samsungacr.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:36:10.483719Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [698/1000] tapad.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:36:11.157285Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [699/1000] ln-msedge.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:36:11.827024Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [700/1000] wswebcdn.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:36:12.611206Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [701/1000] google.co.uk TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:36:13.276758Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [702/1000] criteo.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:36:14.015216Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [703/1000] afilias-nst.org FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:36:14.967132Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [704/1000] rt.ru TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:36:15.904591Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [705/1000] supertms.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:36:16.716516Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [706/1000] newrelic.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:36:17.393841Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [707/1000] ovscdns.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:36:18.115021Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [708/1000] sophos.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:36:18.975781Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [709/1000] amazon.in TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:36:19.839222Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [710/1000] it.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:36:25.441503Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [711/1000] 360safe.com FAIL: connect timeout
+[2m2026-05-13T23:36:31.043689Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [712/1000] chinamobile.com FAIL: connect timeout
+[2m2026-05-13T23:36:32.277116Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [713/1000] asus.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:36:33.005039Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [714/1000] mediafire.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:36:38.607749Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [715/1000] rackspace.net FAIL: connect timeout
+[2m2026-05-13T23:36:39.558240Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [716/1000] ks-cdn.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:36:40.426305Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [717/1000] cursor.sh TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:36:41.212750Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [718/1000] box.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:36:42.100910Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [719/1000] allaboutcookies.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:36:47.703111Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [720/1000] everesttech.net FAIL: connect timeout
+[2m2026-05-13T23:36:48.460156Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [721/1000] freepik.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:36:49.257050Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [722/1000] bitrix24.ru TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:36:49.968823Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [723/1000] bugsnag.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:36:50.647563Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [724/1000] dbankcloud.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:36:51.414718Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [725/1000] beyondwickedmapping.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:36:52.689850Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [726/1000] shopee.co.id TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:36:53.525985Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [727/1000] adform.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:36:54.229995Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [728/1000] liadm.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:36:54.886118Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [729/1000] grammarly.io FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:36:56.041402Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [730/1000] zdnscloud.cn FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:36:57.026515Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [731/1000] bdydns.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:36:57.913191Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [732/1000] amazon.es TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:36:58.892728Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [733/1000] ring.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:36:59.643716Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [734/1000] disneyplus.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:37:00.420737Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [735/1000] homedepot.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:37:01.111539Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [736/1000] imrworldwide.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:37:01.766155Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [737/1000] steamstatic.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:37:02.495270Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [738/1000] ci-servers.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:37:03.198959Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [739/1000] stripchat.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:03.888112Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [740/1000] jetbrains.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:04.621638Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [741/1000] networkadvertising.org TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:05.544726Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [742/1000] allegro.pl TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:06.244798Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [743/1000] ci-servers.org FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:37:07.167763Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [744/1000] teads.tv TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:37:08.000462Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [745/1000] amazon.it TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:37:08.871012Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [746/1000] marriott.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:37:09.577472Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [747/1000] gumgum.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:10.380613Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [748/1000] google.com.br TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:11.127416Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [749/1000] bandcamp.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:11.782989Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [750/1000] githubusercontent.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:37:12.638617Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [751/1000] ameblo.jp TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:37:13.306665Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [752/1000] turn.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:37:14.383065Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [753/1000] mckinsey.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:37:15.093558Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [754/1000] zillow.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:15.895291Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [755/1000] appcenter.ms TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:37:16.616871Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [756/1000] a-mo.net TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:17.379290Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [757/1000] appspot.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:18.221344Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [758/1000] iso.org TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:37:19.012440Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [759/1000] fda.gov TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:37:19.740345Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [760/1000] primevideo.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:20.477190Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [761/1000] python.org TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:21.220553Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [762/1000] prnewswire.com TLSv1_2 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:37:21.934533Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [763/1000] bytefcdn-ttpus.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:37:22.715256Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [764/1000] 33across.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:23.460555Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [765/1000] myspace.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:37:24.184321Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [766/1000] squarespacedns.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:37:26.122248Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [767/1000] mlb.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:37:26.918618Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [768/1000] wp.pl TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:37:27.875694Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [769/1000] wb.ru TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp384r1 pq=false
+[2m2026-05-13T23:37:29.006936Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [770/1000] blackberry.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:37:29.772114Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [771/1000] fiverr.com TLSv1_2 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:37:30.982014Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [772/1000] nic.io TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:37:31.704721Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [773/1000] hbr.org TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:32.927336Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [774/1000] nikkei.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:37:34.186955Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [775/1000] no-ip.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:37:34.891217Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [776/1000] unpkg.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:35.570495Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [777/1000] nel.goog FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:37:36.414455Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [778/1000] seznam.cz TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:37:38.331148Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [779/1000] alipaydns.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:37:39.095465Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [780/1000] theverge.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:39.772644Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [781/1000] whecloud.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:37:40.496646Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [782/1000] herokudns.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:37:41.153618Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [783/1000] lgtvcommon.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:37:41.888076Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [784/1000] people.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:42.987450Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [785/1000] zoom.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:37:43.679544Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [786/1000] anthropic.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:49.281542Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [787/1000] ddnss.de FAIL: connect timeout
+[2m2026-05-13T23:37:49.994953Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [788/1000] datadoghq.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:50.741714Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [789/1000] usgovcloudapi.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:37:51.393081Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [790/1000] omnitagjs.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:37:52.160797Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [791/1000] uber.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:37:52.930603Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [792/1000] adguard-vpn.online FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:37:53.697045Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [793/1000] disqus.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:54.653960Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [794/1000] mhverifier.ru TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:37:55.419178Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [795/1000] hostgator.com.br TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:37:56.176255Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [796/1000] mixpanel.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:37:57.043518Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [797/1000] globalsign.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:37:58.005062Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [798/1000] moloco.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:37:58.992520Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [799/1000] mercadolivre.com.br TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:38:00.199143Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [800/1000] washington.edu TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:38:02.162155Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [801/1000] fwmrm.net TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:38:03.516547Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [802/1000] rakuten.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:38:04.466827Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [803/1000] welt.de TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:38:05.803888Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [804/1000] wps.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:38:06.461615Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [805/1000] dbankcloud.ru FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:38:07.324212Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [806/1000] bild.de TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:38:08.110584Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [807/1000] recaptcha.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:38:08.778614Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [808/1000] msftauth.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:38:09.562952Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [809/1000] onetag-sys.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:38:10.231709Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [810/1000] yellowblue.io FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:38:10.936851Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [811/1000] yandexcloud.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:38:11.650693Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [812/1000] kick.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:38:12.366867Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [813/1000] sedo.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:38:13.221144Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [814/1000] adjust.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:38:13.993262Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [815/1000] lenovo.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:38:15.332180Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [816/1000] usps.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:38:16.046887Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [817/1000] liftoff.io TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:38:17.234086Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [818/1000] mayoclinic.org TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:38:18.593172Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [819/1000] xerox.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:38:19.303845Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [820/1000] singular.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:38:20.042825Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [821/1000] discordapp.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:38:21.331906Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [822/1000] shopeemobile.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:38:22.120747Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [823/1000] openstreetmap.org TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:38:23.120882Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [824/1000] erome.com TLSv1_3 TLS13_CHACHA20_POLY1305_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:38:23.851668Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [825/1000] lefigaro.fr TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:38:25.193056Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [826/1000] latimes.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:38:25.877905Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [827/1000] adgrx.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:38:31.481844Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [828/1000] kontur.ru FAIL: connect timeout
+[2m2026-05-13T23:38:32.183012Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [829/1000] figma.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:38:32.788674Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [830/1000] resolver.arpa FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:38:33.496822Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [831/1000] academia.edu TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:38:34.235616Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [832/1000] thenai.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:38:35.297726Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [833/1000] zoho.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:38:36.641941Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [834/1000] vivo.com.cn TLSv1_2 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:38:37.742793Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [835/1000] me.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:38:38.646186Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [836/1000] livejournal.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:38:39.425672Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [837/1000] pornhub.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:38:40.199495Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [838/1000] cmediahub.ru FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:38:42.351751Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [839/1000] ys7.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:38:43.090291Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [840/1000] investopedia.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:38:44.476429Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [841/1000] discogs.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:38:45.129719Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [842/1000] ssl-images-amazon.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:38:46.012148Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [843/1000] news.com.au TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:38:47.340461Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [844/1000] zhihu.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:38:47.995605Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [845/1000] spotifycdn.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:38:48.988814Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [846/1000] cdnhwc1.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:38:49.906793Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [847/1000] wpguardian.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:38:50.642620Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [848/1000] focus.de TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:38:51.373191Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [849/1000] onlyfans.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:38:52.086670Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [850/1000] pexels.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:38:52.982193Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [851/1000] ebay.co.uk TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:38:53.788936Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [852/1000] bestbuy.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:38:54.704213Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [853/1000] wpguardian.io TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:38:55.391242Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [854/1000] e2ro.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:38:56.132062Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [855/1000] goskope.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:38:57.241781Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [856/1000] blackberry.net TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:38:58.353522Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [857/1000] agoda.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:38:59.465860Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [858/1000] life360.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:39:00.587521Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [859/1000] webmd.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:39:06.189547Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [860/1000] dtkn.ru FAIL: connect timeout
+[2m2026-05-13T23:39:07.313536Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [861/1000] synology.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:39:12.915776Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [862/1000] miwifi.com FAIL: connect timeout
+[2m2026-05-13T23:39:13.901225Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [863/1000] herokuapp.com FAIL: tls handshake: received fatal alert: UnrecognisedName
+[2m2026-05-13T23:39:14.898922Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [864/1000] qualtrics.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:15.609089Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [865/1000] chess.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:16.311209Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [866/1000] biblegateway.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:17.092488Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [867/1000] ndtv.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:39:18.423584Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [868/1000] princeton.edu TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:39:19.153995Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [869/1000] themeforest.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:19.970282Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [870/1000] eu-1-id5-sync.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:20.917680Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [871/1000] zenecn.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:39:21.643476Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [872/1000] change.org TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:22.345928Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [873/1000] cloudinary.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:23.111855Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [874/1000] xvideos.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:23.762113Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [875/1000] tplinknbu.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:39:24.602704Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [876/1000] ebay.de TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:39:25.386819Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [877/1000] share.google TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:26.117686Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [878/1000] smartthings.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:26.812881Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [879/1000] cdn-vk.ru FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:39:27.749650Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [880/1000] flashtalking.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:39:28.475534Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [881/1000] healthline.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:29.279326Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [882/1000] pendo.io TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:39:30.645548Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [883/1000] deloitte.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:39:31.922649Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [884/1000] usda.gov TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:39:32.665198Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [885/1000] starlink.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:33.437785Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [886/1000] bankofamerica.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:34.450932Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [887/1000] fidelity.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:39:35.191247Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [888/1000] clever.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:35.926128Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [889/1000] classlink.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:36.738802Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [890/1000] otto.de TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:39:37.467835Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [891/1000] typeform.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:38.195638Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [892/1000] worldbank.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:39.594551Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [893/1000] www.gov.br TLSv1_3 TLS13_CHACHA20_POLY1305_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:39:40.764025Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [894/1000] airbnb.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:39:41.556813Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [895/1000] linode.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:42.210886Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [896/1000] aiv-delivery.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:39:43.191478Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [897/1000] amazon.com.br TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:39:43.869148Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [898/1000] nintendo.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:39:44.556620Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [899/1000] akahost.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:39:45.269320Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [900/1000] playrix.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:46.003907Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [901/1000] seedtag.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:46.733060Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [902/1000] wbbasket.ru FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:39:47.462019Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [903/1000] genius.com TLSv1_2 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:39:53.064707Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [904/1000] kunluncan.com FAIL: connect timeout
+[2m2026-05-13T23:39:53.767675Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [905/1000] jimdo.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:39:54.416633Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [906/1000] go-mpulse.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:39:55.105913Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [907/1000] cloudsink.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:39:55.948713Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [908/1000] frontiersin.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:39:56.608106Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [909/1000] tiktokw.us FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:39:57.289922Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [910/1000] bytefcdn-ttpeu.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:39:57.984220Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [911/1000] azure-devices.net FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:39:58.781549Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [912/1000] mailchi.mp TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:40:00.303149Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [913/1000] pixiv.net TLSv1_2 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:40:05.905659Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [914/1000] ddns.net FAIL: connect timeout
+[2m2026-05-13T23:40:06.864788Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [915/1000] samsungosp.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:40:07.595193Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [916/1000] kickstarter.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:40:08.692507Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [917/1000] pccc.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:40:09.424806Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [918/1000] arcgis.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:40:10.232464Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [919/1000] usercontent.goog TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:40:11.078554Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [920/1000] rambler.ru TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:40:12.136803Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [921/1000] eu.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:40:12.927432Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [922/1000] rutube.ru TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:40:13.672940Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [923/1000] poki.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:40:14.349589Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [924/1000] bytefcdn.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:40:15.384958Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [925/1000] state.gov TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:40:16.113184Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [926/1000] chaturbate.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:40:16.918404Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [927/1000] presage.io TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:40:17.631625Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [928/1000] fbsbx.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:40:18.998958Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [929/1000] agora.io TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:40:19.702604Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [930/1000] nationalgeographic.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:40:20.540542Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [931/1000] smilewanted.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:40:21.646188Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [932/1000] ubnt.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:40:22.430002Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [933/1000] ryanair.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:40:23.351451Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [934/1000] docker.io TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:40:24.063667Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [935/1000] character.ai TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:40:24.798007Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [936/1000] coupang.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:40:25.974349Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [937/1000] epa.gov TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:40:26.705557Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [938/1000] hm.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:40:28.287148Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [939/1000] daum.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:40:29.019945Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [940/1000] repubblica.it TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:40:30.313887Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [941/1000] youku.com TLSv1_2 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:40:31.099861Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [942/1000] instructure.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:40:31.833562Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [943/1000] lowes.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:40:37.435633Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [944/1000] opera-api.com FAIL: connect timeout
+[2m2026-05-13T23:40:38.131658Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [945/1000] tiktokrow-cdn.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:40:38.934943Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [946/1000] kleinanzeigen.de TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:40:40.091940Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [947/1000] mercadolibre.com.ar TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:40:41.212570Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [948/1000] amazon.com.au TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:40:42.381260Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [949/1000] rackspace.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:40:43.254751Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [950/1000] corriere.it TLSv1_2 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:40:44.081942Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [951/1000] theatlantic.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:40:44.756810Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [952/1000] 4dex.io FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:40:45.694812Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [953/1000] weforum.org TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:40:46.791114Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [954/1000] segment.io TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:40:47.500198Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [955/1000] sportradar.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:40:48.477132Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [956/1000] cdnhwc2.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:40:49.152614Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [957/1000] nextlgsdp.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:40:49.824453Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [958/1000] kslawin.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:40:50.611302Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [959/1000] xnxx.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:40:51.321476Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [960/1000] digitaloceanspaces.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:40:52.092187Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [961/1000] yandex.com.tr TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:40:52.819205Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [962/1000] readthedocs.io TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:40:58.421542Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [963/1000] leiniao.com FAIL: connect timeout
+[2m2026-05-13T23:40:59.150461Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [964/1000] wyzecam.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:40:59.949802Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [965/1000] whitehouse.gov TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:41:00.805511Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [966/1000] paramountplus.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:41:01.633769Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [967/1000] elmundo.es TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:41:02.430839Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [968/1000] umich.edu TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:41:04.688042Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [969/1000] kwai.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:41:05.487467Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [970/1000] px-cloud.net TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:41:07.110337Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [971/1000] caixa.gov.br TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=secp256r1 pq=false
+[2m2026-05-13T23:41:07.780740Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [972/1000] immedia-semi.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:41:09.142426Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [973/1000] jd.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:41:09.948999Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [974/1000] tsyndicate.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:41:10.663458Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [975/1000] note.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:41:11.504876Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [976/1000] richaudience.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:41:12.255282Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [977/1000] theconversation.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:41:12.961141Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [978/1000] nexusmods.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:41:14.265685Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [979/1000] netgear.com TLSv1_2 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 kex=secp256r1 pq=false
+[2m2026-05-13T23:41:15.278781Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [980/1000] pbs.org TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:41:16.003730Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [981/1000] onet.pl TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:41:16.964980Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [982/1000] utorrent.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:41:17.718774Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [983/1000] split.io TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:41:18.528447Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [984/1000] kueezrtb.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:41:19.256247Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [985/1000] hotstar.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:41:20.027329Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [986/1000] rbc.ru TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=x25519 pq=false
+[2m2026-05-13T23:41:20.760112Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [987/1000] onesignal.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:41:21.463890Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [988/1000] vk-analytics.ru FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:41:22.249658Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [989/1000] sofascore.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:41:22.937273Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [990/1000] afafb.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:41:23.711475Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [991/1000] nypost.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:41:24.503940Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [992/1000] admanmedia.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:41:25.765538Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [993/1000] binance.com TLSv1_3 TLS13_AES_128_GCM_SHA256 kex=X25519MLKEM768 pq=true
+[2m2026-05-13T23:41:26.571456Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [994/1000] odoo.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:41:27.340231Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [995/1000] snapkit.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:41:28.128863Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [996/1000] bol.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:41:29.215496Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [997/1000] us.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:41:29.947009Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [998/1000] costco.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=x25519 pq=false
+[2m2026-05-13T23:41:30.642043Z[0m [33m WARN[0m [2msezar_net[0m[2m:[0m [999/1000] orderbox-dns.com FAIL: connect: failed to lookup address information: Name or service not known
+[2m2026-05-13T23:41:31.349550Z[0m [32m INFO[0m [2msezar_net[0m[2m:[0m [1000/1000] quizlet.com TLSv1_3 TLS13_AES_256_GCM_SHA384 kex=X25519MLKEM768 pq=true

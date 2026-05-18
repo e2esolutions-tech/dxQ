@@ -1,0 +1,8002 @@
+[
+  {
+    "host": "google.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "gtld-servers.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "cloudflare.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "gstatic.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "facebook.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_CHACHA20_POLY1305_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "microsoft.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA384",
+    "error": null
+  },
+  {
+    "host": "googleapis.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "youtube.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "mail.ru",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "amazonaws.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "apple.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "instagram.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_CHACHA20_POLY1305_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "akamai.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "fbcdn.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_CHACHA20_POLY1305_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "dzen.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "twitter.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "linkedin.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "googletagmanager.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "office.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA384",
+    "error": null
+  },
+  {
+    "host": "live.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA384",
+    "error": null
+  },
+  {
+    "host": "googlevideo.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "akamaiedge.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "akadns.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "amazon.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "googleusercontent.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "azure.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA384",
+    "error": null
+  },
+  {
+    "host": "wikipedia.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "domaincontrol.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "ConnectionResetError: [Errno 104] Connection reset by peer"
+  },
+  {
+    "host": "github.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "doubleclick.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "microsoftonline.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "bing.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA384",
+    "error": null
+  },
+  {
+    "host": "fastly.net",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-CHACHA20-POLY1305",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "appsflyersdk.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "whatsapp.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_CHACHA20_POLY1305_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "office.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "ezviz7.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "trafficmanager.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "digicert.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "netflix.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "apple-dns.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "wordpress.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "aaplimg.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "skype.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA384",
+    "error": null
+  },
+  {
+    "host": "sharepoint.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA384",
+    "error": null
+  },
+  {
+    "host": "youtu.be",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "pinterest.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "keenetic.io",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "chatgpt.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "whatsapp.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_CHACHA20_POLY1305_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "ripn.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "gandi.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "cloudfront.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "goo.gl",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "googlesyndication.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "yahoo.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "x.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "cloud.microsoft",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA384",
+    "error": null
+  },
+  {
+    "host": "icloud.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "tiktok.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "msn.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA384",
+    "error": null
+  },
+  {
+    "host": "workers.dev",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "spotify.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "gvt1.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "adobe.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "vimeo.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "windowsupdate.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "ntp.org",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "cloudflare.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "windows.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA384",
+    "error": null
+  },
+  {
+    "host": "googledomains.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "hicloudcam.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "tiktokcdn.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "telekom.de",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "ECDSA-P384",
+    "error": null
+  },
+  {
+    "host": "wa.me",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_CHACHA20_POLY1305_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "myfritz.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "gvt2.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "zoom.us",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "akam.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "tiktokv.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "ytimg.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "roblox.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "qq.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "cloudflare-dns.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "pv-cdn.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "baidu.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "yandex.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "nginx.org",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-ECDSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "edgekey.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "opera.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "nic.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "google-analytics.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "mozilla.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "yandex.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "samsung.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "sentry.io",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "nginx.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "windows.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA384",
+    "error": null
+  },
+  {
+    "host": "office365.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA384",
+    "error": null
+  },
+  {
+    "host": "wordpress.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "bit.ly",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "edgesuite.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "ui.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "root-servers.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "okcdn.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "reddit.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "cdninstagram.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "discord.gg",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "googleadservices.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "criteo.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "a2z.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "trbcdn.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "blogspot.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "t.me",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "b-cdn.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "vedcdnlb.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "europa.eu",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "vk.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P384",
+    "error": null
+  },
+  {
+    "host": "mailinabox.email",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "f5.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "unity3d.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "intuit.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "snapchat.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "github.io",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "amazon-adsystem.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "cdn77.org",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "app-measurement.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "amazonvideo.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "apache.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "dns.google",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "msftncsi.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "outlook.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "kaspersky.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "nih.gov",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "gravatar.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "amazon.dev",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "dropbox.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "registrar-servers.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "ConnectionRefusedError: [Errno 111] Connection refused"
+  },
+  {
+    "host": "epicgames.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "app-analytics-services.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "spo-msedge.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "xiaomi.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "prodregistryv2.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "forms.gle",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "msftconnecttest.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "archive.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "yccdn.ru",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "iiko.it",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "one.one",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "steamserver.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "godaddy.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "tumblr.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "nytimes.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "reg.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "bytefcdn-oversea.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "azurefd.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "miit.gov.cn",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "paypal.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "ax-msedge.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "vkuserphoto.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P384",
+    "error": null
+  },
+  {
+    "host": "applovin.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "3gppnetwork.org",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "shopify.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "dnsowl.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "aliyuncs.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "ggpht.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "nflxso.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "discord.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "webex.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "adobe.io",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "wac-msedge.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "cdn-apple.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "macromedia.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "flickr.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "azurewebsites.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "example.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "soundcloud.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "medium.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "userapi.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P384",
+    "error": null
+  },
+  {
+    "host": "rubiconproject.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "w3.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "adtrafficquality.google",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "cnn.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "ECDSA-P384",
+    "error": null
+  },
+  {
+    "host": "taboola.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "theguardian.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "vungle.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "nominetdns.uk",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "avast.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "aws.dev",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "ttdns2.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "msedge.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "oracle.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "static.microsoft",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "forbes.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-CHACHA20-POLY1305",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "creativecommons.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "adnxs.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-ECDSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "shifen.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "pubmatic.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "ozon.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "fastly-edge.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "bbc.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "dns-parking.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "tiktokcdn-us.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "sfx.ms",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "spov-msedge.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "t.co",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "roku.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "weather.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "jomodns.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "azureedge.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "twitch.tv",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "cpanel.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "sciencedirect.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "researchgate.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "bbc.co.uk",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "oxylabs.io",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "gmail.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "youtube-nocookie.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "akamaized.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "ebay.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "comcast.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "ConnectionRefusedError: [Errno 111] Connection refused"
+  },
+  {
+    "host": "ipv4only.arpa",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "pki.goog",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "sourceforge.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "hichina.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "mit.edu",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "ubuntu.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "vecdnlb.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "canva.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "doi.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "scorecardresearch.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "android.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "meraki.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "shopifysvc.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "telekom.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "adsafeprotected.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "nist.gov",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "doubleverify.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "akamaitech.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "lencr.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "t-online.de",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "cdngslb.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "tm-azurefd.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "casalemedia.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "imdb.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "stripe.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "who.int",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "miui.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "wsdvs.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "telegram.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "cisco.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "hubspot.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "ksyuncdn.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "forter.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "wixsite.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "linktr.ee",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-CHACHA20-POLY1305",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "playstation.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "openai.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "booking.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "omtrdc.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "alibabadns.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "adsrvr.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "launchpad.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "dropcatch.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "autodesk.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "wikimedia.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "smartadserver.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "hp.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "salesforce.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "mts.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "springer.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "mangosip.ru",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "ttvnw.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "facebook.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "mzstatic.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "tinyurl.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "inmobi.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "ampproject.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "jsdelivr.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "heytapmobile.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "mozilla.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "samsungcloud.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "openx.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "duckdns.org",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "reuters.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "etsy.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-CHACHA20-POLY1305",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "drom.ru",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "wiley.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "shalltry.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "libp2p.direct",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "www.gov.uk",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "pages.dev",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "ok.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "alibaba.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "ibm.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "appsflyer.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "3lift.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "harvard.edu",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "media.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "googleblog.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "samsungqbe.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "dnsmadeeasy.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "nature.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "steampowered.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "amplitude.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "afternic.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "nr-data.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "debian.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "mtgglobals.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "name-services.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "byteoversea.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "php.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "media-amazon.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "amazon.co.uk",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "trueconf.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "launchdarkly.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "mi.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "akamaihd.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "myshopify.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "clarity.ms",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "SSLEOFError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:998)"
+  },
+  {
+    "host": "alidns.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-ECDSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "weibo.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-ECDSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "aol.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "ea.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "issuu.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "slack.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "cnbc.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "wbx2.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "wildberries.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "gnu.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "telecid.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "douyincdn.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "vk.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P384",
+    "error": null
+  },
+  {
+    "host": "crashlytics.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "checkpoint.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "tradingview.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "moe.video",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "rocket-cdn.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "weebly.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "inner-active.mobi",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "cdc.gov",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "onelink.me",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "un.org",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-SHA",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "vkuser.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "ivi.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "namebrightdns.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "naver.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "washingtonpost.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "yandex.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "demdex.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "allawnos.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "wsj.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "trustpilot.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "kaspersky-labs.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "ConnectionResetError: [Errno 104] Connection reset by peer"
+  },
+  {
+    "host": "aliyun.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-ECDSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "tbcache.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "ezvizlife.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "cdnbuild.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "dell.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "bilibili.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "samsungcloudsolution.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "dailymail.co.uk",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "dailymotion.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA384",
+    "error": null
+  },
+  {
+    "host": "stanford.edu",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "opendns.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "capcutapi.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "bloomberg.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "kwai-pro.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "nic.direct",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "quickconnect.to",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "nvidia.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "plesk.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "triplinkintl.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "temu.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "rzone.de",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "tiktokv.us",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "arubanetworks.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "selectel.ru",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "tp-link.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "geobasket.ru",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "hcaptcha.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "heytapdl.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "nasa.gov",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "unsplash.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-CHACHA20-POLY1305",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "vivoglobal.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-ECDSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "globo.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "indeed.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "avsxappcaptiveportal.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "OSError: [Errno 101] Network is unreachable"
+  },
+  {
+    "host": "ibyteimg.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "tiktokcdn-eu.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "xcal.tv",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "amazon.de",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "edgecdn.ru",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "SSLError: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:998)"
+  },
+  {
+    "host": "calendly.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "cookiedatabase.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "zendesk.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "kwaipros.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "virginm.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "adriver.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "duckduckgo.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "espn.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "live-video.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "sc-cdn.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "tiktokv.eu",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "adobe.net",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "cloudns.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "t-mobile.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "google.cn",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "aliyuncsslbintl.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "telegram.me",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "businessinsider.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-CHACHA20-POLY1305",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "ip-api.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-SHA",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "online-metrix.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "pixabay.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "sc-gw.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "line.me",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "intel.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "163.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "yahoo.co.jp",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "go.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "walmart.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "supercell.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "ngenix.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "amazonalexa.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "pangle.io",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "brave.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "gitlab.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "steamcommunity.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "imcmdb.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "taobao.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "avcdn.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "huawei.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "SSLError: [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:998)"
+  },
+  {
+    "host": "mynetname.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "worldnic.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "wp.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "awsglobalaccelerator.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "pushy.io",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "statista.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "gwfb.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "byteglb.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "dual-s-msedge.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "hostgator.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "enacdn.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "amazontrust.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "netease.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "discord.media",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "crpt.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "mcafee.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "speedtest.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "list-manage.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "duolingo.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "netangels.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "quora.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "mikrotik.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "beian.gov.cn",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "mediatek.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "t-msedge.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "sberbank.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "g.page",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "gamepass.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA384",
+    "error": null
+  },
+  {
+    "host": "goodreads.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "name.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "nflximg.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "ietf.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "eye4.cn",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "eventbrite.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "foxnews.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "kwai.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "firetvcaptiveportal.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "OSError: [Errno 101] Network is unreachable"
+  },
+  {
+    "host": "awswaf.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "addtoany.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "gosuslugi.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "2mdn.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "mysql.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "svc.ms",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "npr.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "bsky.app",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "paloaltonetworks.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "myqcloud.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "myhuaweicloud.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "deere.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "ipinfo.io",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "tencent-cloud.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "skyhigh.cloud",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "sohu.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "giphy.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "scribd.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "browser-intake-datadoghq.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "nease.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "ConnectionRefusedError: [Errno 111] Connection refused"
+  },
+  {
+    "host": "vkontakte.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P384",
+    "error": null
+  },
+  {
+    "host": "nflxvideo.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "SSLError: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:998)"
+  },
+  {
+    "host": "amzn.to",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "elasticbeanstalk.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "ConnectionResetError: [Errno 104] Connection reset by peer"
+  },
+  {
+    "host": "exp-tas.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "shein.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "nstld.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "adobedtm.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "stackoverflow.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "indiatimes.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "google.de",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "slideshare.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "aliexpress.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-ECDSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "amazon.co.jp",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "easebar.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "atlassian.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "sina.com.cn",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "behance.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "lsrelayaccess.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "ConnectionResetError: [Errno 104] Connection reset by peer"
+  },
+  {
+    "host": "icloud-content.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "rbxcdn.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "nbcnews.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "360yield.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "substack.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "gandi-ns.fr",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "okta.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "apnews.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "gcdn.co",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "SSLError: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:998)"
+  },
+  {
+    "host": "run.app",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "firefox.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "fandom.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "blogger.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "docker.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "wired.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "imgsmail.ru",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "palmplaystore.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-ECDSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "jquery.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "featureassets.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "ft.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "dynatrace.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "2gis.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "cloudflareinsights.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "vedsalb.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "capcut.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "uol.com.br",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "ya.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "xboxlive.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA384",
+    "error": null
+  },
+  {
+    "host": "trendmicro.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "yieldmo.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "xhamster.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "time.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "360.cn",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "patreon.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "uk.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "eset.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "netflix.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "usatoday.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "visualstudio.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA384",
+    "error": null
+  },
+  {
+    "host": "rlcdn.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "tplinkcloud.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "deviantart.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "grammarly.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "teamviewer.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "markmonitor.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "arxiv.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "wix.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "vidaahub.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "fast.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "live.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "azure-dns.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "spaceweb.pro",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "ConnectionRefusedError: [Errno 111] Connection refused"
+  },
+  {
+    "host": "atlassian.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "hotjar.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "tandfonline.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "expireddomains.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "oraclecloud.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "oup.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "dnspod.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "telegraph.co.uk",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "comcast.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "ConnectionRefusedError: [Errno 111] Connection refused"
+  },
+  {
+    "host": "ca.gov",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "deepl.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "sharethrough.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "my.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "amagi.tv",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "ConnectionResetError: [Errno 104] Connection reset by peer"
+  },
+  {
+    "host": "tripadvisor.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "msidentity.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "google.com.hk",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "timeweb.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "impervadns.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "rakuten.co.jp",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "adobedc.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "scdn.co",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "bidswitch.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "target.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "yahoodns.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "avito.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "googlezip.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "cornell.edu",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "surveymonkey.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "qlivecdn.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "claude.ai",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "cdnvideo.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "alicdn.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "berkeley.edu",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "xiaomi.net",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "hicloud.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "cdn20.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "playstation.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "ieee.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "googletagservices.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "aboutads.info",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "onetrust.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "samsungapps.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "digitalocean.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "free.fr",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "verisign.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "licdn.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "bamgrid.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "braze.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "a-msedge.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "jotform.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "accuweather.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "ikea.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "klaviyo.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "britannica.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "dyndns.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "mdpi.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "shopee.com.br",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "branch.io",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "fontawesome.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "volcfcdndvs.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "squarespace.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "loc.gov",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "abc.net.au",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "force.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "ozone.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "typekit.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "intercom.io",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "redhat.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "cookielaw.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "stackadapt.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "b-msedge.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "nintendo.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "consultant.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "dreamhost.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "bluehost.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "abovedomains.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "conviva.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "cnet.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "outbrain.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "cbsnews.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "independent.co.uk",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-CHACHA20-POLY1305",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "nike.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "elpais.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "amazon.fr",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "bunnyinfra.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "nic.network",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "viber.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "ui-dns.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "ovh.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "ups.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "dotomi.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-SHA",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "bytedns1.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "sagepub.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "unesco.org",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-ECDSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "ECDSA-P384",
+    "error": null
+  },
+  {
+    "host": "aljazeera.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "imgur.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "afilias-nst.info",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "fb-t-msedge.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "quantserve.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "agkn.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "threads.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_CHACHA20_POLY1305_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "techcrunch.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "g.co",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "crwdcntrl.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "amazon.ca",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "1rx.io",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "noaa.gov",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "cambridge.org",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-ECDSA-CHACHA20-POLY1305",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "id5-sync.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "optimizely.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "yelp.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "withgoogle.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "att.net",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "mailchimp.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "pinimg.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "bx-msedge.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "ted.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "wattpad.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "lijit.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "telephony.goog",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-ECDSA-CHACHA20-POLY1305",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "safebrowsing.apple",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "hath.network",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "twimg.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "service.gov.uk",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "smaato.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "spiegel.de",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "lemonde.fr",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "tencent.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: _ssl.c:981: The handshake operation timed out"
+  },
+  {
+    "host": "hihonorcloud.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "fb.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_CHACHA20_POLY1305_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "anydesk.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "nmrodam.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "mega.co.nz",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "creativecdn.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "bidr.io",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "samsungacr.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "tapad.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "ln-msedge.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "wswebcdn.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "google.co.uk",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "criteo.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "afilias-nst.org",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "rt.ru",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "supertms.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "newrelic.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-CHACHA20-POLY1305",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "ovscdns.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "sophos.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "amazon.in",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "it.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "360safe.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "chinamobile.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "asus.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "mediafire.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "rackspace.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "ks-cdn.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "cursor.sh",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "box.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "allaboutcookies.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "everesttech.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "freepik.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "bitrix24.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "bugsnag.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "dbankcloud.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "beyondwickedmapping.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "shopee.co.id",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "adform.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "liadm.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "grammarly.io",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "zdnscloud.cn",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "bdydns.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "amazon.es",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "ring.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "disneyplus.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "homedepot.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "imrworldwide.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "steamstatic.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "ci-servers.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "stripchat.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "jetbrains.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "networkadvertising.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "allegro.pl",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "ci-servers.org",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "teads.tv",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "amazon.it",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "marriott.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "gumgum.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "google.com.br",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "bandcamp.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "githubusercontent.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "ameblo.jp",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-CHACHA20-POLY1305",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "turn.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "mckinsey.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "zillow.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "appcenter.ms",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA384",
+    "error": null
+  },
+  {
+    "host": "a-mo.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "appspot.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "iso.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA384",
+    "error": null
+  },
+  {
+    "host": "fda.gov",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "primevideo.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "python.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "prnewswire.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-ECDSA-CHACHA20-POLY1305",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "bytefcdn-ttpus.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "33across.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "myspace.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "squarespacedns.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "mlb.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "wp.pl",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "wb.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "blackberry.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "fiverr.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-ECDSA-CHACHA20-POLY1305",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "nic.io",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "hbr.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "nikkei.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "no-ip.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "unpkg.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "nel.goog",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "seznam.cz",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "alipaydns.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "theverge.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "whecloud.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "herokudns.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "lgtvcommon.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "people.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "zoom.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "anthropic.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "ddnss.de",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "OSError: [Errno 101] Network is unreachable"
+  },
+  {
+    "host": "datadoghq.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "usgovcloudapi.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "omnitagjs.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "uber.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "adguard-vpn.online",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "disqus.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "mhverifier.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "hostgator.com.br",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "mixpanel.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "globalsign.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-CHACHA20-POLY1305",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "moloco.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "mercadolivre.com.br",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "washington.edu",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "fwmrm.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "rakuten.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "welt.de",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "wps.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "dbankcloud.ru",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "bild.de",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "recaptcha.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "msftauth.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "onetag-sys.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "yellowblue.io",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "yandexcloud.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "kick.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "sedo.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "adjust.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "lenovo.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "usps.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "liftoff.io",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "mayoclinic.org",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "xerox.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "singular.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "discordapp.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "shopeemobile.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "openstreetmap.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "erome.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_CHACHA20_POLY1305_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "lefigaro.fr",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "latimes.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "adgrx.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "kontur.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "figma.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "resolver.arpa",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "academia.edu",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "thenai.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "zoho.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "vivo.com.cn",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-ECDSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "me.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "livejournal.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "pornhub.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "cmediahub.ru",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "ys7.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "investopedia.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "discogs.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "ssl-images-amazon.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "news.com.au",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "zhihu.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "spotifycdn.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "cdnhwc1.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "wpguardian.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "focus.de",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "onlyfans.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "pexels.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "ebay.co.uk",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "bestbuy.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "wpguardian.io",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "e2ro.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "goskope.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "blackberry.net",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "agoda.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "life360.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "webmd.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "dtkn.ru",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "synology.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "miwifi.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "herokuapp.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "SSLError: [SSL: TLSV1_UNRECOGNIZED_NAME] tlsv1 unrecognized name (_ssl.c:998)"
+  },
+  {
+    "host": "qualtrics.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "chess.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "biblegateway.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "ndtv.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "princeton.edu",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA384",
+    "error": null
+  },
+  {
+    "host": "themeforest.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "eu-1-id5-sync.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "zenecn.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "change.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "cloudinary.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "xvideos.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "tplinknbu.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "ebay.de",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "share.google",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "smartthings.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "cdn-vk.ru",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "flashtalking.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "healthline.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "pendo.io",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "deloitte.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "usda.gov",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "starlink.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "bankofamerica.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "fidelity.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "clever.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "classlink.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "otto.de",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "typeform.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "worldbank.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "www.gov.br",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_CHACHA20_POLY1305_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "airbnb.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "linode.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "aiv-delivery.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "amazon.com.br",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "nintendo.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "akahost.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "playrix.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "seedtag.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "wbbasket.ru",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "genius.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-ECDSA-CHACHA20-POLY1305",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "kunluncan.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "jimdo.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "go-mpulse.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "cloudsink.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "frontiersin.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "tiktokw.us",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "bytefcdn-ttpeu.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "azure-devices.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "mailchi.mp",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "pixiv.net",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-ECDSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "ddns.net",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "samsungosp.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "kickstarter.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "pccc.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "arcgis.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "usercontent.goog",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "rambler.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "eu.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "rutube.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "poki.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "bytefcdn.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "state.gov",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "chaturbate.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "presage.io",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "fbsbx.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_CHACHA20_POLY1305_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "agora.io",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "nationalgeographic.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "smilewanted.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "ubnt.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "ryanair.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "docker.io",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "character.ai",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "coupang.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "epa.gov",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "hm.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "daum.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "repubblica.it",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "youku.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-ECDSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "instructure.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "lowes.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "opera-api.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "tiktokrow-cdn.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "kleinanzeigen.de",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "mercadolibre.com.ar",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "amazon.com.au",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "rackspace.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "corriere.it",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES256-GCM-SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "theatlantic.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-CHACHA20-POLY1305",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "4dex.io",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "weforum.org",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "segment.io",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "sportradar.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "cdnhwc2.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "nextlgsdp.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "kslawin.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "xnxx.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "digitaloceanspaces.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "yandex.com.tr",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "readthedocs.io",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "leiniao.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "TimeoutError: timed out"
+  },
+  {
+    "host": "wyzecam.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "whitehouse.gov",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "paramountplus.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "elmundo.es",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "umich.edu",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "kwai.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "px-cloud.net",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "caixa.gov.br",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "immedia-semi.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "jd.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "tsyndicate.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "note.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "richaudience.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "theconversation.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "nexusmods.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "netgear.com",
+    "ok": true,
+    "version": "TLSv1.2",
+    "cipher": "ECDHE-RSA-AES128-GCM-SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "pbs.org",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P384",
+    "error": null
+  },
+  {
+    "host": "onet.pl",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "utorrent.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "split.io",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "kueezrtb.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "hotstar.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "rbc.ru",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "ECDSA-P384",
+    "error": null
+  },
+  {
+    "host": "onesignal.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "vk-analytics.ru",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "sofascore.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "afafb.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "nypost.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "admanmedia.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "binance.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "odoo.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "snapkit.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "bol.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "us.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "RSA-PKCS1-SHA256",
+    "error": null
+  },
+  {
+    "host": "costco.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  },
+  {
+    "host": "orderbox-dns.com",
+    "ok": false,
+    "version": null,
+    "cipher": null,
+    "cert_sig_algo": null,
+    "error": "gaierror: [Errno -2] Name or service not known"
+  },
+  {
+    "host": "quizlet.com",
+    "ok": true,
+    "version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cert_sig_algo": "ECDSA-P256",
+    "error": null
+  }
+]
