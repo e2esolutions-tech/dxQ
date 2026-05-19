@@ -40,6 +40,10 @@ etherparse         = "0.16"
 
 [dev-dependencies]
 tempfile = "3"
+# End-to-end smoke: spin sezar-server in-process and check that
+# the events sezar-net emits round-trip through the collector.
+sezar-server = { workspace = true }
+axum         = { workspace = true }
 
 [features]
 # Default build is offline-pcap only (no system deps beyond libc).

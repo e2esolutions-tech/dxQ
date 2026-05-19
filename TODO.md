@@ -37,11 +37,19 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
       path is shared with Phase 2.0; Ctrl-C drains in-flight
       packets cleanly. Build needs `libpcap-devel` /
       `libpcap-dev`; run needs `CAP_NET_RAW`.
-- [~] End-to-end smoke test against a real handshake on `lo`. The
-      code path is in place but needs a manual run on a host with
-      `libpcap-devel` and `sudo`/`CAP_NET_RAW`. Suggested check:
-      `sezar-net live --iface lo --filter "tcp port 443"` while a
-      `curl https://...` runs in another terminal.
+- [x] End-to-end smoke from pcap-file source. New integration test
+      `crates/sezar-net/tests/end_to_end_smoke.rs` spins
+      `sezar-server` in-process on an ephemeral port, runs
+      `observe_pcap` against the synthetic ClientHello fixture, POSTs
+      each emitted event to `/v1/events`, then reads it back and
+      checks that primitives (`X25519+ML-KEM-768`, `X25519`,
+      `ML-DSA-65`, `AES-256-GCM`) survived the round trip.
+- [ ] End-to-end smoke against a real handshake on `lo`. The
+      libpcap path is in place but needs a host with
+      `libpcap-devel` + `CAP_NET_RAW`. Suggested check:
+      `sezar-net live --iface lo --filter "tcp port 443"
+       --collector http://127.0.0.1:8091/v1/events`
+      while a `curl https://...` runs in another terminal.
 - [~] Phase 2.1 eBPF TC classifier skeleton landed (`0d255e9`)
       behind `--features live-interface`. Userspace loader wired
       up; the kernel-side build dance (`bpf-linker` + nightly +
