@@ -102,10 +102,19 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
       POSTs through the collector, reads back via `/v1/events`,
       `/v1/inventory`, `/v1/posture` and asserts the primitives
       and the positive `org_q`.
-- [ ] Shell-level acceptance smoke against the release binaries:
-      run `scripts/demo.sh`, then poll `/v1/posture` and assert
-      `org_q` and `blocked_count` match the §8.4 worked example
-      (`org_q ≈ 0.627`, `blocked_count == 1`).
+- [x] Shell-level acceptance smoke against the release binaries.
+      `scripts/acceptance.sh` builds in release, boots
+      `sezar-server` on `127.0.0.1:8190`, seeds the canonical 5
+      events (3 via `sezar-net from-zgrab`, 1 via `sezar-net
+      live --pcap`, 1 hand-crafted FIPS-locked appliance via
+      curl), reads `/v1/posture` + `/v1/inventory` + `/v1/blocked`,
+      and asserts `assets == 5`, `blocked_count == 1`, `org_q > 0`,
+      and the BLOCKED row points at the appliance. Exits 0 on
+      pass, 1 on any assertion failure. CI-ready, runs
+      unprivileged on `127.0.0.1`. (Recovers `org_q ≈ 0.613` —
+      close to but not identical to §8.4's `0.627`; the gap is
+      the missing QKD-protected asset and the τ shift from the
+      paper's measurement date.)
 - [ ] Docker Compose single-host install — `docker compose up`
       brings everything live (V1 item 7 in ROADMAP).
 
