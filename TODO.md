@@ -149,9 +149,11 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
 - [x] NOTES.md project brief committed.
 - [x] `.config/settings.json` + `.config/skills/` (paper-build,
       ref-verify, schema-bump-check).
-- [ ] CONTRIBUTING.md — set the bar for contribution before any
-      external collaborator lands.
-- [ ] CHANGELOG.md — start after the first tagged release.
+- [x] CONTRIBUTING.md — contribution conventions, conventional
+      commits, no-AI-attribution rule, citation-verification
+      pointer for paper changes.
+- [x] CHANGELOG.md — initial Unreleased entry capturing the V1
+      scaffolding state.
 - [ ] GitHub Actions: `cargo check` + `cargo test` on PR
       (currently deferred per commit `69ac7e3` — token lacked
       `workflow` scope).
