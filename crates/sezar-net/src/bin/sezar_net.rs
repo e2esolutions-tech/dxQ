@@ -65,13 +65,32 @@ enum Cmd {
         #[arg(long, default_value_t = 1000)]
         rate_delay_ms: u64,
     },
-    /// Phase 2.0 — passively observe TLS handshakes from a pcap file.
-    /// Emits one `crypto_inventory_event` per ClientHello/ServerHello.
+    /// Phase 2 — passively observe TLS handshakes. Source is either
+    /// a pcap file (Phase 2.0, default build) or a live interface
+    /// via libpcap (Phase 2.2, `--features live-pcap`). Emits one
+    /// `crypto_inventory_event` per ClientHello/ServerHello.
     Live {
-        /// Path to a `.pcap` or `.pcapng` capture (e.g. from
-        /// `tcpdump -w f.pcap port 443`).
-        #[arg(long)]
-        pcap: String,
+        /// Path to a `.pcap` or `.pcapng` capture. Mutually
+        /// exclusive with `--iface`.
+        #[arg(long, conflicts_with = "iface")]
+        pcap: Option<String>,
+        /// Live capture from this network interface (e.g. `lo`,
+        /// `eth0`). Needs `--features live-pcap` at build time and
+        /// `CAP_NET_RAW` at run time. Mutually exclusive with
+        /// `--pcap`.
+        #[arg(long, conflicts_with = "pcap")]
+        iface: Option<String>,
+        /// BPF filter for live capture. Default keeps the surface
+        /// to TLS ports.
+        #[arg(long, default_value = "tcp port 443")]
+        filter: String,
+        /// Enable promiscuous mode on live capture. Off by default;
+        /// not needed for `lo` or for traffic addressed to the host.
+        #[arg(long, default_value_t = false)]
+        promiscuous: bool,
+        /// Snaplen (bytes per frame) for live capture.
+        #[arg(long, default_value_t = 1500)]
+        snaplen: i32,
         /// Optional downstream collector URL. When set, POST each
         /// event; otherwise print NDJSON to stdout.
         #[arg(long)]
@@ -99,39 +118,133 @@ fn main() -> anyhow::Result<()> {
             timeout_s,
             rate_delay_ms,
         } => run_pq_probe(hosts, port, timeout_s, rate_delay_ms),
-        Cmd::Live { pcap, collector } => run_live(pcap, collector),
+        Cmd::Live {
+            pcap,
+            iface,
+            filter,
+            promiscuous,
+            snaplen,
+            collector,
+        } => run_live(pcap, iface, filter, promiscuous, snaplen, collector),
     }
 }
 
-fn run_live(pcap_path: String, collector: Option<String>) -> anyhow::Result<()> {
+fn run_live(
+    pcap_path: Option<String>,
+    iface: Option<String>,
+    filter: String,
+    promiscuous: bool,
+    snaplen: i32,
+    collector: Option<String>,
+) -> anyhow::Result<()> {
     let client = collector
         .as_deref()
         .map(|_| reqwest::blocking::Client::builder().build())
         .transpose()
         .map_err(|e| anyhow::anyhow!("client build: {e}"))?;
 
-    let stats = live::observe_pcap(&pcap_path, |ev| {
+    // Shared sink: stdout-NDJSON, or downstream POST if --collector is set.
+    let emit = |ev: &sezar_core::CryptoInventoryEvent| {
         if let Some(url) = collector.as_deref() {
-            match client.as_ref().unwrap().post(url).json(&ev).send() {
+            match client.as_ref().unwrap().post(url).json(ev).send() {
                 Ok(r) if r.status().is_success() => {}
                 Ok(r) => warn!(status = %r.status(), "downstream rejected event"),
                 Err(e) => error!(error = %e, "downstream POST failed"),
             }
         } else {
-            match serde_json::to_string(&ev) {
+            match serde_json::to_string(ev) {
                 Ok(s) => println!("{s}"),
                 Err(e) => error!(error = %e, "serialize failed"),
             }
         }
-    })?;
+    };
+
+    match (pcap_path, iface) {
+        (Some(p), None) => {
+            let stats = live::observe_pcap(&p, |ev| emit(&ev))?;
+            info!(
+                source = "pcap-file",
+                packets_seen = stats.packets_seen,
+                handshake_packets = stats.handshake_packets,
+                events_emitted = stats.events_emitted,
+                skipped_unparseable = stats.packets_skipped_unparseable,
+                "observation complete"
+            );
+            Ok(())
+        }
+        (None, Some(if_name)) => run_live_iface(if_name, filter, promiscuous, snaplen, emit),
+        (None, None) => {
+            anyhow::bail!("live: pass either --pcap <file> or --iface <name>")
+        }
+        (Some(_), Some(_)) => unreachable!("clap conflicts_with should have rejected this"),
+    }
+}
+
+#[cfg(feature = "live-pcap")]
+fn run_live_iface<E>(
+    iface: String,
+    filter: String,
+    promiscuous: bool,
+    snaplen: i32,
+    emit: E,
+) -> anyhow::Result<()>
+where
+    E: Fn(&sezar_core::CryptoInventoryEvent),
+{
+    use std::sync::atomic::{AtomicBool, Ordering};
+    use std::sync::Arc;
+
+    let cfg = live::InterfaceConfig {
+        iface: iface.clone(),
+        snaplen,
+        read_timeout_ms: 100,
+        filter: if filter.is_empty() { None } else { Some(filter) },
+        promiscuous,
+    };
+
+    // Wire Ctrl-C to a shared atomic the capture loop polls between
+    // packets. Single Ctrl-C exits cleanly; second one panics out.
+    let should_stop = Arc::new(AtomicBool::new(false));
+    {
+        let stop = Arc::clone(&should_stop);
+        ctrlc::set_handler(move || {
+            if stop.swap(true, Ordering::Relaxed) {
+                std::process::exit(130);
+            }
+            eprintln!("\n[sezar-net] Ctrl-C — finishing in-flight packet…");
+        })
+        .ok();
+    }
+
+    info!(iface = %cfg.iface, filter = ?cfg.filter, "live-pcap observation starting");
+    let stats = live::observe_interface(&cfg, &should_stop, |ev| emit(&ev))?;
     info!(
+        source = "live-pcap",
+        iface = %iface,
         packets_seen = stats.packets_seen,
         handshake_packets = stats.handshake_packets,
         events_emitted = stats.events_emitted,
         skipped_unparseable = stats.packets_skipped_unparseable,
-        "pcap observation complete"
+        "observation complete"
     );
     Ok(())
+}
+
+#[cfg(not(feature = "live-pcap"))]
+fn run_live_iface<E>(
+    _iface: String,
+    _filter: String,
+    _promiscuous: bool,
+    _snaplen: i32,
+    _emit: E,
+) -> anyhow::Result<()>
+where
+    E: Fn(&sezar_core::CryptoInventoryEvent),
+{
+    anyhow::bail!(
+        "--iface requires the `live-pcap` feature. Rebuild with: \
+         cargo build -p sezar-net --features live-pcap"
+    )
 }
 
 fn run_pq_probe(

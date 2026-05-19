@@ -32,9 +32,9 @@ rustls-pki-types   = "1"
 webpki-roots       = "0.26"
 x509-parser        = "0.16"
 # Phase 2.0 live mode — passive pcap-file observation. Pure-Rust so
-# the crate builds on machines without libpcap-devel; live-interface
-# capture (libpcap) is gated behind the `live-interface` feature in
-# Phase 2.1.
+# the crate builds on machines without libpcap-devel; the libpcap
+# live-interface path is gated behind `live-pcap` (Phase 2.2) and
+# the eBPF path behind `live-interface` (Phase 2.1).
 pcap-file          = "2"
 etherparse         = "0.16"
 
@@ -44,12 +44,24 @@ tempfile = "3"
 [features]
 # Default build is offline-pcap only (no system deps beyond libc).
 default = []
-# Phase 2.1 live interface capture via aya + the kernel-side
+# Phase 2.2 — libpcap-backed live interface capture. Brings in the
+# `pcap` crate, which links against the system libpcap. Build needs
+# `libpcap-devel` (Fedora) / `libpcap-dev` (Debian); run needs
+# `CAP_NET_RAW`. Friendly for `lo` smoke tests.
+live-pcap = ["dep:pcap", "dep:ctrlc"]
+# Phase 2.1 — live interface capture via aya + the kernel-side
 # `sezar-net-ebpf` crate. Requires `aya` 0.13 + a pre-built BPF
 # object at `target/bpfel-unknown-none/release/sezar-net-ebpf`.
-# Pulls in aya the userspace runtime; see crates/sezar-net-ebpf/README.md
-# for the build dance.
+# See crates/sezar-net-ebpf/README.md for the build dance.
 live-interface = ["dep:aya", "dep:aya-log"]
+
+[dependencies.pcap]
+version = "2"
+optional = true
+
+[dependencies.ctrlc]
+version = "3"
+optional = true
 
 [dependencies.aya]
 version = "0.13"

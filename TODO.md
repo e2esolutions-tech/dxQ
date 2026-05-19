@@ -28,15 +28,25 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
       external integration.
 
 ### `sezar-net` — network observer (V1 critical path)
-- [~] Phase 2 live observation skeleton landed (`0d255e9`):
-      `crates/sezar-net/src/live.rs`, `live_iface.rs`, pcap +
-      aya eBPF entry points.
-- [ ] First end-to-end TLS `ClientHello` → emit
-      `crypto_inventory_event` flow. Acceptance test: capture one
-      handshake on `lo`, see the event hit `/v1/events`.
-- [ ] eBPF `kprobe`/`uprobe` attach point chosen and benched
-      (sezar-net-ebpf README has the build steps; do NOT build it
-      as part of the main workspace).
+- [x] Phase 2.0 pcap-file replay landed (`0d255e9`): `sezar-net
+      live --pcap <file>` parses Eth/IP/TCP, emits one event per
+      ClientHello/ServerHello. Synthetic-frame integration test in
+      `tests/live_pcap.rs` passes.
+- [x] Phase 2.2 libpcap live-interface capture: `sezar-net live
+      --iface <name>` behind `--features live-pcap`. Frame-handling
+      path is shared with Phase 2.0; Ctrl-C drains in-flight
+      packets cleanly. Build needs `libpcap-devel` /
+      `libpcap-dev`; run needs `CAP_NET_RAW`.
+- [~] End-to-end smoke test against a real handshake on `lo`. The
+      code path is in place but needs a manual run on a host with
+      `libpcap-devel` and `sudo`/`CAP_NET_RAW`. Suggested check:
+      `sezar-net live --iface lo --filter "tcp port 443"` while a
+      `curl https://...` runs in another terminal.
+- [~] Phase 2.1 eBPF TC classifier skeleton landed (`0d255e9`)
+      behind `--features live-interface`. Userspace loader wired
+      up; the kernel-side build dance (`bpf-linker` + nightly +
+      `bpfel-unknown-none`) and an end-to-end attach-and-consume
+      test against a real interface are still open.
 - [ ] `sezar-net pq-probe` CLI binary that wraps the Tranco-1k
       probe (`rustls + rustls-post-quantum`) used in Study 1.
       Currently lives under `studies/study1/` — promote into the

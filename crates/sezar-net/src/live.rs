@@ -1,20 +1,27 @@
-//! Phase 2.0 — passive live TLS observation from pcap captures.
+//! Phase 2 — passive live TLS observation.
 //!
-//! Two roles:
+//! Three packet sources share one frame-handling path:
 //!
-//! 1. **Pcap-file replay.** Read a `.pcap` or `.pcapng` file (e.g.
-//!    captured by `tcpdump -w port-443.pcap port 443`), walk each
-//!    captured frame, parse the Ethernet / IP / TCP layers with
+//! 1. **Pcap-file replay** (Phase 2.0; default build). Read a
+//!    `.pcap` or `.pcapng` file (e.g. captured by
+//!    `tcpdump -w port-443.pcap port 443`), walk each captured
+//!    frame, parse the Ethernet / IP / TCP layers with
 //!    `etherparse`, look for TLS record-layer handshake messages
-//!    (record type `0x16`, msg_type `0x01`/`0x02`), and feed them to
-//!    [`crate::tls::parse_handshake`]. Each parsed handshake becomes
-//!    one `tls_session` event.
+//!    (record type `0x16`, msg_type `0x01`/`0x02`), and feed them
+//!    to [`crate::tls::parse_handshake`]. Each parsed handshake
+//!    becomes one `tls_session` event.
 //!
-//! 2. **Live-interface capture** (Phase 2.1; gated behind the
-//!    `live-interface` cargo feature). Same path but the packet
-//!    source is libpcap on a network interface; requires
+//! 2. **Libpcap live interface** (Phase 2.2; gated behind the
+//!    `live-pcap` cargo feature). Same frame-handling path but the
+//!    packet source is libpcap on a network interface. Requires
 //!    `libpcap-devel` at build time and `CAP_NET_RAW` at run time.
-//!    Not exercised in this crate's default build.
+//!    Friendly for `lo` smoke tests and small-scale capture.
+//!
+//! 3. **eBPF TC classifier** (Phase 2.1; gated behind the
+//!    `live-interface` cargo feature). Higher-throughput path that
+//!    pushes parsed handshake bytes from the kernel into userspace
+//!    via a ring buffer. Wired up in [`crate::live_iface`]. Needs
+//!    a pre-built BPF object and `CAP_BPF` + `CAP_NET_ADMIN`.
 //!
 //! # Reassembly policy
 //!
@@ -36,7 +43,7 @@
 
 use std::path::Path;
 
-use pcap_file::pcap::{PcapPacket, PcapReader};
+use pcap_file::pcap::PcapReader;
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
 
@@ -100,7 +107,7 @@ where
                 continue;
             }
         };
-        match handle_packet(&pkt, &mut stats, &mut on_event) {
+        match handle_frame(&pkt.data, &mut stats, &mut on_event) {
             Ok(()) => {}
             Err(_) => {
                 stats.packets_skipped_unparseable += 1;
@@ -110,9 +117,12 @@ where
     Ok(stats)
 }
 
-/// Per-packet observation. Errors are folded into `stats` by the caller.
-fn handle_packet<F>(
-    pkt: &PcapPacket<'_>,
+/// Per-frame observation. The frame is whatever the packet source
+/// hands us as Ethernet payload (pcap-file, libpcap, eBPF map). Errors
+/// are folded into `stats` by the caller; success means either an
+/// event was emitted or the frame was uninteresting.
+fn handle_frame<F>(
+    frame: &[u8],
     stats: &mut ObservationStats,
     on_event: &mut F,
 ) -> Result<(), ()>
@@ -121,7 +131,7 @@ where
 {
     // etherparse accepts a raw frame and returns a sliced view we
     // can step through layer by layer.
-    let parsed = match etherparse::SlicedPacket::from_ethernet(&pkt.data) {
+    let parsed = match etherparse::SlicedPacket::from_ethernet(frame) {
         Ok(p) => p,
         Err(_) => return Err(()),
     };
@@ -305,6 +315,93 @@ fn build_live_event(
             recommended_replacement: None,
         },
     }
+}
+
+/// Configuration for the libpcap-backed live interface observer.
+#[cfg(feature = "live-pcap")]
+#[derive(Debug, Clone)]
+pub struct InterfaceConfig {
+    /// Interface name (e.g. `lo`, `eth0`).
+    pub iface: String,
+    /// Snaplen — bytes captured per frame. 1500 is enough for any
+    /// single-MTU TLS ClientHello on Ethernet; bump for jumbo
+    /// frames.
+    pub snaplen: i32,
+    /// Read timeout in milliseconds — controls how long
+    /// `pcap_next_ex` blocks between batches before returning
+    /// `TimeoutExpired`. 100 ms keeps Ctrl-C responsive without
+    /// busy-looping.
+    pub read_timeout_ms: i32,
+    /// Optional BPF filter expression. Default `"tcp port 443"`
+    /// keeps the capture surface to TLS hosts; pass `None` to
+    /// disable filtering entirely.
+    pub filter: Option<String>,
+    /// Promiscuous mode. Required for capturing traffic not
+    /// addressed to the host on a shared segment; leave off for
+    /// loopback and host-local capture.
+    pub promiscuous: bool,
+}
+
+#[cfg(feature = "live-pcap")]
+impl Default for InterfaceConfig {
+    fn default() -> Self {
+        Self {
+            iface: "lo".into(),
+            snaplen: 1500,
+            read_timeout_ms: 100,
+            filter: Some("tcp port 443".into()),
+            promiscuous: false,
+        }
+    }
+}
+
+/// Observe a live network interface via libpcap. Blocks until the
+/// caller signals shutdown by setting `should_stop` to `true`.
+/// `on_event` is called inline (single-threaded) for each emitted
+/// `crypto_inventory_event`.
+///
+/// Requires `CAP_NET_RAW` (or root) at run time. Build with
+/// `--features live-pcap` and a system `libpcap-devel`.
+#[cfg(feature = "live-pcap")]
+pub fn observe_interface<F>(
+    cfg: &InterfaceConfig,
+    should_stop: &std::sync::atomic::AtomicBool,
+    mut on_event: F,
+) -> Result<ObservationStats, LiveError>
+where
+    F: FnMut(CryptoInventoryEvent),
+{
+    use std::sync::atomic::Ordering;
+
+    let mut cap = pcap::Capture::from_device(cfg.iface.as_str())
+        .map_err(|e| LiveError::Open(format!("from_device({}): {e}", cfg.iface)))?
+        .snaplen(cfg.snaplen)
+        .timeout(cfg.read_timeout_ms)
+        .promisc(cfg.promiscuous)
+        .immediate_mode(true)
+        .open()
+        .map_err(|e| LiveError::Open(format!("open({}): {e}", cfg.iface)))?;
+
+    if let Some(filter) = cfg.filter.as_deref() {
+        cap.filter(filter, true)
+            .map_err(|e| LiveError::Open(format!("filter({filter}): {e}")))?;
+    }
+
+    let mut stats = ObservationStats::default();
+    while !should_stop.load(Ordering::Relaxed) {
+        match cap.next_packet() {
+            Ok(pkt) => {
+                stats.packets_seen += 1;
+                if handle_frame(pkt.data, &mut stats, &mut on_event).is_err() {
+                    stats.packets_skipped_unparseable += 1;
+                }
+            }
+            Err(pcap::Error::TimeoutExpired) => continue,
+            Err(pcap::Error::NoMorePackets) => break,
+            Err(e) => return Err(LiveError::Open(format!("next_packet: {e}"))),
+        }
+    }
+    Ok(stats)
 }
 
 #[cfg(test)]
