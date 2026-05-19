@@ -1,0 +1,42 @@
+# Keep build context small and reproducible. The Dockerfile only
+# needs the workspace Cargo.toml and the crate source trees; the
+# build directory, dev tooling, papers, and study artefacts add
+# tens of megabytes for no benefit and would invalidate the
+# builder cache on every doc edit.
+
+target/
+node_modules/
+web/node_modules/
+web/dist/
+web/.vite/
+
+# Generated / scratch
+bindings/
+.cache/
+**/__pycache__/
+
+# Local-only state
+.git/
+.gitignore
+.dockerignore
+.github/
+.vscode/
+.idea/
+.DS_Store
+.env
+.env.*
+*.sqlite
+*.db
+*.swp
+*.swo
+
+# Papers + studies are tracked in git but the runtime image
+# doesn't read them; keep them out of the context.
+docs/
+studies/
+*.md
+!crates/**/README.md
+
+# local tooling project settings — not relevant to runtime.
+.config/
+resume.sh

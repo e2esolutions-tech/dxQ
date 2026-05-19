@@ -78,6 +78,42 @@ stubs until later milestones.
                           └─────────────┘
 ```
 
+## Quickstart (single-host Docker)
+
+The shortest path from clone to a live collector:
+
+```bash
+git clone https://github.com/e2esolutions-tech/sezar
+cd sezar
+docker compose up -d              # builds sezar/sezar-server:dev, starts it
+curl -fsS http://127.0.0.1:8090/healthz   # → ok
+```
+
+Override the host-side port if `8090` is already taken on the
+machine (a common conflict — `127.0.0.1:8090` ships as the
+documented default):
+
+```bash
+SEZAR_HOST_PORT=8190 docker compose up -d
+```
+
+POST an event, then read it back:
+
+```bash
+curl -sS http://127.0.0.1:8090/v1/events \
+  -H 'content-type: application/json' \
+  -d '{"schema_version":1,"schema_minor":1,"source_module":"smoke",
+       "observed_at":"2026-05-20T12:00:00Z",
+       "asset":{"kind":"tls_session","identity":"smoke-1"},
+       "primitives":[{"role":"kex","algorithm":"X25519MLKEM768","pq_resistant":true}],
+       "posture":{"score":0,"rationale":"smoke"}}'
+curl -sS http://127.0.0.1:8090/v1/posture
+```
+
+For a full V1 release-binary acceptance test that drives the
+canonical 5-asset rollup against the new container (or the
+release binaries directly), run `./scripts/acceptance.sh`.
+
 ## Repository layout
 
 ```
@@ -97,7 +133,8 @@ sezar/
 │   ├── module-chain.md
 │   └── posture-rollup.md
 ├── web/                      # React + Vite UI
-└── docker-compose.yml
+├── Dockerfile                # multi-stage build, single-host runtime
+└── compose.yaml              # docker compose up brings sezar-server live
 ```
 
 ## License

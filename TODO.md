@@ -115,8 +115,13 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
       close to but not identical to §8.4's `0.627`; the gap is
       the missing QKD-protected asset and the τ shift from the
       paper's measurement date.)
-- [ ] Docker Compose single-host install — `docker compose up`
-      brings everything live (V1 item 7 in ROADMAP).
+- [x] Docker Compose single-host install — multi-stage `Dockerfile`
+      compiles `sezar-server` in release and ships a slim Debian
+      runtime under a non-root `sezar` user with `tini` as PID 1
+      and a `curl /healthz` HEALTHCHECK; `compose.yaml` exposes the
+      collector on `127.0.0.1:8090` (overridable via
+      `SEZAR_HOST_PORT`). `docker compose up -d` is the V1
+      quickstart now documented in `README.md`.
 
 ## Paper
 
