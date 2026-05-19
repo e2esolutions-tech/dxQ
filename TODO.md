@@ -13,17 +13,33 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
 - [x] `crypto_inventory_event` schema v1 (commit `affd080`).
 - [x] ts-rs + JsonSchema codegen wired into `cargo test --features
       ts-types` (regenerates `bindings/`, `web/src/types/sezar.ts`).
-- [ ] Extend schema with three-axis fields (`channel_protection`,
-      `agility`) per the paper §6. Counts as a `schema_version` bump
-      — run `.config/skills/schema-bump-check` first.
+- [x] Schema v1.1 additive fields landed — `channel_protection`
+      and `agility` blocks plus the `QkdLink` / `QkdKme` asset
+      kinds. Backwards-compatible per the schema's
+      `schema_minor` discipline; no major version bump needed.
 
 ### `sezar-server` — collector + REST
-- [~] `axum` + Postgres scaffolding present; needs:
-  - [ ] `POST /v1/events` with JSON validation + dedup key
-  - [ ] `GET /v1/inventory` with pagination
-  - [ ] `GET /v1/posture` returning `org_q` + asset breakdown
-  - [ ] Unit tests `worked_example_alpha_q_matches_paper` and
-        `worked_example_delta_q_matches_paper` (paper §3.1 anchors)
+- [x] `axum` scaffolding + in-memory `DashMap` store, ready for
+      a later Postgres swap behind the same `EventStore` surface.
+- [x] `POST /v1/events` + `/v1/events/batch` with
+      `schema_version` validation (rejects mismatched majors with
+      a `422 schema_version_mismatch`).
+- [x] `GET /v1/events?limit=N` — most-recent-first event log.
+- [x] `GET /v1/inventory` — per-asset latest event plus computed
+      $q$, sorted highest-urgency first. (Pagination still
+      latent; the in-memory store returns the full list today.)
+- [x] `GET /v1/posture` — org-level `org_q` + asset count +
+      blocked count.
+- [x] `GET /v1/blocked` and `GET /v1/qkd/links` — derived views
+      off the same store.
+- [x] Unit tests `worked_example_alpha_q_matches_paper` and
+      `worked_example_delta_q_matches_paper` in
+      `crates/sezar-server/src/posture.rs` — assert the
+      implementation reproduces the paper §3.1 numerics within
+      ±0.01.
+- [x] `crates/sezar-server/tests/http_smoke.rs` —
+      in-process integration test that exercises every V1 route
+      against the router on an ephemeral port.
 - [ ] mTLS bootstrap (server CA + enrolment token) before any
       external integration.
 
@@ -61,11 +77,14 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
       crate as a published subcommand.
 
 ### Posture rollup library
-- [ ] Per-event scoring with FIPS 203/204/205 awareness, ECDSA
-      penalty, RSA<2048 fail, X25519MLKEM768 reward.
-- [ ] Three-axis combination `q(asset, t)` per paper §3 (§5 in
-      extended), with operator-tunable weights.
-- [ ] `BLOCKED` flag whenever `G ≤ 0.20` (locked / frozen).
+- [x] Per-event scoring with FIPS 203/204/205 awareness, ECDSA
+      penalty, RSA<2048 fail, X25519MLKEM768 reward — lives in
+      `crates/sezar-server/src/posture.rs::q_for_event`.
+- [x] Three-axis combination `q(asset, t)` per paper §3 (§5 in
+      extended) with operator-tunable α / β / γ weights and the
+      deadline-tension τ term.
+- [x] `BLOCKED` flag whenever `G ≤ 0.20` (`is_blocked` helper +
+      `GET /v1/blocked` view).
 
 ### React UI — posture dashboard
 - [ ] Org-level score chip + last-N-days trend.
@@ -77,8 +96,16 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
 ### Demo + acceptance test rig
 - [x] `scripts/demo.sh` boots emulator + collector + server (per
       paper §5.4 / §8.4).
-- [ ] Acceptance smoke script: one command runs the whole chain,
-      asserts `org_q` is within ±0.01 of the worked-example anchor.
+- [x] In-process end-to-end test
+      `crates/sezar-net/tests/end_to_end_smoke.rs` — runs
+      `observe_pcap` against the synthetic ClientHello fixture,
+      POSTs through the collector, reads back via `/v1/events`,
+      `/v1/inventory`, `/v1/posture` and asserts the primitives
+      and the positive `org_q`.
+- [ ] Shell-level acceptance smoke against the release binaries:
+      run `scripts/demo.sh`, then poll `/v1/posture` and assert
+      `org_q` and `blocked_count` match the §8.4 worked example
+      (`org_q ≈ 0.627`, `blocked_count == 1`).
 - [ ] Docker Compose single-host install — `docker compose up`
       brings everything live (V1 item 7 in ROADMAP).
 
