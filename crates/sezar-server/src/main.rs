@@ -3,6 +3,8 @@
 //! Wires CLI flags into the [`sezar_server::AppState`] and serves
 //! the router on a configurable address.
 
+use std::path::PathBuf;
+
 use anyhow::Result;
 use clap::Parser;
 use sezar_server::{router, AppState};
@@ -24,6 +26,20 @@ struct Args {
     /// Horizon constant for deadline-tension computation (years).
     #[arg(long, default_value_t = 5.0)]
     horizon_years: f32,
+
+    /// Directory holding the internal CA (`ca.crt`, `ca.key`).
+    /// Generated on first boot, reloaded thereafter. The key
+    /// file is created at mode 0600 on unix.
+    #[arg(long, default_value = "/var/lib/sezar/ca")]
+    ca_dir: PathBuf,
+
+    /// Admin secret expected in `X-Admin-Token` on
+    /// `POST /v1/admin/bootstrap-tokens`. Read from the
+    /// environment variable `SEZAR_ADMIN_TOKEN` if not supplied
+    /// on the CLI. When neither is set, the admin endpoint is
+    /// disabled (returns 503).
+    #[arg(long, env = "SEZAR_ADMIN_TOKEN")]
+    admin_token: Option<String>,
 }
 
 #[tokio::main]
@@ -36,7 +52,7 @@ async fn main() -> Result<()> {
 
     let args = Args::parse();
 
-    let mut state = AppState::new_in_memory();
+    let mut state = AppState::new_in_memory(&args.ca_dir, args.admin_token.clone())?;
     if let Some(d) = args.deadline.as_deref() {
         state.default_deadline = chrono::DateTime::parse_from_rfc3339(d)?
             .with_timezone(&chrono::Utc);
@@ -47,6 +63,8 @@ async fn main() -> Result<()> {
         version = env!("CARGO_PKG_VERSION"),
         deadline = %state.default_deadline.to_rfc3339(),
         horizon = state.horizon_years,
+        ca_dir = %args.ca_dir.display(),
+        admin_enabled = state.admin_token.is_some(),
         "starting sezar-server"
     );
 

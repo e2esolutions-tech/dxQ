@@ -47,10 +47,13 @@ pids+=("$!")
 sleep 0.3
 
 echo "[demo] starting sezar-server on :8090..."
+# Demo runs unprivileged out of the user's $HOME; point the CA
+# at /tmp so first-boot generation is writable without sudo.
 ./target/debug/sezar-server \
   --listen 127.0.0.1:8090 \
   --deadline 2030-01-01T00:00:00Z \
   --horizon-years 5 \
+  --ca-dir /tmp/sezar-demo-ca \
   >/tmp/sezar-server.log 2>&1 &
 pids+=("$!")
 sleep 0.4

@@ -16,7 +16,13 @@ use sezar_core::{
 use sezar_server::{router, AppState};
 
 async fn spawn_server() -> SocketAddr {
-    let state = AppState::new_in_memory();
+    // Each test gets its own CA dir under a unique tempdir so
+    // parallel tests do not race on ca.crt / ca.key.
+    let tmp = tempfile::tempdir().expect("tempdir");
+    let state = AppState::new_in_memory(tmp.path(), None).expect("AppState init");
+    // Keep the tempdir alive for the lifetime of the spawned
+    // server task by leaking it — the test process is short.
+    std::mem::forget(tmp);
     let app = router(state);
     let listener = tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
     let addr = listener.local_addr().unwrap();

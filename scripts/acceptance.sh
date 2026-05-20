@@ -54,7 +54,12 @@ log "building release binaries…"
 cargo build --release --quiet -p sezar-server -p sezar-net
 
 log "starting sezar-server on ${LISTEN_ADDR}…"
-./target/release/sezar-server --listen "$LISTEN_ADDR" \
+# Use a per-run CA dir under $LOG_DIR so the script stays
+# unprivileged (the default /var/lib/sezar/ca is only writable
+# inside the production container or with sudo).
+./target/release/sezar-server \
+  --listen "$LISTEN_ADDR" \
+  --ca-dir "$LOG_DIR/ca" \
   >"$LOG_DIR/sezar-server.log" 2>&1 &
 server_pid=$!
 

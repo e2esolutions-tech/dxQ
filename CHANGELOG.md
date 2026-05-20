@@ -15,6 +15,21 @@ Pre-alpha. Tracks toward the V1 cut (Q3 2026) per
 
 ### Added
 
+- **mTLS bootstrap foundation** (SEZ-6, partial). `sezar-server`
+  now boots an internal ECDSA-P256 root CA on first run
+  (persisted to `--ca-dir`, default `/var/lib/sezar/ca`, key at
+  mode 0600), reloaded on every subsequent start. New
+  endpoints:
+  - `POST /v1/admin/bootstrap-tokens` — admin-gated by
+    `X-Admin-Token` (configured via `--admin-token` or
+    `SEZAR_ADMIN_TOKEN`), issues a single-use UUID token bound
+    to a specific `agent_id` with a 1–720 hour TTL.
+  - `POST /v1/enrol` — agent redeems its token, server returns
+    a freshly-signed client cert plus its private key and the
+    CA cert.
+  Still pending under SEZ-6: TLS termination + client-cert
+  enforcement on `/v1/events`, agent-side cert rotation, and
+  agent-side buffering during a server outage.
 - **Throughput probe** (`scripts/loadtest.py`). Stdlib-only Python
   load generator: fans out N concurrent POSTs to `/v1/events`,
   reports request rate, latency p50/p90/p99/max, and a failure

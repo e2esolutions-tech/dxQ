@@ -40,8 +40,23 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
 - [x] `crates/sezar-server/tests/http_smoke.rs` —
       in-process integration test that exercises every V1 route
       against the router on an ephemeral port.
-- [ ] mTLS bootstrap (server CA + enrolment token) before any
-      external integration.
+- [~] mTLS bootstrap (SEZ-6). Foundational pieces landed:
+      - Internal CA generated on first boot, persisted to disk
+        (`/var/lib/sezar/ca/{crt,key}`, key at mode 0600),
+        reloaded on every subsequent start.
+      - `POST /v1/admin/bootstrap-tokens` — admin-gated by
+        `X-Admin-Token` (configured via `--admin-token` or
+        `SEZAR_ADMIN_TOKEN`), returns a single-use UUID token
+        bound to a specific `agent_id` with operator-controlled
+        TTL (1 h – 30 d, default 24 h).
+      - `POST /v1/enrol` — agent redeems token, server mints a
+        fresh ECDSA-P256 client cert (CN = agent_id, EKU =
+        clientAuth) signed by the CA and returns the cert +
+        matching private key + CA cert.
+      Still open: TLS termination on `sezar-server` and
+      client-cert enforcement on `/v1/events`; agent-side cert
+      rotation; agent-side buffering on server outage; move CA
+      + tokens to Postgres encrypted-at-rest once SEZ-2 lands.
 
 ### `sezar-net` — network observer (V1 critical path)
 - [x] Phase 2.0 pcap-file replay landed (`0d255e9`): `sezar-net

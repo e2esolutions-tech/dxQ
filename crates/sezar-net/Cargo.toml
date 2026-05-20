@@ -42,6 +42,8 @@ etherparse         = "0.16"
 tempfile = "3"
 # End-to-end smoke: spin sezar-server in-process and check that
 # the events sezar-net emits round-trip through the collector.
+# The sezar-server AppState constructor wants a CA directory,
+# hence tempfile.
 sezar-server = { workspace = true }
 axum         = { workspace = true }
 

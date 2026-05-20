@@ -18,7 +18,11 @@ use sezar_net::live;
 use sezar_server::{router, AppState};
 
 async fn spawn_server() -> SocketAddr {
-    let state = AppState::new_in_memory();
+    // Per-test CA dir keeps parallel runs from racing on the
+    // on-disk ca.crt / ca.key.
+    let tmp = tempfile::tempdir().expect("tempdir");
+    let state = AppState::new_in_memory(tmp.path(), None).expect("AppState init");
+    std::mem::forget(tmp);
     let app = router(state);
     let listener = tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
     let addr = listener.local_addr().unwrap();
