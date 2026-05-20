@@ -31,6 +31,7 @@ pub mod enrol;
 pub mod posture;
 pub mod routes;
 pub mod store;
+pub mod tls;
 
 use std::sync::Arc;
 
@@ -83,20 +84,42 @@ impl AppState {
     }
 }
 
-/// Build the Axum router carrying [`AppState`].
+/// Combined router carrying every V1 route. This is the
+/// plain-HTTP entry point used when `--tls` is off (default
+/// for development, the in-process integration tests, and the
+/// `scripts/acceptance.sh` smoke). When `--tls` is on the
+/// server boots [`router_main`] and [`router_bootstrap`] on
+/// separate listeners instead — see those for the rationale.
 pub fn router(state: AppState) -> Router {
+    router_bootstrap(state.clone()).merge(router_main(state))
+}
+
+/// Bootstrap-side routes: reachable on the TLS-without-client-
+/// cert listener so un-enrolled agents can still pick up a
+/// cert. Carries `/healthz`, `/v1/enrol`,
+/// `/v1/admin/bootstrap-tokens`.
+pub fn router_bootstrap(state: AppState) -> Router {
     Router::new()
         .route("/healthz", get(routes::healthz))
+        .route("/v1/enrol", post(enrol::enrol))
+        .route(
+            "/v1/admin/bootstrap-tokens",
+            post(enrol::issue_bootstrap_token),
+        )
+        .with_state(state)
+}
+
+/// Main routes: served behind the mTLS listener when `--tls` is
+/// on. A successful TLS handshake on this listener already
+/// proved the peer holds a CA-signed client cert, so handlers
+/// don't need to re-check.
+pub fn router_main(state: AppState) -> Router {
+    Router::new()
         .route("/v1/events", post(routes::ingest_one).get(routes::list_events))
         .route("/v1/events/batch", post(routes::ingest_batch))
         .route("/v1/inventory", get(routes::inventory))
         .route("/v1/posture", get(routes::org_posture))
         .route("/v1/qkd/links", get(routes::qkd_links))
         .route("/v1/blocked", get(routes::blocked_assets))
-        .route("/v1/enrol", post(enrol::enrol))
-        .route(
-            "/v1/admin/bootstrap-tokens",
-            post(enrol::issue_bootstrap_token),
-        )
         .with_state(state)
 }

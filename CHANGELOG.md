@@ -15,11 +15,27 @@ Pre-alpha. Tracks toward the V1 cut (Q3 2026) per
 
 ### Added
 
-- **mTLS bootstrap foundation** (SEZ-6, partial). `sezar-server`
-  now boots an internal ECDSA-P256 root CA on first run
-  (persisted to `--ca-dir`, default `/var/lib/sezar/ca`, key at
-  mode 0600), reloaded on every subsequent start. New
-  endpoints:
+- **TLS termination + mTLS enforcement** (SEZ-6, second half).
+  `sezar-server --tls` mints a CA-signed server cert at boot
+  (additional SANs via `--tls-san`) and runs two listeners:
+  - `--tls-bootstrap-listen` (default `0.0.0.0:8443`) — TLS
+    with server cert only, no client-cert verifier. Hosts
+    `/healthz`, `/v1/enrol`, `/v1/admin/bootstrap-tokens` so
+    an un-enrolled agent can still reach enrolment over an
+    encrypted channel.
+  - `--listen` (default `0.0.0.0:8090`) — mTLS. TLS handshake
+    requires a client cert chained to the internal CA. Hosts
+    `/v1/events`, `/v1/inventory`, `/v1/posture`, `/v1/blocked`,
+    `/v1/qkd/links`. Rejection without a valid client cert
+    happens at the TLS layer; handlers never see the request.
+  The legacy plain-HTTP single-listener mode (default when
+  `--tls` is off) is unchanged, keeping the dev smoke,
+  acceptance script, and integration tests friction-free.
+- **mTLS bootstrap foundation** (SEZ-6, first half).
+  `sezar-server` now boots an internal ECDSA-P256 root CA on
+  first run (persisted to `--ca-dir`, default
+  `/var/lib/sezar/ca`, key at mode 0600), reloaded on every
+  subsequent start. New endpoints:
   - `POST /v1/admin/bootstrap-tokens` — admin-gated by
     `X-Admin-Token` (configured via `--admin-token` or
     `SEZAR_ADMIN_TOKEN`), issues a single-use UUID token bound
@@ -27,8 +43,7 @@ Pre-alpha. Tracks toward the V1 cut (Q3 2026) per
   - `POST /v1/enrol` — agent redeems its token, server returns
     a freshly-signed client cert plus its private key and the
     CA cert.
-  Still pending under SEZ-6: TLS termination + client-cert
-  enforcement on `/v1/events`, agent-side cert rotation, and
+  Still pending under SEZ-6: agent-side cert rotation and
   agent-side buffering during a server outage.
 - **Throughput probe** (`scripts/loadtest.py`). Stdlib-only Python
   load generator: fans out N concurrent POSTs to `/v1/events`,

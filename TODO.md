@@ -40,7 +40,8 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
 - [x] `crates/sezar-server/tests/http_smoke.rs` —
       in-process integration test that exercises every V1 route
       against the router on an ephemeral port.
-- [~] mTLS bootstrap (SEZ-6). Foundational pieces landed:
+- [~] mTLS bootstrap (SEZ-6). Three of four acceptance
+      criteria met:
       - Internal CA generated on first boot, persisted to disk
         (`/var/lib/sezar/ca/{crt,key}`, key at mode 0600),
         reloaded on every subsequent start.
@@ -53,10 +54,18 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
         fresh ECDSA-P256 client cert (CN = agent_id, EKU =
         clientAuth) signed by the CA and returns the cert +
         matching private key + CA cert.
-      Still open: TLS termination on `sezar-server` and
-      client-cert enforcement on `/v1/events`; agent-side cert
-      rotation; agent-side buffering on server outage; move CA
-      + tokens to Postgres encrypted-at-rest once SEZ-2 lands.
+      - TLS termination via `--tls`: mints a CA-signed server
+        cert at boot, splits routes across a bootstrap-only
+        TLS listener (server cert, no client cert) and an mTLS
+        main listener (client cert required, must chain to the
+        internal CA). `/v1/events` rejection without a valid
+        client cert happens at the TLS layer — handlers never
+        see the request.
+      Still open under SEZ-6: agent-side cert rotation
+      (re-enrol when ≤ 7 days from expiry) and agent-side
+      buffering on a server outage (the fourth acceptance
+      criterion). Moving the CA + token store to Postgres
+      encrypted-at-rest is gated on SEZ-2.
 
 ### `sezar-net` — network observer (V1 critical path)
 - [x] Phase 2.0 pcap-file replay landed (`0d255e9`): `sezar-net

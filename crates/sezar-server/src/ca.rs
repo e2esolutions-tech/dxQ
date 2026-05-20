@@ -24,6 +24,7 @@ use parking_lot::Mutex;
 use rcgen::{
     BasicConstraints, Certificate, CertificateParams, DistinguishedName, DnType,
     ExtendedKeyUsagePurpose, IsCa, KeyPair, KeyUsagePurpose, PKCS_ECDSA_P256_SHA256,
+    SanType,
 };
 use serde::Serialize;
 use tracing::info;
@@ -155,6 +156,63 @@ impl Ca {
             .unwrap_or_else(chrono::Utc::now),
         })
     }
+}
+
+impl Ca {
+    /// Mint a server certificate for the collector's own TLS
+    /// listener. CN = `common_name`, EKU = serverAuth, SANs
+    /// drawn from `sans` (each entry is parsed as a DNS name
+    /// when it doesn't look like an IPv4/IPv6 literal).
+    pub fn sign_server_cert(
+        &self,
+        common_name: &str,
+        sans: &[String],
+        validity_days: i64,
+    ) -> Result<ServerCert> {
+        let server_kp = KeyPair::generate_for(&PKCS_ECDSA_P256_SHA256)?;
+        let mut params = CertificateParams::new(Vec::<String>::new())?;
+        let mut dn = DistinguishedName::new();
+        dn.push(DnType::CommonName, common_name);
+        dn.push(DnType::OrganizationName, "Sezar Server");
+        params.distinguished_name = dn;
+        params.is_ca = IsCa::ExplicitNoCa;
+        params.key_usages = vec![
+            KeyUsagePurpose::DigitalSignature,
+            KeyUsagePurpose::KeyEncipherment,
+        ];
+        params.extended_key_usages = vec![ExtendedKeyUsagePurpose::ServerAuth];
+        params.subject_alt_names = sans
+            .iter()
+            .map(|s| match s.parse::<std::net::IpAddr>() {
+                Ok(ip) => SanType::IpAddress(ip),
+                Err(_) => SanType::DnsName(s.as_str().try_into().expect("valid DNS name")),
+            })
+            .collect();
+        let now = time::OffsetDateTime::now_utc();
+        params.not_before = now;
+        params.not_after = now + time::Duration::days(validity_days);
+
+        let inner = self.inner.lock();
+        let cert = params.signed_by(&server_kp, &inner.issuer_cert, &inner.issuer_key)?;
+        Ok(ServerCert {
+            cert_pem: cert.pem(),
+            key_pem: server_kp.serialize_pem(),
+            ca_cert_pem: inner.cert_pem.clone(),
+        })
+    }
+}
+
+/// Output of [`Ca::sign_server_cert`]. The server keeps the
+/// cert + key in memory and feeds them to the rustls listener;
+/// the CA cert is included so clients can be told the chain.
+#[derive(Debug, Clone)]
+pub struct ServerCert {
+    /// PEM-encoded server certificate.
+    pub cert_pem: String,
+    /// PEM-encoded server private key.
+    pub key_pem: String,
+    /// PEM-encoded CA certificate.
+    pub ca_cert_pem: String,
 }
 
 /// Output of [`Ca::sign_agent_cert`]. Returned to the agent as
