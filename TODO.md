@@ -102,6 +102,11 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
       POSTs through the collector, reads back via `/v1/events`,
       `/v1/inventory`, `/v1/posture` and asserts the primitives
       and the positive `org_q`.
+- [x] Throughput probe `scripts/loadtest.py` — concurrent POSTs
+      against `/v1/events`, reports rate + p50/p90/p99 latency
+      and exit codes the failure count. First baseline against
+      the in-memory store: ~812 req/s at concurrency 16, p50
+      18 ms, p99 51 ms on a single Linux host. (Closes SEZ-8.)
 - [x] Shell-level acceptance smoke against the release binaries.
       `scripts/acceptance.sh` builds in release, boots
       `sezar-server` on `127.0.0.1:8190`, seeds the canonical 5

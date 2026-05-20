@@ -15,6 +15,11 @@ Pre-alpha. Tracks toward the V1 cut (Q3 2026) per
 
 ### Added
 
+- **Throughput probe** (`scripts/loadtest.py`). Stdlib-only Python
+  load generator: fans out N concurrent POSTs to `/v1/events`,
+  reports request rate, latency p50/p90/p99/max, and a failure
+  mix. First baseline against the in-memory store on a single
+  Linux host: ~812 req/s at concurrency 16, p50 18 ms, p99 51 ms.
 - **Single-host Docker install.** Multi-stage `Dockerfile` and
   `compose.yaml` bring `sezar-server` up under a non-root user
   with `tini` as PID 1 and a `curl /healthz` HEALTHCHECK. Port is
