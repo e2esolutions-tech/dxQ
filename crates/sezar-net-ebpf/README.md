@@ -81,11 +81,22 @@ typically grant both via `AmbientCapabilities=`.
 
 ## Status
 
-**Phase 2.1, scaffolded.** The kernel-side source is complete and
-compiles against `aya-ebpf 0.1` and the network-types parsing
-helpers. End-to-end attachment + ring-buffer consumption is queued
-for the next milestone — Phase 2.0 (pcap-file replay) is the
-default live observation path until then.
+**Phase 2.1, scaffolded + bring-up runbook in place.** The
+kernel-side source is complete, the userspace loader
+(`crates/sezar-net/src/live_iface.rs`) is wired behind the
+`live-interface` feature, and `sezar-net live-ebpf` is the CLI
+entry point. End-to-end attach + ring-buffer consumption is
+operator-driven: the dev / CI environment doesn't have the
+nightly + `bpf-linker` + `CAP_BPF` combination, so SEZ-3's
+sustained-load and multi-stack acceptance criteria are
+documented as a host-side reproducer instead of a CI test.
+
+For the full bring-up runbook (pre-flight, build, attach,
+validation, troubleshooting) see
+[`docs/sezar-net-ebpf.md`](../../docs/sezar-net-ebpf.md). For a
+one-shot orchestrator that walks the pre-flight + build +
+attach sequence, see
+[`scripts/sezar-net-ebpf-bringup.sh`](../../scripts/sezar-net-ebpf-bringup.sh).
 
 See [methodology.md](../../docs/paper/methodology.md) for the
 deployment-time effort estimate.

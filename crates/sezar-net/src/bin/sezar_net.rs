@@ -108,6 +108,33 @@ enum Cmd {
         #[arg(long)]
         spool_dir: Option<PathBuf>,
     },
+    /// Phase 2.1 — kernel-side eBPF TC classifier (requires the
+    /// `live-interface` feature, a pre-built BPF object, and
+    /// `CAP_BPF` + `CAP_NET_ADMIN` at run time). The userspace
+    /// loader attaches to the interface's TC ingress, parses
+    /// TLS handshake bytes from the kernel ring buffer, and
+    /// emits one `crypto_inventory_event` per ClientHello /
+    /// ServerHello. See `docs/sezar-net-ebpf.md` for the full
+    /// bring-up runbook.
+    LiveEbpf {
+        /// Network interface to attach to (e.g. `lo`, `eth0`).
+        #[arg(long)]
+        iface: String,
+        /// Path to the compiled BPF object. Typically
+        /// `target/bpfel-unknown-none/release/sezar-net-ebpf`
+        /// after building the sibling `sezar-net-ebpf` crate
+        /// with the nightly toolchain.
+        #[arg(long)]
+        ebpf_object: PathBuf,
+        /// Optional downstream collector URL. When set, POST
+        /// each event; otherwise print NDJSON to stdout.
+        #[arg(long)]
+        collector: Option<String>,
+        /// Optional disk-backed spool directory. Same semantics
+        /// as on `live` and `from-zgrab`.
+        #[arg(long)]
+        spool_dir: Option<PathBuf>,
+    },
 }
 
 fn main() -> anyhow::Result<()> {
@@ -145,7 +172,65 @@ fn main() -> anyhow::Result<()> {
         } => run_live(
             pcap, iface, filter, promiscuous, snaplen, collector, spool_dir,
         ),
+        Cmd::LiveEbpf {
+            iface,
+            ebpf_object,
+            collector,
+            spool_dir,
+        } => run_live_ebpf(iface, ebpf_object, collector, spool_dir),
     }
+}
+
+#[cfg(feature = "live-interface")]
+fn run_live_ebpf(
+    iface: String,
+    ebpf_object: PathBuf,
+    collector: Option<String>,
+    spool_dir: Option<PathBuf>,
+) -> anyhow::Result<()> {
+    use sezar_net::live_iface::{self, LiveInterfaceConfig};
+
+    let sink = Sink::new(collector, spool_dir)?;
+    let cfg = LiveInterfaceConfig {
+        iface: iface.clone(),
+        ebpf_object: ebpf_object.clone(),
+    };
+
+    // The aya loader is async; spin up a current-thread runtime
+    // so a Ctrl-C interrupting the surrounding shell still
+    // unwinds cleanly.
+    let rt = tokio::runtime::Builder::new_current_thread()
+        .enable_all()
+        .build()?;
+    let stats = rt.block_on(async {
+        live_iface::run(cfg, |ev| sink.send(&ev)).await
+    })?;
+    info!(
+        source = "live-ebpf",
+        iface = %iface,
+        ebpf_object = %ebpf_object.display(),
+        packets_seen = stats.packets_seen,
+        handshake_packets = stats.handshake_packets,
+        events_emitted = stats.events_emitted,
+        skipped_unparseable = stats.packets_skipped_unparseable,
+        "ebpf observation complete"
+    );
+    Ok(())
+}
+
+#[cfg(not(feature = "live-interface"))]
+fn run_live_ebpf(
+    _iface: String,
+    _ebpf_object: PathBuf,
+    _collector: Option<String>,
+    _spool_dir: Option<PathBuf>,
+) -> anyhow::Result<()> {
+    anyhow::bail!(
+        "live-ebpf requires the `live-interface` feature. \
+         Build with: cargo build -p sezar-net --features live-interface \
+         (after compiling the sezar-net-ebpf crate; see \
+         docs/sezar-net-ebpf.md for the full bring-up dance)."
+    )
 }
 
 /// Best-effort delivery sink for emitted events.

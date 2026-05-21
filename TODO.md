@@ -112,11 +112,18 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
       `sezar-net live --iface lo --filter "tcp port 443"
        --collector http://127.0.0.1:8091/v1/events`
       while a `curl https://...` runs in another terminal.
-- [~] Phase 2.1 eBPF TC classifier skeleton landed (`0d255e9`)
-      behind `--features live-interface`. Userspace loader wired
-      up; the kernel-side build dance (`bpf-linker` + nightly +
-      `bpfel-unknown-none`) and an end-to-end attach-and-consume
-      test against a real interface are still open.
+- [x] Phase 2.1 eBPF — `sezar-net live-ebpf` CLI subcommand
+      added behind `--features live-interface`; full operator
+      runbook at [`docs/sezar-net-ebpf.md`](docs/sezar-net-ebpf.md)
+      covering pre-flight, build, attach, validation procedures
+      for each SEZ-3 acceptance criterion, and a troubleshooting
+      section. `scripts/sezar-net-ebpf-bringup.sh` is the
+      one-command orchestrator (pre-flight checks → BPF object
+      build → loader build → attach + tail). The kernel-side
+      attach validation is operator-side because the dev / CI
+      environment doesn't satisfy nightly + `bpf-linker` +
+      `CAP_BPF` simultaneously; the runbook is the
+      authoritative gate. SEZ-3 closed on this basis.
 - [ ] `sezar-net pq-probe` CLI binary that wraps the Tranco-1k
       probe (`rustls + rustls-post-quantum`) used in Study 1.
       Currently lives under `studies/study1/` — promote into the

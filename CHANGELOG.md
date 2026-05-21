@@ -15,6 +15,21 @@ Pre-alpha. Tracks toward the V1 cut (Q3 2026) per
 
 ### Added
 
+- **`sezar-net live-ebpf` CLI + bring-up runbook** (SEZ-3).
+  Phase 2.1's kernel-side TC classifier + userspace loader had
+  been wired up behind the `live-interface` feature for a
+  while; this change puts the entry point on the binary
+  (`sezar-net live-ebpf --iface <name> --ebpf-object <path>
+  [--collector …] [--spool-dir …]`, gated by the feature; the
+  no-feature build returns an actionable rebuild-with-feature
+  error). A new operator runbook,
+  `docs/sezar-net-ebpf.md`, covers host requirements,
+  one-time toolchain install, build sequence, attach, the
+  exact procedure to validate each of SEZ-3's acceptance
+  criteria, and a troubleshooting section. The companion
+  `scripts/sezar-net-ebpf-bringup.sh` is the one-command
+  reproducer — pre-flight checks → BPF object build → loader
+  build → attach + tail — and the closure path for SEZ-3.
 - **Postgres event store** (SEZ-2). `--database-url` /
   `SEZAR_DATABASE_URL` switches `sezar-server` from the
   in-memory DashMap store to a sqlx-backed `PgEventStore`.
