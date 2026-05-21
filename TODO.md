@@ -36,6 +36,18 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
       `gh` token gaining `workflow` scope. Test +
       acceptance + loadtest paths are all scripted; CI is
       a one-line lift once the token's right.
+- [x] Paper submission package
+      (`scripts/paper-submission-package.sh` +
+      `make paper-submission`). Rebuilds the PDFs, copies
+      the source Markdown + a pandoc-rendered LaTeX
+      version + `references.bib` + `ieee.csl` + every
+      figure (PDF + PNG), generates a venue-customised
+      cover letter + checklist (ORCIDs already filled
+      in), computes SHA-256 over every file as
+      `MANIFEST.txt`, zips the bundle. Magazine bundle:
+      2.0 MB / 24 files. Extended: 1.3 MB / 24 files.
+      The bundles themselves are git-ignored — they
+      regenerate from tracked sources in one command.
 
 ---
 

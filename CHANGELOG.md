@@ -17,6 +17,27 @@ closed.
 
 ### Added
 
+- **Paper submission package.** `scripts/paper-submission-
+  package.sh [magazine|extended|both]` and
+  `make paper-submission` rebuild the PDFs, gather every
+  artefact a venue submission portal asks for, and zip
+  the bundle:
+  - Main PDF (rebuilt fresh).
+  - Source Markdown (the canonical authoring format).
+  - LaTeX source (pandoc-rendered against `ieee.csl`)
+    for IEEE-template venues.
+  - `references.bib` + `ieee.csl`.
+  - Every figure (7 of them) in both PDF and PNG.
+  - A venue-customised cover letter with the corresponding
+    author's ORCID + co-author's ORCID already filled in.
+  - A submission checklist for the operator to tick off
+    before upload.
+  - `MANIFEST.txt` with SHA-256 of every file in the
+    bundle.
+  Magazine bundle: 2.0 MB / 24 files. Extended: 1.3 MB /
+  24 files. The bundles live under `dist/paper/` (now
+  git-ignored — they're regenerable from tracked
+  sources).
 - **Operator polish — systemd units + multi-host deploy
   runbook** (SEZ-24). `dist/systemd/` ships
   production-default unit files for the four

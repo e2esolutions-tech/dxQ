@@ -31,6 +31,12 @@ bindings/
 docs/paper/build/*.html
 docs/paper/build/*.patched.md
 
+# Paper submission bundles produced by
+# `scripts/paper-submission-package.sh`. The script
+# rebuilds everything from tracked sources on demand;
+# bundles themselves are regenerable artifacts.
+dist/paper/
+
 # Study 3 — cloned upstream repos (~180 MB, each its own .git tree).
 # Re-fetched on demand by studies/study3/run.sh.
 studies/study3/sources/
