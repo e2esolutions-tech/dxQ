@@ -16,6 +16,23 @@ complete; V2 (cert inventory) underway per
 
 ### Added
 
+- **`sezar-cert` CT-log scanner** (V2.1, SEZ-10). New
+  `sezar-cert ct-scan --domain <fqdn> [--cursor <path>]
+  [--collector <url>]` subcommand pulls a domain's full cert
+  history from a public Certificate Transparency log
+  (crt.sh in V2.1) and emits one event per discovered cert,
+  going through the same `event_from_cert` parser as the
+  host-scan path. Stateful: a JSON cursor file remembers the
+  highest CT entry id seen per domain so re-runs only fetch
+  certs newer than the cursor. The `CtBackend` trait wraps
+  the two-call list-then-fetch loop so future Google Argon
+  or Let's Encrypt Oak backends drop in without touching the
+  scanner. Polite poll cap of 1 req / second between PEM
+  fetches by default, configurable via
+  `--rate-delay-ms`. Four unit tests cover the JSON
+  deserialiser, fresh-run + cursor advance, cursor-aware
+  delta runs, and empty-domain noop using an in-memory
+  fake backend. Closes SEZ-10.
 - **`sezar-cert` host-filesystem scanner** (V2.0, SEZ-9). New
   crate binary `sezar-cert host-scan --root <path>` walks the
   filesystem for PEM-encoded X.509 certs, parses each with

@@ -28,9 +28,14 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
       `Hash` primitive split.
 
 ### Still open under V2
-- [ ] **V2.1 CT-log scan (SEZ-10).** Pull cert history per
-      domain from crt.sh, emit one event per discovered cert,
-      persist a cursor so re-runs only ship new entries.
+- [x] **V2.1 CT-log scan (SEZ-10).** `sezar-cert ct-scan
+      --domain <fqdn> [--cursor <path>]` pulls per-domain
+      cert history from crt.sh, parses each PEM with the
+      shared parser, persists a per-domain max-id cursor so
+      re-runs only ship new entries. `CtBackend` trait keeps
+      the backend pluggable; future Google Argon / Let's
+      Encrypt Oak impls drop in without touching the
+      scanner loop.
 - [ ] **V2.2 internal-CA scan (SEZ-11).** HashiCorp Vault
       PKI backend behind a pluggable trait so AD CS / ACME
       can follow.

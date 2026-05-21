@@ -20,6 +20,7 @@
 #![warn(rust_2018_idioms)]
 
 pub mod cert;
+pub mod ct;
 pub mod scan;
 
 /// Module identifier emitted as `source_module` on every event.

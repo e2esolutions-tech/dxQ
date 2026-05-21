@@ -20,6 +20,7 @@ use std::path::PathBuf;
 use std::time::Duration;
 
 use clap::{Parser, Subcommand};
+use sezar_cert::ct::{self, CrtShBackend, CtScanConfig, DEFAULT_RATE_DELAY_MS};
 use sezar_cert::scan::{self, DEFAULT_ROOTS};
 use sezar_core::CryptoInventoryEvent;
 use tracing::{error, info, warn};
@@ -55,6 +56,33 @@ enum Cmd {
         #[arg(long)]
         spool_dir: Option<PathBuf>,
     },
+    /// Pull cert history per domain from a public Certificate
+    /// Transparency log (crt.sh in V2.1). Stateful — point
+    /// `--cursor` at a JSON file so re-runs only fetch certs
+    /// newer than the highest CT entry id already seen.
+    CtScan {
+        /// Domains to scan. The crt.sh backend issues one
+        /// list request per domain (`%.<domain>`), so SANs
+        /// of any subdomain land in the result.
+        #[arg(long, num_args = 1..)]
+        domain: Vec<String>,
+        /// Per-domain high-water-mark file. Created on first
+        /// run; rewritten with the new max id at the end of
+        /// every run.
+        #[arg(long)]
+        cursor: Option<PathBuf>,
+        /// Pause between per-cert PEM fetches, in milliseconds.
+        /// Defaults to 1000 (one request / second) so we stay
+        /// inside crt.sh's polite-use guidance.
+        #[arg(long, default_value_t = DEFAULT_RATE_DELAY_MS)]
+        rate_delay_ms: u64,
+        /// Optional downstream collector URL.
+        #[arg(long)]
+        collector: Option<String>,
+        /// Optional disk-backed spool directory.
+        #[arg(long)]
+        spool_dir: Option<PathBuf>,
+    },
 }
 
 fn main() -> anyhow::Result<()> {
@@ -74,6 +102,13 @@ fn main() -> anyhow::Result<()> {
             collector,
             spool_dir,
         } => run_host_scan(root, collector, spool_dir),
+        Cmd::CtScan {
+            domain,
+            cursor,
+            rate_delay_ms,
+            collector,
+            spool_dir,
+        } => run_ct_scan(domain, cursor, rate_delay_ms, collector, spool_dir),
     }
 }
 
@@ -124,6 +159,34 @@ impl Sink {
             Err(e) => error!(error = %e, "downstream POST failed"),
         }
     }
+}
+
+fn run_ct_scan(
+    domains: Vec<String>,
+    cursor_path: Option<PathBuf>,
+    rate_delay_ms: u64,
+    collector: Option<String>,
+    spool_dir: Option<PathBuf>,
+) -> anyhow::Result<()> {
+    info!(?domains, ?cursor_path, rate_delay_ms, "starting ct-scan (crt.sh)");
+    let backend = CrtShBackend::new()?;
+    let cfg = CtScanConfig {
+        domains,
+        cursor_path,
+        rate_delay_ms,
+    };
+    let sink = Sink::new(collector, spool_dir)?;
+    let stats = ct::ct_scan(&cfg, &backend, |ev| sink.send(&ev))?;
+    info!(
+        domains_scanned = stats.domains_scanned,
+        entries_listed = stats.entries_listed,
+        entries_below_cursor = stats.entries_below_cursor,
+        certs_fetched = stats.certs_fetched,
+        fetch_failures = stats.fetch_failures,
+        events_emitted = stats.events_emitted,
+        "ct-scan complete"
+    );
+    Ok(())
 }
 
 fn run_host_scan(
