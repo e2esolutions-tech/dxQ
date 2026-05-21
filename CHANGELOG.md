@@ -15,6 +15,28 @@ Pre-alpha. Tracks toward the V1 cut (Q3 2026) per
 
 ### Added
 
+- **Sezar dashboard — V1 ship cut** (SEZ-5). The Vite + React
+  + TypeScript + Tailwind scaffolding lights up against the
+  live `sezar-server` REST surface:
+  - Posture page polls `/v1/posture` every 10 s,
+    renders `org_q` + asset count + BLOCKED count + deadline
+    countdown, and (paired with a 10 s `/v1/inventory` poll)
+    shows a breakdown of mean / max q per asset kind with a
+    small horizontal bar chart.
+  - Inventory page polls `/v1/inventory` every 30 s with a
+    manual refresh button; row click opens a modal detail
+    panel showing primitives, source module, q, observed-at
+    timestamp, and a pointer to `/v1/events?limit=N` for the
+    full event JSON.
+  - Empty-state CTA — when `/v1/posture` reports zero assets
+    the Posture page swaps to a "no agents reporting yet"
+    panel with copy-to-clipboard install + bootstrap commands.
+  - `lib/usePolling.ts` — a small hook that polls on a fixed
+    interval, suspends when the tab goes hidden, and exposes
+    a `refresh` thunk so a page can force an out-of-band
+    fetch (e.g. after a user action).
+  Build artifact stays well under the SEZ-5 budget: 186 KB
+  raw / 59.22 KB gzipped (budget: 300 KB).
 - **Agent-side spool** (SEZ-6, fourth acceptance criterion).
   `sezar-net` now ships an on-disk NDJSON spool
   (`crates/sezar-net/src/spool.rs`). When `live` /

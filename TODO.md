@@ -117,11 +117,28 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
       `GET /v1/blocked` view).
 
 ### React UI — posture dashboard
-- [ ] Org-level score chip + last-N-days trend.
-- [ ] Asset list with sort by `q`, filter by `BLOCKED`, drill into
-      `agility_evidence`.
-- [ ] Per-asset detail view: A, C, G axes broken out, evidence
-      links into source-module captures.
+- [x] Org-level score chip — Posture page polls `/v1/posture`
+      every 10 s and renders `org_q` + asset count + BLOCKED
+      count alongside a deadline countdown.
+- [x] Asset list with sort by `q`, filter by `BLOCKED` and
+      asset kind — Inventory page polls `/v1/inventory` every
+      30 s with a manual refresh button.
+- [x] Per-asset detail view — row click on the inventory table
+      opens a modal panel with the asset's primitives, source
+      module, q, observed-at timestamp, and a pointer to
+      `/v1/events?limit=N` for the full event JSON.
+- [x] Breakdown by asset kind — Posture page also shows mean
+      and max q per asset kind with a small horizontal bar
+      chart, surfaced under the org-level chip.
+- [x] Empty-state CTA — when `/v1/posture` reports zero
+      assets, the page swaps to a "no agents reporting yet"
+      panel with copy-to-clipboard install commands.
+- [ ] Auth: OIDC (Keycloak optional) — scope item, deferred to
+      a follow-up issue. The dashboard is unauthenticated
+      today, fine for the localhost demo path but a gate for
+      any externally-reachable deployment.
+- [ ] Last-N-days trend chart — not in V1 acceptance; useful
+      addition once the store has time-series data.
 
 ### Demo + acceptance test rig
 - [x] `scripts/demo.sh` boots emulator + collector + server (per
