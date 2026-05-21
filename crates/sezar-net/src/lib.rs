@@ -28,6 +28,7 @@ pub mod live;
 #[cfg(feature = "live-interface")]
 pub mod live_iface;
 pub mod pq_probe;
+pub mod spool;
 pub mod tls;
 pub mod zgrab;
 

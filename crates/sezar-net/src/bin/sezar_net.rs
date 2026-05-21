@@ -20,7 +20,7 @@ use std::path::PathBuf;
 use std::time::Duration;
 
 use clap::{Parser, Subcommand};
-use sezar_net::{live, pq_probe, tls, zgrab};
+use sezar_net::{live, pq_probe, spool, tls, zgrab};
 use tracing::{error, info, warn};
 use tracing_subscriber::EnvFilter;
 
@@ -42,6 +42,12 @@ enum Cmd {
         /// event; otherwise print NDJSON to stdout.
         #[arg(long)]
         collector: Option<String>,
+        /// Optional disk-backed spool directory. When set and a
+        /// `--collector` is given, POST failures are appended to
+        /// the spool so the events survive a server outage; the
+        /// spool is drained at the start of every run.
+        #[arg(long)]
+        spool_dir: Option<PathBuf>,
     },
     /// Parse raw TLS handshake bytes (hex) and dump the summary.
     ParseHandshake {
@@ -95,6 +101,12 @@ enum Cmd {
         /// event; otherwise print NDJSON to stdout.
         #[arg(long)]
         collector: Option<String>,
+        /// Optional disk-backed spool directory. When set and a
+        /// `--collector` is given, POST failures are appended to
+        /// the spool so the events survive a server outage; the
+        /// spool is drained at the start of every run.
+        #[arg(long)]
+        spool_dir: Option<PathBuf>,
     },
 }
 
@@ -110,7 +122,11 @@ fn main() -> anyhow::Result<()> {
 
     let args = Args::parse();
     match args.cmd {
-        Cmd::FromZgrab { input, collector } => run_from_zgrab(input, collector),
+        Cmd::FromZgrab {
+            input,
+            collector,
+            spool_dir,
+        } => run_from_zgrab(input, collector, spool_dir),
         Cmd::ParseHandshake { hex } => run_parse_handshake(hex),
         Cmd::PqProbe {
             hosts,
@@ -125,7 +141,109 @@ fn main() -> anyhow::Result<()> {
             promiscuous,
             snaplen,
             collector,
-        } => run_live(pcap, iface, filter, promiscuous, snaplen, collector),
+            spool_dir,
+        } => run_live(
+            pcap, iface, filter, promiscuous, snaplen, collector, spool_dir,
+        ),
+    }
+}
+
+/// Best-effort delivery sink for emitted events.
+///
+/// Three modes:
+/// - no `collector`           → NDJSON to stdout
+/// - `collector` only         → POST; on failure, log + drop
+/// - `collector` + `spool`    → POST; on failure, append to the
+///                              disk spool. The spool is drained
+///                              once at construction time so
+///                              outage-buffered events go out
+///                              first.
+struct Sink {
+    collector: Option<String>,
+    client: Option<reqwest::blocking::Client>,
+    spool: Option<spool::Spool>,
+}
+
+impl Sink {
+    fn new(
+        collector: Option<String>,
+        spool_dir: Option<PathBuf>,
+    ) -> anyhow::Result<Self> {
+        let client = collector
+            .as_deref()
+            .map(|_| {
+                reqwest::blocking::Client::builder()
+                    .timeout(std::time::Duration::from_secs(5))
+                    .build()
+            })
+            .transpose()
+            .map_err(|e| anyhow::anyhow!("client build: {e}"))?;
+        let spool = match (spool_dir.as_deref(), collector.as_deref()) {
+            (Some(dir), Some(_)) => Some(spool::Spool::open(dir)?),
+            (Some(_), None) => {
+                warn!("--spool-dir without --collector is a no-op; ignoring");
+                None
+            }
+            _ => None,
+        };
+        let me = Self {
+            collector,
+            client,
+            spool,
+        };
+        me.drain_spool();
+        Ok(me)
+    }
+
+    fn drain_spool(&self) {
+        let (Some(spool), Some(url), Some(client)) =
+            (&self.spool, &self.collector, &self.client)
+        else {
+            return;
+        };
+        let stats = match spool.drain(|ev| match client.post(url).json(ev).send() {
+            Ok(r) if r.status().is_success() => Ok(()),
+            Ok(r) => Err(anyhow::anyhow!("status {}", r.status())),
+            Err(e) => Err(anyhow::anyhow!(e)),
+        }) {
+            Ok(s) => s,
+            Err(e) => {
+                error!(error = %e, "spool drain failed");
+                return;
+            }
+        };
+        if stats.seen > 0 {
+            info!(
+                seen = stats.seen,
+                delivered = stats.delivered,
+                retained = stats.retained,
+                corrupt_dropped = stats.corrupt_dropped,
+                "spool drained"
+            );
+        }
+    }
+
+    fn send(&self, ev: &sezar_core::CryptoInventoryEvent) {
+        let Some(url) = self.collector.as_deref() else {
+            // stdout NDJSON
+            match serde_json::to_string(ev) {
+                Ok(s) => println!("{s}"),
+                Err(e) => error!(error = %e, "serialize failed"),
+            }
+            return;
+        };
+        let client = self.client.as_ref().expect("client present when url is");
+        match client.post(url).json(ev).send() {
+            Ok(r) if r.status().is_success() => return,
+            Ok(r) => warn!(status = %r.status(), "downstream rejected event"),
+            Err(e) => error!(error = %e, "downstream POST failed"),
+        }
+        // Above match fell through: POST didn't deliver. Spool if configured.
+        if let Some(spool) = &self.spool {
+            if let Err(e) = spool.append(ev) {
+                error!(error = %e, "failed to spool event after POST failure");
+            }
+        }
     }
 }
 
@@ -136,28 +254,10 @@ fn run_live(
     promiscuous: bool,
     snaplen: i32,
     collector: Option<String>,
+    spool_dir: Option<PathBuf>,
 ) -> anyhow::Result<()> {
-    let client = collector
-        .as_deref()
-        .map(|_| reqwest::blocking::Client::builder().build())
-        .transpose()
-        .map_err(|e| anyhow::anyhow!("client build: {e}"))?;
-
-    // Shared sink: stdout-NDJSON, or downstream POST if --collector is set.
-    let emit = |ev: &sezar_core::CryptoInventoryEvent| {
-        if let Some(url) = collector.as_deref() {
-            match client.as_ref().unwrap().post(url).json(ev).send() {
-                Ok(r) if r.status().is_success() => {}
-                Ok(r) => warn!(status = %r.status(), "downstream rejected event"),
-                Err(e) => error!(error = %e, "downstream POST failed"),
-            }
-        } else {
-            match serde_json::to_string(ev) {
-                Ok(s) => println!("{s}"),
-                Err(e) => error!(error = %e, "serialize failed"),
-            }
-        }
-    };
+    let sink = Sink::new(collector, spool_dir)?;
+    let emit = |ev: &sezar_core::CryptoInventoryEvent| sink.send(ev);
 
     match (pcap_path, iface) {
         (Some(p), None) => {
@@ -298,29 +398,19 @@ fn run_pq_probe(
     Ok(())
 }
 
-fn run_from_zgrab(input: String, collector: Option<String>) -> anyhow::Result<()> {
+fn run_from_zgrab(
+    input: String,
+    collector: Option<String>,
+    spool_dir: Option<PathBuf>,
+) -> anyhow::Result<()> {
     let raw = read_input(&input)?;
     let records = parse_zgrab_payload(&raw)?;
     info!(count = records.len(), "zgrab records loaded");
 
-    // We use blocking reqwest only when the operator opts in to a
-    // downstream collector; the common stdout path stays sync.
-    let client = collector
-        .as_deref()
-        .map(|_| reqwest::blocking::Client::builder().build())
-        .transpose()
-        .map_err(|e| anyhow::anyhow!("client build: {e}"))?;
-
+    let sink = Sink::new(collector, spool_dir)?;
     for rec in records {
         let ev = zgrab::event_from_zgrab(&rec);
-        if let Some(url) = collector.as_deref() {
-            let resp = client.as_ref().unwrap().post(url).json(&ev).send()?;
-            if !resp.status().is_success() {
-                warn!(status = %resp.status(), "downstream rejected event");
-            }
-        } else {
-            println!("{}", serde_json::to_string(&ev)?);
-        }
+        sink.send(&ev);
     }
     Ok(())
 }

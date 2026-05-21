@@ -15,7 +15,18 @@ Pre-alpha. Tracks toward the V1 cut (Q3 2026) per
 
 ### Added
 
-- **TLS termination + mTLS enforcement** (SEZ-6, second half).
+- **Agent-side spool** (SEZ-6, fourth acceptance criterion).
+  `sezar-net` now ships an on-disk NDJSON spool
+  (`crates/sezar-net/src/spool.rs`). When `live` /
+  `from-zgrab` are invoked with `--collector <url>
+  --spool-dir <path>`, every POST failure appends the event
+  to the spool; the spool is drained at the start of every
+  subsequent run. Survives mid-process crashes (each append
+  fsyncs), tolerant of corrupt lines (logged + dropped from
+  the spool), at-least-once delivery (server side
+  deduplicates by event identity). Closes SEZ-6.
+- **TLS termination + mTLS enforcement** (SEZ-6, third
+  acceptance criterion).
   `sezar-server --tls` mints a CA-signed server cert at boot
   (additional SANs via `--tls-san`) and runs two listeners:
   - `--tls-bootstrap-listen` (default `0.0.0.0:8443`) — TLS
