@@ -22,6 +22,7 @@ use std::time::Duration;
 use clap::{Parser, Subcommand};
 use sezar_cert::ct::{self, CrtShBackend, CtScanConfig, DEFAULT_RATE_DELAY_MS};
 use sezar_cert::scan::{self, DEFAULT_ROOTS};
+use sezar_cert::vault::{self, VaultHttpBackend, VaultScanConfig};
 use sezar_core::CryptoInventoryEvent;
 use tracing::{error, info, warn};
 use tracing_subscriber::EnvFilter;
@@ -53,6 +54,31 @@ enum Cmd {
         /// alongside `--collector`, POST failures append to
         /// the spool so events survive a server outage. The
         /// spool drains at the start of every run.
+        #[arg(long)]
+        spool_dir: Option<PathBuf>,
+    },
+    /// Walk a HashiCorp Vault PKI mount and emit one
+    /// `crypto_inventory_event` for every active cert. Token
+    /// is read from `--token-env` (default `VAULT_TOKEN`); it
+    /// never appears in any log line.
+    VaultScan {
+        /// Vault base URL (e.g. `http://127.0.0.1:8200`).
+        #[arg(long)]
+        addr: String,
+        /// PKI mount path(s) — typically `pki` for a single
+        /// mount, `pki` + `pki_int` for a two-tier setup.
+        #[arg(long = "mount", num_args = 1..)]
+        mounts: Vec<String>,
+        /// Env var name to read the Vault token from.
+        #[arg(long, default_value = "VAULT_TOKEN")]
+        token_env: String,
+        /// Pause between per-cert fetches, in milliseconds.
+        #[arg(long, default_value_t = 250)]
+        rate_delay_ms: u64,
+        /// Optional downstream collector URL.
+        #[arg(long)]
+        collector: Option<String>,
+        /// Optional disk-backed spool directory.
         #[arg(long)]
         spool_dir: Option<PathBuf>,
     },
@@ -109,7 +135,48 @@ fn main() -> anyhow::Result<()> {
             collector,
             spool_dir,
         } => run_ct_scan(domain, cursor, rate_delay_ms, collector, spool_dir),
+        Cmd::VaultScan {
+            addr,
+            mounts,
+            token_env,
+            rate_delay_ms,
+            collector,
+            spool_dir,
+        } => run_vault_scan(addr, mounts, token_env, rate_delay_ms, collector, spool_dir),
     }
+}
+
+fn run_vault_scan(
+    addr: String,
+    mounts: Vec<String>,
+    token_env: String,
+    rate_delay_ms: u64,
+    collector: Option<String>,
+    spool_dir: Option<PathBuf>,
+) -> anyhow::Result<()> {
+    let token = std::env::var(&token_env).map_err(|_| {
+        anyhow::anyhow!(
+            "missing Vault token: env var `{}` is not set (override with --token-env)",
+            token_env
+        )
+    })?;
+    info!(addr = %addr, ?mounts, "starting vault-scan");
+    let backend = VaultHttpBackend::new(addr, token)?;
+    let cfg = VaultScanConfig {
+        mounts,
+        rate_delay_ms,
+    };
+    let sink = Sink::new(collector, spool_dir)?;
+    let stats = vault::vault_scan(&cfg, &backend, |ev| sink.send(&ev))?;
+    info!(
+        mounts_scanned = stats.mounts_scanned,
+        serials_listed = stats.serials_listed,
+        certs_fetched = stats.certs_fetched,
+        fetch_failures = stats.fetch_failures,
+        events_emitted = stats.events_emitted,
+        "vault-scan complete"
+    );
+    Ok(())
 }
 
 /// Best-effort delivery sink — copy of the same pattern the

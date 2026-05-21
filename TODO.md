@@ -36,9 +36,16 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
       the backend pluggable; future Google Argon / Let's
       Encrypt Oak impls drop in without touching the
       scanner loop.
-- [ ] **V2.2 internal-CA scan (SEZ-11).** HashiCorp Vault
-      PKI backend behind a pluggable trait so AD CS / ACME
-      can follow.
+- [x] **V2.2 internal-CA scan (SEZ-11).** `sezar-cert
+      vault-scan --addr <url> --mount <name>` walks a
+      HashiCorp Vault PKI mount via `LIST /v1/<mount>/certs`
+      + `GET /v1/<mount>/cert/<serial>`, parses each PEM with
+      the shared parser, emits one event per cert. Token from
+      `--token-env` (default `VAULT_TOKEN`), never logged.
+      `VaultBackend` trait wraps the two-call shape so AD CS
+      / ACME backends drop in later. Five-minute reproducer
+      against `vault server -dev` in
+      [`docs/sezar-cert-vault.md`](docs/sezar-cert-vault.md).
 
 ---
 

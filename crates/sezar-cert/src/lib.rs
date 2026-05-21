@@ -22,6 +22,7 @@
 pub mod cert;
 pub mod ct;
 pub mod scan;
+pub mod vault;
 
 /// Module identifier emitted as `source_module` on every event.
 pub const MODULE_NAME: &str = "sezar-cert";

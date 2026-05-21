@@ -16,6 +16,24 @@ complete; V2 (cert inventory) underway per
 
 ### Added
 
+- **`sezar-cert` Vault PKI scanner** (V2.2, SEZ-11). New
+  `sezar-cert vault-scan --addr <url> --mount <name>
+  [--token-env VAULT_TOKEN] [--collector <url>]` subcommand
+  lists every active cert under a HashiCorp Vault PKI mount,
+  fetches each PEM via `GET /v1/<mount>/cert/<serial>`, and
+  emits one event per cert. Reuses the same parser as the
+  host-scan and CT-scan paths so the per-cert event shape
+  (primitive split, SHA-256 identity, host SAN) is
+  identical. The Vault token is read from an env var
+  (configurable via `--token-env`) and never written to a
+  log line; the `VaultBackend` trait wraps the two-call
+  shape so AD CS, ACME, and PKCS#11 backends can drop in
+  for V2.3+ without touching the scanner loop. Five
+  in-memory unit tests cover the JSON deserialisers, the
+  scanner loop, the empty-mount noop, and the URL
+  sanitiser. Five-minute reproducer against `vault server
+  -dev` lives in [`docs/sezar-cert-vault.md`](docs/sezar-cert-vault.md).
+  Closes SEZ-11 — every V2 SEZ-N is now closed.
 - **`sezar-cert` CT-log scanner** (V2.1, SEZ-10). New
   `sezar-cert ct-scan --domain <fqdn> [--cursor <path>]
   [--collector <url>]` subcommand pulls a domain's full cert
