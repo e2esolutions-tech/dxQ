@@ -1,0 +1,13 @@
+# Periodic HSM inventory ingest — every 6 hours.
+
+[Unit]
+Description=Periodic Sezar offline HSM inventory ingestion
+
+[Timer]
+OnBootSec=15min
+OnUnitActiveSec=6h
+Persistent=true
+Unit=sezar-id-inventory.service
+
+[Install]
+WantedBy=timers.target

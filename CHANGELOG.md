@@ -17,6 +17,33 @@ closed.
 
 ### Added
 
+- **Operator polish — systemd units + multi-host deploy
+  runbook** (SEZ-24). `dist/systemd/` ships
+  production-default unit files for the four
+  always-on or timer-driven daemons:
+  - `sezar-server.service` (collector + REST + V5
+    recommendations endpoint)
+  - `sezar-net-live.service` (Phase 2.2 libpcap live
+    observer; only unit that needs `CAP_NET_RAW`)
+  - `sezar-cert-host-scan.{service,timer}` (daily
+    03:17 ± 30 m)
+  - `sezar-id-inventory.{service,timer}` (every 6 h)
+  Each unit runs as a dedicated `sezar` system user, drops
+  every capability except the one it actually needs, and
+  applies the standard hardening battery
+  (`ProtectSystem=strict`, `PrivateTmp`,
+  `ProtectKernel*`, `MemoryDenyWriteExecute`,
+  `SystemCallFilter=@system-service` minus
+  `@privileged @resources`, no writable filesystem outside
+  `/var/lib/sezar*`).
+  `docs/operator-deploy.md` is the multi-host runbook
+  covering collector setup, per-agent bootstrap-token mint,
+  agent enrolment over the mTLS bootstrap listener,
+  systemd drop-in templates, and Day-2 cert rotation.
+  Top-level `Makefile` adds `make systemd-install`,
+  `systemd-uninstall`, `check-systemd`, `acceptance`,
+  `loadtest`, `test`, `release` targets — typed once,
+  the install path is idempotent.
 - **Dashboard integration of V5 recommendations** (SEZ-23).
   New `GET /v1/recommendations` endpoint on sezar-server
   walks the latest-per-asset map and runs the V5

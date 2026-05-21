@@ -7,6 +7,38 @@ Update **before** the implementing PR, not after.
 Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
 `[-]` deferred / out of V1.
 
+## Operator polish
+
+- [x] systemd unit files (SEZ-24). `dist/systemd/` ships
+      one unit per binary: `sezar-server.service`,
+      `sezar-net-live.service`, `sezar-cert-host-scan.{service
+      ,timer}` (daily 03:17 ± 30 m jitter),
+      `sezar-id-inventory.{service,timer}` (every 6 h). All
+      units run as a dedicated `sezar` system user, drop
+      every capability except `CAP_NET_RAW` on the network
+      observer, and apply the standard systemd hardening
+      directives (no writable filesystem outside
+      `/var/lib/sezar*`, `@system-service` syscall filter
+      minus `@privileged @resources`, MemoryDenyWriteExecute,
+      ProtectKernel*, …).
+- [x] Multi-host deploy runbook
+      [`docs/operator-deploy.md`](docs/operator-deploy.md)
+      walks through the collector + per-agent bootstrap
+      sequence including mTLS enrolment and Day-2 cert
+      rotation.
+- [x] `Makefile` with `systemd-install` /
+      `systemd-uninstall` / `check-systemd` /
+      `acceptance` / `loadtest` / `release` targets.
+- [ ] `cargo-deb` / `cargo-generate-rpm` config — the
+      Makefile path works today; a real package recipe
+      follows when an operator needs it.
+- [ ] GitHub Actions CI workflow — still gated on the
+      `gh` token gaining `workflow` scope. Test +
+      acceptance + loadtest paths are all scripted; CI is
+      a one-line lift once the token's right.
+
+---
+
 ## V5 — PQ migration recommendations engine
 
 ### `sezar-agility` recommendations engine (on top of the V1 agility scanner)
