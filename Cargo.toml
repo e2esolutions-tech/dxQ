@@ -34,5 +34,6 @@ axum        = "0.7"
 tower       = "0.5"
 
 # Workspace-internal
-sezar-core   = { path = "crates/sezar-core" }
-sezar-server = { path = "crates/sezar-server" }
+sezar-core    = { path = "crates/sezar-core" }
+sezar-server  = { path = "crates/sezar-server" }
+sezar-agility = { path = "crates/sezar-agility" }

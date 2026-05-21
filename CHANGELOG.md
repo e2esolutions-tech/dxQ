@@ -17,6 +17,18 @@ closed.
 
 ### Added
 
+- **Dashboard integration of V5 recommendations** (SEZ-23).
+  New `GET /v1/recommendations` endpoint on sezar-server
+  walks the latest-per-asset map and runs the V5
+  recommendation engine on each event's primitive list;
+  returns `[{identity, kind, host, current_primitives,
+  recommendations[]}]`. React UI gets a `/recommendations`
+  page polled on the 30 s Inventory cadence, with a
+  kind-filter, a max-cost-filter (Trivial / Low / Medium /
+  High), and a per-asset card that surfaces every
+  recommendation with its cost badge, rationale, and
+  caveats. Bundle stays at 59.95 KB gzipped (300 KB
+  budget). Closes SEZ-23.
 - **`sezar-agility` V5 — PQ migration recommendations
   engine** (SEZ-19, SEZ-20, SEZ-21, SEZ-22). Four new
   modules on top of the V1 agility scanner:

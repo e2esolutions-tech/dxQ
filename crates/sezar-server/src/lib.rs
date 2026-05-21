@@ -139,5 +139,6 @@ pub fn router_main(state: AppState) -> Router {
         .route("/v1/posture", get(routes::org_posture))
         .route("/v1/qkd/links", get(routes::qkd_links))
         .route("/v1/blocked", get(routes::blocked_assets))
+        .route("/v1/recommendations", get(routes::recommendations))
         .with_state(state)
 }

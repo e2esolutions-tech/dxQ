@@ -39,10 +39,13 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
       jurisdictions (US-NSA CNSA 2.0, US-NIST IR 8547,
       EU-ANSSI, DE-BSI TR-02102-1, UK-NCSC). Each entry
       includes the public-document URL for audit.
-- [ ] Dashboard integration — surface recommendations +
-      roadmap projections in the React UI. Library API is
-      ready; needs a sezar-server `/v1/recommendations`
-      endpoint + a Posture-page section.
+- [x] Dashboard integration (SEZ-23). `GET /v1/recommendations`
+      on sezar-server walks the latest-per-asset map and
+      runs `sezar_agility::recommend::recommend_for` per
+      event; React UI adds a `/recommendations` page with a
+      cost-filter, kind-filter, and per-asset card. Bundle
+      stays at 59.95 KB gzipped (was 59.22; +0.7 KB for
+      the new page).
 
 ---
 

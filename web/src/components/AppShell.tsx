@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 const navItems = [
   { to: "/posture", label: "Posture" },
   { to: "/inventory", label: "Inventory" },
+  { to: "/recommendations", label: "Recommendations" },
   { to: "/blocked", label: "Blocked" },
   { to: "/qkd", label: "QKD links" },
 ];

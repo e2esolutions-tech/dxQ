@@ -10,6 +10,7 @@ import type {
   InventoryResponse,
   OrgPosture,
   QkdLinksResponse,
+  RecommendationsResponse,
 } from "../types/sezar";
 
 async function getJson<T>(path: string): Promise<T> {
@@ -41,4 +42,8 @@ export async function fetchQkdLinks(): Promise<QkdLinksResponse> {
 
 export async function fetchEvents(limit = 100): Promise<EventsResponse> {
   return getJson<EventsResponse>(`/v1/events?limit=${limit}`);
+}
+
+export async function fetchRecommendations(): Promise<RecommendationsResponse> {
+  return getJson<RecommendationsResponse>("/v1/recommendations");
 }

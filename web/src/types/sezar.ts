@@ -121,3 +121,29 @@ export interface EventsResponse {
   count: number;
   events: CryptoInventoryEvent[];
 }
+
+// V5 — PQ migration recommendations.
+
+export type RecommendationCost = "trivial" | "low" | "medium" | "high";
+
+export interface Recommendation {
+  replaces: string;
+  replacement: string;
+  rationale: string;
+  cost: RecommendationCost;
+  caveats: string[];
+}
+
+export interface RecommendationItem {
+  source_module: string;
+  asset_kind: AssetKind;
+  identity: string;
+  host?: string | null;
+  current_primitives: string[];
+  recommendations: Recommendation[];
+}
+
+export interface RecommendationsResponse {
+  count: number;
+  items: RecommendationItem[];
+}

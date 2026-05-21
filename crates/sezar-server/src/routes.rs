@@ -202,6 +202,39 @@ pub async fn blocked_assets(
     }))
 }
 
+/// `GET /v1/recommendations` — per-asset PQ migration
+/// recommendations. Walks the latest-per-asset map and
+/// runs `sezar_agility::recommend::recommend_for` on each
+/// event's primitives.
+pub async fn recommendations(
+    State(st): State<AppState>,
+) -> Result<Json<RecommendationsResponse>, (StatusCode, Json<ApiError>)> {
+    let events = st.store.latest_per_asset().await.map_err(store_err)?;
+    let mut items = Vec::new();
+    for ev in events {
+        let recs = sezar_agility::recommend::recommend_for(&ev.primitives);
+        if recs.is_empty() {
+            continue;
+        }
+        items.push(RecommendationItem {
+            source_module: ev.source_module.clone(),
+            asset_kind: ev.asset.kind.clone(),
+            identity: ev.asset.identity.clone(),
+            host: ev.asset.host.clone(),
+            current_primitives: ev
+                .primitives
+                .iter()
+                .map(|p| p.algorithm.clone())
+                .collect(),
+            recommendations: recs,
+        });
+    }
+    Ok(Json(RecommendationsResponse {
+        count: items.len(),
+        items,
+    }))
+}
+
 // ----- response shapes -----
 
 /// Error body shared by every endpoint.
@@ -314,4 +347,30 @@ pub struct QkdLinksResponse {
     pub count: usize,
     /// QKD link rows.
     pub links: Vec<QkdLinkSummary>,
+}
+
+/// One asset's recommendation row.
+#[derive(Debug, Serialize)]
+pub struct RecommendationItem {
+    /// Source module that emitted the asset.
+    pub source_module: String,
+    /// Asset kind.
+    pub asset_kind: AssetKind,
+    /// Module-scoped identity.
+    pub identity: String,
+    /// Optional host.
+    pub host: Option<String>,
+    /// Algorithm names currently observed on the asset.
+    pub current_primitives: Vec<String>,
+    /// Ranked replacement recommendations (cheapest first).
+    pub recommendations: Vec<sezar_agility::recommend::Recommendation>,
+}
+
+/// Response shape for `GET /v1/recommendations`.
+#[derive(Debug, Serialize)]
+pub struct RecommendationsResponse {
+    /// Number of assets with at least one recommendation.
+    pub count: usize,
+    /// Per-asset rows.
+    pub items: Vec<RecommendationItem>,
 }

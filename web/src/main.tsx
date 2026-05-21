@@ -8,6 +8,7 @@ import { InventoryPage } from "./pages/Inventory";
 import { PosturePage } from "./pages/Posture";
 import { BlockedPage } from "./pages/Blocked";
 import { QkdPage } from "./pages/Qkd";
+import { RecommendationsPage } from "./pages/Recommendations";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -17,6 +18,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/" element={<Navigate replace to="/posture" />} />
           <Route path="/posture" element={<PosturePage />} />
           <Route path="/inventory" element={<InventoryPage />} />
+          <Route path="/recommendations" element={<RecommendationsPage />} />
           <Route path="/blocked" element={<BlockedPage />} />
           <Route path="/qkd" element={<QkdPage />} />
         </Routes>
