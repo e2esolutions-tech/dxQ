@@ -7,6 +7,53 @@ Update **before** the implementing PR, not after.
 Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
 `[-]` deferred / out of V1.
 
+## V4 — HSM / KMS identity
+
+### `sezar-id` — HSM / KMS / smart-card inventory
+- [x] **V4.0 offline classifier (SEZ-15).** `sezar-id
+      inventory-scan --input <file>` reads an operator-
+      exported HSM inventory JSON, maps each
+      `(key_type, key_size_bits?)` through a shared
+      `algos::primitives_for` table (RSA, ECDSA, Ed25519,
+      ML-DSA L1/L3/L5, SLH-DSA, AES, HMAC, "unknown:"
+      fallback), and emits one
+      `crypto_inventory_event` per key with
+      `asset.kind = hsm_slot`.
+- [x] **V4.1 PKCS#11 backend (SEZ-16).** `sezar-id
+      pkcs11-scan --library <vendor.so> [--pin-env VAR]`
+      behind the `pkcs11` cargo feature. Opens the vendor
+      PKCS#11 library via cryptoki, walks each slot's
+      public + secret-key objects, classifies via the
+      shared algos table. Hardware-bound live validation is
+      operator-side; runbook in
+      [`docs/sezar-id-pkcs11.md`](docs/sezar-id-pkcs11.md)
+      plus the
+      [`scripts/sezar-id-bringup.sh`](scripts/sezar-id-bringup.sh)
+      pre-flight reproducer.
+- [x] **V4.2 AWS KMS backend (SEZ-17).** `sezar-id
+      aws-kms-scan --region <r>` behind the `aws-kms`
+      feature. `KmsBackend` trait + `AwsKmsBackend` impl
+      over `aws-sdk-kms` (`ListKeys` + `DescribeKey`).
+      Maps every AWS `KeySpec` to the shared algos table
+      (RSA_2048/3072/4096, ECC_NIST_P256/384/521,
+      ECC_SECG_P256K1, SYMMETRIC_DEFAULT, HMAC_*).
+      Two unit tests cover the `KeySpec` mapping; live
+      operator-side runbook in
+      [`docs/sezar-id-aws-kms.md`](docs/sezar-id-aws-kms.md).
+      The trait stays narrow so GCP KMS + Azure Key
+      Vault impls drop in for V4.x.
+- [x] **V4.3 YubiHSM 2 + smart-card runbook (SEZ-18).**
+      Both expose PKCS#11-compatible interfaces, so the
+      existing V4.1 binary works directly; per-device
+      bring-up specifics documented in
+      [`docs/sezar-id-yubihsm.md`](docs/sezar-id-yubihsm.md).
+      `scripts/sezar-id-bringup.sh` is the host-side
+      reproducer for the whole hardware-bound surface.
+- [ ] GCP KMS + Azure Key Vault impls. Trait is in place;
+      adding either is one impl + one feature flag.
+
+---
+
 ## V3 — Blockchain crypto monitor
 
 ### `sezar-chain` — offline address-list classifiers

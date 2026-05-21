@@ -4,11 +4,62 @@ version     = { workspace = true }
 edition     = { workspace = true }
 rust-version = { workspace = true }
 license     = { workspace = true }
-description = "Sezar HSM/KMS/smart-card inventory (V4 — stub for now)"
+description = "Sezar HSM / KMS / smart-card inventory (V4 — offline + PKCS#11 + AWS KMS)"
 
 [lib]
 name = "sezar_id"
 path = "src/lib.rs"
 
+[[bin]]
+name = "sezar-id"
+path = "src/bin/sezar_id.rs"
+
 [dependencies]
-sezar-core = { workspace = true }
+sezar-core         = { workspace = true }
+serde              = { workspace = true }
+serde_json         = { workspace = true }
+chrono             = { workspace = true }
+anyhow             = { workspace = true }
+thiserror          = { workspace = true }
+tracing            = { workspace = true }
+tracing-subscriber = { workspace = true }
+clap               = { version = "4", features = ["derive"] }
+# Collector POST. Same blocking shape as sezar-cert / sezar-chain.
+reqwest            = { version = "0.12", default-features = false, features = ["blocking", "json", "rustls-tls"] }
+
+[features]
+default = []
+# V4.1 PKCS#11 — gated because cryptoki + a vendor PKCS#11
+# library are needed at run time. Operators enable when they
+# actually want the backend.
+pkcs11 = ["dep:cryptoki"]
+# V4.2 cloud KMS (AWS) — gated to keep aws-sdk-kms compile
+# time off the default build.
+aws-kms = ["dep:aws-config", "dep:aws-sdk-kms", "dep:tokio", "dep:async-trait"]
+
+[dependencies.cryptoki]
+version  = "0.7"
+optional = true
+
+[dependencies.aws-config]
+version  = "1"
+optional = true
+
+[dependencies.aws-sdk-kms]
+version  = "1"
+optional = true
+
+[dependencies.tokio]
+workspace = true
+optional  = true
+
+[dependencies.async-trait]
+version  = "0.1"
+optional = true
+
+[dev-dependencies]
+tempfile     = "3"
+# In-process collector smoke (matches sezar-chain / sezar-cert).
+sezar-server = { workspace = true }
+axum         = { workspace = true }
+tokio        = { workspace = true }

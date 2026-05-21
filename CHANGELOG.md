@@ -16,6 +16,36 @@ complete; V2 (cert inventory) underway per
 
 ### Added
 
+- **`sezar-id` V4 — HSM / KMS / smart-card inventory**
+  (SEZ-15, SEZ-16, SEZ-17, SEZ-18). Four backends behind
+  one shared `algos::primitives_for` table that maps
+  `(key_type, key_size_bits?)` onto the
+  `Vec<Primitive>` the rollup consumes:
+  - `inventory-scan` (default) — operator-exported JSON
+    of (vendor, slot, keys[]) → one event per key.
+  - `pkcs11-scan` (feature `pkcs11`) — opens a vendor
+    `.so` via `cryptoki`, walks every slot's public +
+    secret-key objects; classification re-uses the same
+    algos table.
+  - `aws-kms-scan` (feature `aws-kms`) — `aws-sdk-kms`
+    `ListKeys` + `DescribeKey`, every `KeySpec` mapped
+    to the shared table. `KmsBackend` trait keeps the
+    surface pluggable so GCP KMS / Azure Key Vault drop
+    in later.
+  - YubiHSM 2 + PIV / OpenPGP smart cards close as
+    runbook + reproducer-script (SEZ-3 / SEZ-16 pattern)
+    since both are hardware-bound and CI doesn't host
+    either. Three operator runbooks
+    (`docs/sezar-id-pkcs11.md`,
+    `docs/sezar-id-aws-kms.md`,
+    `docs/sezar-id-yubihsm.md`) plus the host-side
+    `scripts/sezar-id-bringup.sh` pre-flight.
+  Eleven workspace tests cover the algos table, the
+  inventory classifier, the AWS KMS fake-backend
+  scanner-loop, the KeySpec mapping, and the
+  in-process collector round-trip. Closes SEZ-15,
+  SEZ-16, SEZ-17, SEZ-18.
+
 - **`sezar-chain` V3 — three offline chain backends** (SEZ-12,
   SEZ-13, SEZ-14). New `sezar-chain` binary with three
   subcommands; every backend takes `--addresses <file>` and
