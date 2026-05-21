@@ -6,9 +6,11 @@
 use std::net::SocketAddr;
 use std::path::PathBuf;
 
+use std::sync::Arc;
+
 use anyhow::{Context, Result};
 use clap::Parser;
-use sezar_server::{router, router_bootstrap, router_main, tls, AppState};
+use sezar_server::{router, router_bootstrap, router_main, store, store_pg, tls, AppState};
 use tracing::info;
 use tracing_subscriber::EnvFilter;
 
@@ -65,6 +67,17 @@ struct Args {
     /// here so curl --cacert verifies cleanly.
     #[arg(long = "tls-san", num_args = 0..)]
     tls_sans: Vec<String>,
+
+    /// Postgres connection URL (e.g.
+    /// `postgres://sezar:sezar@127.0.0.1:5432/sezar`). When set,
+    /// the server persists events to Postgres and runs the
+    /// bundled migrations on first boot. Without this flag the
+    /// server uses an in-memory store (V1 default, suitable for
+    /// the dev smoke and the acceptance script). Reads
+    /// `SEZAR_DATABASE_URL` from the environment if not
+    /// supplied on the CLI.
+    #[arg(long, env = "SEZAR_DATABASE_URL")]
+    database_url: Option<String>,
 }
 
 #[tokio::main]
@@ -77,7 +90,21 @@ async fn main() -> Result<()> {
 
     let args = Args::parse();
 
-    let mut state = AppState::new_in_memory(&args.ca_dir, args.admin_token.clone())?;
+    let store: Arc<dyn store::EventStore> = match args.database_url.as_deref() {
+        Some(url) => Arc::new(
+            store_pg::PgEventStore::connect(url)
+                .await
+                .context("init Postgres event store")?,
+        ),
+        None => Arc::new(store::InMemoryEventStore::new()),
+    };
+    let backend = if args.database_url.is_some() {
+        "postgres"
+    } else {
+        "in-memory"
+    };
+
+    let mut state = AppState::with_store(store, &args.ca_dir, args.admin_token.clone())?;
     if let Some(d) = args.deadline.as_deref() {
         state.default_deadline = chrono::DateTime::parse_from_rfc3339(d)?
             .with_timezone(&chrono::Utc);
@@ -91,6 +118,7 @@ async fn main() -> Result<()> {
         ca_dir = %args.ca_dir.display(),
         admin_enabled = state.admin_token.is_some(),
         tls = args.tls,
+        store = backend,
         "starting sezar-server"
     );
 

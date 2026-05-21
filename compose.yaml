@@ -1,18 +1,43 @@
 # Sezar single-host compose file.
 #
-# Boots the V1 collector behind its V1 REST API. Hit
+# Boots the V1 collector behind its V1 REST API plus a Postgres
+# instance for persistence. Hit
 # `http://127.0.0.1:8090/healthz` after `docker compose up -d`
 # to confirm it's live; the same port serves `/v1/events`,
 # `/v1/inventory`, `/v1/posture`, `/v1/blocked`, `/v1/qkd/links`.
 #
-# This file is intentionally minimal — one collector, in-memory
-# store. The web UI, the KME emulator, and the source-module
-# agents (sezar-net, sezar-qkd) point at this collector and run
-# either next to it via additional compose services or as
-# separate processes on the host. They are out of scope for the
-# V1 single-host install.
+# Without overrides the stack is two services on a shared
+# network: `postgres` (the durable event store) and
+# `sezar-server` (the axum collector). The web UI, the KME
+# emulator, and the source-module agents (sezar-net, sezar-qkd)
+# point at this collector and run either next to it via
+# additional compose services or as separate processes on the
+# host. They are out of scope for the V1 single-host install.
 
 services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: sezar-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: sezar
+      POSTGRES_PASSWORD: sezar
+      POSTGRES_DB: sezar
+    # Bind to loopback only; this Postgres exists for sezar-server
+    # and is not intended to host third-party data. Operators
+    # who want to point a psql at it can `docker compose exec`
+    # or relax the bind in an override.
+    ports:
+      - "127.0.0.1:${SEZAR_PG_HOST_PORT:-5433}:5432"
+    volumes:
+      - sezar-pg-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sezar -d sezar"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 5s
+
   sezar-server:
     build:
       context: .
@@ -20,22 +45,31 @@ services:
     image: sezar/sezar-server:dev
     container_name: sezar-server
     restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
     # The default `command:` already binds 0.0.0.0:8090; override
     # the deadline / horizon here when the operator's planning
     # horizon differs from the NSA CNSA 2.0 default.
     # command: ["--listen", "0.0.0.0:8090", "--deadline", "2030-01-01T00:00:00Z", "--horizon-years", "5"]
+    environment:
+      # Increase verbosity for first-boot diagnostics; turn down
+      # for production.
+      RUST_LOG: "info,sezar_server=info,tower_http=info,sqlx=warn"
+      # Point the collector at the bundled Postgres. sezar-server
+      # runs the migrations on first boot.
+      SEZAR_DATABASE_URL: "postgres://sezar:sezar@postgres:5432/sezar"
     # Port is env-overridable so a host already using 8090 (the
     # documented default) can move it without editing this file:
     #   SEZAR_HOST_PORT=8190 docker compose up -d
     ports:
       - "127.0.0.1:${SEZAR_HOST_PORT:-8090}:8090"
-    environment:
-      # Increase verbosity for first-boot diagnostics; turn down
-      # for production.
-      RUST_LOG: "info,sezar_server=info,tower_http=info"
     healthcheck:
       test: ["CMD", "curl", "--fail", "--silent", "http://127.0.0.1:8090/healthz"]
       interval: 30s
       timeout: 3s
-      start_period: 10s
+      start_period: 15s
       retries: 3
+
+volumes:
+  sezar-pg-data:

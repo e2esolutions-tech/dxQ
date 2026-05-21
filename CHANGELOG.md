@@ -15,6 +15,25 @@ Pre-alpha. Tracks toward the V1 cut (Q3 2026) per
 
 ### Added
 
+- **Postgres event store** (SEZ-2). `--database-url` /
+  `SEZAR_DATABASE_URL` switches `sezar-server` from the
+  in-memory DashMap store to a sqlx-backed `PgEventStore`.
+  Two-table schema (`events` history + `assets` per-asset
+  latest snapshot) bundled as
+  `crates/sezar-server/migrations/0001_init.sql`, run
+  automatically on first boot. The `EventStore` trait
+  abstracts both backends so every handler stays unchanged.
+  `docker compose up -d` now brings up `postgres:16-alpine`
+  alongside `sezar-server` and wires them together via the
+  internal network; the host binds Postgres to
+  `127.0.0.1:5433` (env-overridable via `SEZAR_PG_HOST_PORT`)
+  for `psql` access. Three integration tests
+  (`tests/pg_smoke.rs`) exercise the full HTTP loop,
+  post-restart durability, and the out-of-order-ingest
+  invariant against a disposable `postgres:16-alpine`
+  testcontainer. Live-stack ingest at concurrency 16:
+  1316 req/s, p50 11 ms, p99 65 ms (SEZ-2 acceptance budget
+  was 200 ms p99). Closes SEZ-2.
 - **Sezar dashboard — V1 ship cut** (SEZ-5). The Vite + React
   + TypeScript + Tailwind scaffolding lights up against the
   live `sezar-server` REST surface:

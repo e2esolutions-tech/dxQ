@@ -26,7 +26,12 @@ tracing-subscriber = { workspace = true }
 anyhow             = { workspace = true }
 chrono             = { workspace = true }
 dashmap            = "6"
+async-trait        = "0.1"
 clap               = { version = "4", features = ["derive", "env"] }
+# Postgres persistence (SEZ-2). sqlx + the tokio-rustls runtime
+# (matches the rest of the workspace's TLS surface); chrono +
+# uuid + json features round-trip the schema fields we use.
+sqlx               = { version = "0.8", default-features = false, features = ["runtime-tokio-rustls", "postgres", "chrono", "uuid", "json", "macros", "migrate"] }
 # mTLS bootstrap (SEZ-6): pure-Rust CA + agent cert minting,
 # UUID-based bootstrap tokens, base64 for header transport of
 # the optional admin secret.
@@ -49,3 +54,8 @@ x509-parser        = "0.16"
 [dev-dependencies]
 reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
 tempfile = "3"
+# Postgres integration tests (SEZ-2). testcontainers spins up a
+# disposable postgres:16 container scoped to the test run; the
+# test skips cleanly when docker isn't reachable.
+testcontainers = "0.23"
+testcontainers-modules = { version = "0.11", features = ["postgres"] }

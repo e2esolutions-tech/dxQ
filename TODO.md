@@ -40,6 +40,22 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
 - [x] `crates/sezar-server/tests/http_smoke.rs` —
       in-process integration test that exercises every V1 route
       against the router on an ephemeral port.
+- [x] Postgres persistence (SEZ-2). `--database-url` /
+      `SEZAR_DATABASE_URL` flips the in-process `EventStore`
+      trait object from in-memory DashMap to a sqlx-backed
+      `PgEventStore`. Two-table schema (`events` history +
+      `assets` per-asset latest) under
+      `crates/sezar-server/migrations/0001_init.sql`, run
+      automatically on first boot. `docker compose up -d`
+      brings up postgres + sezar-server with the collector
+      pointing at `postgres://sezar:sezar@postgres:5432/sezar`.
+      Three integration tests in
+      `crates/sezar-server/tests/pg_smoke.rs` exercise the
+      full HTTP loop, post-restart durability, and the
+      out-of-order-ingest invariant against a disposable
+      `postgres:16-alpine` testcontainer. Live-stack p99
+      ingest at concurrency 16: **65 ms** (SEZ-2 budget was
+      200 ms).
 - [x] mTLS bootstrap (SEZ-6). All four acceptance criteria
       met:
       - Internal CA generated on first boot, persisted to disk

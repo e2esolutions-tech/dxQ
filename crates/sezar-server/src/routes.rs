@@ -22,7 +22,7 @@ pub async fn ingest_one(
     State(st): State<AppState>,
     Json(ev): Json<CryptoInventoryEvent>,
 ) -> Result<StatusCode, (StatusCode, Json<ApiError>)> {
-    ingest(&st, vec![ev]).map(|_| StatusCode::ACCEPTED)
+    ingest(&st, vec![ev]).await.map(|_| StatusCode::ACCEPTED)
 }
 
 /// `POST /v1/events/batch` — array of events.
@@ -31,11 +31,11 @@ pub async fn ingest_batch(
     Json(evs): Json<Vec<CryptoInventoryEvent>>,
 ) -> Result<Json<BatchIngestResponse>, (StatusCode, Json<ApiError>)> {
     let count = evs.len();
-    ingest(&st, evs)?;
+    ingest(&st, evs).await?;
     Ok(Json(BatchIngestResponse { ingested: count }))
 }
 
-fn ingest(
+async fn ingest(
     st: &AppState,
     evs: Vec<CryptoInventoryEvent>,
 ) -> Result<(), (StatusCode, Json<ApiError>)> {
@@ -66,9 +66,20 @@ fn ingest(
             identity = %ev.asset.identity,
             "ingesting event"
         );
-        st.store.append(ev);
+        st.store.append(ev).await.map_err(store_err)?;
     }
     Ok(())
+}
+
+fn store_err(e: anyhow::Error) -> (StatusCode, Json<ApiError>) {
+    warn!(error = %e, "store error");
+    (
+        StatusCode::INTERNAL_SERVER_ERROR,
+        Json(ApiError {
+            code: "store_failure".into(),
+            message: e.to_string(),
+        }),
+    )
 }
 
 /// Query string for `GET /v1/events?limit=N`.
@@ -87,19 +98,21 @@ fn default_limit() -> usize {
 pub async fn list_events(
     State(st): State<AppState>,
     Query(q): Query<EventsQuery>,
-) -> Json<EventsResponse> {
-    let events = st.store.recent(q.limit);
-    Json(EventsResponse {
+) -> Result<Json<EventsResponse>, (StatusCode, Json<ApiError>)> {
+    let events = st.store.recent(q.limit).await.map_err(store_err)?;
+    Ok(Json(EventsResponse {
         count: events.len(),
         events,
-    })
+    }))
 }
 
 /// `GET /v1/inventory` — per-asset latest event plus per-asset $q$.
-pub async fn inventory(State(st): State<AppState>) -> Json<InventoryResponse> {
+pub async fn inventory(
+    State(st): State<AppState>,
+) -> Result<Json<InventoryResponse>, (StatusCode, Json<ApiError>)> {
     let now = chrono::Utc::now();
     let mut items = Vec::new();
-    for ev in st.store.latest_per_asset() {
+    for ev in st.store.latest_per_asset().await.map_err(store_err)? {
         let q = posture::q_for_event(&ev, now, st.default_deadline, st.horizon_years);
         let blocked = posture::is_blocked(ev.agility.as_ref());
         items.push(InventoryItem {
@@ -117,50 +130,57 @@ pub async fn inventory(State(st): State<AppState>) -> Json<InventoryResponse> {
             observed_at: ev.observed_at,
         });
     }
-    // Stable display order: highest q (most urgent) first.
     items.sort_by(|a, b| b.q.partial_cmp(&a.q).unwrap_or(std::cmp::Ordering::Equal));
-    Json(InventoryResponse {
+    Ok(Json(InventoryResponse {
         count: items.len(),
         items,
-    })
+    }))
 }
 
 /// `GET /v1/posture` — org-level rollup under default weights.
-pub async fn org_posture(State(st): State<AppState>) -> Json<OrgPosture> {
+pub async fn org_posture(
+    State(st): State<AppState>,
+) -> Result<Json<OrgPosture>, (StatusCode, Json<ApiError>)> {
     let now = chrono::Utc::now();
-    let events = st.store.latest_per_asset();
+    let events = st.store.latest_per_asset().await.map_err(store_err)?;
     let org = posture::org_score(&events, now, st.default_deadline, st.horizon_years);
     let blocked_count = events.iter().filter(|e| posture::is_blocked(e.agility.as_ref())).count();
     let assets = events.len();
-    Json(OrgPosture {
+    Ok(Json(OrgPosture {
         org_q: org,
         deadline: st.default_deadline,
         horizon_years: st.horizon_years,
         assets,
         blocked_count,
-    })
+    }))
 }
 
 /// `GET /v1/qkd/links` — assets of kind `qkd_link` / `qkd_kme`.
-pub async fn qkd_links(State(st): State<AppState>) -> Json<QkdLinksResponse> {
+pub async fn qkd_links(
+    State(st): State<AppState>,
+) -> Result<Json<QkdLinksResponse>, (StatusCode, Json<ApiError>)> {
     let links: Vec<QkdLinkSummary> = st
         .store
         .latest_per_asset()
+        .await
+        .map_err(store_err)?
         .into_iter()
         .filter(|ev| matches!(ev.asset.kind, AssetKind::QkdLink | AssetKind::QkdKme))
         .map(QkdLinkSummary::from)
         .collect();
-    Json(QkdLinksResponse {
+    Ok(Json(QkdLinksResponse {
         count: links.len(),
         links,
-    })
+    }))
 }
 
 /// `GET /v1/blocked` — assets flagged BLOCKED (Locked/Frozen agility).
-pub async fn blocked_assets(State(st): State<AppState>) -> Json<InventoryResponse> {
+pub async fn blocked_assets(
+    State(st): State<AppState>,
+) -> Result<Json<InventoryResponse>, (StatusCode, Json<ApiError>)> {
     let now = chrono::Utc::now();
     let mut items = Vec::new();
-    for ev in st.store.latest_per_asset() {
+    for ev in st.store.latest_per_asset().await.map_err(store_err)? {
         if !posture::is_blocked(ev.agility.as_ref()) {
             continue;
         }
@@ -176,10 +196,10 @@ pub async fn blocked_assets(State(st): State<AppState>) -> Json<InventoryRespons
         });
     }
     items.sort_by(|a, b| b.q.partial_cmp(&a.q).unwrap_or(std::cmp::Ordering::Equal));
-    Json(InventoryResponse {
+    Ok(Json(InventoryResponse {
         count: items.len(),
         items,
-    })
+    }))
 }
 
 // ----- response shapes -----

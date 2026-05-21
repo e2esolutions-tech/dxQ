@@ -31,6 +31,7 @@ pub mod enrol;
 pub mod posture;
 pub mod routes;
 pub mod store;
+pub mod store_pg;
 pub mod tls;
 
 use std::sync::Arc;
@@ -43,8 +44,9 @@ use axum::{
 /// Shared application state injected into every handler.
 #[derive(Clone)]
 pub struct AppState {
-    /// Event store. Trait-object so the Postgres backend can swap in.
-    pub store: Arc<store::EventStore>,
+    /// Event store — trait object so the Postgres backend can swap
+    /// in without touching any handler.
+    pub store: Arc<dyn store::EventStore>,
     /// Default deadline used by org-level rollup. May be operator-tunable.
     pub default_deadline: chrono::DateTime<chrono::Utc>,
     /// Horizon constant (years) for deadline-tension computation.
@@ -71,8 +73,24 @@ impl AppState {
         ca_dir: &std::path::Path,
         admin_token: Option<String>,
     ) -> anyhow::Result<Self> {
+        Ok(Self::with_store(
+            Arc::new(store::InMemoryEventStore::new()),
+            ca_dir,
+            admin_token,
+        )?)
+    }
+
+    /// Same as [`Self::new_in_memory`] but uses a caller-supplied
+    /// event store — the path the binary takes when
+    /// `--database-url` is set (Postgres) or any custom impl
+    /// that satisfies the trait.
+    pub fn with_store(
+        store: Arc<dyn store::EventStore>,
+        ca_dir: &std::path::Path,
+        admin_token: Option<String>,
+    ) -> anyhow::Result<Self> {
         Ok(Self {
-            store: Arc::new(store::EventStore::new_in_memory()),
+            store,
             default_deadline: chrono::DateTime::parse_from_rfc3339("2030-01-01T00:00:00Z")
                 .unwrap()
                 .with_timezone(&chrono::Utc),

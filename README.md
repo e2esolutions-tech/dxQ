@@ -80,14 +80,21 @@ stubs until later milestones.
 
 ## Quickstart (single-host Docker)
 
-The shortest path from clone to a live collector:
+The shortest path from clone to a live collector backed by
+Postgres:
 
 ```bash
 git clone https://github.com/e2esolutions-tech/sezar
 cd sezar
-docker compose up -d              # builds sezar/sezar-server:dev, starts it
+docker compose up -d              # builds sezar-server, starts postgres + collector
 curl -fsS http://127.0.0.1:8090/healthz   # → ok
 ```
+
+The stack brings up two services on a shared network:
+`postgres` (durable event store, bound to `127.0.0.1:5433`) and
+`sezar-server` (the axum collector, bound to `127.0.0.1:8090`).
+sezar-server runs the bundled migrations on first boot and
+points itself at the Postgres instance via `SEZAR_DATABASE_URL`.
 
 Override the host-side port if `8090` is already taken on the
 machine (a common conflict — `127.0.0.1:8090` ships as the
