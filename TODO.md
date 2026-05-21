@@ -7,6 +7,36 @@ Update **before** the implementing PR, not after.
 Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
 `[-]` deferred / out of V1.
 
+## V3 — Blockchain crypto monitor
+
+### `sezar-chain` — offline address-list classifiers
+- [x] **V3.0 Bitcoin (SEZ-12).** `sezar-chain bitcoin-scan
+      --addresses <file>` classifies each line as
+      P2PKH / P2SH / P2WPKH / P2WSH / P2TR by prefix +
+      length, maps to ECDSA-secp256k1 + SHA-256 (Schnorr
+      for Taproot) primitives, emits one
+      `crypto_inventory_event` per recognised address with
+      `asset.kind = blockchain_key`, `asset.identity =
+      bitcoin:<addr>`.
+- [x] **V3.1 Ethereum (SEZ-13).** `sezar-chain
+      ethereum-scan --addresses <file>` validates the
+      `0x` + 40 hex shape and emits one event per address
+      with ECDSA-secp256k1 + Keccak-256 primitives.
+      Contract-vs-EOA disambiguation deferred to a future
+      live-RPC backend.
+- [x] **V3.2 QRL (SEZ-14).** `sezar-chain qrl-scan
+      --addresses <file>` validates the `Q` + 78-hex shape
+      and emits one event per address with XMSS + SHA-256
+      primitives, `pq_resistant: true` on the signature
+      — proves the existing schema doesn't fall over on
+      hash-based stateful PQ signatures.
+- [ ] Live-RPC backend (Bitcoin / Ethereum / QRL) — scan a
+      block range and discover addresses programmatically.
+      Out of scope for the V3 cut; operators run their
+      own indexer into an address list for now.
+
+---
+
 ## V2 — Cert inventory (in progress)
 
 ### `sezar-cert` host-filesystem scanner

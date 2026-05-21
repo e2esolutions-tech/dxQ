@@ -16,6 +16,31 @@ complete; V2 (cert inventory) underway per
 
 ### Added
 
+- **`sezar-chain` V3 — three offline chain backends** (SEZ-12,
+  SEZ-13, SEZ-14). New `sezar-chain` binary with three
+  subcommands; every backend takes `--addresses <file>` and
+  emits one `crypto_inventory_event` per recognised address
+  (`asset.kind = blockchain_key`, `asset.identity =
+  <chain>:<addr>`, `asset.host = <chain>`).
+  - `bitcoin-scan` classifies each address as P2PKH / P2SH /
+    P2WPKH / P2WSH / P2TR by prefix + length; emits
+    ECDSA-secp256k1 + SHA-256 primitives for the legacy /
+    SegWit-v0 forms, Schnorr-secp256k1 + SHA-256 for
+    Taproot.
+  - `ethereum-scan` validates the `0x` + 40-hex shape and
+    emits ECDSA-secp256k1 + Keccak-256. Contract-vs-EOA
+    disambiguation needs a live RPC and is deferred.
+  - `qrl-scan` validates the `Q` + 78-hex shape and emits
+    XMSS + SHA-256, marked `pq_resistant: true` — proves
+    the existing `crypto_inventory_event` schema handles
+    hash-based stateful PQ signatures without modification.
+  Thirteen unit tests cover canonical address shapes for
+  each chain, malformed-address rejection, and the
+  primitive contracts; one integration test
+  (`tests/chain_smoke.rs`) round-trips all three backends
+  through a live in-process collector and asserts the
+  per-chain shape on `/v1/inventory`. Closes SEZ-12, SEZ-13,
+  SEZ-14 — every V3 SEZ-N is now closed.
 - **`sezar-cert` Vault PKI scanner** (V2.2, SEZ-11). New
   `sezar-cert vault-scan --addr <url> --mount <name>
   [--token-env VAULT_TOKEN] [--collector <url>]` subcommand
