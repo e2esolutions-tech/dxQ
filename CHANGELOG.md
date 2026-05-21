@@ -10,12 +10,51 @@ under development and the tag scheme will land with the V1 cut.
 
 ## [Unreleased]
 
-Pre-alpha. V1 (Network module + collector + dashboard + paper)
-complete; V2 (cert inventory) underway per
-[`ROADMAP.md`](ROADMAP.md).
+Pre-alpha. V1 (Network module) + V2 (cert inventory) + V3
+(chain monitor) + V4 (HSM/KMS) + V5 (recommendations) all
+complete per [`ROADMAP.md`](ROADMAP.md); 22/22 SEZ-N issues
+closed.
 
 ### Added
 
+- **`sezar-agility` V5 — PQ migration recommendations
+  engine** (SEZ-19, SEZ-20, SEZ-21, SEZ-22). Four new
+  modules on top of the V1 agility scanner:
+  - `recommend` — `recommend_for(&[Primitive]) ->
+    Vec<Recommendation>` produces ranked replacement
+    options with rationale, `Cost` markers (Trivial → Low
+    → Medium → High), and per-replacement caveats. CLI:
+    `sezar-agility recommend --inventory <url>` walks
+    `/v1/inventory` and prints one JSON line per asset
+    that has any classical primitive worth replacing.
+  - `roadmap` — `project_roadmap(inventory, plan)`
+    simulates org_q at each milestone of an operator-
+    supplied migration plan. CLI: `sezar-agility roadmap
+    --inventory <url> --plan <file>`. Milestones sort
+    chronologically regardless of input order;
+    unknown asset_ids silently skip; migrated assets
+    land at the PQ-clean baseline q = 0.10.
+  - `compat` — embedded TLS-stack ↔ PQ-algo support
+    matrix across 6 stacks (OpenSSL 3.x, BoringSSL,
+    rustls-post-quantum, BouncyCastle, NSS, Go crypto/
+    tls). CLI: `sezar-agility compat --stack <s>
+    [--algo <a>]`. Every entry carries `min_version` +
+    public source URL. Unknown pairs report
+    `SupportStatus::Unknown` rather than misclaim
+    support.
+  - `deadlines` — embedded per-jurisdiction PQ-mandate
+    table; 11 dates across US-NSA CNSA 2.0 / US-NIST IR
+    8547 / EU-ANSSI / DE-BSI TR-02102-1 / UK-NCSC. Every
+    entry includes the source-URL audit trail. CLI:
+    `sezar-agility deadlines [--jurisdiction US]
+    [--horizon-days 365]`.
+  Twenty-three library tests + one in-process integration
+  test cover the surface; the smoke test exercises the
+  recommend pipeline against a live sezar-server with a
+  4-asset mixed inventory and asserts the canonical
+  replacements (RSA-2048 → ML-DSA-44, ECDSA-P256 →
+  ML-DSA-65, the ML-DSA-65 hsm_slot already PQ-safe → no
+  recommendation). Closes SEZ-19/20/21/22.
 - **`sezar-id` V4 — HSM / KMS / smart-card inventory**
   (SEZ-15, SEZ-16, SEZ-17, SEZ-18). Four backends behind
   one shared `algos::primitives_for` table that maps

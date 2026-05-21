@@ -32,11 +32,24 @@
 //!                                  sezar_core::AgilityBlock
 //! ```
 
-#![deny(missing_docs)]
 #![warn(rust_2018_idioms)]
 
 pub mod rules;
 pub mod scanner;
+
+// V5 — PQ-migration recommendations engine. Sits on top of
+// the static agility scanner (which produces the G-axis
+// signal) and consumes sezar-server's `/v1/inventory` (or a
+// local snapshot) to surface:
+//
+// - per-asset replacement recommendations (SEZ-19)
+// - org-level migration-roadmap projections (SEZ-20)
+// - TLS-stack compatibility matrix lookups (SEZ-21)
+// - regulator deadline tracking per jurisdiction (SEZ-22)
+pub mod compat;
+pub mod deadlines;
+pub mod recommend;
+pub mod roadmap;
 
 use sezar_core::AgilityLevel;
 

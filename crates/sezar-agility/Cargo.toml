@@ -4,7 +4,7 @@ version     = { workspace = true }
 edition     = { workspace = true }
 rust-version = { workspace = true }
 license     = { workspace = true }
-description = "Sezar crypto-agility scanner: classifies assets on a five-level ordinal scale from static analysis"
+description = "Sezar crypto-agility scanner + V5 PQ-migration recommendations engine"
 
 [dependencies]
 sezar-core   = { workspace = true }
@@ -14,13 +14,19 @@ serde_yaml   = "0.9"
 anyhow       = { workspace = true }
 thiserror    = { workspace = true }
 tracing      = { workspace = true }
+tracing-subscriber = { workspace = true }
+chrono       = { workspace = true }
 walkdir      = "2"
 regex        = "1"
 clap         = { version = "4", features = ["derive"] }
-tracing-subscriber = { workspace = true }
+# V5 recommendation CLI fetches /v1/inventory.
+reqwest      = { version = "0.12", default-features = false, features = ["blocking", "json", "rustls-tls"] }
 
 [dev-dependencies]
-tempfile           = "3"
+tempfile     = "3"
+sezar-server = { workspace = true }
+axum         = { workspace = true }
+tokio        = { workspace = true }
 
 [[bin]]
 name = "sezar-agility"

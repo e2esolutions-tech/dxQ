@@ -7,6 +7,45 @@ Update **before** the implementing PR, not after.
 Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
 `[-]` deferred / out of V1.
 
+## V5 — PQ migration recommendations engine
+
+### `sezar-agility` recommendations engine (on top of the V1 agility scanner)
+- [x] **V5.0 per-asset replacement (SEZ-19).** `sezar-agility
+      recommend --inventory <url>` walks `/v1/inventory` and
+      prints ranked PQ replacement options per asset.
+      `recommend_for(&[Primitive]) -> Vec<Recommendation>`
+      library API; canonical mappings — RSA-2048 → ML-DSA-44
+      + SLH-DSA-128s, RSA-4096 → ML-DSA-87, ECDSA-P256 /
+      Ed25519 → ML-DSA-65, AES-128 → AES-256, 3DES → AES-256-
+      GCM, Taproot Schnorr → FROST-PQ (research). Each
+      recommendation carries a `Cost` marker (Trivial → Low
+      → Medium → High), rationale, and caveats; results
+      sorted cheapest first.
+- [x] **V5.1 org migration roadmap (SEZ-20).** `sezar-agility
+      roadmap --inventory <url> --plan <file>` projects the
+      org_q trajectory under a JSON migration plan (per-
+      milestone `{date, asset_ids, target_primitives}`).
+      Milestones sorted chronologically regardless of input
+      order; migrated assets land at the PQ-clean baseline.
+- [x] **V5.2 TLS-stack compat matrix (SEZ-21).** `sezar-
+      agility compat --stack <s> [--algo <a>]` queries an
+      embedded compatibility table covering 6 stacks
+      (OpenSSL 3.x, BoringSSL, rustls-post-quantum,
+      BouncyCastle, NSS, Go crypto/tls) × the canonical PQ
+      algos. Every entry carries `min_version` + source URL.
+- [x] **V5.3 regulator deadline tracker (SEZ-22).** `sezar-
+      agility deadlines [--jurisdiction US] [--horizon-days
+      365]` surfaces 11 canonical PQ-mandate dates across 5
+      jurisdictions (US-NSA CNSA 2.0, US-NIST IR 8547,
+      EU-ANSSI, DE-BSI TR-02102-1, UK-NCSC). Each entry
+      includes the public-document URL for audit.
+- [ ] Dashboard integration — surface recommendations +
+      roadmap projections in the React UI. Library API is
+      ready; needs a sezar-server `/v1/recommendations`
+      endpoint + a Posture-page section.
+
+---
+
 ## V4 — HSM / KMS identity
 
 ### `sezar-id` — HSM / KMS / smart-card inventory
