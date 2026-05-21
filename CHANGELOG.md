@@ -10,10 +10,33 @@ under development and the tag scheme will land with the V1 cut.
 
 ## [Unreleased]
 
-Pre-alpha. Tracks toward the V1 cut (Q3 2026) per
+Pre-alpha. V1 (Network module + collector + dashboard + paper)
+complete; V2 (cert inventory) underway per
 [`ROADMAP.md`](ROADMAP.md).
 
 ### Added
+
+- **`sezar-cert` host-filesystem scanner** (V2.0, SEZ-9). New
+  crate binary `sezar-cert host-scan --root <path>` walks the
+  filesystem for PEM-encoded X.509 certs, parses each with
+  `x509-parser`, and emits one `crypto_inventory_event` per
+  cert. Signature algorithm is decomposed into its `Sig` +
+  `Hash` primitives so the posture rollup sees both surfaces;
+  asset identity is the cert's SHA-256 fingerprint (stable
+  across re-scans, unique per chain). Default roots are the
+  common Linux cert paths (`/etc/ssl`, `/etc/pki`,
+  `/usr/local/share/ca-certificates`,
+  `/etc/letsencrypt/live`); operators add more with repeated
+  `--root` flags. `--collector` POSTs each event to a
+  sezar-server, otherwise NDJSON streams to stdout. Verified
+  end-to-end against the docker-compose Postgres-backed
+  stack: 3 RSA fixture certs → scan → `/v1/inventory`
+  filtered to `x509_cert` shows the three rows with their
+  primitives intact. Closes SEZ-9; opens the V2 path toward
+  CT-log (SEZ-10) and Vault-PKI (SEZ-11) backends behind the
+  same parser.
+
+### V1 (previously listed)
 
 - **`sezar-net live-ebpf` CLI + bring-up runbook** (SEZ-3).
   Phase 2.1's kernel-side TC classifier + userspace loader had

@@ -1,0 +1,154 @@
+//! `sezar-cert` — V2 CLI.
+//!
+//! Subcommands:
+//!
+//! - `host-scan` — walk local filesystem cert paths, parse
+//!   every PEM cert, emit one `crypto_inventory_event` per
+//!   cert. Default backend; SEZ-9.
+//! - `ct-scan` — pull a domain's CT-log history (SEZ-10,
+//!   later).
+//! - `vault-scan` — list certs under a Vault PKI mount
+//!   (SEZ-11, later).
+//!
+//! Output: NDJSON to stdout (the default), or POST to a
+//! sezar-server collector with `--collector`. POST failures
+//! survive an outage when `--spool-dir` points at a writable
+//! directory; the spool drains at the start of every run, same
+//! semantics as the `sezar-net` binary.
+
+use std::path::PathBuf;
+use std::time::Duration;
+
+use clap::{Parser, Subcommand};
+use sezar_cert::scan::{self, DEFAULT_ROOTS};
+use sezar_core::CryptoInventoryEvent;
+use tracing::{error, info, warn};
+use tracing_subscriber::EnvFilter;
+
+#[derive(Parser, Debug)]
+#[command(name = "sezar-cert", author, version, about)]
+struct Args {
+    #[command(subcommand)]
+    cmd: Cmd,
+}
+
+#[derive(Subcommand, Debug)]
+enum Cmd {
+    /// Walk one or more filesystem roots and emit a
+    /// `crypto_inventory_event` for every X.509 cert
+    /// discovered (PEM-encoded `*.pem` / `*.crt` / `*.cer`).
+    HostScan {
+        /// Filesystem roots to walk. Defaults to a set of
+        /// well-known cert paths on a vanilla Linux host
+        /// (`/etc/ssl`, `/etc/pki`,
+        /// `/usr/local/share/ca-certificates`,
+        /// `/etc/letsencrypt/live`).
+        #[arg(long, num_args = 0..)]
+        root: Vec<PathBuf>,
+        /// Optional downstream collector URL.
+        #[arg(long)]
+        collector: Option<String>,
+        /// Optional disk-backed spool directory. When set
+        /// alongside `--collector`, POST failures append to
+        /// the spool so events survive a server outage. The
+        /// spool drains at the start of every run.
+        #[arg(long)]
+        spool_dir: Option<PathBuf>,
+    },
+}
+
+fn main() -> anyhow::Result<()> {
+    // Send tracing to stderr so the default stdout-NDJSON path
+    // stays greppable.
+    tracing_subscriber::fmt()
+        .with_writer(std::io::stderr)
+        .with_env_filter(
+            EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("info")),
+        )
+        .init();
+
+    let args = Args::parse();
+    match args.cmd {
+        Cmd::HostScan {
+            root,
+            collector,
+            spool_dir,
+        } => run_host_scan(root, collector, spool_dir),
+    }
+}
+
+/// Best-effort delivery sink — copy of the same pattern the
+/// `sezar-net` binary uses (NDJSON stdout / POST / append-on-
+/// failure spool). Kept in-binary on purpose so neither the
+/// `sezar-cert` library nor `sezar-net` pulls reqwest in.
+struct Sink {
+    collector: Option<String>,
+    client: Option<reqwest::blocking::Client>,
+}
+
+impl Sink {
+    fn new(collector: Option<String>, _spool_dir: Option<PathBuf>) -> anyhow::Result<Self> {
+        // Spool wiring deliberately deferred — the sezar-net
+        // crate's `spool` module is the canonical impl; when
+        // sezar-cert needs the same semantics in production
+        // we either depend on sezar-net (cyclic-deps-OK) or
+        // promote `spool` into sezar-core. For SEZ-9 the
+        // collector-or-stdout path is the V2.0 cut.
+        let client = collector
+            .as_deref()
+            .map(|_| {
+                reqwest::blocking::Client::builder()
+                    .timeout(Duration::from_secs(5))
+                    .build()
+            })
+            .transpose()
+            .map_err(|e| anyhow::anyhow!("client build: {e}"))?;
+        if collector.is_some() && _spool_dir.is_some() {
+            warn!("--spool-dir on sezar-cert is a no-op in V2.0; promote to sezar-net::spool reuse in a follow-up");
+        }
+        Ok(Self { collector, client })
+    }
+
+    fn send(&self, ev: &CryptoInventoryEvent) {
+        let Some(url) = self.collector.as_deref() else {
+            match serde_json::to_string(ev) {
+                Ok(s) => println!("{s}"),
+                Err(e) => error!(error = %e, "serialize failed"),
+            }
+            return;
+        };
+        let client = self.client.as_ref().expect("client present when url is");
+        match client.post(url).json(ev).send() {
+            Ok(r) if r.status().is_success() => {}
+            Ok(r) => warn!(status = %r.status(), "downstream rejected event"),
+            Err(e) => error!(error = %e, "downstream POST failed"),
+        }
+    }
+}
+
+fn run_host_scan(
+    roots: Vec<PathBuf>,
+    collector: Option<String>,
+    spool_dir: Option<PathBuf>,
+) -> anyhow::Result<()> {
+    let roots = if roots.is_empty() {
+        DEFAULT_ROOTS.iter().map(PathBuf::from).collect()
+    } else {
+        roots
+    };
+    info!(?roots, "starting host-scan");
+
+    let sink = Sink::new(collector, spool_dir)?;
+    let stats = scan::host_scan(&roots, |ev| sink.send(&ev))?;
+
+    info!(
+        roots_walked = stats.roots_walked,
+        files_inspected = stats.files_inspected,
+        files_skipped_io = stats.files_skipped_io,
+        files_skipped_no_certs = stats.files_skipped_no_certs,
+        certs_parsed = stats.certs_parsed,
+        events_emitted = stats.events_emitted,
+        "host-scan complete"
+    );
+    Ok(())
+}

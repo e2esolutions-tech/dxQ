@@ -7,6 +7,36 @@ Update **before** the implementing PR, not after.
 Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
 `[-]` deferred / out of V1.
 
+## V2 — Cert inventory (in progress)
+
+### `sezar-cert` host-filesystem scanner
+- [x] **V2.0 host-scan (SEZ-9).** `sezar-cert host-scan
+      --root <path>` walks one or more roots, parses every
+      PEM cert under them with `x509-parser`, emits one
+      `crypto_inventory_event` per cert (`asset.kind =
+      x509_cert`). Signature algo split into `Sig` + `Hash`
+      primitives so the rollup sees both; identity is the
+      cert's SHA-256 fingerprint. Default roots:
+      `/etc/ssl`, `/etc/pki`,
+      `/usr/local/share/ca-certificates`,
+      `/etc/letsencrypt/live`. `--collector` POSTs each event
+      to a sezar-server; without it, NDJSON to stdout.
+      Verified end-to-end against the docker-compose
+      Postgres-backed stack: 3 RSA-PKCS1-SHA256 fixture certs
+      → `host-scan` → POST → `GET /v1/inventory` shows
+      `asset_kind=x509_cert` rows with the right `Sig` +
+      `Hash` primitive split.
+
+### Still open under V2
+- [ ] **V2.1 CT-log scan (SEZ-10).** Pull cert history per
+      domain from crt.sh, emit one event per discovered cert,
+      persist a cursor so re-runs only ship new entries.
+- [ ] **V2.2 internal-CA scan (SEZ-11).** HashiCorp Vault
+      PKI backend behind a pluggable trait so AD CS / ACME
+      can follow.
+
+---
+
 ## V1 critical path
 
 ### `sezar-core` — event schema
