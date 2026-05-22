@@ -47,6 +47,7 @@ use pcap_file::pcap::PcapReader;
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
 
+use crate::dedup::DedupCache;
 use crate::tls::{parse_handshake, primitives_from_summary, HandshakeKind};
 use sezar_core::{
     Asset, AssetKind, CryptoInventoryEvent, Posture, Primitive, SCHEMA_MINOR, SCHEMA_VERSION,
@@ -78,6 +79,10 @@ pub struct ObservationStats {
     pub handshakes_parsed: usize,
     /// Handshake messages whose parse failed (truncation, unknown variant).
     pub handshakes_parse_failed: usize,
+    /// Handshake messages dropped by the dedup cache (already seen
+    /// within the recent-session TTL). `0` when no dedup cache is
+    /// supplied — matching the pre-dedup behaviour.
+    pub handshakes_deduplicated: usize,
     /// Events emitted (one per parsed handshake).
     pub events_emitted: usize,
 }
@@ -87,7 +92,26 @@ pub struct ObservationStats {
 /// The caller decides what to do with each event — print as NDJSON,
 /// forward to a collector, batch, drop. The function blocks until
 /// the file is fully consumed.
-pub fn observe_pcap<P, F>(path: P, mut on_event: F) -> Result<ObservationStats, LiveError>
+///
+/// This is a thin wrapper over [`observe_pcap_with_dedup`] with no
+/// dedup cache attached — every parsed handshake becomes an event.
+pub fn observe_pcap<P, F>(path: P, on_event: F) -> Result<ObservationStats, LiveError>
+where
+    P: AsRef<Path>,
+    F: FnMut(CryptoInventoryEvent),
+{
+    observe_pcap_with_dedup(path, None, on_event)
+}
+
+/// Like [`observe_pcap`] but optionally consults a [`DedupCache`]
+/// before emitting events. A `Some(cache)` here is what the live
+/// agent uses to avoid re-emitting the same session on every
+/// retransmit — see `module-net.md` § "userspace dedup".
+pub fn observe_pcap_with_dedup<P, F>(
+    path: P,
+    mut dedup: Option<&mut DedupCache>,
+    mut on_event: F,
+) -> Result<ObservationStats, LiveError>
 where
     P: AsRef<Path>,
     F: FnMut(CryptoInventoryEvent),
@@ -107,7 +131,7 @@ where
                 continue;
             }
         };
-        match handle_frame(&pkt.data, &mut stats, &mut on_event) {
+        match handle_frame(&pkt.data, &mut stats, dedup.as_deref_mut(), &mut on_event) {
             Ok(()) => {}
             Err(_) => {
                 stats.packets_skipped_unparseable += 1;
@@ -124,6 +148,7 @@ where
 fn handle_frame<F>(
     frame: &[u8],
     stats: &mut ObservationStats,
+    dedup: Option<&mut DedupCache>,
     on_event: &mut F,
 ) -> Result<(), ()>
 where
@@ -178,6 +203,12 @@ where
 
     let primitives = primitives_from_summary(&summary);
     let identity = session_identity(src_ip.as_deref(), src_port, dst_ip.as_deref(), dst_port);
+    if let Some(cache) = dedup {
+        if !cache.observe(&identity) {
+            stats.handshakes_deduplicated += 1;
+            return Ok(());
+        }
+    }
     let host = dst_ip
         .clone()
         .map(|ip| format!("{ip}:{dst_port}"))
@@ -366,6 +397,23 @@ impl Default for InterfaceConfig {
 pub fn observe_interface<F>(
     cfg: &InterfaceConfig,
     should_stop: &std::sync::atomic::AtomicBool,
+    on_event: F,
+) -> Result<ObservationStats, LiveError>
+where
+    F: FnMut(CryptoInventoryEvent),
+{
+    observe_interface_with_dedup(cfg, should_stop, None, on_event)
+}
+
+/// Like [`observe_interface`] but optionally consults a
+/// [`DedupCache`] before emitting each event. The live agent uses
+/// this variant so a continuously-retried session doesn't generate
+/// a fresh event on every ClientHello retransmit.
+#[cfg(feature = "live-pcap")]
+pub fn observe_interface_with_dedup<F>(
+    cfg: &InterfaceConfig,
+    should_stop: &std::sync::atomic::AtomicBool,
+    mut dedup: Option<&mut DedupCache>,
     mut on_event: F,
 ) -> Result<ObservationStats, LiveError>
 where
@@ -392,7 +440,8 @@ where
         match cap.next_packet() {
             Ok(pkt) => {
                 stats.packets_seen += 1;
-                if handle_frame(pkt.data, &mut stats, &mut on_event).is_err() {
+                if handle_frame(pkt.data, &mut stats, dedup.as_deref_mut(), &mut on_event).is_err()
+                {
                     stats.packets_skipped_unparseable += 1;
                 }
             }

@@ -107,6 +107,21 @@ enum Cmd {
         /// spool is drained at the start of every run.
         #[arg(long)]
         spool_dir: Option<PathBuf>,
+        /// Recent-session dedup TTL in seconds. Within this window
+        /// repeat ClientHello / ServerHello observations on the
+        /// same 4-tuple are dropped rather than re-emitted (see
+        /// `module-net.md` § userspace dedup). Pass `0` to disable
+        /// dedup entirely — useful for forensic captures where
+        /// every retransmit should land. Default 300 (5 min).
+        #[arg(long, default_value_t = 300)]
+        dedup_ttl_secs: u64,
+        /// Max distinct sessions held in the dedup cache. Capacity
+        /// only matters under sustained unique-flow burst; the
+        /// design-doc baseline is 10 k handshakes/s, so the
+        /// default of 65 536 gives ~6.5 s of headroom before the
+        /// cache starts force-evicting.
+        #[arg(long, default_value_t = 65_536)]
+        dedup_capacity: usize,
     },
     /// Phase 2.1 — kernel-side eBPF TC classifier (requires the
     /// `live-interface` feature, a pre-built BPF object, and
@@ -169,8 +184,18 @@ fn main() -> anyhow::Result<()> {
             snaplen,
             collector,
             spool_dir,
+            dedup_ttl_secs,
+            dedup_capacity,
         } => run_live(
-            pcap, iface, filter, promiscuous, snaplen, collector, spool_dir,
+            pcap,
+            iface,
+            filter,
+            promiscuous,
+            snaplen,
+            collector,
+            spool_dir,
+            dedup_ttl_secs,
+            dedup_capacity,
         ),
         Cmd::LiveEbpf {
             iface,
@@ -340,24 +365,47 @@ fn run_live(
     snaplen: i32,
     collector: Option<String>,
     spool_dir: Option<PathBuf>,
+    dedup_ttl_secs: u64,
+    dedup_capacity: usize,
 ) -> anyhow::Result<()> {
     let sink = Sink::new(collector, spool_dir)?;
     let emit = |ev: &sezar_core::CryptoInventoryEvent| sink.send(ev);
 
+    // ttl=0 disables dedup entirely (forensic mode).
+    let mut dedup_cache = if dedup_ttl_secs == 0 {
+        None
+    } else {
+        Some(sezar_net::dedup::DedupCache::new(
+            std::time::Duration::from_secs(dedup_ttl_secs),
+            dedup_capacity,
+        ))
+    };
+
     match (pcap_path, iface) {
         (Some(p), None) => {
-            let stats = live::observe_pcap(&p, |ev| emit(&ev))?;
+            let stats =
+                live::observe_pcap_with_dedup(&p, dedup_cache.as_mut(), |ev| emit(&ev))?;
             info!(
                 source = "pcap-file",
                 packets_seen = stats.packets_seen,
                 handshake_packets = stats.handshake_packets,
+                handshakes_deduplicated = stats.handshakes_deduplicated,
                 events_emitted = stats.events_emitted,
                 skipped_unparseable = stats.packets_skipped_unparseable,
+                dedup_forced_evictions =
+                    dedup_cache.as_ref().map(|c| c.forced_evictions()).unwrap_or(0),
                 "observation complete"
             );
             Ok(())
         }
-        (None, Some(if_name)) => run_live_iface(if_name, filter, promiscuous, snaplen, emit),
+        (None, Some(if_name)) => run_live_iface(
+            if_name,
+            filter,
+            promiscuous,
+            snaplen,
+            dedup_cache,
+            emit,
+        ),
         (None, None) => {
             anyhow::bail!("live: pass either --pcap <file> or --iface <name>")
         }
@@ -371,6 +419,7 @@ fn run_live_iface<E>(
     filter: String,
     promiscuous: bool,
     snaplen: i32,
+    mut dedup_cache: Option<sezar_net::dedup::DedupCache>,
     emit: E,
 ) -> anyhow::Result<()>
 where
@@ -402,14 +451,22 @@ where
     }
 
     info!(iface = %cfg.iface, filter = ?cfg.filter, "live-pcap observation starting");
-    let stats = live::observe_interface(&cfg, &should_stop, |ev| emit(&ev))?;
+    let stats = live::observe_interface_with_dedup(
+        &cfg,
+        &should_stop,
+        dedup_cache.as_mut(),
+        |ev| emit(&ev),
+    )?;
     info!(
         source = "live-pcap",
         iface = %iface,
         packets_seen = stats.packets_seen,
         handshake_packets = stats.handshake_packets,
+        handshakes_deduplicated = stats.handshakes_deduplicated,
         events_emitted = stats.events_emitted,
         skipped_unparseable = stats.packets_skipped_unparseable,
+        dedup_forced_evictions =
+            dedup_cache.as_ref().map(|c| c.forced_evictions()).unwrap_or(0),
         "observation complete"
     );
     Ok(())
@@ -421,6 +478,7 @@ fn run_live_iface<E>(
     _filter: String,
     _promiscuous: bool,
     _snaplen: i32,
+    _dedup_cache: Option<sezar_net::dedup::DedupCache>,
     _emit: E,
 ) -> anyhow::Result<()>
 where

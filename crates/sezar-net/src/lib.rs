@@ -24,6 +24,7 @@
 #![warn(rust_2018_idioms)]
 
 pub mod algos;
+pub mod dedup;
 pub mod live;
 #[cfg(feature = "live-interface")]
 pub mod live_iface;

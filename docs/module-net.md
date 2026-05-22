@@ -39,8 +39,13 @@ For each session it emits one [`crypto_inventory_event`](./crypto-event-schema.m
 4. Extracts: client_random, ciphersuite list (offered + chosen), SNI,
    server cert chain. Pushes into a per-CPU ring buffer.
 5. Userspace half drains the ring, dedupes against a recent-session
-   cache (5-min TTL), maps cipher names → canonical algorithm
-   names, computes posture, emits to `sezar-server` over HTTPS.
+   cache (5-min TTL — implemented in
+   [`sezar_net::dedup::DedupCache`](../crates/sezar-net/src/dedup.rs);
+   default capacity 65 536 sessions, configurable per agent via
+   `--dedup-ttl-secs` and `--dedup-capacity` on the CLI; pass
+   `--dedup-ttl-secs 0` for forensic mode where every retransmit
+   surfaces), maps cipher names → canonical algorithm names,
+   computes posture, emits to `sezar-server` over HTTPS.
 
 ## eBPF library
 
