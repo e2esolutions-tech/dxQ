@@ -31,3 +31,24 @@ tokio        = { workspace = true }
 [[bin]]
 name = "sezar-agility"
 path = "src/bin/agility.rs"
+
+[package.metadata.deb]
+maintainer = "e2e Solutions <info@e2esolutions.tech>"
+copyright = "2025-2026 e2e Solutions"
+license-file = ["../../LICENSE", "0"]
+extended-description = "Crypto-agility scanner + V5 PQ-migration recommendations engine. Reads the live inventory from a Sezar collector and produces ranked per-asset replacement candidates, a TLS-stack compatibility matrix, and the regulator deadline table."
+section = "net"
+priority = "optional"
+depends = "$auto"
+assets = [
+  ["target/release/sezar-agility", "usr/local/bin/", "755"],
+]
+
+[package.metadata.generate-rpm]
+name = "sezar-agility"
+version = "0.1.0~dev"
+license = "MIT"
+summary = "Sezar crypto-agility scanner + V5 recommendations CLI"
+assets = [
+  { source = "target/release/sezar-agility", dest = "/usr/local/bin/sezar-agility", mode = "755" },
+]

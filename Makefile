@@ -25,7 +25,8 @@ UNITS_TMR  := sezar-cert-host-scan.timer sezar-id-inventory.timer
 .PHONY: help test release acceptance loadtest \
         paper paper-submission paper-submission-extended paper-submission-both \
         systemd-install systemd-uninstall \
-        check-systemd verify-units
+        check-systemd verify-units \
+        packages packages-deb packages-rpm packages-clean
 
 help:
 	@echo "Sezar Makefile — common targets:"
@@ -107,3 +108,32 @@ check-systemd: ## systemd-analyze verify every unit
 	done
 
 verify-units: check-systemd ## alias for check-systemd
+
+# Packaging — produce .deb + .rpm for every shipping binary
+# (sezar-server, sezar-net, sezar-cert, sezar-id, sezar-chain,
+# sezar-agility). Requires `cargo install cargo-deb
+# cargo-generate-rpm` on the build host; the auto-deps warning
+# from cargo-deb on non-Debian hosts is benign — the package
+# still installs cleanly on Debian/Ubuntu.
+PACKAGE_CRATES := sezar-server sezar-net sezar-cert sezar-id sezar-chain sezar-agility
+
+packages: release packages-deb packages-rpm ## produce .deb + .rpm for every binary
+
+packages-deb: release ## produce .deb for every binary
+	@for c in $(PACKAGE_CRATES); do \
+	    echo "→ cargo deb -p $$c --no-build"; \
+	    cargo deb -p $$c --no-build || exit 1; \
+	done
+	@echo
+	@echo "Deb packages written to target/debian/."
+
+packages-rpm: release ## produce .rpm for every binary
+	@for c in $(PACKAGE_CRATES); do \
+	    echo "→ cargo generate-rpm -p crates/$$c"; \
+	    cargo generate-rpm -p crates/$$c || exit 1; \
+	done
+	@echo
+	@echo "Rpm packages written to target/generate-rpm/."
+
+packages-clean: ## remove every built package
+	rm -rf target/debian target/generate-rpm

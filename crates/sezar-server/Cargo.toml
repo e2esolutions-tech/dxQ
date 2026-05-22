@@ -60,3 +60,43 @@ tempfile = "3"
 # test skips cleanly when docker isn't reachable.
 testcontainers = "0.23"
 testcontainers-modules = { version = "0.11", features = ["postgres"] }
+
+# Debian package metadata. `cargo deb -p sezar-server` writes
+# target/debian/sezar-server_<ver>_<arch>.deb. The systemd unit
+# is installed alongside the binary so the operator's only
+# bring-up step is `systemctl enable --now sezar-server` after a
+# drop-in with SEZAR_DATABASE_URL + SEZAR_ADMIN_TOKEN.
+[package.metadata.deb]
+maintainer = "e2e Solutions <info@e2esolutions.tech>"
+copyright = "2025-2026 e2e Solutions"
+license-file = ["../../LICENSE", "0"]
+extended-description = "Receives crypto_inventory_event records from sezar-net, sezar-cert, sezar-chain and sezar-id agents over mTLS, persists them (in-memory or PostgreSQL), and serves the inventory / posture / recommendations / agility endpoints plus the React dashboard."
+section = "net"
+priority = "optional"
+depends = "$auto, adduser"
+assets = [
+  ["target/release/sezar-server", "usr/local/bin/", "755"],
+  ["../../dist/systemd/sezar-server.service", "lib/systemd/system/", "644"],
+  ["../../docs/operator-deploy.md", "usr/share/doc/sezar-server/", "644"],
+]
+maintainer-scripts = "../../dist/deb/sezar-server/"
+systemd-units = { unit-name = "sezar-server", enable = false, start = false }
+
+# RPM package metadata. `cargo generate-rpm -p sezar-server`
+# produces target/generate-rpm/sezar-server-<ver>-1.<arch>.rpm.
+# Paths are root-relative because cargo-generate-rpm runs from
+# the workspace root regardless of which crate it's targeting.
+[package.metadata.generate-rpm]
+name = "sezar-server"
+# RPM rejects `-` in versions; replace the workspace's
+# `0.1.0-dev` with the RPM-friendly `0.1.0~dev`.
+version = "0.1.0~dev"
+license = "MIT"
+summary = "Sezar collector + REST API + dashboard backend"
+assets = [
+  { source = "target/release/sezar-server", dest = "/usr/local/bin/sezar-server", mode = "755" },
+  { source = "dist/systemd/sezar-server.service", dest = "/usr/lib/systemd/system/sezar-server.service", mode = "644" },
+  { source = "docs/operator-deploy.md", dest = "/usr/share/doc/sezar-server/operator-deploy.md", mode = "644" },
+]
+post_install_script = "useradd -r -s /sbin/nologin sezar 2>/dev/null || true; install -d -m 0750 -o sezar -g sezar /var/lib/sezar /var/lib/sezar/ca; systemctl daemon-reload || true"
+pre_uninstall_script = "systemctl disable --now sezar-server 2>/dev/null || true"

@@ -63,3 +63,31 @@ tempfile     = "3"
 sezar-server = { workspace = true }
 axum         = { workspace = true }
 tokio        = { workspace = true }
+
+[package.metadata.deb]
+maintainer = "e2e Solutions <info@e2esolutions.tech>"
+copyright = "2025-2026 e2e Solutions"
+license-file = ["../../LICENSE", "0"]
+extended-description = "HSM / KMS / smart-card inventory agent. Offline classifier plus PKCS#11 and AWS KMS backends; emits one crypto_inventory_event per discovered key slot."
+section = "net"
+priority = "optional"
+depends = "$auto"
+assets = [
+  ["target/release/sezar-id", "usr/local/bin/", "755"],
+  ["../../dist/systemd/sezar-id-inventory.service", "lib/systemd/system/", "644"],
+  ["../../dist/systemd/sezar-id-inventory.timer", "lib/systemd/system/", "644"],
+]
+systemd-units = { unit-name = "sezar-id-inventory", enable = false, start = false }
+
+[package.metadata.generate-rpm]
+name = "sezar-id"
+version = "0.1.0~dev"
+license = "MIT"
+summary = "Sezar HSM / KMS / smart-card inventory agent"
+assets = [
+  { source = "target/release/sezar-id", dest = "/usr/local/bin/sezar-id", mode = "755" },
+  { source = "dist/systemd/sezar-id-inventory.service", dest = "/usr/lib/systemd/system/sezar-id-inventory.service", mode = "644" },
+  { source = "dist/systemd/sezar-id-inventory.timer", dest = "/usr/lib/systemd/system/sezar-id-inventory.timer", mode = "644" },
+]
+post_install_script = "systemctl daemon-reload || true"
+pre_uninstall_script = "systemctl disable --now sezar-id-inventory.timer 2>/dev/null || true"

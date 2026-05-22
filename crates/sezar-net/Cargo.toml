@@ -82,3 +82,31 @@ optional = true
 [[bin]]
 name = "sezar-net"
 path = "src/bin/sezar_net.rs"
+
+[package.metadata.deb]
+maintainer = "e2e Solutions <info@e2esolutions.tech>"
+copyright = "2025-2026 e2e Solutions"
+license-file = ["../../LICENSE", "0"]
+extended-description = "Passive TLS handshake observer. Pcap-file replay, libpcap live capture, and aya/eBPF live mode emit one crypto_inventory_event per observed session into a Sezar collector. Now includes a userspace recent-session dedup cache (SEZ-25)."
+section = "net"
+priority = "optional"
+depends = "$auto"
+assets = [
+  ["target/release/sezar-net", "usr/local/bin/", "755"],
+  ["../../dist/systemd/sezar-net-live.service", "lib/systemd/system/", "644"],
+  ["../../docs/module-net.md", "usr/share/doc/sezar-net/", "644"],
+]
+systemd-units = { unit-name = "sezar-net-live", enable = false, start = false }
+
+[package.metadata.generate-rpm]
+name = "sezar-net"
+version = "0.1.0~dev"
+license = "MIT"
+summary = "Sezar passive TLS handshake observer"
+assets = [
+  { source = "target/release/sezar-net", dest = "/usr/local/bin/sezar-net", mode = "755" },
+  { source = "dist/systemd/sezar-net-live.service", dest = "/usr/lib/systemd/system/sezar-net-live.service", mode = "644" },
+  { source = "docs/module-net.md", dest = "/usr/share/doc/sezar-net/module-net.md", mode = "644" },
+]
+post_install_script = "install -d -m 0750 -o sezar -g sezar /var/lib/sezar-net /var/lib/sezar-net/spool 2>/dev/null || true; systemctl daemon-reload || true"
+pre_uninstall_script = "systemctl disable --now sezar-net-live 2>/dev/null || true"

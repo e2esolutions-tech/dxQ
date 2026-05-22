@@ -33,3 +33,24 @@ tempfile     = "3"
 sezar-server = { workspace = true }
 axum         = { workspace = true }
 tokio        = { workspace = true }
+
+[package.metadata.deb]
+maintainer = "e2e Solutions <info@e2esolutions.tech>"
+copyright = "2025-2026 e2e Solutions"
+license-file = ["../../LICENSE", "0"]
+extended-description = "Blockchain address-inventory scanner — Bitcoin, Ethereum and QRL. Emits one crypto_inventory_event per address with the underlying signature primitive classified (ECDSA / EdDSA / XMSS / SPHINCS+)."
+section = "net"
+priority = "optional"
+depends = "$auto"
+assets = [
+  ["target/release/sezar-chain", "usr/local/bin/", "755"],
+]
+
+[package.metadata.generate-rpm]
+name = "sezar-chain"
+version = "0.1.0~dev"
+license = "MIT"
+summary = "Sezar blockchain address-inventory scanner"
+assets = [
+  { source = "target/release/sezar-chain", dest = "/usr/local/bin/sezar-chain", mode = "755" },
+]
