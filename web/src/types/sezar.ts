@@ -147,3 +147,66 @@ export interface RecommendationsResponse {
   count: number;
   items: RecommendationItem[];
 }
+
+// V5.2 — TLS-stack ↔ algorithm compatibility matrix.
+
+export type SupportStatus =
+  | "supported"
+  | "experimental"
+  | "not-implemented"
+  | "unknown";
+
+export interface CompatEntry {
+  stack: string;
+  algorithm: string;
+  status: SupportStatus;
+  min_version?: string | null;
+  source?: string | null;
+}
+
+export interface CompatResponse {
+  count: number;
+  items: CompatEntry[];
+}
+
+// V5.3 — regulator deadline tracker.
+
+export interface DeadlineEntry {
+  jurisdiction: string;
+  label: string;
+  effective_date: string;
+  asset_class: string;
+  source: string;
+}
+
+export interface DeadlinesResponse {
+  count: number;
+  items: DeadlineEntry[];
+}
+
+// V5.1 — org-level migration roadmap projector.
+
+export interface Milestone {
+  label: string;
+  date: string;
+  asset_ids: string[];
+  target_primitives: string[];
+}
+
+export interface MilestoneProjection {
+  milestone: string;
+  date: string;
+  org_q_before: number;
+  org_q_after: number;
+  blocked_before: number;
+  blocked_after: number;
+  assets_migrated: number;
+  assets_remaining_classical: number;
+}
+
+export interface RoadmapProjection {
+  today_org_q: number;
+  today_blocked: number;
+  total_assets: number;
+  projections: MilestoneProjection[];
+}

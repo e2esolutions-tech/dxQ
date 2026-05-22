@@ -235,6 +235,135 @@ pub async fn recommendations(
     }))
 }
 
+/// `GET /v1/agility/deadlines` — full regulator deadline
+/// table. Optionally filter by `?jurisdiction=US`
+/// (case-insensitive prefix) and/or `?horizon_days=N` to
+/// surface only deadlines that fall within the next `N`
+/// days from today.
+pub async fn agility_deadlines(
+    Query(q): Query<DeadlinesQuery>,
+) -> Json<DeadlinesResponse> {
+    let mut items = if let Some(prefix) = q.jurisdiction.as_deref() {
+        sezar_agility::deadlines::for_jurisdiction(prefix)
+    } else {
+        sezar_agility::deadlines::all()
+    };
+    if let Some(days) = q.horizon_days {
+        let now = chrono::Utc::now();
+        let end = now + chrono::Duration::days(days as i64);
+        items.retain(|e| e.effective_date >= now && e.effective_date <= end);
+    }
+    Json(DeadlinesResponse {
+        count: items.len(),
+        items,
+    })
+}
+
+/// `GET /v1/agility/compat` — TLS-stack ↔ algorithm
+/// compatibility matrix. Filter shape:
+/// `?stack=<name>` returns one stack's entries;
+/// `?stack=<name>&algorithm=<algo>` returns the single
+/// pair (404 if absent). With no query string the full
+/// matrix is returned, useful for the dashboard's overview.
+pub async fn agility_compat(
+    Query(q): Query<CompatQuery>,
+) -> Result<Json<CompatResponse>, (StatusCode, Json<ApiError>)> {
+    match (q.stack.as_deref(), q.algorithm.as_deref()) {
+        (Some(stack), Some(algo)) => {
+            match sezar_agility::compat::lookup(stack, algo) {
+                Some(e) => Ok(Json(CompatResponse {
+                    count: 1,
+                    items: vec![e],
+                })),
+                None => Err((
+                    StatusCode::NOT_FOUND,
+                    Json(ApiError {
+                        code: "compat_unknown".into(),
+                        message: format!(
+                            "no entry for stack={stack} algorithm={algo}"
+                        ),
+                    }),
+                )),
+            }
+        }
+        (Some(stack), None) => {
+            let items = sezar_agility::compat::list_stack(stack);
+            Ok(Json(CompatResponse {
+                count: items.len(),
+                items,
+            }))
+        }
+        (None, _) => {
+            // Full dump. We don't expose an "everything"
+            // helper on the agility module, so flatten the
+            // matrix via the documented per-stack accessor.
+            // Stack names match the ones the matrix is
+            // keyed under — see `crates/sezar-agility/src/compat.rs`.
+            let stacks = [
+                "openssl-3.x",
+                "boringssl",
+                "rustls-post-quantum",
+                "go-crypto-tls",
+                "bouncycastle",
+                "nss",
+            ];
+            let mut items = Vec::new();
+            for s in stacks {
+                items.extend(sezar_agility::compat::list_stack(s));
+            }
+            Ok(Json(CompatResponse {
+                count: items.len(),
+                items,
+            }))
+        }
+    }
+}
+
+/// `POST /v1/agility/roadmap` — project the supplied
+/// migration plan against the current inventory. The
+/// inventory snapshot is sourced from
+/// [`crate::store::Store::latest_per_asset`] so the
+/// operator doesn't have to re-send it; the plan is the
+/// body.
+pub async fn agility_roadmap(
+    State(st): State<AppState>,
+    Json(plan): Json<RoadmapRequest>,
+) -> Result<Json<sezar_agility::roadmap::RoadmapProjection>, (StatusCode, Json<ApiError>)>
+{
+    let events = st.store.latest_per_asset().await.map_err(store_err)?;
+    let now = chrono::Utc::now();
+    let inventory: Vec<sezar_agility::roadmap::AssetSnapshot> = events
+        .iter()
+        .map(|ev| {
+            let q = posture::q_for_event(ev, now, st.default_deadline, st.horizon_years);
+            let blocked = posture::is_blocked(ev.agility.as_ref());
+            sezar_agility::roadmap::AssetSnapshot {
+                identity: ev.asset.identity.clone(),
+                q,
+                blocked,
+                primitives: ev
+                    .primitives
+                    .iter()
+                    .map(|p| p.algorithm.clone())
+                    .collect(),
+            }
+        })
+        .collect();
+    let projection =
+        sezar_agility::roadmap::project_roadmap(&inventory, &plan.milestones).map_err(
+            |e| {
+                (
+                    StatusCode::BAD_REQUEST,
+                    Json(ApiError {
+                        code: "roadmap_projection_failed".into(),
+                        message: e.to_string(),
+                    }),
+                )
+            },
+        )?;
+    Ok(Json(projection))
+}
+
 // ----- response shapes -----
 
 /// Error body shared by every endpoint.
@@ -373,4 +502,52 @@ pub struct RecommendationsResponse {
     pub count: usize,
     /// Per-asset rows.
     pub items: Vec<RecommendationItem>,
+}
+
+/// Query-string shape for `GET /v1/agility/deadlines`.
+#[derive(Debug, Deserialize)]
+pub struct DeadlinesQuery {
+    /// Optional jurisdiction prefix (case-insensitive),
+    /// e.g. `US` or `EU-ANSSI`.
+    pub jurisdiction: Option<String>,
+    /// Optional window — only return deadlines that fall
+    /// within `[now, now + horizon_days]`.
+    pub horizon_days: Option<u32>,
+}
+
+/// Response shape for `GET /v1/agility/deadlines`.
+#[derive(Debug, Serialize)]
+pub struct DeadlinesResponse {
+    /// Number of entries returned after filtering.
+    pub count: usize,
+    /// Entries (chronologically sorted by the underlying
+    /// table; filters preserve order).
+    pub items: Vec<sezar_agility::deadlines::DeadlineEntry>,
+}
+
+/// Query-string shape for `GET /v1/agility/compat`.
+#[derive(Debug, Deserialize)]
+pub struct CompatQuery {
+    /// Optional stack name (case-insensitive),
+    /// e.g. `openssl`.
+    pub stack: Option<String>,
+    /// Optional algorithm name (case-insensitive),
+    /// e.g. `ML-DSA-65`.
+    pub algorithm: Option<String>,
+}
+
+/// Response shape for `GET /v1/agility/compat`.
+#[derive(Debug, Serialize)]
+pub struct CompatResponse {
+    /// Number of matrix entries returned.
+    pub count: usize,
+    /// Matrix entries.
+    pub items: Vec<sezar_agility::compat::CompatEntry>,
+}
+
+/// Request body for `POST /v1/agility/roadmap`.
+#[derive(Debug, Deserialize)]
+pub struct RoadmapRequest {
+    /// Operator-supplied migration plan.
+    pub milestones: Vec<sezar_agility::roadmap::Milestone>,
 }

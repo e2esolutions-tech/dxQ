@@ -9,6 +9,9 @@ import { PosturePage } from "./pages/Posture";
 import { BlockedPage } from "./pages/Blocked";
 import { QkdPage } from "./pages/Qkd";
 import { RecommendationsPage } from "./pages/Recommendations";
+import { RoadmapPage } from "./pages/Roadmap";
+import { CompatPage } from "./pages/Compat";
+import { DeadlinesPage } from "./pages/Deadlines";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -19,6 +22,9 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/posture" element={<PosturePage />} />
           <Route path="/inventory" element={<InventoryPage />} />
           <Route path="/recommendations" element={<RecommendationsPage />} />
+          <Route path="/roadmap" element={<RoadmapPage />} />
+          <Route path="/compat" element={<CompatPage />} />
+          <Route path="/deadlines" element={<DeadlinesPage />} />
           <Route path="/blocked" element={<BlockedPage />} />
           <Route path="/qkd" element={<QkdPage />} />
         </Routes>

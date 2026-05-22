@@ -6,11 +6,15 @@
 // keeping URLs the same.
 
 import type {
+  CompatResponse,
+  DeadlinesResponse,
   EventsResponse,
   InventoryResponse,
+  Milestone,
   OrgPosture,
   QkdLinksResponse,
   RecommendationsResponse,
+  RoadmapProjection,
 } from "../types/sezar";
 
 async function getJson<T>(path: string): Promise<T> {
@@ -46,4 +50,52 @@ export async function fetchEvents(limit = 100): Promise<EventsResponse> {
 
 export async function fetchRecommendations(): Promise<RecommendationsResponse> {
   return getJson<RecommendationsResponse>("/v1/recommendations");
+}
+
+export async function fetchDeadlines(opts?: {
+  jurisdiction?: string;
+  horizonDays?: number;
+}): Promise<DeadlinesResponse> {
+  const qs = new URLSearchParams();
+  if (opts?.jurisdiction) qs.set("jurisdiction", opts.jurisdiction);
+  if (opts?.horizonDays != null)
+    qs.set("horizon_days", String(opts.horizonDays));
+  const path =
+    qs.toString().length > 0
+      ? `/v1/agility/deadlines?${qs}`
+      : "/v1/agility/deadlines";
+  return getJson<DeadlinesResponse>(path);
+}
+
+export async function fetchCompat(opts?: {
+  stack?: string;
+  algorithm?: string;
+}): Promise<CompatResponse> {
+  const qs = new URLSearchParams();
+  if (opts?.stack) qs.set("stack", opts.stack);
+  if (opts?.algorithm) qs.set("algorithm", opts.algorithm);
+  const path =
+    qs.toString().length > 0
+      ? `/v1/agility/compat?${qs}`
+      : "/v1/agility/compat";
+  return getJson<CompatResponse>(path);
+}
+
+export async function postRoadmap(
+  milestones: Milestone[],
+): Promise<RoadmapProjection> {
+  const r = await fetch("/v1/agility/roadmap", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({ milestones }),
+  });
+  if (!r.ok) {
+    throw new Error(
+      `POST /v1/agility/roadmap failed: ${r.status} ${r.statusText}`,
+    );
+  }
+  return (await r.json()) as RoadmapProjection;
 }

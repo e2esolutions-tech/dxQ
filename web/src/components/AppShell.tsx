@@ -5,6 +5,9 @@ const navItems = [
   { to: "/posture", label: "Posture" },
   { to: "/inventory", label: "Inventory" },
   { to: "/recommendations", label: "Recommendations" },
+  { to: "/roadmap", label: "Roadmap" },
+  { to: "/compat", label: "Compat" },
+  { to: "/deadlines", label: "Deadlines" },
   { to: "/blocked", label: "Blocked" },
   { to: "/qkd", label: "QKD links" },
 ];

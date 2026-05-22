@@ -20,6 +20,10 @@ export interface PollingState<T> {
 export function usePolling<T>(
   fetcher: () => Promise<T>,
   intervalMs: number,
+  // Optional dependency list — when any of these change the loop
+  // restarts (immediate fetch + reschedule). Useful for pages
+  // whose fetcher captures filter state in a closure.
+  deps: ReadonlyArray<unknown> = [],
 ): PollingState<T> {
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -84,7 +88,8 @@ export function usePolling<T>(
       if (tickRef.current) clearTimeout(tickRef.current);
       document.removeEventListener("visibilitychange", onVisible);
     };
-  }, [run, schedule]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [run, schedule, ...deps]);
 
   return { data, error, loading, refresh };
 }

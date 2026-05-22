@@ -140,5 +140,11 @@ pub fn router_main(state: AppState) -> Router {
         .route("/v1/qkd/links", get(routes::qkd_links))
         .route("/v1/blocked", get(routes::blocked_assets))
         .route("/v1/recommendations", get(routes::recommendations))
+        .route(
+            "/v1/agility/deadlines",
+            get(routes::agility_deadlines),
+        )
+        .route("/v1/agility/compat", get(routes::agility_compat))
+        .route("/v1/agility/roadmap", post(routes::agility_roadmap))
         .with_state(state)
 }
