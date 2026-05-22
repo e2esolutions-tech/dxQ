@@ -1,0 +1,108 @@
+# Release workflow — fires when a tag matching `v*` is pushed.
+#
+# Builds .deb + .rpm for every shipping binary plus the paper
+# submission bundle, then publishes them as a GitHub Release
+# asset. The workflow does NOT push to crates.io — Sezar isn't
+# published as a library yet.
+#
+# Trigger:
+#   git tag v0.1.0
+#   git push github v0.1.0
+#
+# The tag's commit is what gets shipped; the workflow doesn't
+# rebuild from main. That matters when main has moved past the
+# tag at release time.
+
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write   # needed for softprops/action-gh-release
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  packages:
+    name: build .deb + .rpm
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Install cargo-deb + cargo-generate-rpm
+        run: |
+          cargo install --locked cargo-deb cargo-generate-rpm
+
+      - name: cargo build --release
+        run: cargo build --release --workspace
+
+      - name: make packages-deb
+        run: make packages-deb
+
+      - name: make packages-rpm
+        run: make packages-rpm
+
+      - name: Stage release artifacts
+        run: |
+          mkdir -p release/
+          cp target/debian/*.deb release/
+          cp target/generate-rpm/*.rpm release/
+          (cd release && sha256sum *.{deb,rpm} > SHA256SUMS)
+          ls -lh release/
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: packages
+          path: release/*
+
+  paper-bundle:
+    name: paper submission bundle
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Pandoc + WeasyPrint
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+              pandoc python3-weasyprint zip \
+              fonts-dejavu-core fonts-stix
+
+      - name: Build both submission bundles
+        run: ./scripts/paper-submission-package.sh both
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: paper-bundles
+          path: dist/paper/*.zip
+
+  publish:
+    name: publish GitHub release
+    needs: [packages, paper-bundle]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: packages
+          path: release/
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: paper-bundles
+          path: release/
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release/*
+          generate_release_notes: true
+          draft: false
+          prerelease: ${{ contains(github.ref_name, '-') }}

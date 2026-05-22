@@ -1,0 +1,142 @@
+# GitHub Actions CI — fired on every push to main and every PR.
+#
+# Jobs:
+#   1. cargo-check + cargo-clippy + cargo-test on stable + MSRV.
+#   2. cargo-fmt --check.
+#   3. web build (TypeScript type-check + Vite production bundle).
+#   4. paper build (Pandoc + WeasyPrint → re-renders both PDFs to
+#      catch broken citations / missing figures; PDFs are only
+#      published from the manual release pipeline, not from CI).
+#
+# Notes:
+# - The Postgres testcontainers test (sezar-server) auto-skips
+#   when Docker isn't reachable, so we don't need a Postgres
+#   service container here.
+# - The eBPF crate (sezar-net-ebpf) needs a nightly toolchain and
+#   isn't part of the workspace's default build. We don't try to
+#   build it in CI; the userspace half of sezar-net (which is what
+#   ships in V1) builds fine on stable.
+# - `cargo deb` / `cargo generate-rpm` are exercised in a separate
+#   release workflow, not on every push.
+
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Cancel in-flight runs for the same ref when a new push lands.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+  RUSTFLAGS: -D warnings
+
+jobs:
+  rust:
+    name: rust ${{ matrix.toolchain }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        toolchain: [stable, "1.78"]   # 1.78 = workspace.package.rust-version
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install toolchain
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ matrix.toolchain }}
+          components: clippy, rustfmt
+
+      - name: Cache cargo registry + target
+        uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: ${{ matrix.toolchain }}
+
+      - name: cargo check
+        run: cargo check --workspace --all-targets
+
+      - name: cargo clippy
+        # Stable only — MSRV often lags clippy lint updates by a
+        # release or two. Type-checking on MSRV is still useful;
+        # lint failures on MSRV are not.
+        if: matrix.toolchain == 'stable'
+        run: cargo clippy --workspace --all-targets -- -D warnings
+
+      - name: cargo fmt --check
+        if: matrix.toolchain == 'stable'
+        run: cargo fmt --all -- --check
+
+      - name: cargo test
+        run: cargo test --workspace --no-fail-fast
+
+  web:
+    name: web (TypeScript + Vite)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - run: npm ci
+
+      - name: tsc --noEmit + vite build
+        run: npm run build
+
+      - name: Check bundle size budget (≤ 300 KB gzipped)
+        run: |
+          GZIP_BYTES=$(find dist/assets -name 'index-*.js' -print -quit | xargs gzip -9 -c | wc -c)
+          echo "JS bundle: $GZIP_BYTES bytes gzipped"
+          if [ "$GZIP_BYTES" -gt 307200 ]; then
+            echo "::error::JS bundle exceeded 300 KB gzipped budget"
+            exit 1
+          fi
+
+  paper:
+    name: paper (Pandoc + WeasyPrint)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Pandoc + WeasyPrint
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+              pandoc \
+              python3-weasyprint \
+              fonts-dejavu-core \
+              fonts-stix
+          pandoc --version | head -1
+          python3 -c "import weasyprint; print('weasyprint', weasyprint.__version__)"
+
+      - name: Build paper PDFs
+        working-directory: docs/paper
+        run: ./build.sh
+
+      - name: Verify PDFs exist + non-empty
+        run: |
+          for f in docs/paper/build/quantum-risk-observability.pdf \
+                   docs/paper/build/quantum-risk-observability-extended.pdf; do
+            test -s "$f" || { echo "::error::missing or empty $f"; exit 1; }
+            echo "$f: $(stat -c %s "$f") bytes"
+          done
+
+      - name: Upload PDFs as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: paper-pdfs
+          path: docs/paper/build/*.pdf
+          if-no-files-found: error
+          retention-days: 14
