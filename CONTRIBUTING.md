@@ -44,7 +44,7 @@ contributions today.
     *why*, not the *what*.
 - **No AI attribution anywhere** — no co-author trailers,
   no "generated with" footers, and no mention of any
-  AI assistant or style in commit messages, code comments, PR
+  AI assistant in commit messages, code comments, PR
   descriptions, paper text, or anything that ships in the
   repo. This is a hard rule for all e2esolutions-tech repos
   and is enforced at review time.
