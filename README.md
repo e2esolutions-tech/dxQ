@@ -146,7 +146,16 @@ sezar/
 
 ## License
 
-MIT — same as Nizam, encourages downstream adoption + integrations.
+Released under the MIT License — see [`LICENSE`](LICENSE).
+Copyright © 2026 E2E Solutions. The permissive licence is
+deliberate: it encourages downstream adoption and
+integrations, the same choice we made for Nizam.
+
+## Security
+
+Found a vulnerability? See [`SECURITY.md`](SECURITY.md) for how
+to report it privately. Please don't open a public issue for
+security problems.
 
 ## Related projects
 
