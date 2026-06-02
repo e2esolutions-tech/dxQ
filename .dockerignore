@@ -37,6 +37,7 @@ studies/
 *.md
 !crates/**/README.md
 
-# local tooling project settings — not relevant to runtime.
+# Local tooling / editor settings — not relevant to runtime.
 .config/
 resume.sh
+NOTES.md

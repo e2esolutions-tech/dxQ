@@ -364,10 +364,6 @@ closed.
   carry the Tranco-1k headline (n = 1,000, 724 responsive, 317
   PQ = 43.8%); the 30-host curated pilot survives as a
   sample-selection-bias contrast.
-- **local tooling project setup.** `.config/settings.json`
-  permission allowlist plus three skills (`paper-build`,
-  `ref-verify`, `schema-bump-check`) that codify the load-bearing
-  directives from `NOTES.md`.
 - **TODO.md** punch list for the V1 critical path.
 - **CONTRIBUTING.md** — contribution conventions including the
   no-AI-attribution rule and the citation-verification

@@ -8,11 +8,10 @@ contributions today.
 
 ## Before you open a PR
 
-1. Read [`NOTES.md`](NOTES.md). It captures the load-bearing
-   project directives — including the **no AI attribution**
-   rule and the **mandatory citation verification** for paper
-   changes. Both predate any single contribution; please follow
-   them.
+1. Follow the load-bearing project directives — including the
+   **no AI attribution** rule and the **mandatory citation
+   verification** for paper changes. Both predate any single
+   contribution; please follow them.
 2. Run the workspace checks locally:
    ```bash
    cargo check --workspace
@@ -43,12 +42,12 @@ contributions today.
     `repo`.
   - Imperative subject under ~70 chars; body explains the
     *why*, not the *what*.
-- **No AI attribution anywhere** — no `AI co-author trailer`,
-  no "generated with" footer, no mention of AI assistants
-  / any style in commit messages, code comments, PR descriptions,
-  paper text, or anything that ships in the repo. This is a
-  hard rule for all e2esolutions-tech repos and is enforced at
-  review time.
+- **No AI attribution anywhere** — no co-author trailers,
+  no "generated with" footers, and no mention of any
+  AI assistant or style in commit messages, code comments, PR
+  descriptions, paper text, or anything that ships in the
+  repo. This is a hard rule for all e2esolutions-tech repos
+  and is enforced at review time.
 - Sign-offs and `Co-Authored-By:` lines are welcome for
   *human* collaborators.
 

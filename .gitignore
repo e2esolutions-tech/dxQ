@@ -45,7 +45,7 @@ studies/study3/sources/
 .cache/
 **/__pycache__/
 
-# local tooling local-only overrides.
-# .config/settings.json and .config/skills/ ARE committed; the
-# .local.json variant is for per-machine overrides only.
-.config/settings.local.json
+# Local agent / editor tooling — kept on disk, never tracked.
+.config/
+resume.sh
+NOTES.md

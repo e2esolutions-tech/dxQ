@@ -426,9 +426,6 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
 
 ## Repo hygiene
 
-- [x] NOTES.md project brief committed.
-- [x] `.config/settings.json` + `.config/skills/` (paper-build,
-      ref-verify, schema-bump-check).
 - [x] CONTRIBUTING.md — contribution conventions, conventional
       commits, no-AI-attribution rule, citation-verification
       pointer for paper changes.
