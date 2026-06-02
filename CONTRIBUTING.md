@@ -59,14 +59,12 @@ contributions today.
   test plan (commands + expected output) is enough for most
   PRs.
 - If you change `docs/paper/references.bib` or any prose with
-  citation keys, run the [`ref-verify`](.config/skills/ref-verify.md)
-  process (cross-check every touched entry against its live
-  source page) before requesting review. Fabricated author
+  citation keys, cross-check every touched entry against its
+  live source page before requesting review. Fabricated author
   lists are the top failure mode for citation work — see
   commit `563ee87` for an example of how it can go wrong.
-- If you change `crates/sezar-core/src/event.rs`, run the
-  [`schema-bump-check`](.config/skills/schema-bump-check.md)
-  process and document what downstream consumers
+- If you change `crates/sezar-core/src/event.rs`, audit the
+  schema-version impact and document what downstream consumers
   (`sezar-server`, the React UI types, `bindings/`) need to
   regenerate.
 - One reviewer approval gets you merged. Squash-merge is the

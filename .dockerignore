@@ -37,7 +37,3 @@ studies/
 *.md
 !crates/**/README.md
 
-# Local tooling / editor settings — not relevant to runtime.
-.config/
-resume.sh
-NOTES.md

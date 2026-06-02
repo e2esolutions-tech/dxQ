@@ -45,7 +45,5 @@ studies/study3/sources/
 .cache/
 **/__pycache__/
 
-# Local agent / editor tooling — kept on disk, never tracked.
-.config/
-resume.sh
-NOTES.md
+# Local-only editor / tooling overrides are listed in
+# .git/info/exclude (not tracked).
