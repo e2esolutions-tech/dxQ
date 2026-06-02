@@ -131,7 +131,6 @@ fn recommend_for_sig(p: &Primitive, out: &mut Vec<Recommendation>) {
                 "Consensus-level chain change required; no operator-side migration path.".into(),
             ],
         });
-        return;
     }
 }
 

@@ -36,7 +36,7 @@ pub struct DeadlineEntry {
 /// All known deadlines, sorted by `effective_date`
 /// ascending.
 pub fn all() -> Vec<DeadlineEntry> {
-    table().iter().cloned().collect()
+    table().to_vec()
 }
 
 /// Deadlines that fall within `[now, now + horizon]`.

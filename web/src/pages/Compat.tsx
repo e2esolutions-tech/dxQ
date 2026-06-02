@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { LoadingError } from "../components/LoadingError";
 import { fetchCompat } from "../lib/api";
 import { usePolling } from "../lib/usePolling";
+import { safeHttpUrl } from "../lib/safeUrl";
 import type { SupportStatus } from "../types/sezar";
 
 const COMPAT_INTERVAL_MS = 5 * 60_000;
@@ -140,9 +141,9 @@ export function CompatPage() {
                     );
                     return (
                       <td key={a} className="py-2 pr-3">
-                        {cell.source ? (
+                        {safeHttpUrl(cell.source) ? (
                           <a
-                            href={cell.source}
+                            href={safeHttpUrl(cell.source)}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="underline hover:text-ink-900"

@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { LoadingError } from "../components/LoadingError";
 import { fetchDeadlines } from "../lib/api";
 import { usePolling } from "../lib/usePolling";
+import { safeHttpUrl } from "../lib/safeUrl";
 
 const DEADLINES_INTERVAL_MS = 60_000;
 
@@ -156,7 +157,7 @@ export function DeadlinesPage() {
                             </td>
                             <td className="py-2 pr-3">
                               <a
-                                href={it.source}
+                                href={safeHttpUrl(it.source)}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="underline hover:text-ink-900"

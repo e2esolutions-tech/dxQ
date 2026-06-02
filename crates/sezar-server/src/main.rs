@@ -11,7 +11,7 @@ use std::sync::Arc;
 use anyhow::{Context, Result};
 use clap::Parser;
 use sezar_server::{router, router_bootstrap, router_main, store, store_pg, tls, AppState};
-use tracing::info;
+use tracing::{info, warn};
 use tracing_subscriber::EnvFilter;
 
 #[derive(Parser, Debug)]
@@ -104,6 +104,19 @@ async fn main() -> Result<()> {
         "in-memory"
     };
 
+    // A short admin token defeats the constant-time check at
+    // /v1/admin/bootstrap-tokens; warn the operator rather than
+    // silently accept a guessable secret. 32 chars ≈ 190 bits at
+    // base64, comfortably past brute-force.
+    if let Some(t) = args.admin_token.as_deref() {
+        if t.len() < 32 {
+            warn!(
+                len = t.len(),
+                "admin token is shorter than 32 chars — use a long random secret"
+            );
+        }
+    }
+
     let mut state = AppState::with_store(store, &args.ca_dir, args.admin_token.clone())?;
     if let Some(d) = args.deadline.as_deref() {
         state.default_deadline = chrono::DateTime::parse_from_rfc3339(d)?
@@ -163,7 +176,7 @@ async fn run_tls(args: Args, state: AppState) -> Result<()> {
 
     let server_cn = sans
         .iter()
-        .find(|s| !s.parse::<std::net::IpAddr>().is_ok())
+        .find(|s| s.parse::<std::net::IpAddr>().is_err())
         .cloned()
         .unwrap_or_else(|| "sezar-server".into());
 

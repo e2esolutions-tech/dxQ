@@ -88,11 +88,11 @@ impl AppState {
         ca_dir: &std::path::Path,
         admin_token: Option<String>,
     ) -> anyhow::Result<Self> {
-        Ok(Self::with_store(
+        Self::with_store(
             Arc::new(store::InMemoryEventStore::new()),
             ca_dir,
             admin_token,
-        )?)
+        )
     }
 
     /// Same as [`Self::new_in_memory`] but uses a caller-supplied
@@ -118,12 +118,17 @@ impl AppState {
     }
 }
 
-/// Combined router carrying every V1 route. This is the
-/// plain-HTTP entry point used when `--tls` is off (default
-/// for development, the in-process integration tests, and the
-/// `scripts/acceptance.sh` smoke). When `--tls` is on the
-/// server boots [`router_main`] and [`router_bootstrap`] on
-/// separate listeners instead — see those for the rationale.
+/// Combined router carrying every V1 route on a single listener.
+///
+/// **Security note.** This collapses the bootstrap routes
+/// (`/v1/enrol`, `/v1/admin/bootstrap-tokens`) and the main routes
+/// onto one listener with no mTLS client-cert boundary between
+/// them. It exists for development, the in-process integration
+/// tests, and the `scripts/acceptance.sh` smoke — *not* for
+/// production. In production run with `--tls`, which boots
+/// [`router_main`] (behind the mTLS listener) and
+/// [`router_bootstrap`] (the cert-less enrolment listener) on
+/// separate ports so the two trust domains stay split.
 pub fn router(state: AppState) -> Router {
     router_bootstrap(state.clone()).merge(router_main(state))
 }

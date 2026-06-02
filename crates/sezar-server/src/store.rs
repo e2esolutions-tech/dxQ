@@ -19,6 +19,10 @@ use dashmap::DashMap;
 use sezar_core::{Asset, AssetKind, CryptoInventoryEvent};
 
 /// Event store abstraction.
+// `len` here is the stored-event count for diagnostics; an
+// `is_empty` companion would carry no meaning for the storage
+// abstraction, so the clippy lint is intentionally suppressed.
+#[allow(clippy::len_without_is_empty)]
 #[async_trait]
 pub trait EventStore: Send + Sync {
     /// Append one event. Updates the per-asset latest pointer
