@@ -133,7 +133,13 @@ async fn run_plain(args: Args, state: AppState) -> Result<()> {
     let app = router(state);
     let listener = tokio::net::TcpListener::bind(&args.listen).await?;
     info!(addr = %args.listen, "sezar-server listening (plain HTTP)");
-    axum::serve(listener, app).await?;
+    // `into_make_service_with_connect_info` exposes the peer
+    // address to the rate-limit middleware on the bootstrap routes.
+    axum::serve(
+        listener,
+        app.into_make_service_with_connect_info::<std::net::SocketAddr>(),
+    )
+    .await?;
     Ok(())
 }
 
@@ -201,7 +207,9 @@ async fn run_tls(args: Args, state: AppState) -> Result<()> {
         bootstrap_addr,
         axum_server::tls_rustls::RustlsConfig::from_config(bootstrap_config),
     )
-    .serve(bootstrap_app.into_make_service());
+    // Bootstrap routes are rate-limited per client; expose the peer
+    // address so the limiter keys on the real source.
+    .serve(bootstrap_app.into_make_service_with_connect_info::<std::net::SocketAddr>());
 
     // Both listeners run forever; if either dies we report it
     // and bring the whole server down so operators notice.

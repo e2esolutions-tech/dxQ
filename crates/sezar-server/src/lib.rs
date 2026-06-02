@@ -29,6 +29,7 @@
 pub mod ca;
 pub mod enrol;
 pub mod posture;
+pub mod ratelimit;
 pub mod routes;
 pub mod store;
 pub mod store_pg;
@@ -37,9 +38,20 @@ pub mod tls;
 use std::sync::Arc;
 
 use axum::{
+    extract::DefaultBodyLimit,
+    response::IntoResponse,
     routing::{get, post},
     Router,
 };
+
+/// Maximum accepted request-body size, in bytes. Applied to every
+/// route on both listeners. The largest legitimate body is a
+/// `POST /v1/events/batch` array; 8 MiB comfortably holds a few
+/// thousand events while capping the memory a single malicious or
+/// runaway client can force the collector to buffer. axum's default
+/// is 2 MiB — we raise it for batches but keep a hard ceiling so an
+/// oversize POST is rejected with 413 rather than streamed into RAM.
+pub const MAX_BODY_BYTES: usize = 8 * 1024 * 1024;
 
 /// Shared application state injected into every handler.
 #[derive(Clone)]
@@ -62,6 +74,9 @@ pub struct AppState {
     /// with `--admin-token` (or `SEZAR_ADMIN_TOKEN`) to enable
     /// token issuance.
     pub admin_token: Option<String>,
+    /// Per-client rate limiter guarding the bootstrap endpoints
+    /// (`/v1/enrol`, `/v1/admin/bootstrap-tokens`).
+    pub rate_limiter: Arc<ratelimit::RateLimiter>,
 }
 
 impl AppState {
@@ -98,6 +113,7 @@ impl AppState {
             ca: ca::Ca::load_or_init(ca_dir)?,
             tokens: enrol::BootstrapTokenStore::new(),
             admin_token,
+            rate_limiter: Arc::new(ratelimit::RateLimiter::with_defaults()),
         })
     }
 }
@@ -117,14 +133,46 @@ pub fn router(state: AppState) -> Router {
 /// cert. Carries `/healthz`, `/v1/enrol`,
 /// `/v1/admin/bootstrap-tokens`.
 pub fn router_bootstrap(state: AppState) -> Router {
-    Router::new()
-        .route("/healthz", get(routes::healthz))
+    // The token-bearing endpoints are rate-limited per client; the
+    // liveness probe is not, so monitoring never trips the limit.
+    let limited = Router::new()
         .route("/v1/enrol", post(enrol::enrol))
         .route(
             "/v1/admin/bootstrap-tokens",
             post(enrol::issue_bootstrap_token),
         )
+        .route_layer(axum::middleware::from_fn_with_state(
+            state.rate_limiter.clone(),
+            rate_limit_mw,
+        ))
+        .with_state(state.clone());
+
+    Router::new()
+        .route("/healthz", get(routes::healthz))
         .with_state(state)
+        .merge(limited)
+        .layer(DefaultBodyLimit::max(MAX_BODY_BYTES))
+}
+
+/// Middleware: reject a request with 429 when the client has
+/// exceeded the bootstrap-endpoint rate limit. The client key is
+/// derived from `X-Forwarded-For` / `X-Real-IP` / peer address —
+/// see [`ratelimit::client_key`].
+async fn rate_limit_mw(
+    axum::extract::State(limiter): axum::extract::State<Arc<ratelimit::RateLimiter>>,
+    peer: Option<axum::extract::ConnectInfo<std::net::SocketAddr>>,
+    req: axum::extract::Request,
+    next: axum::middleware::Next,
+) -> axum::response::Response {
+    let key = ratelimit::client_key(peer.map(|c| c.0), req.headers());
+    if !limiter.check(&key) {
+        return (
+            axum::http::StatusCode::TOO_MANY_REQUESTS,
+            "rate limit exceeded; retry later\n",
+        )
+            .into_response();
+    }
+    next.run(req).await
 }
 
 /// Main routes: served behind the mTLS listener when `--tls` is
@@ -146,5 +194,6 @@ pub fn router_main(state: AppState) -> Router {
         )
         .route("/v1/agility/compat", get(routes::agility_compat))
         .route("/v1/agility/roadmap", post(routes::agility_roadmap))
+        .layer(DefaultBodyLimit::max(MAX_BODY_BYTES))
         .with_state(state)
 }
