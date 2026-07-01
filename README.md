@@ -8,6 +8,9 @@ on the wire, certificates on disk, signing keys in your HSM, **and even
 crypto holdings on public blockchains** — to a single posture: how
 quantum-resistant is each asset, and where do you have to migrate first?
 
+For a one-page overview of what was built and measured, see
+[SUMMARY.md](SUMMARY.md).
+
 It is **not** a DNS resolver, certificate authority, or blockchain node.
 It is an observability layer that sits next to all of these and answers:
 
