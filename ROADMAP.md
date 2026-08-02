@@ -9,7 +9,7 @@ valuable than each scanner emitting its own format."** If V1 in
 the field validates that, the rest of the milestones become
 mechanical. If it doesn't, V2 onward is junked.
 
-## V1 — Network module MVP (Q3 2026 target)
+## V1 — Network module MVP (shipped; original target Q3 2026)
 
 The smallest thing that proves the unifying-event hypothesis.
 
@@ -29,7 +29,7 @@ blockchain monitoring, HSM adapters, k8s deployment, multi-tenant
 RBAC, alert rules. Don't add anything to this list without explicitly
 deferring something else.
 
-## V2 — Certificate inventory (Q4 2026 target)
+## V2 — Certificate inventory (shipped; original target Q4 2026)
 
 `sezar-cert`. Three data sources:
 
@@ -45,7 +45,7 @@ deferring something else.
 Adds asset kinds: `x509_cert`. Existing dashboard generalises — no
 schema bump.
 
-## V3 — Blockchain crypto monitor (Q1 2027 target)
+## V3 — Blockchain crypto monitor (shipped; original target Q1 2027)
 
 `sezar-chain`. Initial chains:
 
@@ -63,7 +63,7 @@ the posture rollup math.
 
 Adds asset kind: `blockchain_key`.
 
-## V4 — Identity / HSM module (Q2 2027 target)
+## V4 — Identity / HSM module (shipped; original target Q2 2027)
 
 `sezar-id`. Reads from:
 
@@ -77,7 +77,7 @@ wire" — the cold-storage and root-of-trust corner of the inventory.
 
 Adds asset kind: `hsm_slot`.
 
-## V5 — PQ-migration recommendations engine (Q3 2027 target)
+## V5 — PQ-migration recommendations engine (shipped; original target Q3 2027)
 
 By V4 we have the inventory. V5 turns it into action:
 

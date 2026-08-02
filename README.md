@@ -1,7 +1,12 @@
 # Sezar — Crypto-Posture Observability
 
-> **Status:** pre-alpha. Repository scaffolding only. V1 (Network module)
-> targeted for Q3 2026.
+> **Status:** working reference implementation. The V1–V5 milestones
+> (network, QKD, agility, certificate, blockchain and HSM/KMS agents,
+> collector, dashboard, recommendations engine) are complete, with
+> ~190 tests, Docker Compose and systemd deployment, and `.deb`/`.rpm`
+> packaging. QKD observation runs against an ETSI GS QKD 014 emulator;
+> the eBPF live path and hardware HSM backends are validated
+> operator-side (see the per-module runbooks under `docs/`).
 
 Sezar maps every cryptographic asset in your environment — TLS handshakes
 on the wire, certificates on disk, signing keys in your HSM, **and even

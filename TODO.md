@@ -1,6 +1,6 @@
 # Sezar V1 Punch List
 
-Live engineering punch list for the V1 milestone (Q3 2026 target).
+Engineering punch list for the V1 milestone (shipped; kept for the remaining polish items).
 For the higher-level milestone view, see [ROADMAP.md](ROADMAP.md).
 Update **before** the implementing PR, not after.
 

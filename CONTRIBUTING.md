@@ -1,10 +1,11 @@
 # Contributing to Sezar
 
-Sezar is pre-alpha. The V1 scope is documented in
-[`ROADMAP.md`](ROADMAP.md) and the live punch list in
-[`TODO.md`](TODO.md). Patches that move V1 items forward (or
-file bugs against current behaviour) are the most valuable
-contributions today.
+Sezar is a working reference implementation — the V1–V5
+milestones in [`ROADMAP.md`](ROADMAP.md) are complete.
+[`TODO.md`](TODO.md) tracks the remaining polish items. Bug
+reports against current behaviour, hardening patches, and
+real-world validation runs (live eBPF hosts, hardware HSMs,
+actual QKD links) are the most valuable contributions today.
 
 ## Before you open a PR
 
