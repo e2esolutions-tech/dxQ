@@ -84,7 +84,7 @@ impl CrtShBackend {
     pub fn new() -> Result<Self> {
         let client = reqwest::blocking::Client::builder()
             .timeout(Duration::from_secs(30))
-            .user_agent("sezar-cert/0.1 (+https://github.com/e2esolutions-tech/sezar)")
+            .user_agent("sezar-cert/0.1 (+https://github.com/e2esolutions-tech/ree0xQ)")
             .build()
             .map_err(|e| anyhow!("crt.sh client build: {e}"))?;
         Ok(Self { client })

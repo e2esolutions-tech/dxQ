@@ -82,7 +82,7 @@ is not.
 ## Reporting bugs
 
 Open an issue at
-<https://github.com/e2esolutions-tech/sezar/issues> with:
+<https://github.com/e2esolutions-tech/ree0xQ/issues> with:
 
 - exact command(s) you ran,
 - expected vs observed behaviour,

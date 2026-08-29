@@ -106,7 +106,7 @@ Add `--spool-dir <path>` to survive a collector outage; the
 spool drain semantics are identical to the `live --pcap` path
 documented in `crates/sezar-net/src/spool.rs`.
 
-[sez-6]: https://github.com/e2esolutions-tech/sezar/issues/6
+[sez-6]: https://github.com/e2esolutions-tech/ree0xQ/issues/6
 
 Ctrl-C teardown is clean: the aya program detaches from TC,
 the ring buffer is unmapped, and any pending events finish
@@ -162,7 +162,7 @@ The acceptance criteria from [SEZ-3][sez-3]:
    the rollup behaviour is unchanged once the events arrive at
    the collector.
 
-[sez-3]: https://github.com/e2esolutions-tech/sezar/issues/3
+[sez-3]: https://github.com/e2esolutions-tech/ree0xQ/issues/3
 
 ## Troubleshooting
 

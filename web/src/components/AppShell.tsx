@@ -49,9 +49,9 @@ export function AppShell({ children }: PropsWithChildren) {
             schema v1.1 ·{" "}
             <a
               className="underline hover:text-ink-900"
-              href="https://github.com/e2esolutions-tech/sezar"
+              href="https://github.com/e2esolutions-tech/ree0xQ"
             >
-              github.com/e2esolutions-tech/sezar
+              github.com/e2esolutions-tech/ree0xQ
             </a>
           </span>
           <span className="font-mono">

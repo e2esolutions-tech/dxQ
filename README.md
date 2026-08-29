@@ -46,7 +46,7 @@ them out as **Sezar** keeps both products honest:
   feeds from every other crypto-bearing surface, normalises them into
   a single inventory, and answers the migration-readiness question.
 
-## Module layout (planned)
+## Module layout
 
 | Module           | Purpose                                          | Data source                  |
 |------------------|--------------------------------------------------|------------------------------|
@@ -54,11 +54,13 @@ them out as **Sezar** keeps both products honest:
 | `sezar-cert`     | X.509 inventory, key sizes, signature algos      | CT logs, internal CA, host scan |
 | `sezar-chain`    | Public-chain crypto: ECDSA/EdDSA/PQC adoption    | RPC / mempool sniffing       |
 | `sezar-id`       | HSM / KMS / smart-card key inventory             | Vendor APIs                  |
+| `sezar-qkd`      | QKD link/KME state observation                   | ETSI GS QKD 014 REST         |
+| `sezar-agility`  | Crypto-agility scan + PQ-migration advice        | Semgrep over source/pkg      |
 | `sezar-core`     | Shared event schema + posture-rollup library     | (n/a — library)              |
 | `sezar-server`   | Collector + REST API + dashboard backend         | (n/a — service)              |
 
-V1 ships only `sezar-net` + `sezar-server` + a minimal UI. The rest are
-stubs until later milestones.
+All of the above have shipped across the V1-V5 milestones; see
+[ROADMAP.md](./ROADMAP.md) for what landed in each.
 
 ## Architecture at a glance
 
@@ -92,8 +94,8 @@ The shortest path from clone to a live collector backed by
 Postgres:
 
 ```bash
-git clone https://github.com/e2esolutions-tech/sezar
-cd sezar
+git clone https://github.com/e2esolutions-tech/ree0xQ
+cd ree0xQ
 docker compose up -d              # builds sezar-server, starts postgres + collector
 curl -fsS http://127.0.0.1:8090/healthz   # → ok
 ```
@@ -132,7 +134,7 @@ release binaries directly), run `./scripts/acceptance.sh`.
 ## Repository layout
 
 ```
-sezar/
+ree0xQ/
 ├── Cargo.toml                # workspace
 ├── crates/
 │   ├── sezar-core/           # event schema + rollup library (V1)
@@ -175,8 +177,9 @@ security problems.
 
 ## Getting involved
 
-Roadmap + V1 backlog tracked in [ROADMAP.md](./ROADMAP.md) and the
-GitHub Issues / Milestones for this repo. **No code yet** — the V1
-crates contain only stubs. The smallest meaningful contribution today
-is reading the architecture doc and filing an issue with feedback on
-the event schema.
+The roadmap lives in [ROADMAP.md](./ROADMAP.md) and work is tracked
+in this repo's GitHub Issues / Milestones. See
+[CONTRIBUTING.md](./CONTRIBUTING.md) for what helps most right now:
+bug reports against current behaviour, hardening patches, and
+real-world validation runs (live eBPF hosts, hardware HSMs, actual
+QKD links).

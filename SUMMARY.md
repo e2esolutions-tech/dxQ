@@ -75,7 +75,7 @@ QKD hardware and no commercial scanner:
 ## Outputs
 
 - **Open source** under the MIT License at
-  <https://github.com/e2esolutions-tech/sezar> — schema,
+  <https://github.com/e2esolutions-tech/ree0xQ> — schema,
   implementation, ETSI 014 emulator and replay corpus, the
   Semgrep agility rule pack, and the hand-graded ground-truth
   corpus.
