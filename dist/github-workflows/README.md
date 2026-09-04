@@ -10,9 +10,9 @@ Fires on every push to `main` and every PR. Jobs:
 | web   | `npm ci && npm run build` (tsc + Vite). Fails if the gzipped JS bundle exceeds the 300 KB budget. | ubuntu-latest |
 | paper | Installs Pandoc + WeasyPrint, runs `docs/paper/build.sh`, verifies both PDFs exist + non-empty. Uploads PDFs as a 14-day artifact. | ubuntu-latest |
 
-The Postgres testcontainers test on `sezar-server` auto-skips
+The Postgres testcontainers test on `ree0xq-server` auto-skips
 when Docker isn't reachable, so we don't run a service
-container. The `sezar-net-ebpf` crate needs a nightly
+container. The `ree0xq-net-ebpf` crate needs a nightly
 toolchain and isn't part of the workspace's default build —
 it's built out-of-band per its own README.
 

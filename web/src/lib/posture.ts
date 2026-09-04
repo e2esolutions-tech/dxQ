@@ -1,5 +1,5 @@
 // Posture-band classifiers — keep these in lockstep with the paper's
-// thresholds and with sezar-server's tailwind palette aliases.
+// thresholds and with ree0xq-server's tailwind palette aliases.
 
 export type Band = "good" | "plan" | "urgent" | "critical";
 

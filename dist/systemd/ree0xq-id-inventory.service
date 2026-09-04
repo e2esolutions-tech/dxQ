@@ -1,0 +1,40 @@
+# ree0xq-id inventory-scan — periodic offline HSM inventory.
+#
+# Reads an operator-maintained JSON file (HSM slots + keys)
+# and POSTs one event per key. The JSON is operator-supplied
+# because real HSMs need vendor-specific export scripts; this
+# unit just feeds whatever the operator put on disk.
+#
+# Operator config:
+#   Environment=REE0XQ_ID_INVENTORY=/etc/ree0xq/hsm-inventory.json
+#   Environment=REE0XQ_ID_COLLECTOR=https://ree0xq.internal:8090/v1/events
+
+[Unit]
+Description=ree0xQ offline HSM inventory ingestion
+After=network-online.target ree0xq-server.service
+
+[Service]
+Type=oneshot
+User=ree0xq
+Group=ree0xq
+Environment=RUST_LOG=info,ree0xq_id=info
+
+ExecStart=/usr/local/bin/ree0xq-id inventory-scan \
+    --input ${REE0XQ_ID_INVENTORY} \
+    --collector ${REE0XQ_ID_COLLECTOR}
+
+NoNewPrivileges=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+SystemCallArchitectures=native
+SystemCallFilter=@system-service

@@ -9,12 +9,12 @@
 #      published from the manual release pipeline, not from CI).
 #
 # Notes:
-# - The Postgres testcontainers test (sezar-server) auto-skips
+# - The Postgres testcontainers test (ree0xq-server) auto-skips
 #   when Docker isn't reachable, so we don't need a Postgres
 #   service container here.
-# - The eBPF crate (sezar-net-ebpf) needs a nightly toolchain and
+# - The eBPF crate (ree0xq-net-ebpf) needs a nightly toolchain and
 #   isn't part of the workspace's default build. We don't try to
-#   build it in CI; the userspace half of sezar-net (which is what
+#   build it in CI; the userspace half of ree0xq-net (which is what
 #   ships in V1) builds fine on stable.
 # - `cargo deb` / `cargo generate-rpm` are exercised in a separate
 #   release workflow, not on every push.

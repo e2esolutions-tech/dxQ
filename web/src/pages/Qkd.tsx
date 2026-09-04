@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { LoadingError } from "../components/LoadingError";
 import { fetchQkdLinks } from "../lib/api";
-import type { QkdLinkSummary } from "../types/sezar";
+import type { QkdLinkSummary } from "../types/ree0xq";
 
 function healthClass(h: string): string {
   switch (h) {
@@ -41,7 +41,7 @@ export function QkdPage() {
         <h1 className="text-2xl font-bold tracking-tight">QKD links</h1>
         <p className="text-sm text-ink-600 mt-1">
           ETSI GS QKD 014 KME observations collected by{" "}
-          <code className="font-mono">sezar-qkd</code>.
+          <code className="font-mono">ree0xq-qkd</code>.
         </p>
       </div>
       <LoadingError

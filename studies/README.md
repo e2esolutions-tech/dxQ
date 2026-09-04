@@ -1,3 +1,8 @@
+> **Naming note:** these studies were run before the platform was
+> renamed from *Sezar* to *ree0xQ* (August 2026). Scripts, raw
+> captures and module identifiers below keep the former name so the
+> archived data reproduces byte-for-byte.
+
 # Sezar — Empirical Studies
 
 This directory holds the three empirical studies cited by the paper's §5 (magazine) and §8 (extended), with every script, raw capture, analysis notebook, and plot under version control.

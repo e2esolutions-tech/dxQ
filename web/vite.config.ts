@@ -7,7 +7,7 @@ export default defineConfig({
     port: 5173,
     strictPort: true,
     proxy: {
-      // Proxy collector API to sezar-server during development.
+      // Proxy collector API to ree0xq-server during development.
       "/v1": {
         target: "http://127.0.0.1:8090",
         changeOrigin: true,

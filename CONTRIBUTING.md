@@ -1,6 +1,6 @@
-# Contributing to Sezar
+# Contributing to ree0xQ
 
-Sezar is a working reference implementation — the V1–V5
+ree0xQ is a working reference implementation — the V1–V5
 milestones in [`ROADMAP.md`](ROADMAP.md) are complete.
 [`TODO.md`](TODO.md) tracks the remaining polish items. Bug
 reports against current behaviour, hardening patches, and
@@ -25,7 +25,7 @@ actual QKD links) are the most valuable contributions today.
    cd docs/paper && ./build.sh
    ```
 4. If you touched anything that an operator deploys
-   (`sezar-server`, `sezar-net`, `Dockerfile`, `compose.yaml`),
+   (`ree0xq-server`, `ree0xq-net`, `Dockerfile`, `compose.yaml`),
    run the end-to-end acceptance smoke:
    ```bash
    ./scripts/acceptance.sh
@@ -38,7 +38,7 @@ actual QKD links) are the most valuable contributions today.
 - Commit message style: Conventional Commits.
   - `feat(scope): …`, `fix(scope): …`, `docs(scope): …`,
     `test(scope): …`, `chore(scope): …`, `refactor(scope): …`.
-  - Scope is the crate name (`sezar-net`, `sezar-server`, …)
+  - Scope is the crate name (`ree0xq-net`, `ree0xq-server`, …)
     or one of `paper`, `refs`, `ci`, `web`, `docker`, `scripts`,
     `repo`.
   - Imperative subject under ~70 chars; body explains the
@@ -64,9 +64,9 @@ actual QKD links) are the most valuable contributions today.
   live source page before requesting review. Fabricated author
   lists are the top failure mode for citation work — see
   commit `563ee87` for an example of how it can go wrong.
-- If you change `crates/sezar-core/src/event.rs`, audit the
+- If you change `crates/ree0xq-core/src/event.rs`, audit the
   schema-version impact and document what downstream consumers
-  (`sezar-server`, the React UI types, `bindings/`) need to
+  (`ree0xq-server`, the React UI types, `bindings/`) need to
   regenerate.
 - One reviewer approval gets you merged. Squash-merge is the
   default.
@@ -89,7 +89,7 @@ Open an issue at
 - relevant log lines (`RUST_LOG=info` is the default; bump to
   `debug` for the affected crate when reporting),
 - the commit hash (`git rev-parse --short HEAD`) and platform
-  (Linux distro / kernel for sezar-net issues).
+  (Linux distro / kernel for ree0xq-net issues).
 
 For security-sensitive reports, please email
 <info@e2esolutions.tech> instead of filing a public issue.

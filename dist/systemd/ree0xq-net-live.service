@@ -1,0 +1,64 @@
+# ree0xq-net — Phase 2.2 libpcap live observation agent.
+#
+# Captures TLS handshakes off a host network interface and
+# POSTs the resulting `crypto_inventory_event` records to a
+# collector URL. Spools to disk when the collector is
+# unreachable (SEZ-6's outage-buffering path).
+#
+# Requires CAP_NET_RAW for the libpcap path. The ree0xq
+# system user gets it ambient; no other elevated caps.
+#
+# Operator config (must override before enabling):
+#   Environment=REE0XQ_NET_IFACE=eth0
+#   Environment=REE0XQ_NET_COLLECTOR=https://ree0xq.internal:8090/v1/events
+#   Environment=REE0XQ_NET_SPOOL=/var/lib/ree0xq-net/spool
+#
+# Install:
+#   install -m 0644 ree0xq-net-live.service /etc/systemd/system/
+#   install -m 0755 ree0xq-net /usr/local/bin/
+#   install -d -m 0750 -o ree0xq -g ree0xq /var/lib/ree0xq-net /var/lib/ree0xq-net/spool
+#   systemctl daemon-reload
+#   systemctl enable --now ree0xq-net-live
+
+[Unit]
+Description=ree0xQ network observation agent (libpcap live, Phase 2.2)
+After=network-online.target ree0xq-server.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ree0xq
+Group=ree0xq
+WorkingDirectory=/var/lib/ree0xq-net
+Environment=RUST_LOG=info,ree0xq_net=info
+
+ExecStart=/usr/local/bin/ree0xq-net live \
+    --iface ${REE0XQ_NET_IFACE} \
+    --collector ${REE0XQ_NET_COLLECTOR} \
+    --spool-dir ${REE0XQ_NET_SPOOL}
+
+Restart=on-failure
+RestartSec=5s
+StartLimitInterval=60s
+StartLimitBurst=10
+
+NoNewPrivileges=true
+# CAP_NET_RAW for libpcap; everything else dropped.
+CapabilityBoundingSet=CAP_NET_RAW
+AmbientCapabilities=CAP_NET_RAW
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=false
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+ReadWritePaths=/var/lib/ree0xq-net
+
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

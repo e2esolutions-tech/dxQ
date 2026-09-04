@@ -1,6 +1,6 @@
 # Crypto Inventory Event — Schema v1
 
-The single load-bearing data structure in Sezar. Every module — from
+The single load-bearing data structure in ree0xQ. Every module — from
 the eBPF TLS sniffer to the Bitcoin mempool subscriber — emits this
 shape. The dashboard, the rollup engine, the alert rules, and the
 storage layer all read it. **Adding a new field that's required is a
@@ -16,7 +16,7 @@ once we measure event volume in production (probably mid-V3).
 ```json
 {
   "schema_version": 1,
-  "source_module": "sezar-net",
+  "source_module": "ree0xq-net",
   "observed_at": "2026-08-15T11:42:03.421Z",
   "asset": { ... },
   "primitives": [ ... ],
@@ -27,11 +27,11 @@ once we measure event volume in production (probably mid-V3).
 | Field            | Type     | Required | Notes |
 |------------------|----------|----------|-------|
 | `schema_version` | u32      | ✓        | Always equal to the emitting library's `SCHEMA_VERSION`. Consumers reject any event whose major schema-version they don't understand. |
-| `source_module`  | string   | ✓        | One of `sezar-net`, `sezar-cert`, `sezar-chain`, `sezar-id`. Reserved for future modules: `sezar-dns` (forwarded from Nizam DNSSEC observations). |
+| `source_module`  | string   | ✓        | One of `ree0xq-net`, `ree0xq-cert`, `ree0xq-chain`, `ree0xq-id`. Reserved for future modules: `ree0xq-dns` (forwarded from Nizam DNSSEC observations). |
 | `observed_at`    | RFC3339  | ✓        | UTC. Module clock; the server records its own ingest time separately. |
 | `asset`          | object   | ✓        | What we observed — see below. |
 | `primitives`     | array    | ✓        | One entry per primitive role; an asset can list 1+ primitives. |
-| `posture`        | object   | ✓        | Sezar's verdict. Computed by the emitting module using `sezar-core::rollup` — module is allowed to override if it has stronger context. |
+| `posture`        | object   | ✓        | ree0xQ's verdict. Computed by the emitting module using `ree0xq-core::rollup` — module is allowed to override if it has stronger context. |
 
 ## `asset`
 
@@ -53,12 +53,12 @@ once we measure event volume in production (probably mid-V3).
 
 | Value             | Emitting module    | Identity meaning                                            |
 |-------------------|--------------------|-------------------------------------------------------------|
-| `tls_session`     | `sezar-net`        | hash(`client_random` ‖ `server_ip:port`)                    |
-| `ssh_session`     | `sezar-net`        | hash(`session_id` from SSH transport)                       |
-| `ipsec_sa`        | `sezar-net`        | SPI value                                                    |
-| `x509_cert`       | `sezar-cert`       | `sha256` of the DER-encoded cert                             |
-| `blockchain_key`  | `sezar-chain`      | chain-prefixed address (e.g. `bc1q...`, `0x...`)             |
-| `hsm_slot`        | `sezar-id`         | PKCS#11 URI / cloud KMS ARN / vendor-specific URI            |
+| `tls_session`     | `ree0xq-net`        | hash(`client_random` ‖ `server_ip:port`)                    |
+| `ssh_session`     | `ree0xq-net`        | hash(`session_id` from SSH transport)                       |
+| `ipsec_sa`        | `ree0xq-net`        | SPI value                                                    |
+| `x509_cert`       | `ree0xq-cert`       | `sha256` of the DER-encoded cert                             |
+| `blockchain_key`  | `ree0xq-chain`      | chain-prefixed address (e.g. `bc1q...`, `0x...`)             |
+| `hsm_slot`        | `ree0xq-id`         | PKCS#11 URI / cloud KMS ARN / vendor-specific URI            |
 | `dns_dnssec`      | (forwarded; reserved) | RRSIG fingerprint                                          |
 
 New variants are a major schema bump. Consumers that don't recognise a
@@ -122,13 +122,13 @@ one. `Dilithium` is being renamed to `ML-DSA` upstream — emit
 A module is required to:
 
 1. Set `schema_version` to its compile-time `SCHEMA_VERSION` constant.
-2. Set `source_module` to the canonical module name (`sezar-net`, etc.).
+2. Set `source_module` to the canonical module name (`ree0xq-net`, etc.).
 3. Set `observed_at` to actual observation time, **not** event-emission
    time. Late delivery is fine; backdated events are not.
 4. Provide every required field on every event. If something is
    genuinely unknown, emit `null` for the optional fields rather than
    leaving them out.
-5. Compute `posture` using `sezar-core::rollup::score(&primitives)`.
+5. Compute `posture` using `ree0xq-core::rollup::score(&primitives)`.
    Override only with explicit reason in the `rationale` string.
 
 Modules **must not**:
@@ -137,7 +137,7 @@ Modules **must not**:
 - Emit duplicate events for the same `(asset.kind, asset.identity)`
   within a 60-second window unless the primitive list materially
   changed.
-- Carry private key material. Sezar is observability — fingerprints
+- Carry private key material. ree0xQ is observability — fingerprints
   and metadata only.
 
 ## Future extensions (planned)
@@ -151,8 +151,8 @@ Modules **must not**:
 
 ## Validation
 
-The `sezar-core` crate ships JSON Schema generation for this struct
+The `ree0xq-core` crate ships JSON Schema generation for this struct
 (via `schemars`, when added). CI will validate every example event in
 this doc against the generated schema. Until that lands, the
-`#[test]` in `crates/sezar-core/src/lib.rs` (`event_round_trips_through_json`)
+`#[test]` in `crates/ree0xq-core/src/lib.rs` (`event_round_trips_through_json`)
 is the canonical proof that the Rust struct + JSON shape agree.

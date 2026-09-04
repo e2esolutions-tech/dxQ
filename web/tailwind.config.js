@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Sezar palette: posture-band greens / yellows / reds aligned
+        // ree0xQ palette: posture-band greens / yellows / reds aligned
         // with the paper's q thresholds (plan/migration/must-migrate).
         posture: {
           good: "#16a34a",

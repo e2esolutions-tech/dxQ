@@ -5,7 +5,7 @@ A small, dependency-free load generator: fans out N concurrent
 POSTs to the collector, records per-request latency, and prints
 rate plus latency percentiles when the run is done. Used by the
 SEZ-8 load-test pass and by anyone who wants to know how a fresh
-sezar-server build holds up before promoting it.
+ree0xq-server build holds up before promoting it.
 
 Usage:
 

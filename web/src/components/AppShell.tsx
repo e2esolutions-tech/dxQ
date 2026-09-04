@@ -19,7 +19,7 @@ export function AppShell({ children }: PropsWithChildren) {
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <span className="font-mono text-lg font-bold tracking-tight">
-              Sezar
+              ree0xQ
             </span>
             <span className="text-xs text-ink-400">
               quantum-risk posture (v0.1 dashboard)

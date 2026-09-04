@@ -4,7 +4,7 @@ import { LoadingError } from "../components/LoadingError";
 import { fetchInventory } from "../lib/api";
 import { formatQ, qBgClass, qColorClass } from "../lib/posture";
 import { usePolling } from "../lib/usePolling";
-import type { AssetKind, InventoryItem, InventoryResponse } from "../types/sezar";
+import type { AssetKind, InventoryItem, InventoryResponse } from "../types/ree0xq";
 
 // Inventory is "on-demand" per SEZ-5 scope, but a 30-second
 // background poll keeps the table coherent for an operator

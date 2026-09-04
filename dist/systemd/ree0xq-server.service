@@ -1,0 +1,78 @@
+# ree0xq-server — collector + REST API + recommendations engine.
+#
+# Production-default systemd unit. Designed to run as a dedicated
+# system user; no extra capabilities; sandboxed via the standard
+# systemd-235+ hardening directives. Operators tweak resource
+# limits + the listen / database URL via a drop-in at
+# /etc/systemd/system/ree0xq-server.service.d/override.conf.
+#
+# Install:
+#   install -m 0644 ree0xq-server.service /etc/systemd/system/
+#   install -m 0755 ree0xq-server /usr/local/bin/
+#   useradd -r -s /sbin/nologin ree0xq
+#   install -d -m 0750 -o ree0xq -g ree0xq /var/lib/ree0xq /var/lib/ree0xq/ca
+#   systemctl daemon-reload
+#   systemctl enable --now ree0xq-server
+
+[Unit]
+Description=ree0xQ collector + REST API (V1 .. V5)
+After=network-online.target postgresql.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ree0xq
+Group=ree0xq
+WorkingDirectory=/var/lib/ree0xq
+
+# ree0xQ-specific config — override these in a drop-in.
+Environment=RUST_LOG=info,ree0xq_server=info,sqlx=warn
+# Operators set REE0XQ_DATABASE_URL here to enable the
+# Postgres backend. Without it the server falls back to
+# in-memory (fine for evaluation, not for production).
+# Environment=REE0XQ_DATABASE_URL=postgres://ree0xq:ree0xq@127.0.0.1:5432/ree0xq
+# Environment=REE0XQ_ADMIN_TOKEN=...
+
+ExecStart=/usr/local/bin/ree0xq-server \
+    --listen 0.0.0.0:8090 \
+    --ca-dir /var/lib/ree0xq/ca
+
+# Restart unconditionally; exponential backoff on rapid
+# failures so a broken DB doesn't get a hammering.
+Restart=on-failure
+RestartSec=5s
+StartLimitInterval=60s
+StartLimitBurst=10
+
+# Hardening (systemd ≥ 247). Drop every capability — the
+# server never needs CAP_NET_BIND_SERVICE on the default
+# >1024 port.
+NoNewPrivileges=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+LockPersonality=true
+MemoryDenyWriteExecute=true
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+
+# The CA dir lives at /var/lib/ree0xq/ca and is the only
+# writable location the unit needs.
+ReadWritePaths=/var/lib/ree0xq
+
+# Reasonable defaults; operators bump for high-rate ingest.
+LimitNOFILE=65536
+TasksMax=512
+
+[Install]
+WantedBy=multi-user.target

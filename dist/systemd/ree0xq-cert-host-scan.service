@@ -1,0 +1,50 @@
+# ree0xq-cert host-scan — periodic filesystem cert inventory.
+#
+# One-shot unit; paired with ree0xq-cert-host-scan.timer for
+# scheduled execution. Walks the standard cert paths
+# (/etc/ssl, /etc/pki, /etc/letsencrypt/live, …) and POSTs
+# one event per discovered cert.
+#
+# Operator config:
+#   Environment=REE0XQ_CERT_COLLECTOR=https://ree0xq.internal:8090/v1/events
+#
+# Install:
+#   install -m 0644 ree0xq-cert-host-scan.service /etc/systemd/system/
+#   install -m 0644 ree0xq-cert-host-scan.timer   /etc/systemd/system/
+#   install -m 0755 ree0xq-cert                   /usr/local/bin/
+#   systemctl daemon-reload
+#   systemctl enable --now ree0xq-cert-host-scan.timer
+
+[Unit]
+Description=ree0xQ host-filesystem cert inventory scan
+After=network-online.target ree0xq-server.service
+
+[Service]
+Type=oneshot
+User=ree0xq
+Group=ree0xq
+Environment=RUST_LOG=info,ree0xq_cert=info
+
+# Read access to the cert paths only — no write needed.
+# The scanner walks system cert directories; ree0xq user
+# needs read access (cert dirs are usually world-readable
+# on Linux, exception: /etc/letsencrypt/live which needs
+# the operator to ACL or run as root via the override).
+ExecStart=/usr/local/bin/ree0xq-cert host-scan \
+    --collector ${REE0XQ_CERT_COLLECTOR}
+
+NoNewPrivileges=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+SystemCallArchitectures=native
+SystemCallFilter=@system-service

@@ -1,0 +1,13 @@
+# Periodic HSM inventory ingest — every 6 hours.
+
+[Unit]
+Description=Periodic ree0xQ offline HSM inventory ingestion
+
+[Timer]
+OnBootSec=15min
+OnUnitActiveSec=6h
+Persistent=true
+Unit=ree0xq-id-inventory.service
+
+[Install]
+WantedBy=timers.target

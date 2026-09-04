@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { LoadingError } from "../components/LoadingError";
 import { fetchRecommendations } from "../lib/api";
 import { usePolling } from "../lib/usePolling";
-import type { AssetKind, RecommendationCost } from "../types/sezar";
+import type { AssetKind, RecommendationCost } from "../types/ree0xq";
 
 // 30 seconds matches the Inventory poll cadence — the
 // recommendations roll up from the same per-asset latest

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # scripts/acceptance.sh — V1 release-binary acceptance smoke.
 #
-# Builds (if needed) and exercises the actual sezar-server and
-# sezar-net release binaries against deterministic test fixtures,
+# Builds (if needed) and exercises the actual ree0xq-server and
+# ree0xq-net release binaries against deterministic test fixtures,
 # then asserts the posture rollup is sane:
 #
 #   - 5 assets ingested (3 from the zgrab fixture, 1 from the
@@ -26,9 +26,9 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
-LISTEN_ADDR="${SEZAR_ACCEPTANCE_LISTEN:-127.0.0.1:8190}"
+LISTEN_ADDR="${REE0XQ_ACCEPTANCE_LISTEN:-127.0.0.1:8190}"
 BASE_URL="http://${LISTEN_ADDR}"
-LOG_DIR="${TMPDIR:-/tmp}/sezar-acceptance-$$"
+LOG_DIR="${TMPDIR:-/tmp}/ree0xq-acceptance-$$"
 mkdir -p "$LOG_DIR"
 
 server_pid=""
@@ -41,7 +41,7 @@ cleanup() {
   if [[ $rc -ne 0 ]]; then
     echo
     echo "[acceptance] FAILED (exit $rc). Server log tail:"
-    tail -n 50 "$LOG_DIR/sezar-server.log" 2>/dev/null || true
+    tail -n 50 "$LOG_DIR/ree0xq-server.log" 2>/dev/null || true
   fi
   rm -rf "$LOG_DIR"
 }
@@ -51,16 +51,16 @@ log() { printf '[acceptance] %s\n' "$*"; }
 fail() { printf '[acceptance] FAIL: %s\n' "$*" >&2; exit 1; }
 
 log "building release binaries…"
-cargo build --release --quiet -p sezar-server -p sezar-net
+cargo build --release --quiet -p ree0xq-server -p ree0xq-net
 
-log "starting sezar-server on ${LISTEN_ADDR}…"
+log "starting ree0xq-server on ${LISTEN_ADDR}…"
 # Use a per-run CA dir under $LOG_DIR so the script stays
-# unprivileged (the default /var/lib/sezar/ca is only writable
+# unprivileged (the default /var/lib/ree0xq/ca is only writable
 # inside the production container or with sudo).
-./target/release/sezar-server \
+./target/release/ree0xq-server \
   --listen "$LISTEN_ADDR" \
   --ca-dir "$LOG_DIR/ca" \
-  >"$LOG_DIR/sezar-server.log" 2>&1 &
+  >"$LOG_DIR/ree0xq-server.log" 2>&1 &
 server_pid=$!
 
 # Poll /healthz until the server starts accepting requests.
@@ -69,7 +69,7 @@ for i in $(seq 1 50); do
     break
   fi
   if ! kill -0 "$server_pid" 2>/dev/null; then
-    fail "sezar-server died during startup (see log above)"
+    fail "ree0xq-server died during startup (see log above)"
   fi
   sleep 0.1
 done
@@ -78,17 +78,17 @@ log "server up"
 
 # ---- Seed: 3 events from the zgrab fixture ----
 log "seeding 3 events from the zgrab fixture…"
-./target/release/sezar-net from-zgrab \
-  --input crates/sezar-net/tests/fixtures/zgrab-tls13-pq.json \
+./target/release/ree0xq-net from-zgrab \
+  --input crates/ree0xq-net/tests/fixtures/zgrab-tls13-pq.json \
   --collector "${BASE_URL}/v1/events" \
-  >"$LOG_DIR/sezar-net-zgrab.log" 2>&1
+  >"$LOG_DIR/ree0xq-net-zgrab.log" 2>&1
 
 # ---- Seed: 1 event from the synthetic ClientHello pcap ----
 log "seeding 1 event from the synthetic ClientHello pcap…"
-./target/release/sezar-net live \
-  --pcap crates/sezar-net/tests/fixtures/synth-clienthello.pcap \
+./target/release/ree0xq-net live \
+  --pcap crates/ree0xq-net/tests/fixtures/synth-clienthello.pcap \
   --collector "${BASE_URL}/v1/events" \
-  >"$LOG_DIR/sezar-net-live.log" 2>&1
+  >"$LOG_DIR/ree0xq-net-live.log" 2>&1
 
 # ---- Seed: 1 hand-crafted FIPS-locked appliance (BLOCKED candidate) ----
 log "seeding 1 synthetic FIPS-locked appliance…"
@@ -98,7 +98,7 @@ curl -sS -X POST "${BASE_URL}/v1/events" \
 {
   "schema_version": 1,
   "schema_minor": 1,
-  "source_module": "sezar-agility",
+  "source_module": "ree0xq-agility",
   "observed_at": "2026-05-20T08:00:00Z",
   "asset": {
     "kind": "tls_session",

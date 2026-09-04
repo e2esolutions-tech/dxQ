@@ -1,14 +1,14 @@
 [workspace]
 resolver = "2"
 members = [
-    "crates/sezar-core",
-    "crates/sezar-server",
-    "crates/sezar-net",
-    "crates/sezar-cert",
-    "crates/sezar-chain",
-    "crates/sezar-id",
-    "crates/sezar-qkd",
-    "crates/sezar-agility",
+    "crates/ree0xq-core",
+    "crates/ree0xq-server",
+    "crates/ree0xq-net",
+    "crates/ree0xq-cert",
+    "crates/ree0xq-chain",
+    "crates/ree0xq-id",
+    "crates/ree0xq-qkd",
+    "crates/ree0xq-agility",
 ]
 
 [workspace.package]
@@ -34,6 +34,6 @@ axum        = "0.7"
 tower       = "0.5"
 
 # Workspace-internal
-sezar-core    = { path = "crates/sezar-core" }
-sezar-server  = { path = "crates/sezar-server" }
-sezar-agility = { path = "crates/sezar-agility" }
+ree0xq-core    = { path = "crates/ree0xq-core" }
+ree0xq-server  = { path = "crates/ree0xq-server" }
+ree0xq-agility = { path = "crates/ree0xq-agility" }

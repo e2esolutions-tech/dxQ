@@ -10,6 +10,16 @@ under development and the tag scheme will land with the V1 cut.
 
 ## [Unreleased]
 
+### Changed
+
+- **Project renamed: Sezar → ree0xQ.** Repository, crate names
+  (`ree0xq-core`, `ree0xq-server`, ...), binaries, env vars
+  (`REE0XQ_HOST_PORT`, `REE0XQ_ADMIN_TOKEN`, `REE0XQ_DATABASE_URL`),
+  systemd units, packaging, docs, web UI branding and the paper all
+  carry the new name. GitHub redirects the old repository URL. The
+  archived studies keep the former identifiers for reproducibility.
+
+
 Pre-alpha. V1 (Network module) + V2 (cert inventory) + V3
 (chain monitor) + V4 (HSM/KMS) + V5 (recommendations) all
 complete per [`ROADMAP.md`](ROADMAP.md); 22/22 SEZ-N issues
@@ -42,21 +52,21 @@ closed.
   runbook** (SEZ-24). `dist/systemd/` ships
   production-default unit files for the four
   always-on or timer-driven daemons:
-  - `sezar-server.service` (collector + REST + V5
+  - `ree0xq-server.service` (collector + REST + V5
     recommendations endpoint)
-  - `sezar-net-live.service` (Phase 2.2 libpcap live
+  - `ree0xq-net-live.service` (Phase 2.2 libpcap live
     observer; only unit that needs `CAP_NET_RAW`)
-  - `sezar-cert-host-scan.{service,timer}` (daily
+  - `ree0xq-cert-host-scan.{service,timer}` (daily
     03:17 ± 30 m)
-  - `sezar-id-inventory.{service,timer}` (every 6 h)
-  Each unit runs as a dedicated `sezar` system user, drops
+  - `ree0xq-id-inventory.{service,timer}` (every 6 h)
+  Each unit runs as a dedicated `ree0xq` system user, drops
   every capability except the one it actually needs, and
   applies the standard hardening battery
   (`ProtectSystem=strict`, `PrivateTmp`,
   `ProtectKernel*`, `MemoryDenyWriteExecute`,
   `SystemCallFilter=@system-service` minus
   `@privileged @resources`, no writable filesystem outside
-  `/var/lib/sezar*`).
+  `/var/lib/ree0xq*`).
   `docs/operator-deploy.md` is the multi-host runbook
   covering collector setup, per-agent bootstrap-token mint,
   agent enrolment over the mTLS bootstrap listener,
@@ -66,7 +76,7 @@ closed.
   `loadtest`, `test`, `release` targets — typed once,
   the install path is idempotent.
 - **Dashboard integration of V5 recommendations** (SEZ-23).
-  New `GET /v1/recommendations` endpoint on sezar-server
+  New `GET /v1/recommendations` endpoint on ree0xq-server
   walks the latest-per-asset map and runs the V5
   recommendation engine on each event's primitive list;
   returns `[{identity, kind, host, current_primitives,
@@ -77,19 +87,19 @@ closed.
   recommendation with its cost badge, rationale, and
   caveats. Bundle stays at 59.95 KB gzipped (300 KB
   budget). Closes SEZ-23.
-- **`sezar-agility` V5 — PQ migration recommendations
+- **`ree0xq-agility` V5 — PQ migration recommendations
   engine** (SEZ-19, SEZ-20, SEZ-21, SEZ-22). Four new
   modules on top of the V1 agility scanner:
   - `recommend` — `recommend_for(&[Primitive]) ->
     Vec<Recommendation>` produces ranked replacement
     options with rationale, `Cost` markers (Trivial → Low
     → Medium → High), and per-replacement caveats. CLI:
-    `sezar-agility recommend --inventory <url>` walks
+    `ree0xq-agility recommend --inventory <url>` walks
     `/v1/inventory` and prints one JSON line per asset
     that has any classical primitive worth replacing.
   - `roadmap` — `project_roadmap(inventory, plan)`
     simulates org_q at each milestone of an operator-
-    supplied migration plan. CLI: `sezar-agility roadmap
+    supplied migration plan. CLI: `ree0xq-agility roadmap
     --inventory <url> --plan <file>`. Milestones sort
     chronologically regardless of input order;
     unknown asset_ids silently skip; migrated assets
@@ -97,7 +107,7 @@ closed.
   - `compat` — embedded TLS-stack ↔ PQ-algo support
     matrix across 6 stacks (OpenSSL 3.x, BoringSSL,
     rustls-post-quantum, BouncyCastle, NSS, Go crypto/
-    tls). CLI: `sezar-agility compat --stack <s>
+    tls). CLI: `ree0xq-agility compat --stack <s>
     [--algo <a>]`. Every entry carries `min_version` +
     public source URL. Unknown pairs report
     `SupportStatus::Unknown` rather than misclaim
@@ -106,16 +116,16 @@ closed.
     table; 11 dates across US-NSA CNSA 2.0 / US-NIST IR
     8547 / EU-ANSSI / DE-BSI TR-02102-1 / UK-NCSC. Every
     entry includes the source-URL audit trail. CLI:
-    `sezar-agility deadlines [--jurisdiction US]
+    `ree0xq-agility deadlines [--jurisdiction US]
     [--horizon-days 365]`.
   Twenty-three library tests + one in-process integration
   test cover the surface; the smoke test exercises the
-  recommend pipeline against a live sezar-server with a
+  recommend pipeline against a live ree0xq-server with a
   4-asset mixed inventory and asserts the canonical
   replacements (RSA-2048 → ML-DSA-44, ECDSA-P256 →
   ML-DSA-65, the ML-DSA-65 hsm_slot already PQ-safe → no
   recommendation). Closes SEZ-19/20/21/22.
-- **`sezar-id` V4 — HSM / KMS / smart-card inventory**
+- **`ree0xq-id` V4 — HSM / KMS / smart-card inventory**
   (SEZ-15, SEZ-16, SEZ-17, SEZ-18). Four backends behind
   one shared `algos::primitives_for` table that maps
   `(key_type, key_size_bits?)` onto the
@@ -135,18 +145,18 @@ closed.
     runbook + reproducer-script (SEZ-3 / SEZ-16 pattern)
     since both are hardware-bound and CI doesn't host
     either. Three operator runbooks
-    (`docs/sezar-id-pkcs11.md`,
-    `docs/sezar-id-aws-kms.md`,
-    `docs/sezar-id-yubihsm.md`) plus the host-side
-    `scripts/sezar-id-bringup.sh` pre-flight.
+    (`docs/ree0xq-id-pkcs11.md`,
+    `docs/ree0xq-id-aws-kms.md`,
+    `docs/ree0xq-id-yubihsm.md`) plus the host-side
+    `scripts/ree0xq-id-bringup.sh` pre-flight.
   Eleven workspace tests cover the algos table, the
   inventory classifier, the AWS KMS fake-backend
   scanner-loop, the KeySpec mapping, and the
   in-process collector round-trip. Closes SEZ-15,
   SEZ-16, SEZ-17, SEZ-18.
 
-- **`sezar-chain` V3 — three offline chain backends** (SEZ-12,
-  SEZ-13, SEZ-14). New `sezar-chain` binary with three
+- **`ree0xq-chain` V3 — three offline chain backends** (SEZ-12,
+  SEZ-13, SEZ-14). New `ree0xq-chain` binary with three
   subcommands; every backend takes `--addresses <file>` and
   emits one `crypto_inventory_event` per recognised address
   (`asset.kind = blockchain_key`, `asset.identity =
@@ -170,8 +180,8 @@ closed.
   through a live in-process collector and asserts the
   per-chain shape on `/v1/inventory`. Closes SEZ-12, SEZ-13,
   SEZ-14 — every V3 SEZ-N is now closed.
-- **`sezar-cert` Vault PKI scanner** (V2.2, SEZ-11). New
-  `sezar-cert vault-scan --addr <url> --mount <name>
+- **`ree0xq-cert` Vault PKI scanner** (V2.2, SEZ-11). New
+  `ree0xq-cert vault-scan --addr <url> --mount <name>
   [--token-env VAULT_TOKEN] [--collector <url>]` subcommand
   lists every active cert under a HashiCorp Vault PKI mount,
   fetches each PEM via `GET /v1/<mount>/cert/<serial>`, and
@@ -186,10 +196,10 @@ closed.
   in-memory unit tests cover the JSON deserialisers, the
   scanner loop, the empty-mount noop, and the URL
   sanitiser. Five-minute reproducer against `vault server
-  -dev` lives in [`docs/sezar-cert-vault.md`](docs/sezar-cert-vault.md).
+  -dev` lives in [`docs/ree0xq-cert-vault.md`](docs/ree0xq-cert-vault.md).
   Closes SEZ-11 — every V2 SEZ-N is now closed.
-- **`sezar-cert` CT-log scanner** (V2.1, SEZ-10). New
-  `sezar-cert ct-scan --domain <fqdn> [--cursor <path>]
+- **`ree0xq-cert` CT-log scanner** (V2.1, SEZ-10). New
+  `ree0xq-cert ct-scan --domain <fqdn> [--cursor <path>]
   [--collector <url>]` subcommand pulls a domain's full cert
   history from a public Certificate Transparency log
   (crt.sh in V2.1) and emits one event per discovered cert,
@@ -205,8 +215,8 @@ closed.
   deserialiser, fresh-run + cursor advance, cursor-aware
   delta runs, and empty-domain noop using an in-memory
   fake backend. Closes SEZ-10.
-- **`sezar-cert` host-filesystem scanner** (V2.0, SEZ-9). New
-  crate binary `sezar-cert host-scan --root <path>` walks the
+- **`ree0xq-cert` host-filesystem scanner** (V2.0, SEZ-9). New
+  crate binary `ree0xq-cert host-scan --root <path>` walks the
   filesystem for PEM-encoded X.509 certs, parses each with
   `x509-parser`, and emits one `crypto_inventory_event` per
   cert. Signature algorithm is decomposed into its `Sig` +
@@ -217,7 +227,7 @@ closed.
   `/usr/local/share/ca-certificates`,
   `/etc/letsencrypt/live`); operators add more with repeated
   `--root` flags. `--collector` POSTs each event to a
-  sezar-server, otherwise NDJSON streams to stdout. Verified
+  ree0xq-server, otherwise NDJSON streams to stdout. Verified
   end-to-end against the docker-compose Postgres-backed
   stack: 3 RSA fixture certs → scan → `/v1/inventory`
   filtered to `x509_cert` shows the three rows with their
@@ -227,33 +237,33 @@ closed.
 
 ### V1 (previously listed)
 
-- **`sezar-net live-ebpf` CLI + bring-up runbook** (SEZ-3).
+- **`ree0xq-net live-ebpf` CLI + bring-up runbook** (SEZ-3).
   Phase 2.1's kernel-side TC classifier + userspace loader had
   been wired up behind the `live-interface` feature for a
   while; this change puts the entry point on the binary
-  (`sezar-net live-ebpf --iface <name> --ebpf-object <path>
+  (`ree0xq-net live-ebpf --iface <name> --ebpf-object <path>
   [--collector …] [--spool-dir …]`, gated by the feature; the
   no-feature build returns an actionable rebuild-with-feature
   error). A new operator runbook,
-  `docs/sezar-net-ebpf.md`, covers host requirements,
+  `docs/ree0xq-net-ebpf.md`, covers host requirements,
   one-time toolchain install, build sequence, attach, the
   exact procedure to validate each of SEZ-3's acceptance
   criteria, and a troubleshooting section. The companion
-  `scripts/sezar-net-ebpf-bringup.sh` is the one-command
+  `scripts/ree0xq-net-ebpf-bringup.sh` is the one-command
   reproducer — pre-flight checks → BPF object build → loader
   build → attach + tail — and the closure path for SEZ-3.
 - **Postgres event store** (SEZ-2). `--database-url` /
-  `SEZAR_DATABASE_URL` switches `sezar-server` from the
+  `REE0XQ_DATABASE_URL` switches `ree0xq-server` from the
   in-memory DashMap store to a sqlx-backed `PgEventStore`.
   Two-table schema (`events` history + `assets` per-asset
   latest snapshot) bundled as
-  `crates/sezar-server/migrations/0001_init.sql`, run
+  `crates/ree0xq-server/migrations/0001_init.sql`, run
   automatically on first boot. The `EventStore` trait
   abstracts both backends so every handler stays unchanged.
   `docker compose up -d` now brings up `postgres:16-alpine`
-  alongside `sezar-server` and wires them together via the
+  alongside `ree0xq-server` and wires them together via the
   internal network; the host binds Postgres to
-  `127.0.0.1:5433` (env-overridable via `SEZAR_PG_HOST_PORT`)
+  `127.0.0.1:5433` (env-overridable via `REE0XQ_PG_HOST_PORT`)
   for `psql` access. Three integration tests
   (`tests/pg_smoke.rs`) exercise the full HTTP loop,
   post-restart durability, and the out-of-order-ingest
@@ -261,9 +271,9 @@ closed.
   testcontainer. Live-stack ingest at concurrency 16:
   1316 req/s, p50 11 ms, p99 65 ms (SEZ-2 acceptance budget
   was 200 ms p99). Closes SEZ-2.
-- **Sezar dashboard — V1 ship cut** (SEZ-5). The Vite + React
+- **ree0xQ dashboard — V1 ship cut** (SEZ-5). The Vite + React
   + TypeScript + Tailwind scaffolding lights up against the
-  live `sezar-server` REST surface:
+  live `ree0xq-server` REST surface:
   - Posture page polls `/v1/posture` every 10 s,
     renders `org_q` + asset count + BLOCKED count + deadline
     countdown, and (paired with a 10 s `/v1/inventory` poll)
@@ -284,8 +294,8 @@ closed.
   Build artifact stays well under the SEZ-5 budget: 186 KB
   raw / 59.22 KB gzipped (budget: 300 KB).
 - **Agent-side spool** (SEZ-6, fourth acceptance criterion).
-  `sezar-net` now ships an on-disk NDJSON spool
-  (`crates/sezar-net/src/spool.rs`). When `live` /
+  `ree0xq-net` now ships an on-disk NDJSON spool
+  (`crates/ree0xq-net/src/spool.rs`). When `live` /
   `from-zgrab` are invoked with `--collector <url>
   --spool-dir <path>`, every POST failure appends the event
   to the spool; the spool is drained at the start of every
@@ -295,7 +305,7 @@ closed.
   deduplicates by event identity). Closes SEZ-6.
 - **TLS termination + mTLS enforcement** (SEZ-6, third
   acceptance criterion).
-  `sezar-server --tls` mints a CA-signed server cert at boot
+  `ree0xq-server --tls` mints a CA-signed server cert at boot
   (additional SANs via `--tls-san`) and runs two listeners:
   - `--tls-bootstrap-listen` (default `0.0.0.0:8443`) — TLS
     with server cert only, no client-cert verifier. Hosts
@@ -311,13 +321,13 @@ closed.
   `--tls` is off) is unchanged, keeping the dev smoke,
   acceptance script, and integration tests friction-free.
 - **mTLS bootstrap foundation** (SEZ-6, first half).
-  `sezar-server` now boots an internal ECDSA-P256 root CA on
+  `ree0xq-server` now boots an internal ECDSA-P256 root CA on
   first run (persisted to `--ca-dir`, default
-  `/var/lib/sezar/ca`, key at mode 0600), reloaded on every
+  `/var/lib/ree0xq/ca`, key at mode 0600), reloaded on every
   subsequent start. New endpoints:
   - `POST /v1/admin/bootstrap-tokens` — admin-gated by
     `X-Admin-Token` (configured via `--admin-token` or
-    `SEZAR_ADMIN_TOKEN`), issues a single-use UUID token bound
+    `REE0XQ_ADMIN_TOKEN`), issues a single-use UUID token bound
     to a specific `agent_id` with a 1–720 hour TTL.
   - `POST /v1/enrol` — agent redeems its token, server returns
     a freshly-signed client cert plus its private key and the
@@ -330,25 +340,25 @@ closed.
   mix. First baseline against the in-memory store on a single
   Linux host: ~812 req/s at concurrency 16, p50 18 ms, p99 51 ms.
 - **Single-host Docker install.** Multi-stage `Dockerfile` and
-  `compose.yaml` bring `sezar-server` up under a non-root user
+  `compose.yaml` bring `ree0xq-server` up under a non-root user
   with `tini` as PID 1 and a `curl /healthz` HEALTHCHECK. Port is
-  env-overridable (`SEZAR_HOST_PORT`); `docker compose up -d` is
+  env-overridable (`REE0XQ_HOST_PORT`); `docker compose up -d` is
   the documented quickstart.
 - **Release-binary acceptance smoke.** `scripts/acceptance.sh`
   drives the release CLIs end-to-end against a local TCP socket,
-  seeds five deterministic events through `sezar-net from-zgrab`
-  + `sezar-net live --pcap` + a hand-crafted `agility: locked`
+  seeds five deterministic events through `ree0xq-net from-zgrab`
+  + `ree0xq-net live --pcap` + a hand-crafted `agility: locked`
   curl POST, and asserts `assets == 5`, `blocked_count == 1`,
   `org_q > 0`, and that the BLOCKED row points at the synthetic
   appliance.
-- **`sezar-net` Phase 2.2 — libpcap live-interface capture.**
-  Behind the `live-pcap` Cargo feature: `sezar-net live --iface
+- **`ree0xq-net` Phase 2.2 — libpcap live-interface capture.**
+  Behind the `live-pcap` Cargo feature: `ree0xq-net live --iface
   <name>` opens a network interface via libpcap and feeds the
   same frame-handling code as the pcap-file replay. Ctrl-C
   drains in-flight packets cleanly. Build needs
   `libpcap-devel` / `libpcap-dev`; runtime needs `CAP_NET_RAW`.
-- **`sezar-net` end-to-end smoke** (`crates/sezar-net/tests/
-  end_to_end_smoke.rs`). Spins `sezar-server`'s router in-process
+- **`ree0xq-net` end-to-end smoke** (`crates/ree0xq-net/tests/
+  end_to_end_smoke.rs`). Spins `ree0xq-server`'s router in-process
   on an ephemeral port, drives `observe_pcap` against the
   synthetic ClientHello fixture, POSTs each emitted event to
   `/v1/events`, and asserts the primitives (`X25519+ML-KEM-768`,
@@ -382,10 +392,10 @@ closed.
 
 ### Existing surface (V1 scaffolding inherited from earlier work)
 
-- **`sezar-core`** — `crypto_inventory_event` schema v1.1 with
+- **`ree0xq-core`** — `crypto_inventory_event` schema v1.1 with
   `channel_protection` and `agility` blocks plus the
   `QkdLink` / `QkdKme` asset kinds; ts-rs + JsonSchema codegen.
-- **`sezar-server`** — `axum` collector backed by an in-memory
+- **`ree0xq-server`** — `axum` collector backed by an in-memory
   `DashMap` store, the V1 REST surface
   (`/healthz`, `POST /v1/events`, `/v1/events/batch`,
   `GET /v1/events`, `/v1/inventory`, `/v1/posture`,
@@ -393,7 +403,7 @@ closed.
   library (`q_for_event`, `is_blocked`, `org_score`), and unit
   tests `worked_example_alpha/delta_q_matches_paper` that anchor
   the paper §3.1 numerics.
-- **`sezar-net`** — TLS handshake byte parser, IANA-codepoint
+- **`ree0xq-net`** — TLS handshake byte parser, IANA-codepoint
   primitive mapping, zgrab2 JSON ingest adapter, Phase 2.0
   pcap-file replay, Phase 2.1 eBPF TC classifier skeleton
   (`live-interface` feature), and the PQ-capable probe used in

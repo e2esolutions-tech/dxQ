@@ -30,7 +30,7 @@ export function LoadingError({
         </div>
         <div className="font-mono text-xs">{error}</div>
         <div className="mt-2 text-ink-600">
-          Is <code>sezar-server</code> running on port 8090?
+          Is <code>ree0xq-server</code> running on port 8090?
         </div>
       </div>
     );

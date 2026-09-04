@@ -1,6 +1,6 @@
-# Sezar — Project Summary
+# ree0xQ — Project Summary
 
-A one-page overview of what Sezar is, what was built, and what
+A one-page overview of what ree0xQ is, what was built, and what
 it measured. For the full design see [README.md](README.md) and
 [ARCHITECTURE.md](ARCHITECTURE.md); for the detailed work log see
 [CHANGELOG.md](CHANGELOG.md).
@@ -17,7 +17,7 @@ on exactly the high-assurance links that matter most.
 
 ## The idea
 
-Sezar treats quantum-risk posture as a **three-axis** problem
+ree0xQ treats quantum-risk posture as a **three-axis** problem
 instead of a one-axis label. Each asset is graded on:
 
 - **A — Algorithmic resistance:** is the primitive itself

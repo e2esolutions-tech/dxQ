@@ -1,4 +1,4 @@
-# Sezar Roadmap
+# ree0xQ Roadmap
 
 Five planned milestones. V1 is concrete and budgeted; V2–V5 are
 sketches and will be re-scoped as we learn from V1 in production.
@@ -15,9 +15,9 @@ The smallest thing that proves the unifying-event hypothesis.
 
 | # | Item | Notes |
 |---|------|-------|
-| 1 | `crypto_inventory_event` schema v1 (`sezar-core`) | Stable JSON shape, serde derives, doc comments. |
-| 2 | `sezar-server` collector (axum + Postgres) | POST `/v1/events`, GET `/v1/inventory`, GET `/v1/posture`. |
-| 3 | `sezar-net` eBPF agent (TLS only) | Sniff `client_hello` / `server_hello`, emit ciphersuite + cert fingerprint per session. |
+| 1 | `crypto_inventory_event` schema v1 (`ree0xq-core`) | Stable JSON shape, serde derives, doc comments. |
+| 2 | `ree0xq-server` collector (axum + Postgres) | POST `/v1/events`, GET `/v1/inventory`, GET `/v1/posture`. |
+| 3 | `ree0xq-net` eBPF agent (TLS only) | Sniff `client_hello` / `server_hello`, emit ciphersuite + cert fingerprint per session. |
 | 4 | Posture rollup library | Per-event scoring (FIPS 203/204/205 awareness, ECDSA penalty, RSA<2048 fail). |
 | 5 | React UI: posture dashboard | Org-level score, breakdown by asset kind, top weak assets. |
 | 6 | mTLS bootstrap (server CA + enrolment token) | Production-grade transport from day one. |
@@ -31,7 +31,7 @@ deferring something else.
 
 ## V2 — Certificate inventory (shipped; original target Q4 2026)
 
-`sezar-cert`. Three data sources:
+`ree0xq-cert`. Three data sources:
 
 - **CT logs** — pull every cert issued for the customer's domains
   (cribbed from crt.sh / Google's Argon log). Highest signal for
@@ -47,7 +47,7 @@ schema bump.
 
 ## V3 — Blockchain crypto monitor (shipped; original target Q1 2027)
 
-`sezar-chain`. Initial chains:
+`ree0xq-chain`. Initial chains:
 
 - **Bitcoin** (secp256k1 / ECDSA) — the loudest signal, biggest
   customer overlap (custodians, compliance, regulators).
@@ -65,7 +65,7 @@ Adds asset kind: `blockchain_key`.
 
 ## V4 — Identity / HSM module (shipped; original target Q2 2027)
 
-`sezar-id`. Reads from:
+`ree0xq-id`. Reads from:
 
 - PKCS#11 (any HSM)
 - AWS KMS / GCP KMS / Azure Key Vault
@@ -93,13 +93,13 @@ By V4 we have the inventory. V5 turns it into action:
 - **NIST / regulator deadline tracking** — surface upcoming PQ
   mandate dates per jurisdiction; prioritise migrations against them.
 
-V5 is where Sezar stops being "another scanner" and starts being a
+V5 is where ree0xQ stops being "another scanner" and starts being a
 tool the CISO actually opens before each board meeting.
 
 ## Out of scope for the foreseeable future
 
 - **Building our own HSM / CA / blockchain.** Other people make
-  these; Sezar reads them.
+  these; ree0xQ reads them.
 - **Real-time enforcement** (blocking weak ciphers, refusing to sign
   with deprecated algos). That belongs in the firewall / PKI / chain
   validator, not in an observability product.

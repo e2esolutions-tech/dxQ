@@ -4,7 +4,7 @@ import { LoadingError } from "../components/LoadingError";
 import { fetchInventory, fetchPosture } from "../lib/api";
 import { deadlineLabel, formatQ, qBgClass, qColorClass } from "../lib/posture";
 import { usePolling } from "../lib/usePolling";
-import type { AssetKind, InventoryItem, OrgPosture } from "../types/sezar";
+import type { AssetKind, InventoryItem, OrgPosture } from "../types/ree0xq";
 
 // 10 seconds matches the SEZ-5 scope; loud enough for operators
 // to feel the dashboard "live" without putting noticeable load
@@ -224,14 +224,14 @@ function EmptyStateCta() {
   const cmd = "docker compose up -d";
   const cmd2 =
     "curl -sS http://127.0.0.1:8090/v1/admin/bootstrap-tokens \\\n" +
-    "  -H 'X-Admin-Token: $SEZAR_ADMIN_TOKEN' \\\n" +
-    "  -d '{\"agent_id\":\"sezar-net-01\"}'";
+    "  -H 'X-Admin-Token: $REE0XQ_ADMIN_TOKEN' \\\n" +
+    "  -d '{\"agent_id\":\"ree0xq-net-01\"}'";
   return (
     <div className="card p-8 space-y-4">
       <div className="space-y-1">
         <h2 className="text-lg font-semibold">No agents reporting yet</h2>
         <p className="text-sm text-ink-600">
-          Sezar's collector is up but no asset events have arrived. Start the
+          ree0xQ's collector is up but no asset events have arrived. Start the
           stack and bootstrap an agent against it:
         </p>
       </div>
@@ -244,7 +244,7 @@ function EmptyStateCta() {
         />
         <CmdBlock
           label="3. Drive a probe and POST events"
-          cmd="sezar-net live --pcap fixture.pcap --collector http://127.0.0.1:8090/v1/events"
+          cmd="ree0xq-net live --pcap fixture.pcap --collector http://127.0.0.1:8090/v1/events"
         />
       </div>
       <p className="text-xs text-ink-600">

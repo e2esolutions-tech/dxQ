@@ -1,9 +1,9 @@
 {
-  "name": "sezar-web",
+  "name": "ree0xq-web",
   "private": true,
   "version": "0.1.0-dev",
   "type": "module",
-  "description": "Sezar dashboard — three-axis quantum-risk posture UI.",
+  "description": "ree0xQ dashboard — three-axis quantum-risk posture UI.",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",

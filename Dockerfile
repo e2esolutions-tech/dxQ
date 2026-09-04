@@ -1,6 +1,6 @@
-# Sezar collector — single-host container image.
+# ree0xQ collector — single-host container image.
 #
-# Multi-stage build: a Rust builder stage compiles `sezar-server`
+# Multi-stage build: a Rust builder stage compiles `ree0xq-server`
 # from the workspace sources, then a slim Debian runtime carries
 # only the static binary, `ca-certificates`, and `tini` for PID 1.
 #
@@ -28,18 +28,18 @@ WORKDIR /src
 # in its own layer; the next time source files change we only
 # recompile what actually changed.
 COPY Cargo.toml ./
-COPY crates/sezar-core/Cargo.toml      crates/sezar-core/
-COPY crates/sezar-server/Cargo.toml    crates/sezar-server/
-COPY crates/sezar-net/Cargo.toml       crates/sezar-net/
-COPY crates/sezar-cert/Cargo.toml      crates/sezar-cert/
-COPY crates/sezar-chain/Cargo.toml     crates/sezar-chain/
-COPY crates/sezar-id/Cargo.toml        crates/sezar-id/
-COPY crates/sezar-qkd/Cargo.toml       crates/sezar-qkd/
-COPY crates/sezar-agility/Cargo.toml   crates/sezar-agility/
+COPY crates/ree0xq-core/Cargo.toml      crates/ree0xq-core/
+COPY crates/ree0xq-server/Cargo.toml    crates/ree0xq-server/
+COPY crates/ree0xq-net/Cargo.toml       crates/ree0xq-net/
+COPY crates/ree0xq-cert/Cargo.toml      crates/ree0xq-cert/
+COPY crates/ree0xq-chain/Cargo.toml     crates/ree0xq-chain/
+COPY crates/ree0xq-id/Cargo.toml        crates/ree0xq-id/
+COPY crates/ree0xq-qkd/Cargo.toml       crates/ree0xq-qkd/
+COPY crates/ree0xq-agility/Cargo.toml   crates/ree0xq-agility/
 
 # Now bring in the real sources and build the server binary.
 COPY crates ./crates
-RUN cargo build --release -p sezar-server --bin sezar-server
+RUN cargo build --release -p ree0xq-server --bin ree0xq-server
 
 
 FROM debian:${DEBIAN_VERSION}-slim AS runtime
@@ -50,24 +50,24 @@ RUN apt-get update \
         curl \
         tini \
     && rm -rf /var/lib/apt/lists/* \
-    && groupadd --system --gid 10001 sezar \
-    && useradd  --system --uid 10001 --gid sezar \
-                --home-dir /var/lib/sezar --shell /sbin/nologin \
-                sezar \
-    && mkdir -p /var/lib/sezar \
-    && chown sezar:sezar /var/lib/sezar
+    && groupadd --system --gid 10001 ree0xq \
+    && useradd  --system --uid 10001 --gid ree0xq \
+                --home-dir /var/lib/ree0xq --shell /sbin/nologin \
+                ree0xq \
+    && mkdir -p /var/lib/ree0xq \
+    && chown ree0xq:ree0xq /var/lib/ree0xq
 
-COPY --from=builder /src/target/release/sezar-server /usr/local/bin/sezar-server
+COPY --from=builder /src/target/release/ree0xq-server /usr/local/bin/ree0xq-server
 
-USER sezar
-WORKDIR /var/lib/sezar
+USER ree0xq
+WORKDIR /var/lib/ree0xq
 
-ENV RUST_LOG=info,sezar_server=info
+ENV RUST_LOG=info,ree0xq_server=info
 
 EXPOSE 8090
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
     CMD curl --fail --silent --show-error http://127.0.0.1:8090/healthz || exit 1
 
-ENTRYPOINT ["/usr/bin/tini", "--", "/usr/local/bin/sezar-server"]
+ENTRYPOINT ["/usr/bin/tini", "--", "/usr/local/bin/ree0xq-server"]
 CMD ["--listen", "0.0.0.0:8090"]

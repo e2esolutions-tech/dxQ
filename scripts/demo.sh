@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# scripts/demo.sh — boot every piece of Sezar locally and seed enough
+# scripts/demo.sh — boot every piece of ree0xQ locally and seed enough
 # events into the collector to make the dashboard interesting.
 #
 # What this does:
 #   1. cargo build --workspace (debug) so every binary is on disk.
 #   2. Start a KME emulator on :11071 with the steady-state scenario
-#      and Sezar's `sezar-qkd` collector pointed at it, forwarding
-#      events to `sezar-server` on :8090.
-#   3. Start `sezar-server` on :8090.
-#   4. Run `sezar-net from-zgrab` over the bundled fixture, forwarding
+#      and ree0xQ's `ree0xq-qkd` collector pointed at it, forwarding
+#      events to `ree0xq-server` on :8090.
+#   3. Start `ree0xq-server` on :8090.
+#   4. Run `ree0xq-net from-zgrab` over the bundled fixture, forwarding
 #      the resulting events to the same collector — gives the
 #      dashboard a small but realistic asset list.
 #   5. Print the dashboard URLs (assumes `npm run dev` is running
@@ -36,42 +36,42 @@ cleanup() {
 trap cleanup INT TERM EXIT
 
 echo "[demo] starting KME emulator on :11071 (QBER 1.8%, 12 kbps)..."
-./target/debug/sezar-qkd-kme-emulator \
+./target/debug/ree0xq-qkd-kme-emulator \
   --listen 127.0.0.1:11071 \
   --kme-id KME-A \
   --paired-kme KME-B \
   --qber 0.018 \
   --key-rate-bps 12000 \
-  >/tmp/sezar-kme.log 2>&1 &
+  >/tmp/ree0xq-kme.log 2>&1 &
 pids+=("$!")
 sleep 0.3
 
-echo "[demo] starting sezar-server on :8090..."
+echo "[demo] starting ree0xq-server on :8090..."
 # Demo runs unprivileged out of the user's $HOME; point the CA
 # at /tmp so first-boot generation is writable without sudo.
-./target/debug/sezar-server \
+./target/debug/ree0xq-server \
   --listen 127.0.0.1:8090 \
   --deadline 2030-01-01T00:00:00Z \
   --horizon-years 5 \
-  --ca-dir /tmp/sezar-demo-ca \
-  >/tmp/sezar-server.log 2>&1 &
+  --ca-dir /tmp/ree0xq-demo-ca \
+  >/tmp/ree0xq-server.log 2>&1 &
 pids+=("$!")
 sleep 0.4
 
-echo "[demo] seeding KME observations via sezar-qkd collector..."
-./target/debug/sezar-qkd \
+echo "[demo] seeding KME observations via ree0xq-qkd collector..."
+./target/debug/ree0xq-qkd \
   --kme http://127.0.0.1:11071/api/v1 \
   --collector http://127.0.0.1:8090/v1/events \
   --status-poll-interval 3 \
-  >/tmp/sezar-qkd.log 2>&1 &
+  >/tmp/ree0xq-qkd.log 2>&1 &
 pids+=("$!")
 sleep 1.0
 
 echo "[demo] seeding TLS observations from bundled zgrab2 fixture..."
-./target/debug/sezar-net from-zgrab \
-  --input crates/sezar-net/tests/fixtures/zgrab-tls13-pq.json \
+./target/debug/ree0xq-net from-zgrab \
+  --input crates/ree0xq-net/tests/fixtures/zgrab-tls13-pq.json \
   --collector http://127.0.0.1:8090/v1/events \
-  >/tmp/sezar-net.log 2>&1
+  >/tmp/ree0xq-net.log 2>&1
 
 # Synthetic agility-tagged asset so the BLOCKED list isn't empty.
 echo "[demo] seeding one synthetic locked asset for the BLOCKED demo..."
@@ -80,7 +80,7 @@ curl -sS -X POST http://127.0.0.1:8090/v1/events \
   -d '{
     "schema_version": 1,
     "schema_minor": 1,
-    "source_module": "sezar-agility",
+    "source_module": "ree0xq-agility",
     "observed_at": "2026-05-13T08:00:00Z",
     "asset": {"kind": "tls_session", "identity": "fips-locked-appliance", "host": "appliance.tek.example"},
     "primitives": [
@@ -107,4 +107,4 @@ echo "  Inventory API:  http://127.0.0.1:8090/v1/inventory"
 echo "  Dashboard dev:  cd web && npm run dev  (proxies to 8090)"
 echo
 echo "Tailing the collector + emulator logs. Ctrl-C to stop everything."
-tail -n +1 -F /tmp/sezar-server.log /tmp/sezar-qkd.log /tmp/sezar-kme.log /tmp/sezar-net.log
+tail -n +1 -F /tmp/ree0xq-server.log /tmp/ree0xq-qkd.log /tmp/ree0xq-kme.log /tmp/ree0xq-net.log

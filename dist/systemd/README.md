@@ -1,6 +1,6 @@
-# Sezar systemd units
+# ree0xQ systemd units
 
-Production-default systemd unit files for the five sezar
+Production-default systemd unit files for the five ree0xq
 binaries. Each unit is read-only — operators override
 environment variables and resource limits via drop-ins
 under `/etc/systemd/system/<unit>.d/override.conf`.
@@ -9,12 +9,12 @@ under `/etc/systemd/system/<unit>.d/override.conf`.
 
 | Unit                              | Type       | Schedule           |
 |-----------------------------------|------------|--------------------|
-| `sezar-server.service`            | simple     | always-on          |
-| `sezar-net-live.service`          | simple     | always-on          |
-| `sezar-cert-host-scan.{svc,tmr}`  | oneshot+t  | daily 03:17 ± 30 m |
-| `sezar-id-inventory.{svc,tmr}`    | oneshot+t  | every 6 hours      |
+| `ree0xq-server.service`            | simple     | always-on          |
+| `ree0xq-net-live.service`          | simple     | always-on          |
+| `ree0xq-cert-host-scan.{svc,tmr}`  | oneshot+t  | daily 03:17 ± 30 m |
+| `ree0xq-id-inventory.{svc,tmr}`    | oneshot+t  | every 6 hours      |
 
-`sezar-chain` and `sezar-agility recommend / roadmap /
+`ree0xq-chain` and `ree0xq-agility recommend / roadmap /
 compat / deadlines` are operator-on-demand by design and
 don't ship as units — they're meant to be called from a
 CISO's analyst notebook or a CI pipeline, not from a
@@ -27,15 +27,15 @@ host's background scheduler.
 make systemd-install     # see /Makefile (writes to /etc + /usr/local/bin)
 
 # Or by hand:
-sudo install -m 0755 target/release/sezar-server  /usr/local/bin/
-sudo install -m 0755 target/release/sezar-net     /usr/local/bin/
-sudo install -m 0755 target/release/sezar-cert    /usr/local/bin/
-sudo install -m 0755 target/release/sezar-id      /usr/local/bin/
+sudo install -m 0755 target/release/ree0xq-server  /usr/local/bin/
+sudo install -m 0755 target/release/ree0xq-net     /usr/local/bin/
+sudo install -m 0755 target/release/ree0xq-cert    /usr/local/bin/
+sudo install -m 0755 target/release/ree0xq-id      /usr/local/bin/
 sudo install -m 0644 dist/systemd/*.service /etc/systemd/system/
 sudo install -m 0644 dist/systemd/*.timer   /etc/systemd/system/
-sudo useradd -r -s /sbin/nologin sezar
-sudo install -d -m 0750 -o sezar -g sezar /var/lib/sezar /var/lib/sezar/ca
-sudo install -d -m 0750 -o sezar -g sezar /var/lib/sezar-net /var/lib/sezar-net/spool
+sudo useradd -r -s /sbin/nologin ree0xq
+sudo install -d -m 0750 -o ree0xq -g ree0xq /var/lib/ree0xq /var/lib/ree0xq/ca
+sudo install -d -m 0750 -o ree0xq -g ree0xq /var/lib/ree0xq-net /var/lib/ree0xq-net/spool
 sudo systemctl daemon-reload
 ```
 
@@ -51,14 +51,14 @@ All units pass the security-hardening lints in
 ## Drop-in template
 
 ```ini
-# /etc/systemd/system/sezar-server.service.d/override.conf
+# /etc/systemd/system/ree0xq-server.service.d/override.conf
 [Service]
-Environment=SEZAR_DATABASE_URL=postgres://sezar:CHANGEME@db.internal:5432/sezar
-Environment=SEZAR_ADMIN_TOKEN=CHANGEME
+Environment=REE0XQ_DATABASE_URL=postgres://ree0xq:CHANGEME@db.internal:5432/ree0xq
+Environment=REE0XQ_ADMIN_TOKEN=CHANGEME
 ExecStart=
-ExecStart=/usr/local/bin/sezar-server --listen 0.0.0.0:8090 \
-    --ca-dir /var/lib/sezar/ca \
-    --tls --tls-san sezar.internal
+ExecStart=/usr/local/bin/ree0xq-server --listen 0.0.0.0:8090 \
+    --ca-dir /var/lib/ree0xq/ca \
+    --tls --tls-san ree0xq.internal
 ```
 
 The empty `ExecStart=` line is required to *replace* the

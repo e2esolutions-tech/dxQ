@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { LoadingError } from "../components/LoadingError";
 import { fetchBlocked } from "../lib/api";
 import { formatQ, qBgClass } from "../lib/posture";
-import type { InventoryItem } from "../types/sezar";
+import type { InventoryItem } from "../types/ree0xq";
 
 export function BlockedPage() {
   const [items, setItems] = useState<InventoryItem[] | null>(null);

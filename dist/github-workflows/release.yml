@@ -2,7 +2,7 @@
 #
 # Builds .deb + .rpm for every shipping binary plus the paper
 # submission bundle, then publishes them as a GitHub Release
-# asset. The workflow does NOT push to crates.io — Sezar isn't
+# asset. The workflow does NOT push to crates.io — ree0xQ isn't
 # published as a library yet.
 #
 # Trigger:

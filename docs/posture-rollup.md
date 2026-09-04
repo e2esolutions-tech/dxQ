@@ -1,4 +1,4 @@
-# Posture Rollup — How Sezar Scores
+# Posture Rollup — How ree0xQ Scores
 
 Two rollup levels:
 
@@ -7,7 +7,7 @@ Two rollup levels:
    `rationale`. Computed by the emitting module before the event hits
    the wire (so the dashboard can paginate without re-running rollups).
 2. **Org-level** — across all assets, weighted by asset class, surfaced
-   on the main dashboard. Computed by `sezar-server` on read.
+   on the main dashboard. Computed by `ree0xq-server` on read.
 
 Both share the same primitive-classification table.
 
@@ -147,6 +147,6 @@ revisited after pilot deployments.
 
 ## Reference implementation
 
-Lives in `crates/sezar-core/src/rollup.rs` (lands with V1 backlog
+Lives in `crates/ree0xq-core/src/rollup.rs` (lands with V1 backlog
 issue `#SEZ-4`). Pure function, no I/O, easy to fuzz. CI will fuzz
 it on every PR.

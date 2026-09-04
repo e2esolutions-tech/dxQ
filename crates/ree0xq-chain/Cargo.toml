@@ -1,0 +1,56 @@
+[package]
+name        = "ree0xq-chain"
+version     = { workspace = true }
+edition     = { workspace = true }
+rust-version = { workspace = true }
+license     = { workspace = true }
+description = "ree0xQ blockchain crypto monitor (V3 — Bitcoin / Ethereum / QRL address inventory)"
+
+[lib]
+name = "ree0xq_chain"
+path = "src/lib.rs"
+
+[[bin]]
+name = "ree0xq-chain"
+path = "src/bin/ree0xq_chain.rs"
+
+[dependencies]
+ree0xq-core         = { workspace = true }
+serde              = { workspace = true }
+serde_json         = { workspace = true }
+chrono             = { workspace = true }
+anyhow             = { workspace = true }
+thiserror          = { workspace = true }
+tracing            = { workspace = true }
+tracing-subscriber = { workspace = true }
+clap               = { version = "4", features = ["derive"] }
+# Collector POST. Same blocking pattern as ree0xq-cert.
+reqwest            = { version = "0.12", default-features = false, features = ["blocking", "json", "rustls-tls"] }
+
+[dev-dependencies]
+tempfile     = "3"
+# In-process collector smoke.
+ree0xq-server = { workspace = true }
+axum         = { workspace = true }
+tokio        = { workspace = true }
+
+[package.metadata.deb]
+maintainer = "e2e Solutions <info@e2esolutions.tech>"
+copyright = "2025-2026 e2e Solutions"
+license-file = ["../../LICENSE", "0"]
+extended-description = "Blockchain address-inventory scanner — Bitcoin, Ethereum and QRL. Emits one crypto_inventory_event per address with the underlying signature primitive classified (ECDSA / EdDSA / XMSS / SPHINCS+)."
+section = "net"
+priority = "optional"
+depends = "$auto"
+assets = [
+  ["target/release/ree0xq-chain", "usr/local/bin/", "755"],
+]
+
+[package.metadata.generate-rpm]
+name = "ree0xq-chain"
+version = "0.1.0~dev"
+license = "MIT"
+summary = "ree0xQ blockchain address-inventory scanner"
+assets = [
+  { source = "target/release/ree0xq-chain", dest = "/usr/local/bin/ree0xq-chain", mode = "755" },
+]

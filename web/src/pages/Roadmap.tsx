@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { LoadingError } from "../components/LoadingError";
 import { fetchInventory, postRoadmap } from "../lib/api";
-import type { Milestone, RoadmapProjection } from "../types/sezar";
+import type { Milestone, RoadmapProjection } from "../types/ree0xq";
 
 // One operator-editable milestone in the local form state.
 interface DraftMilestone {
