@@ -21,11 +21,13 @@ use std::time::Duration;
 
 use anyhow::{Context, Result};
 use async_trait::async_trait;
+use chrono::{DateTime, Utc};
 use ree0xq_core::{Asset, CryptoInventoryEvent};
 use sqlx::postgres::{PgPoolOptions, Postgres};
 use sqlx::{Pool, Row};
 use tracing::{info, instrument};
 
+use crate::history::PostureSnapshot;
 use crate::store::EventStore;
 
 /// Migrations bundled into the binary so a fresh boot against
@@ -201,6 +203,61 @@ impl EventStore for PgEventStore {
                 Ok(Some(serde_json::from_value(body)?))
             }
         }
+    }
+
+    async fn record_snapshot(&self, snap: PostureSnapshot) -> Result<()> {
+        sqlx::query(
+            "INSERT INTO posture_snapshots
+                (observed_at, org_q, asset_count, blocked_count)
+             VALUES ($1, $2, $3, $4)",
+        )
+        .bind(snap.at)
+        .bind(snap.org_q)
+        .bind(snap.assets as i32)
+        .bind(snap.blocked_count as i32)
+        .execute(&self.pool)
+        .await
+        .context("insert posture snapshot")?;
+        Ok(())
+    }
+
+    async fn posture_history(
+        &self,
+        since: Option<DateTime<Utc>>,
+        limit: usize,
+    ) -> Result<Vec<PostureSnapshot>> {
+        let lim: i64 = limit.try_into().unwrap_or(i64::MAX);
+        // Take the newest `limit` rows at-or-after `since`, then flip
+        // to oldest-first so the trend reads left-to-right. A NULL
+        // lower bound ($1) lets the same query serve the full window.
+        let rows = sqlx::query(
+            "SELECT observed_at, org_q, asset_count, blocked_count
+               FROM posture_snapshots
+              WHERE ($1::timestamptz IS NULL OR observed_at >= $1)
+              ORDER BY observed_at DESC
+              LIMIT $2",
+        )
+        .bind(since)
+        .bind(lim)
+        .fetch_all(&self.pool)
+        .await
+        .context("select posture history")?;
+
+        let mut out = Vec::with_capacity(rows.len());
+        for row in rows {
+            let at: DateTime<Utc> = row.try_get("observed_at")?;
+            let org_q: f32 = row.try_get("org_q")?;
+            let asset_count: i32 = row.try_get("asset_count")?;
+            let blocked_count: i32 = row.try_get("blocked_count")?;
+            out.push(PostureSnapshot {
+                at,
+                org_q,
+                assets: asset_count.max(0) as usize,
+                blocked_count: blocked_count.max(0) as usize,
+            });
+        }
+        out.reverse(); // DESC fetch → oldest-first for the caller.
+        Ok(out)
     }
 }
 

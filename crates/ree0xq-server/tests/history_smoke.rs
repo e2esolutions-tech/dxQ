@@ -13,16 +13,16 @@ use ree0xq_core::{
     Asset, AssetKind, CryptoInventoryEvent, Posture, Primitive, PrimitiveRole, SCHEMA_MINOR,
     SCHEMA_VERSION,
 };
-use ree0xq_server::{history::PostureHistory, router, AppState};
+use ree0xq_server::{history::SnapshotThrottle, router, AppState};
 use serde_json::Value;
 
 async fn spawn() -> SocketAddr {
     let tmp = tempfile::tempdir().unwrap();
     let mut state = AppState::new_in_memory(tmp.path(), None).unwrap();
     std::mem::forget(tmp);
-    // Replace the history with a 0-spacing one so every poll in this
+    // Replace the throttle with a 0-spacing one so every poll in this
     // fast test is retained (defaults throttle to one per 30 s).
-    state.history = Arc::new(PostureHistory::new(1024, Duration::from_secs(0)));
+    state.snapshot_throttle = Arc::new(SnapshotThrottle::new(Duration::from_secs(0)));
     let app = router(state);
     let listener = tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
     let addr = listener.local_addr().unwrap();

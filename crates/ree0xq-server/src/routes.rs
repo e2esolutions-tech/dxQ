@@ -146,14 +146,25 @@ pub async fn org_posture(
     let org = posture::org_score(&events, now, st.default_deadline, st.horizon_years);
     let blocked_count = events.iter().filter(|e| posture::is_blocked(e.agility.as_ref())).count();
     let assets = events.len();
-    // Record a trend snapshot (throttled inside the ring buffer so a
-    // chatty dashboard poll doesn't flood it) — SEZ-32.
-    st.history.record(crate::history::PostureSnapshot {
-        at: now,
-        org_q: org,
-        assets,
-        blocked_count,
-    });
+    // Record a trend snapshot when the write-rate gate admits it, so
+    // a chatty dashboard poll doesn't flood the series — SEZ-32. The
+    // store decides durability (Postgres row vs in-memory ring).
+    if st.snapshot_throttle.admit(now) {
+        if let Err(e) = st
+            .store
+            .record_snapshot(crate::history::PostureSnapshot {
+                at: now,
+                org_q: org,
+                assets,
+                blocked_count,
+            })
+            .await
+        {
+            // A trend-snapshot write failure must not fail the
+            // posture read itself; log and carry on.
+            tracing::warn!(error = %e, "failed to record posture snapshot");
+        }
+    }
     Ok(Json(OrgPosture {
         org_q: org,
         deadline: st.default_deadline,
@@ -163,9 +174,11 @@ pub async fn org_posture(
     }))
 }
 
-/// `GET /v1/posture/history?since_secs=N` — org-posture trend
-/// snapshots (SEZ-32). `since_secs` limits to the last N seconds;
-/// omit for the full retained window. In-memory, process-lifetime.
+/// `GET /v1/posture/history?since_secs=N&limit=M` — org-posture
+/// trend snapshots (SEZ-32), oldest-first. `since_secs` limits to the
+/// last N seconds; `limit` caps the count (newest kept), default
+/// [`history::DEFAULT_CAPACITY`]. Durable on the Postgres backend;
+/// process-lifetime on the in-memory backend.
 pub async fn posture_history(
     State(st): State<AppState>,
     Query(q): Query<PostureHistoryQuery>,
@@ -173,7 +186,15 @@ pub async fn posture_history(
     let since = q
         .since_secs
         .map(|s| chrono::Utc::now() - chrono::Duration::seconds(s as i64));
-    let snapshots = st.history.window(since);
+    let limit = q
+        .limit
+        .unwrap_or(crate::history::DEFAULT_CAPACITY)
+        .min(crate::history::DEFAULT_CAPACITY);
+    let snapshots = st
+        .store
+        .posture_history(since, limit)
+        .await
+        .map_err(store_err)?;
     Ok(Json(PostureHistoryResponse {
         count: snapshots.len(),
         snapshots,
@@ -466,6 +487,9 @@ pub struct OrgPosture {
 pub struct PostureHistoryQuery {
     /// Only snapshots from the last N seconds. Omit for everything.
     pub since_secs: Option<u64>,
+    /// Cap the returned count (newest kept); clamped to the retained
+    /// capacity. Omit for the default window.
+    pub limit: Option<usize>,
 }
 
 /// Response for `GET /v1/posture/history`.

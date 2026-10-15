@@ -12,11 +12,15 @@
 //! blocking `Mutex` so its method bodies are effectively
 //! synchronous despite the signature.
 
+use std::collections::VecDeque;
 use std::sync::Mutex;
 
 use async_trait::async_trait;
+use chrono::{DateTime, Utc};
 use dashmap::DashMap;
 use ree0xq_core::{Asset, AssetKind, CryptoInventoryEvent};
+
+use crate::history::{PostureSnapshot, DEFAULT_CAPACITY};
 
 /// Event store abstraction.
 // `len` here is the stored-event count for diagnostics; an
@@ -47,6 +51,22 @@ pub trait EventStore: Send + Sync {
         asset: &Asset,
         source_module: &str,
     ) -> anyhow::Result<Option<CryptoInventoryEvent>>;
+
+    /// Persist one org-posture snapshot for the trend series
+    /// (SEZ-32). The in-memory backend keeps a bounded ring; the
+    /// Postgres backend writes a durable row so the trend survives a
+    /// restart. The caller gates write-rate via
+    /// [`crate::history::SnapshotThrottle`] before calling this.
+    async fn record_snapshot(&self, snap: PostureSnapshot) -> anyhow::Result<()>;
+
+    /// Retained posture snapshots at-or-after `since` (all if
+    /// `None`), oldest-first, capped at `limit`. Backs
+    /// `GET /v1/posture/history`.
+    async fn posture_history(
+        &self,
+        since: Option<DateTime<Utc>>,
+        limit: usize,
+    ) -> anyhow::Result<Vec<PostureSnapshot>>;
 }
 
 /// Composite dedup key matching the v1 schema contract.
@@ -79,6 +99,10 @@ impl DedupKey {
 pub struct InMemoryEventStore {
     log: Mutex<Vec<CryptoInventoryEvent>>,
     latest: DashMap<DedupKey, CryptoInventoryEvent>,
+    /// Bounded org-posture trend ring (SEZ-32). Lost on restart —
+    /// that is the definition of the in-memory backend; the Postgres
+    /// backend is the durable one.
+    snapshots: Mutex<VecDeque<PostureSnapshot>>,
 }
 
 impl Default for InMemoryEventStore {
@@ -93,6 +117,7 @@ impl InMemoryEventStore {
         Self {
             log: Mutex::new(Vec::new()),
             latest: DashMap::new(),
+            snapshots: Mutex::new(VecDeque::new()),
         }
     }
 }
@@ -140,6 +165,33 @@ impl EventStore for InMemoryEventStore {
                 identity: asset.identity.clone(),
             })
             .map(|kv| kv.value().clone()))
+    }
+
+    async fn record_snapshot(&self, snap: PostureSnapshot) -> anyhow::Result<()> {
+        let mut buf = self.snapshots.lock().unwrap();
+        buf.push_back(snap);
+        while buf.len() > DEFAULT_CAPACITY {
+            buf.pop_front();
+        }
+        Ok(())
+    }
+
+    async fn posture_history(
+        &self,
+        since: Option<DateTime<Utc>>,
+        limit: usize,
+    ) -> anyhow::Result<Vec<PostureSnapshot>> {
+        let buf = self.snapshots.lock().unwrap();
+        let mut out: Vec<PostureSnapshot> = match since {
+            Some(t) => buf.iter().filter(|s| s.at >= t).cloned().collect(),
+            None => buf.iter().cloned().collect(),
+        };
+        // Oldest-first already (push_back order); keep the newest
+        // `limit` when the window is larger than the cap.
+        if out.len() > limit {
+            out.drain(0..out.len() - limit);
+        }
+        Ok(out)
     }
 }
 
@@ -216,5 +268,42 @@ mod tests {
         let r = s.recent(10).await.unwrap();
         let ids: Vec<&str> = r.iter().map(|e| e.asset.identity.as_str()).collect();
         assert_eq!(ids, vec!["c", "b", "a"]);
+    }
+
+    fn snap(secs: i64, q: f32) -> PostureSnapshot {
+        PostureSnapshot {
+            at: DateTime::<Utc>::from_timestamp(1_700_000_000 + secs, 0).unwrap(),
+            org_q: q,
+            assets: 5,
+            blocked_count: 1,
+        }
+    }
+
+    #[tokio::test]
+    async fn snapshot_ring_wraps_at_capacity() {
+        let s = InMemoryEventStore::new();
+        for i in 0..(DEFAULT_CAPACITY as i64 + 5) {
+            s.record_snapshot(snap(i, i as f32)).await.unwrap();
+        }
+        let all = s.posture_history(None, usize::MAX).await.unwrap();
+        assert_eq!(all.len(), DEFAULT_CAPACITY, "ring capped at capacity");
+        assert_eq!(all.first().unwrap().org_q, 5.0, "oldest five evicted");
+        assert_eq!(all.last().unwrap().org_q, (DEFAULT_CAPACITY as f32 + 4.0));
+    }
+
+    #[tokio::test]
+    async fn posture_history_filters_by_since_and_limit() {
+        let s = InMemoryEventStore::new();
+        for i in 0..5 {
+            s.record_snapshot(snap(i * 10, i as f32)).await.unwrap();
+        }
+        let cutoff = DateTime::<Utc>::from_timestamp(1_700_000_000 + 25, 0).unwrap();
+        let w = s.posture_history(Some(cutoff), 100).await.unwrap();
+        assert_eq!(w.len(), 2, "only snapshots at +30 and +40");
+        // limit keeps the newest N, oldest-first.
+        let last2 = s.posture_history(None, 2).await.unwrap();
+        assert_eq!(last2.len(), 2);
+        assert_eq!(last2.first().unwrap().org_q, 3.0);
+        assert_eq!(last2.last().unwrap().org_q, 4.0);
     }
 }

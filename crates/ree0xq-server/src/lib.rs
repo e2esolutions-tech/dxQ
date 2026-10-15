@@ -78,8 +78,10 @@ pub struct AppState {
     /// Per-client rate limiter guarding the bootstrap endpoints
     /// (`/v1/enrol`, `/v1/admin/bootstrap-tokens`).
     pub rate_limiter: Arc<ratelimit::RateLimiter>,
-    /// In-memory org-posture history for the trend surface (SEZ-32).
-    pub history: Arc<history::PostureHistory>,
+    /// Write-rate gate for the org-posture trend series (SEZ-32).
+    /// Persistence itself lives in `store`; this only decides how
+    /// often a `/v1/posture` read is allowed to persist a snapshot.
+    pub snapshot_throttle: Arc<history::SnapshotThrottle>,
 }
 
 impl AppState {
@@ -117,7 +119,7 @@ impl AppState {
             tokens: enrol::BootstrapTokenStore::new(),
             admin_token,
             rate_limiter: Arc::new(ratelimit::RateLimiter::with_defaults()),
-            history: Arc::new(history::PostureHistory::with_defaults()),
+            snapshot_throttle: Arc::new(history::SnapshotThrottle::with_defaults()),
         })
     }
 }

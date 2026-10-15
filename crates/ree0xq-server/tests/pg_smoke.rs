@@ -336,5 +336,59 @@ async fn out_of_order_event_does_not_overwrite_latest_pg() {
     assert_eq!(store.len().await.unwrap(), 2);
 }
 
+/// SEZ-32 acceptance: posture snapshots survive a restart on the
+/// Postgres backend. We record a few snapshots through one store,
+/// drop it, then open a SECOND `PgEventStore` against the same
+/// database (migrations are idempotent) — standing in for a process
+/// restart — and assert the trend series is still there.
+#[tokio::test]
+async fn posture_snapshots_survive_restart_pg() {
+    let Some(pg) = start_postgres().await else {
+        return;
+    };
+
+    use ree0xq_server::history::PostureSnapshot;
+    use ree0xq_server::store::EventStore;
+
+    let base = chrono::Utc::now();
+    {
+        let store = PgEventStore::connect(&pg.url).await.unwrap();
+        for i in 0..3i64 {
+            store
+                .record_snapshot(PostureSnapshot {
+                    at: base + chrono::Duration::seconds(i),
+                    org_q: 0.3 + i as f32 * 0.1,
+                    assets: 5,
+                    blocked_count: i as usize,
+                })
+                .await
+                .unwrap();
+        }
+        // `store` drops here — pool closed, simulating shutdown.
+    }
+
+    // Fresh connection = "after restart".
+    let reopened = PgEventStore::connect(&pg.url).await.unwrap();
+    let series = reopened.posture_history(None, 1024).await.unwrap();
+    assert_eq!(series.len(), 3, "all three snapshots persisted across restart");
+    // Oldest-first ordering.
+    assert!(series[0].org_q < series[2].org_q);
+    assert_eq!(series[0].blocked_count, 0);
+    assert_eq!(series[2].blocked_count, 2);
+
+    // since filter: only snapshots at-or-after base+2s.
+    let recent = reopened
+        .posture_history(Some(base + chrono::Duration::seconds(2)), 1024)
+        .await
+        .unwrap();
+    assert_eq!(recent.len(), 1, "since filter narrows to the last snapshot");
+
+    // limit keeps the newest N, oldest-first.
+    let last2 = reopened.posture_history(None, 2).await.unwrap();
+    assert_eq!(last2.len(), 2);
+    assert!((last2[0].org_q - 0.4).abs() < 1e-5);
+    assert!((last2[1].org_q - 0.5).abs() < 1e-5);
+}
+
 #[allow(unused_imports)]
 use store as _; // silence unused-warning when imports come from ree0xq_server::store via re-exports.
