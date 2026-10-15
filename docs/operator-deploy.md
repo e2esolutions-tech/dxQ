@@ -204,6 +204,49 @@ ree0xq-agility deadlines --jurisdiction US --horizon-days 365
   a second `ree0xq-server` on a new CA, enrol all agents
   against it, decommission the old one.
 
+## 5a. BLOCKED-asset webhook alerts
+
+Rather than poll `GET /v1/blocked`, point the collector at a
+webhook and it pushes an alert the moment an asset first enters
+the BLOCKED set — agility `Locked` or `Frozen`, where the crypto
+cannot be rotated in place and migration is forced. The alert
+fires once on the *transition into* BLOCKED, not on every
+subsequent still-blocked observation.
+
+Configure the URL via the flag or its environment variable:
+
+```ini
+# In the ree0xq-server unit override (step 1).
+Environment=REE0XQ_ALERT_WEBHOOK=https://alerts.internal/ree0xq
+# Equivalent CLI flag: --alert-webhook https://alerts.internal/ree0xq
+```
+
+Leave it unset to disable alerting (the default). Delivery is
+fire-and-forget on a detached task, so ingest latency never pays
+for the webhook round-trip, with a bounded exponential-backoff
+retry (4 attempts, 0.5s → 1s → 2s) before the collector gives up
+and logs a warning.
+
+The POST body is JSON and carries only observed asset facts — no
+admin token, no database URL, nothing from the server
+environment:
+
+```json
+{
+  "event": "asset_blocked",
+  "asset_kind": "tls_session",
+  "identity": "cbc3f0a1e2…",
+  "host": "edge-07.internal",
+  "rationale": "firmware-pinned RSA-2048, no in-place rotation",
+  "q_score": 15,
+  "observed_at": "2026-08-20T10:14:05Z"
+}
+```
+
+Receivers should ack with any 2xx; a non-2xx or a timeout past
+5s counts as a failed attempt and is retried. Route on the
+constant `event` field if the same endpoint serves other hooks.
+
 ## 6. Verifying the hardening
 
 ```bash

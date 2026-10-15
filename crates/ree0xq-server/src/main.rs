@@ -78,6 +78,15 @@ struct Args {
     /// supplied on the CLI.
     #[arg(long, env = "REE0XQ_DATABASE_URL")]
     database_url: Option<String>,
+
+    /// Webhook URL POSTed a JSON alert when an asset first enters the
+    /// BLOCKED set (agility ≤ Locked) — SEZ-33. Delivery is
+    /// fire-and-forget with bounded exponential-backoff retry; the
+    /// payload carries only observed asset facts, never server
+    /// secrets. Omit to disable. Reads `REE0XQ_ALERT_WEBHOOK` from
+    /// the environment if not supplied on the CLI.
+    #[arg(long, env = "REE0XQ_ALERT_WEBHOOK")]
+    alert_webhook: Option<String>,
 }
 
 #[tokio::main]
@@ -123,6 +132,11 @@ async fn main() -> Result<()> {
             .with_timezone(&chrono::Utc);
     }
     state.horizon_years = args.horizon_years;
+    if args.alert_webhook.is_some() {
+        state.alerter = Arc::new(ree0xq_server::alert::WebhookAlerter::new(
+            args.alert_webhook.clone(),
+        ));
+    }
 
     info!(
         version = env!("CARGO_PKG_VERSION"),
@@ -130,6 +144,7 @@ async fn main() -> Result<()> {
         horizon = state.horizon_years,
         ca_dir = %args.ca_dir.display(),
         admin_enabled = state.admin_token.is_some(),
+        alert_webhook = state.alerter.enabled(),
         tls = args.tls,
         store = backend,
         "starting ree0xq-server"

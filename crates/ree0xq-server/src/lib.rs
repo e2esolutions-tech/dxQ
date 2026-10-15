@@ -26,6 +26,7 @@
 
 #![warn(rust_2018_idioms)]
 
+pub mod alert;
 pub mod ca;
 pub mod enrol;
 pub mod history;
@@ -82,6 +83,9 @@ pub struct AppState {
     /// Persistence itself lives in `store`; this only decides how
     /// often a `/v1/posture` read is allowed to persist a snapshot.
     pub snapshot_throttle: Arc<history::SnapshotThrottle>,
+    /// BLOCKED-transition webhook alerter (SEZ-33). Disabled unless
+    /// the operator configures a webhook URL.
+    pub alerter: Arc<alert::WebhookAlerter>,
 }
 
 impl AppState {
@@ -120,6 +124,10 @@ impl AppState {
             admin_token,
             rate_limiter: Arc::new(ratelimit::RateLimiter::with_defaults()),
             snapshot_throttle: Arc::new(history::SnapshotThrottle::with_defaults()),
+            // Disabled by default; the binary swaps in a configured
+            // alerter when `--alert-webhook` / `REE0XQ_ALERT_WEBHOOK`
+            // is set.
+            alerter: Arc::new(alert::WebhookAlerter::new(None)),
         })
     }
 }

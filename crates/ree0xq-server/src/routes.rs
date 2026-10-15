@@ -66,6 +66,47 @@ async fn ingest(
             identity = %ev.asset.identity,
             "ingesting event"
         );
+
+        // BLOCKED-transition alerting (SEZ-33). Only pay for the
+        // prior-state lookup when a webhook is actually configured.
+        // Fire on the transition *into* BLOCKED and only when this
+        // event is the new latest (an out-of-order older event must
+        // not raise or re-raise an alert).
+        let transition_to_blocked = if st.alerter.enabled() {
+            let prev = st
+                .store
+                .latest_for(&ev.asset, &ev.source_module)
+                .await
+                .ok()
+                .flatten();
+            let is_newer = prev
+                .as_ref()
+                .map(|p| ev.observed_at >= p.observed_at)
+                .unwrap_or(true);
+            let was_blocked = prev
+                .map(|p| posture::is_blocked(p.agility.as_ref()))
+                .unwrap_or(false);
+            let now_blocked = posture::is_blocked(ev.agility.as_ref());
+            is_newer && !was_blocked && now_blocked
+        } else {
+            false
+        };
+
+        if transition_to_blocked {
+            st.alerter.notify_blocked(crate::alert::BlockedAlert {
+                event: crate::alert::BlockedAlert::EVENT,
+                asset_kind: serde_json::to_value(&ev.asset.kind)
+                    .ok()
+                    .and_then(|v| v.as_str().map(str::to_owned))
+                    .unwrap_or_default(),
+                identity: ev.asset.identity.clone(),
+                host: ev.asset.host.clone(),
+                rationale: ev.posture.rationale.clone(),
+                q_score: ev.posture.score,
+                observed_at: ev.observed_at,
+            });
+        }
+
         st.store.append(ev).await.map_err(store_err)?;
     }
     Ok(())
