@@ -365,8 +365,10 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done ·
       a follow-up issue. The dashboard is unauthenticated
       today, fine for the localhost demo path but a gate for
       any externally-reachable deployment.
-- [ ] Last-N-days trend chart — not in V1 acceptance; useful
-      addition once the store has time-series data.
+- [x] Last-N-days trend chart — shipped in V6 (SEZ-32):
+      `GET /v1/posture/history` (Postgres-durable snapshots +
+      in-memory ring) with an inline-SVG trend chart on the
+      dashboard.
 
 ### Demo + acceptance test rig
 - [x] `scripts/demo.sh` boots emulator + collector + server (per

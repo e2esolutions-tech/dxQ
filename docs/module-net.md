@@ -1,8 +1,8 @@
 # `ree0xq-net` — Network Module Design
 
-The first module to ship. Targets V1 (Q3 2026). Scope is narrow on
-purpose: TLS only. SSH and IPsec are V1 backlog → V1.5 if we have
-time.
+The first module to ship. Targets V1 (Q3 2026). V1 scope was narrow
+on purpose — TLS only; **SSH observation shipped in V6 (SEZ-30)** and
+is documented below. IPsec remains backlog.
 
 ## What it observes
 

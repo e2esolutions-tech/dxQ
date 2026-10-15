@@ -123,7 +123,7 @@ POST an event, then read it back:
 ```bash
 curl -sS http://127.0.0.1:8090/v1/events \
   -H 'content-type: application/json' \
-  -d '{"schema_version":1,"schema_minor":1,"source_module":"smoke",
+  -d '{"schema_version":1,"schema_minor":2,"source_module":"smoke",
        "observed_at":"2026-05-20T12:00:00Z",
        "asset":{"kind":"tls_session","identity":"smoke-1"},
        "primitives":[{"role":"kex","algorithm":"X25519MLKEM768","pq_resistant":true}],

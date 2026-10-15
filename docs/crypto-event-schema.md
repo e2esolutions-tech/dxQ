@@ -16,6 +16,7 @@ once we measure event volume in production (probably mid-V3).
 ```json
 {
   "schema_version": 1,
+  "schema_minor": 2,
   "source_module": "ree0xq-net",
   "observed_at": "2026-08-15T11:42:03.421Z",
   "asset": { ... },
@@ -27,6 +28,7 @@ once we measure event volume in production (probably mid-V3).
 | Field            | Type     | Required | Notes |
 |------------------|----------|----------|-------|
 | `schema_version` | u32      | ✓        | Always equal to the emitting library's `SCHEMA_VERSION`. Consumers reject any event whose major schema-version they don't understand. |
+| `schema_minor`   | u32      |          | Additive-extension counter; omit → `0` (v1.0). `1` = v1.1 (`channel_protection` + `agility` blocks, `qkd_link`/`qkd_kme` kinds); `2` = v1.2 (`ssh_session` kind, SEZ-30). Consumers must accept any minor ≥ their compiled value. |
 | `source_module`  | string   | ✓        | One of `ree0xq-net`, `ree0xq-cert`, `ree0xq-chain`, `ree0xq-id`. Reserved for future modules: `ree0xq-dns` (forwarded from Nizam DNSSEC observations). |
 | `observed_at`    | RFC3339  | ✓        | UTC. Module clock; the server records its own ingest time separately. |
 | `asset`          | object   | ✓        | What we observed — see below. |
