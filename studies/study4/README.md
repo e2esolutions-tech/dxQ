@@ -26,3 +26,22 @@ surface via `ree0xq-net ssh` (SEZ-30).
 
 Scaffolding only — first epoch lands with SEZ-31. The Study 1
 baseline under `../study1/` is frozen and never rewritten.
+
+## Tooling (SEZ-31)
+
+- `rescan.sh <epoch-label> <hosts.txt>` — run one epoch: PQ-probe
+  the host list with `ree0xq-net pq-probe`, store raw NDJSON under
+  `epochs/<label>/`, diff against the frozen 6G8PX baseline, write
+  `summary.json`.
+- `diff_epoch.py <epoch.ndjson>` — per-host transitions vs the
+  baseline (adopted / regressed / stable), on hosts responsive in
+  BOTH snapshots so the rate has a stable denominator.
+- `build_timeseries.py` — merge the baseline (epoch `2026-Q2`) and
+  every `epochs/*/summary.json` into `timeseries.csv`.
+- `plot_curve.py` — render `plots/adoption-curve.{png,pdf}`;
+  degrades to a single point when only the baseline exists.
+
+The baseline epoch is Study 1 itself (Tranco 6G8PX, 2026-05-13,
+43.8% hybrid PQ-KEX over 724 responsive hosts). `diff_epoch.py`
+run against the baseline reports zero transitions — the rig's
+self-consistency check.
