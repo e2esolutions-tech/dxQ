@@ -23,7 +23,6 @@ UNITS_SVC  := ree0xq-server.service ree0xq-net-live.service \
 UNITS_TMR  := ree0xq-cert-host-scan.timer ree0xq-id-inventory.timer
 
 .PHONY: help test release acceptance loadtest \
-        paper paper-submission paper-submission-extended paper-submission-both \
         systemd-install systemd-uninstall \
         check-systemd verify-units \
         packages packages-deb packages-rpm packages-clean
@@ -44,18 +43,6 @@ acceptance: release ## V1 acceptance smoke against release binaries
 
 loadtest: ## scripts/loadtest.py against http://127.0.0.1:8090/v1/events
 	./scripts/loadtest.py
-
-paper: ## rebuild paper PDFs (magazine + extended)
-	cd docs/paper && ./build.sh
-
-paper-submission: ## bundle the paper for venue upload (magazine default)
-	./scripts/paper-submission-package.sh magazine
-
-paper-submission-extended: ## bundle the extended variant
-	./scripts/paper-submission-package.sh extended
-
-paper-submission-both: ## bundle magazine + extended variants
-	./scripts/paper-submission-package.sh both
 
 systemd-install: release ## install binaries + unit files (sudo)
 	@echo "→ installing binaries to $(BINDIR)"
