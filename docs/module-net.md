@@ -115,3 +115,23 @@ not now.
 
 Anything beyond that — multi-host clusters, orchestrator deployment
 templates, alerting hooks — is V2 conversation, not V1 acceptance.
+
+## SSH observation (SEZ-30, V6)
+
+Beyond TLS, `ree0xq-net` passively observes SSH key exchange:
+
+```bash
+# capture SSH handshakes, then classify PQ-KEX adoption
+tcpdump -w ssh.pcap 'tcp port 22'
+ree0xq-net ssh --pcap ssh.pcap --collector http://127.0.0.1:8090
+```
+
+It parses the SSH2 identification banner and the server
+`SSH_MSG_KEXINIT` (RFC 4253 §7.1), reads the offered
+`kex_algorithms`, and flags the OpenSSH post-quantum hybrids
+`sntrup761x25519-sha512` (NIST L5) and `mlkem768x25519-sha256`
+(NIST L3, FIPS 203). Each observed session becomes one
+`ssh_session` `crypto_inventory_event`. No authentication is
+attempted — everything read here is sent in the clear before the
+SSH transport is encrypted. The same userspace dedup, spool, and
+collector plumbing as the TLS `live` path applies.

@@ -123,6 +123,33 @@ enum Cmd {
         #[arg(long, default_value_t = 65_536)]
         dedup_capacity: usize,
     },
+    /// SEZ-30 — passively observe SSH key exchange. Reads the SSH2
+    /// identification banner and the server `SSH_MSG_KEXINIT` from a
+    /// pcap capture, extracts the offered `kex_algorithms`, flags the
+    /// OpenSSH post-quantum hybrids (`sntrup761x25519-sha512`,
+    /// `mlkem768x25519-sha256`), and emits one `ssh_session` event
+    /// per observed session.
+    Ssh {
+        /// Path to a `.pcap` / `.pcapng` capture of SSH traffic
+        /// (e.g. `tcpdump -w ssh.pcap port 22`). Live-interface
+        /// capture reuses the TLS `live` path in a later phase; V1
+        /// ships pcap-file observation.
+        #[arg(long)]
+        pcap: String,
+        /// Optional downstream collector URL. When set, POST each
+        /// event; otherwise print NDJSON to stdout.
+        #[arg(long)]
+        collector: Option<String>,
+        /// Optional disk-backed spool directory (needs `--collector`).
+        #[arg(long)]
+        spool_dir: Option<PathBuf>,
+        /// Recent-session dedup TTL in seconds. 0 disables dedup.
+        #[arg(long, default_value_t = 300)]
+        dedup_ttl_secs: u64,
+        /// Max distinct sessions held in the dedup cache.
+        #[arg(long, default_value_t = 65_536)]
+        dedup_capacity: usize,
+    },
     /// Phase 2.1 — kernel-side eBPF TC classifier (requires the
     /// `live-interface` feature, a pre-built BPF object, and
     /// `CAP_BPF` + `CAP_NET_ADMIN` at run time). The userspace
@@ -197,6 +224,13 @@ fn main() -> anyhow::Result<()> {
             dedup_ttl_secs,
             dedup_capacity,
         ),
+        Cmd::Ssh {
+            pcap,
+            collector,
+            spool_dir,
+            dedup_ttl_secs,
+            dedup_capacity,
+        } => run_ssh(pcap, collector, spool_dir, dedup_ttl_secs, dedup_capacity),
         Cmd::LiveEbpf {
             iface,
             ebpf_object,
@@ -355,6 +389,39 @@ impl Sink {
             }
         }
     }
+}
+
+fn run_ssh(
+    pcap: String,
+    collector: Option<String>,
+    spool_dir: Option<PathBuf>,
+    dedup_ttl_secs: u64,
+    dedup_capacity: usize,
+) -> anyhow::Result<()> {
+    let sink = Sink::new(collector, spool_dir)?;
+    let emit = |ev: &ree0xq_core::CryptoInventoryEvent| sink.send(ev);
+
+    let mut dedup_cache = if dedup_ttl_secs == 0 {
+        None
+    } else {
+        Some(ree0xq_net::dedup::DedupCache::new(
+            std::time::Duration::from_secs(dedup_ttl_secs),
+            dedup_capacity,
+        ))
+    };
+
+    let stats = live::observe_pcap_ssh(&pcap, dedup_cache.as_mut(), |ev| emit(&ev))?;
+    info!(
+        source = "pcap-file",
+        protocol = "ssh",
+        packets_seen = stats.packets_seen,
+        kexinit_packets = stats.handshake_packets,
+        handshakes_deduplicated = stats.handshakes_deduplicated,
+        events_emitted = stats.events_emitted,
+        skipped_unparseable = stats.packets_skipped_unparseable,
+        "observation complete"
+    );
+    Ok(())
 }
 
 fn run_live(

@@ -30,6 +30,7 @@ pub mod live;
 pub mod live_iface;
 pub mod pq_probe;
 pub mod spool;
+pub mod ssh;
 pub mod tls;
 pub mod zgrab;
 

@@ -348,6 +348,108 @@ fn build_live_event(
     }
 }
 
+/// SSH variant of [`observe_pcap`] (SEZ-30). Same frame-handling
+/// shape as the TLS path, but each TCP payload is fed to
+/// [`crate::ssh::parse_ssh`] instead of the TLS record parser, and
+/// emitted events are `ssh_session`. Non-SSH payloads are ignored.
+pub fn observe_pcap_ssh<P, F>(
+    path: P,
+    mut dedup: Option<&mut DedupCache>,
+    mut on_event: F,
+) -> Result<ObservationStats, LiveError>
+where
+    P: AsRef<Path>,
+    F: FnMut(CryptoInventoryEvent),
+{
+    let path = path.as_ref();
+    let file = std::fs::File::open(path).map_err(|e| LiveError::Open(e.to_string()))?;
+    let mut reader = PcapReader::new(file).map_err(|e| LiveError::Open(e.to_string()))?;
+    let mut stats = ObservationStats::default();
+
+    while let Some(pkt) = reader.next_packet() {
+        stats.packets_seen += 1;
+        let pkt = match pkt {
+            Ok(p) => p,
+            Err(_) => {
+                stats.packets_skipped_unparseable += 1;
+                continue;
+            }
+        };
+        match handle_ssh_frame(&pkt.data, &mut stats, dedup.as_deref_mut(), &mut on_event) {
+            Ok(()) => {}
+            Err(()) => {
+                stats.packets_skipped_unparseable += 1;
+            }
+        }
+    }
+    Ok(stats)
+}
+
+/// Per-frame SSH observation. Parses Ethernet/IP/TCP, then attempts
+/// an SSH identification-banner / KEXINIT parse on the TCP payload.
+fn handle_ssh_frame<F>(
+    frame: &[u8],
+    stats: &mut ObservationStats,
+    dedup: Option<&mut DedupCache>,
+    on_event: &mut F,
+) -> Result<(), ()>
+where
+    F: FnMut(CryptoInventoryEvent),
+{
+    let parsed = match etherparse::SlicedPacket::from_ethernet(frame) {
+        Ok(p) => p,
+        Err(_) => return Err(()),
+    };
+    let (src_port, dst_port, payload) = match &parsed.transport {
+        Some(etherparse::TransportSlice::Tcp(tcp)) => {
+            (tcp.source_port(), tcp.destination_port(), tcp.payload())
+        }
+        _ => return Ok(()),
+    };
+    if payload.is_empty() {
+        stats.packets_skipped_empty_payload += 1;
+        return Ok(());
+    }
+    let (src_ip, dst_ip) = ips_from_parsed(&parsed);
+
+    // Only consider a payload that actually looks like SSH: either the
+    // identification banner or a binary packet whose first payload
+    // byte is KEXINIT. parse_ssh enforces the rest; a non-SSH payload
+    // returns NotSsh and is silently skipped.
+    let summary = match crate::ssh::parse_ssh(payload) {
+        Ok(s) => s,
+        Err(_) => return Ok(()),
+    };
+    // A banner-only observation with no kex algorithms carries no
+    // posture signal; wait for the segment with the KEXINIT.
+    if summary.kex_algorithms.is_empty() {
+        return Ok(());
+    }
+    stats.handshake_packets += 1;
+    stats.handshakes_parsed += 1;
+
+    let identity = session_identity(src_ip.as_deref(), src_port, dst_ip.as_deref(), dst_port);
+    if let Some(cache) = dedup {
+        if !cache.observe(&identity) {
+            stats.handshakes_deduplicated += 1;
+            return Ok(());
+        }
+    }
+    // The server (the side sending KEXINIT from port 22) is the asset
+    // host; fall back to whichever endpoint is port 22, else dst.
+    let host = if src_port == 22 {
+        src_ip.clone().map(|ip| format!("{ip}:22"))
+    } else {
+        dst_ip.clone().map(|ip| format!("{ip}:{dst_port}"))
+    }
+    .unwrap_or_else(|| format!("port:{dst_port}"));
+
+    let ev = crate::ssh::build_ssh_event(host, identity, &summary);
+    on_event(ev);
+    stats.events_emitted += 1;
+    Ok(())
+}
+
 /// Configuration for the libpcap-backed live interface observer.
 #[cfg(feature = "live-pcap")]
 #[derive(Debug, Clone)]
