@@ -35,9 +35,11 @@ pub const SCHEMA_VERSION: u32 = 1;
 /// Current event schema minor version. Incremented on every additive,
 /// non-breaking extension to the event shape. v1.1 introduces the
 /// `channel_protection` and `agility` blocks and the `QkdLink`/`QkdKme`
-/// asset kinds. v1.0 producers emit `0` (or omit the field, which
-/// defaults to `0`); v1.0 consumers ignore the new fields.
-pub const SCHEMA_MINOR: u32 = 1;
+/// asset kinds; v1.2 adds the `SshSession` asset kind (SEZ-30). v1.0
+/// producers emit `0` (or omit the field, which defaults to `0`);
+/// consumers must accept any minor ≥ their compiled value, so a new
+/// asset-kind variant never breaks an older reader.
+pub const SCHEMA_MINOR: u32 = 2;
 
 fn default_schema_minor() -> u32 {
     0
