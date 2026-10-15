@@ -146,12 +146,37 @@ pub async fn org_posture(
     let org = posture::org_score(&events, now, st.default_deadline, st.horizon_years);
     let blocked_count = events.iter().filter(|e| posture::is_blocked(e.agility.as_ref())).count();
     let assets = events.len();
+    // Record a trend snapshot (throttled inside the ring buffer so a
+    // chatty dashboard poll doesn't flood it) — SEZ-32.
+    st.history.record(crate::history::PostureSnapshot {
+        at: now,
+        org_q: org,
+        assets,
+        blocked_count,
+    });
     Ok(Json(OrgPosture {
         org_q: org,
         deadline: st.default_deadline,
         horizon_years: st.horizon_years,
         assets,
         blocked_count,
+    }))
+}
+
+/// `GET /v1/posture/history?since_secs=N` — org-posture trend
+/// snapshots (SEZ-32). `since_secs` limits to the last N seconds;
+/// omit for the full retained window. In-memory, process-lifetime.
+pub async fn posture_history(
+    State(st): State<AppState>,
+    Query(q): Query<PostureHistoryQuery>,
+) -> Result<Json<PostureHistoryResponse>, (StatusCode, Json<ApiError>)> {
+    let since = q
+        .since_secs
+        .map(|s| chrono::Utc::now() - chrono::Duration::seconds(s as i64));
+    let snapshots = st.history.window(since);
+    Ok(Json(PostureHistoryResponse {
+        count: snapshots.len(),
+        snapshots,
     }))
 }
 
@@ -434,6 +459,20 @@ pub struct OrgPosture {
     pub assets: usize,
     /// Assets whose agility ≤ Locked.
     pub blocked_count: usize,
+}
+
+/// Query params for `GET /v1/posture/history`.
+#[derive(Debug, Deserialize)]
+pub struct PostureHistoryQuery {
+    /// Only snapshots from the last N seconds. Omit for everything.
+    pub since_secs: Option<u64>,
+}
+
+/// Response for `GET /v1/posture/history`.
+#[derive(Debug, Serialize)]
+pub struct PostureHistoryResponse {
+    pub count: usize,
+    pub snapshots: Vec<crate::history::PostureSnapshot>,
 }
 
 /// QKD link summary row.

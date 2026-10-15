@@ -103,6 +103,18 @@ export interface OrgPosture {
   blocked_count: number;
 }
 
+export interface PostureSnapshot {
+  at: string;
+  org_q: number;
+  assets: number;
+  blocked_count: number;
+}
+
+export interface PostureHistoryResponse {
+  count: number;
+  snapshots: PostureSnapshot[];
+}
+
 export interface QkdLinkSummary {
   identity: string;
   kme_endpoint?: string | null;

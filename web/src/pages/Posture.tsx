@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 
 import { LoadingError } from "../components/LoadingError";
+import { PostureTrend } from "../components/PostureTrend";
 import { fetchInventory, fetchPosture } from "../lib/api";
 import { deadlineLabel, formatQ, qBgClass, qColorClass } from "../lib/posture";
 import { usePolling } from "../lib/usePolling";
@@ -87,6 +88,7 @@ export function PosturePage() {
           <EmptyStateCta />
         ) : posture.data ? (
           <>
+            <PostureTrend />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="card p-6 col-span-1 md:col-span-2">
                 <div className="text-xs uppercase tracking-wide text-ink-600">

@@ -12,6 +12,7 @@ import type {
   InventoryResponse,
   Milestone,
   OrgPosture,
+  PostureHistoryResponse,
   QkdLinksResponse,
   RecommendationsResponse,
   RoadmapProjection,
@@ -38,6 +39,13 @@ export async function fetchBlocked(): Promise<InventoryResponse> {
 
 export async function fetchPosture(): Promise<OrgPosture> {
   return getJson<OrgPosture>("/v1/posture");
+}
+
+export async function fetchPostureHistory(
+  sinceSecs?: number,
+): Promise<PostureHistoryResponse> {
+  const q = sinceSecs != null ? `?since_secs=${sinceSecs}` : "";
+  return getJson<PostureHistoryResponse>(`/v1/posture/history${q}`);
 }
 
 export async function fetchQkdLinks(): Promise<QkdLinksResponse> {

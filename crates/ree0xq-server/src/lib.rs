@@ -28,6 +28,7 @@
 
 pub mod ca;
 pub mod enrol;
+pub mod history;
 pub mod posture;
 pub mod ratelimit;
 pub mod routes;
@@ -77,6 +78,8 @@ pub struct AppState {
     /// Per-client rate limiter guarding the bootstrap endpoints
     /// (`/v1/enrol`, `/v1/admin/bootstrap-tokens`).
     pub rate_limiter: Arc<ratelimit::RateLimiter>,
+    /// In-memory org-posture history for the trend surface (SEZ-32).
+    pub history: Arc<history::PostureHistory>,
 }
 
 impl AppState {
@@ -114,6 +117,7 @@ impl AppState {
             tokens: enrol::BootstrapTokenStore::new(),
             admin_token,
             rate_limiter: Arc::new(ratelimit::RateLimiter::with_defaults()),
+            history: Arc::new(history::PostureHistory::with_defaults()),
         })
     }
 }
@@ -190,6 +194,7 @@ pub fn router_main(state: AppState) -> Router {
         .route("/v1/events/batch", post(routes::ingest_batch))
         .route("/v1/inventory", get(routes::inventory))
         .route("/v1/posture", get(routes::org_posture))
+        .route("/v1/posture/history", get(routes::posture_history))
         .route("/v1/qkd/links", get(routes::qkd_links))
         .route("/v1/blocked", get(routes::blocked_assets))
         .route("/v1/recommendations", get(routes::recommendations))
