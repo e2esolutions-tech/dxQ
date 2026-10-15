@@ -96,6 +96,31 @@ By V4 we have the inventory. V5 turns it into action:
 V5 is where ree0xQ stops being "another scanner" and starts being a
 tool the CISO actually opens before each board meeting.
 
+## V6 — Adoption measurement + trend (in progress; started 2026-10)
+
+The research-driven follow-up to V1-V5: turn the one-shot Study 1
+snapshot into a continuous adoption observatory, and extend the
+network agent beyond TLS.
+
+- **SEZ-30 — SSH PQ-KEX observation** (`ree0xq-net ssh`): parse the
+  SSH2 banner + `SSH_MSG_KEXINIT` from pcap/live captures, extract
+  the negotiated / offered kex algorithms, flag the OpenSSH hybrid
+  PQ suites (`sntrup761x25519-sha512`, `mlkem768x25519-sha256`),
+  emit `crypto_inventory_event`. Requires schema v1.2: new asset
+  kind `ssh_session` (minor bump; audit all consumers).
+- **SEZ-31 — Longitudinal adoption rig** (`studies/study4`):
+  re-runnable Tranco scan reusing the Study 1 probe pair, diffed
+  against the frozen 6G8PX baseline; quarterly cadence; emits a
+  time-series CSV + plots. Powers the planned adoption-curve paper.
+- **SEZ-32 — Posture history + trend surface**: periodic `org_q`
+  snapshots persisted server-side, `GET /v1/posture/history`, and a
+  trend chart on the dashboard.
+- **SEZ-33 — BLOCKED-asset alerting**: operator webhook fired when
+  an asset enters the BLOCKED set.
+
+Out of V6: Kubernetes/cert-manager inventory, DNSSEC feed, CBOM
+export — candidates for V7 once V6 data starts accumulating.
+
 ## Out of scope for the foreseeable future
 
 - **Building our own HSM / CA / blockchain.** Other people make
