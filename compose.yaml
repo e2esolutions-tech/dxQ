@@ -1,4 +1,4 @@
-# ree0xQ single-host compose file.
+# dxQ single-host compose file.
 #
 # Boots the V1 collector behind its V1 REST API plus a Postgres
 # instance for persistence. Hit
@@ -8,8 +8,8 @@
 #
 # Without overrides the stack is two services on a shared
 # network: `postgres` (the durable event store) and
-# `ree0xq-server` (the axum collector). The web UI, the KME
-# emulator, and the source-module agents (ree0xq-net, ree0xq-qkd)
+# `dxq-server` (the axum collector). The web UI, the KME
+# emulator, and the source-module agents (dxq-net, dxq-qkd)
 # point at this collector and run either next to it via
 # additional compose services or as separate processes on the
 # host. They are out of scope for the V1 single-host install.
@@ -17,33 +17,33 @@
 services:
   postgres:
     image: postgres:16-alpine
-    container_name: ree0xq-postgres
+    container_name: dxq-postgres
     restart: unless-stopped
     environment:
-      POSTGRES_USER: ree0xq
-      POSTGRES_PASSWORD: ree0xq
-      POSTGRES_DB: ree0xq
-    # Bind to loopback only; this Postgres exists for ree0xq-server
+      POSTGRES_USER: dxq
+      POSTGRES_PASSWORD: dxq
+      POSTGRES_DB: dxq
+    # Bind to loopback only; this Postgres exists for dxq-server
     # and is not intended to host third-party data. Operators
     # who want to point a psql at it can `docker compose exec`
     # or relax the bind in an override.
     ports:
-      - "127.0.0.1:${REE0XQ_PG_HOST_PORT:-5433}:5432"
+      - "127.0.0.1:${DXQ_PG_HOST_PORT:-5433}:5432"
     volumes:
-      - ree0xq-pg-data:/var/lib/postgresql/data
+      - dxq-pg-data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ree0xq -d ree0xq"]
+      test: ["CMD-SHELL", "pg_isready -U dxq -d dxq"]
       interval: 5s
       timeout: 3s
       retries: 12
       start_period: 5s
 
-  ree0xq-server:
+  dxq-server:
     build:
       context: .
       dockerfile: Dockerfile
-    image: ree0xq/ree0xq-server:dev
-    container_name: ree0xq-server
+    image: dxq/dxq-server:dev
+    container_name: dxq-server
     restart: unless-stopped
     depends_on:
       postgres:
@@ -55,15 +55,15 @@ services:
     environment:
       # Increase verbosity for first-boot diagnostics; turn down
       # for production.
-      RUST_LOG: "info,ree0xq_server=info,tower_http=info,sqlx=warn"
-      # Point the collector at the bundled Postgres. ree0xq-server
+      RUST_LOG: "info,dxq_server=info,tower_http=info,sqlx=warn"
+      # Point the collector at the bundled Postgres. dxq-server
       # runs the migrations on first boot.
-      REE0XQ_DATABASE_URL: "postgres://ree0xq:ree0xq@postgres:5432/ree0xq"
+      DXQ_DATABASE_URL: "postgres://dxq:dxq@postgres:5432/dxq"
     # Port is env-overridable so a host already using 8090 (the
     # documented default) can move it without editing this file:
-    #   REE0XQ_HOST_PORT=8190 docker compose up -d
+    #   DXQ_HOST_PORT=8190 docker compose up -d
     ports:
-      - "127.0.0.1:${REE0XQ_HOST_PORT:-8090}:8090"
+      - "127.0.0.1:${DXQ_HOST_PORT:-8090}:8090"
     healthcheck:
       test: ["CMD", "curl", "--fail", "--silent", "http://127.0.0.1:8090/healthz"]
       interval: 30s
@@ -72,4 +72,4 @@ services:
       retries: 3
 
 volumes:
-  ree0xq-pg-data:
+  dxq-pg-data:

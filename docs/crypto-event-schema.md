@@ -1,6 +1,6 @@
 # Crypto Inventory Event — Schema v1
 
-The single load-bearing data structure in ree0xQ. Every module — from
+The single load-bearing data structure in dxQ. Every module — from
 the eBPF TLS sniffer to the Bitcoin mempool subscriber — emits this
 shape. The dashboard, the rollup engine, the alert rules, and the
 storage layer all read it. **Adding a new field that's required is a
@@ -17,7 +17,7 @@ once we measure event volume in production (probably mid-V3).
 {
   "schema_version": 1,
   "schema_minor": 2,
-  "source_module": "ree0xq-net",
+  "source_module": "dxq-net",
   "observed_at": "2026-08-15T11:42:03.421Z",
   "asset": { ... },
   "primitives": [ ... ],
@@ -29,11 +29,11 @@ once we measure event volume in production (probably mid-V3).
 |------------------|----------|----------|-------|
 | `schema_version` | u32      | ✓        | Always equal to the emitting library's `SCHEMA_VERSION`. Consumers reject any event whose major schema-version they don't understand. |
 | `schema_minor`   | u32      |          | Additive-extension counter; omit → `0` (v1.0). `1` = v1.1 (`channel_protection` + `agility` blocks, `qkd_link`/`qkd_kme` kinds); `2` = v1.2 (`ssh_session` kind, SEZ-30). Consumers must accept any minor ≥ their compiled value. |
-| `source_module`  | string   | ✓        | One of `ree0xq-net`, `ree0xq-cert`, `ree0xq-chain`, `ree0xq-id`. Reserved for future modules: `ree0xq-dns` (forwarded from Nizam DNSSEC observations). |
+| `source_module`  | string   | ✓        | One of `dxq-net`, `dxq-cert`, `dxq-chain`, `dxq-id`. Reserved for future modules: `dxq-dns` (forwarded from Nizam DNSSEC observations). |
 | `observed_at`    | RFC3339  | ✓        | UTC. Module clock; the server records its own ingest time separately. |
 | `asset`          | object   | ✓        | What we observed — see below. |
 | `primitives`     | array    | ✓        | One entry per primitive role; an asset can list 1+ primitives. |
-| `posture`        | object   | ✓        | ree0xQ's verdict. Computed by the emitting module using `ree0xq-core::rollup` — module is allowed to override if it has stronger context. |
+| `posture`        | object   | ✓        | dxQ's verdict. Computed by the emitting module using `dxq-core::rollup` — module is allowed to override if it has stronger context. |
 
 ## `asset`
 
@@ -55,12 +55,12 @@ once we measure event volume in production (probably mid-V3).
 
 | Value             | Emitting module    | Identity meaning                                            |
 |-------------------|--------------------|-------------------------------------------------------------|
-| `tls_session`     | `ree0xq-net`        | hash(`client_random` ‖ `server_ip:port`)                    |
-| `ssh_session`     | `ree0xq-net`        | hash(`session_id` from SSH transport)                       |
-| `ipsec_sa`        | `ree0xq-net`        | SPI value                                                    |
-| `x509_cert`       | `ree0xq-cert`       | `sha256` of the DER-encoded cert                             |
-| `blockchain_key`  | `ree0xq-chain`      | chain-prefixed address (e.g. `bc1q...`, `0x...`)             |
-| `hsm_slot`        | `ree0xq-id`         | PKCS#11 URI / cloud KMS ARN / vendor-specific URI            |
+| `tls_session`     | `dxq-net`        | hash(`client_random` ‖ `server_ip:port`)                    |
+| `ssh_session`     | `dxq-net`        | hash(`session_id` from SSH transport)                       |
+| `ipsec_sa`        | `dxq-net`        | SPI value                                                    |
+| `x509_cert`       | `dxq-cert`       | `sha256` of the DER-encoded cert                             |
+| `blockchain_key`  | `dxq-chain`      | chain-prefixed address (e.g. `bc1q...`, `0x...`)             |
+| `hsm_slot`        | `dxq-id`         | PKCS#11 URI / cloud KMS ARN / vendor-specific URI            |
 | `dns_dnssec`      | (forwarded; reserved) | RRSIG fingerprint                                          |
 
 New variants are a major schema bump. Consumers that don't recognise a
@@ -124,13 +124,13 @@ one. `Dilithium` is being renamed to `ML-DSA` upstream — emit
 A module is required to:
 
 1. Set `schema_version` to its compile-time `SCHEMA_VERSION` constant.
-2. Set `source_module` to the canonical module name (`ree0xq-net`, etc.).
+2. Set `source_module` to the canonical module name (`dxq-net`, etc.).
 3. Set `observed_at` to actual observation time, **not** event-emission
    time. Late delivery is fine; backdated events are not.
 4. Provide every required field on every event. If something is
    genuinely unknown, emit `null` for the optional fields rather than
    leaving them out.
-5. Compute `posture` using `ree0xq-core::rollup::score(&primitives)`.
+5. Compute `posture` using `dxq-core::rollup::score(&primitives)`.
    Override only with explicit reason in the `rationale` string.
 
 Modules **must not**:
@@ -139,7 +139,7 @@ Modules **must not**:
 - Emit duplicate events for the same `(asset.kind, asset.identity)`
   within a 60-second window unless the primitive list materially
   changed.
-- Carry private key material. ree0xQ is observability — fingerprints
+- Carry private key material. dxQ is observability — fingerprints
   and metadata only.
 
 ## Future extensions (planned)
@@ -153,8 +153,8 @@ Modules **must not**:
 
 ## Validation
 
-The `ree0xq-core` crate ships JSON Schema generation for this struct
+The `dxq-core` crate ships JSON Schema generation for this struct
 (via `schemars`, when added). CI will validate every example event in
 this doc against the generated schema. Until that lands, the
-`#[test]` in `crates/ree0xq-core/src/lib.rs` (`event_round_trips_through_json`)
+`#[test]` in `crates/dxq-core/src/lib.rs` (`event_round_trips_through_json`)
 is the canonical proof that the Rust struct + JSON shape agree.

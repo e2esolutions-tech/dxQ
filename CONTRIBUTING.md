@@ -1,6 +1,6 @@
-# Contributing to ree0xQ
+# Contributing to dxQ
 
-ree0xQ is a working reference implementation — the V1–V5
+dxQ is a working reference implementation — the V1–V5
 milestones in [`ROADMAP.md`](ROADMAP.md) are complete.
 [`TODO.md`](TODO.md) tracks the remaining polish items. Bug
 reports against current behaviour, hardening patches, and
@@ -10,22 +10,15 @@ actual QKD links) are the most valuable contributions today.
 ## Before you open a PR
 
 1. Follow the load-bearing project directives — including the
-   **no AI attribution** rule and the **mandatory citation
-   verification** for paper changes. Both predate any single
-   contribution; please follow them.
+   **no AI attribution** rule. It predates any single
+   contribution; please follow it.
 2. Run the workspace checks locally:
    ```bash
    cargo check --workspace
    cargo test  --workspace
    ```
-3. If you touched anything in `docs/paper/`, rebuild the PDFs
-   and skim the patched Markdown in `docs/paper/build/` to
-   confirm the citations render the way you intend:
-   ```bash
-   cd docs/paper && ./build.sh
-   ```
-4. If you touched anything that an operator deploys
-   (`ree0xq-server`, `ree0xq-net`, `Dockerfile`, `compose.yaml`),
+3. If you touched anything that an operator deploys
+   (`dxq-server`, `dxq-net`, `Dockerfile`, `compose.yaml`),
    run the end-to-end acceptance smoke:
    ```bash
    ./scripts/acceptance.sh
@@ -38,7 +31,7 @@ actual QKD links) are the most valuable contributions today.
 - Commit message style: Conventional Commits.
   - `feat(scope): …`, `fix(scope): …`, `docs(scope): …`,
     `test(scope): …`, `chore(scope): …`, `refactor(scope): …`.
-  - Scope is the crate name (`ree0xq-net`, `ree0xq-server`, …)
+  - Scope is the crate name (`dxq-net`, `dxq-server`, …)
     or one of `paper`, `refs`, `ci`, `web`, `docker`, `scripts`,
     `repo`.
   - Imperative subject under ~70 chars; body explains the
@@ -59,14 +52,9 @@ actual QKD links) are the most valuable contributions today.
 - Describe what the change does and how to verify it. A short
   test plan (commands + expected output) is enough for most
   PRs.
-- If you change `docs/paper/references.bib` or any prose with
-  citation keys, cross-check every touched entry against its
-  live source page before requesting review. Fabricated author
-  lists are the top failure mode for citation work — see
-  commit `563ee87` for an example of how it can go wrong.
-- If you change `crates/ree0xq-core/src/event.rs`, audit the
+- If you change `crates/dxq-core/src/event.rs`, audit the
   schema-version impact and document what downstream consumers
-  (`ree0xq-server`, the React UI types, `bindings/`) need to
+  (`dxq-server`, the React UI types, `bindings/`) need to
   regenerate.
 - One reviewer approval gets you merged. Squash-merge is the
   default.
@@ -82,14 +70,14 @@ is not.
 ## Reporting bugs
 
 Open an issue at
-<https://github.com/e2esolutions-tech/ree0xQ/issues> with:
+<https://github.com/e2esolutions-tech/dxQ/issues> with:
 
 - exact command(s) you ran,
 - expected vs observed behaviour,
 - relevant log lines (`RUST_LOG=info` is the default; bump to
   `debug` for the affected crate when reporting),
 - the commit hash (`git rev-parse --short HEAD`) and platform
-  (Linux distro / kernel for ree0xq-net issues).
+  (Linux distro / kernel for dxq-net issues).
 
 For security-sensitive reports, please email
 <info@e2esolutions.tech> instead of filing a public issue.

@@ -1,9 +1,9 @@
 {
-  "name": "ree0xq-web",
+  "name": "dxq-web",
   "private": true,
   "version": "0.1.0-dev",
   "type": "module",
-  "description": "ree0xQ dashboard — three-axis quantum-risk posture UI.",
+  "description": "dxQ dashboard — three-axis quantum-risk posture UI.",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",

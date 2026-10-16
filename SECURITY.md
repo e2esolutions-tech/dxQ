@@ -1,6 +1,6 @@
 # Security Policy
 
-ree0xQ is a crypto-posture observability platform. It reads
+dxQ is a crypto-posture observability platform. It reads
 cryptographic metadata off the wire and out of inventories;
 it does not terminate TLS, hold private keys, or enforce
 policy. Even so, a discovery tool that ships parsers for
@@ -9,9 +9,9 @@ and we want to hear about problems.
 
 ## Status
 
-ree0xQ is **pre-alpha**. The V1 surface (the `ree0xq-net`
-observer, the `ree0xq-server` collector, and the schema in
-`ree0xq-core`) is the part most worth scrutinising. Treat
+dxQ is **pre-alpha**. The V1 surface (the `dxq-net`
+observer, the `dxq-server` collector, and the schema in
+`dxq-core`) is the part most worth scrutinising. Treat
 anything outside V1 as a moving target.
 
 ## Reporting a vulnerability
@@ -27,7 +27,7 @@ public GitHub issue for them.
 Useful things to include, when you have them:
 
 - The affected crate and code path (e.g. a parser in
-  `ree0xq-net` or `ree0xq-cert`).
+  `dxq-net` or `dxq-cert`).
 - A minimal input or reproducer — a pcap, a malformed
   certificate, a crafted event payload.
 - What you observed (panic, hang, memory blow-up, incorrect
@@ -47,7 +47,7 @@ In scope:
 - Memory-safety or denial-of-service issues in the parsers
   that handle untrusted input (TLS handshake bytes, pcap
   frames, X.509 certificates, event payloads).
-- Authentication or authorisation flaws in `ree0xq-server`
+- Authentication or authorisation flaws in `dxq-server`
   (the mTLS enrolment path, the admin-token gate).
 - Incorrect cryptographic classification that an attacker
   could exploit to hide a weak asset from the posture
@@ -62,7 +62,7 @@ Out of scope:
   production exposure.
 - Findings that require an already-privileged local attacker
   with no privilege boundary crossed.
-- The third-party crates ree0xQ depends on — report those
+- The third-party crates dxQ depends on — report those
   upstream (we track advisories via `cargo audit`).
 
 ## Disclosure

@@ -1,4 +1,4 @@
-# ree0xQ — top-level convenience Makefile.
+# dxQ — top-level convenience Makefile.
 #
 # Useful targets:
 #   make test                — cargo test --workspace
@@ -17,10 +17,10 @@ BINDIR     ?= $(PREFIX)/bin
 SYSTEMDDIR ?= /etc/systemd/system
 SUDO       ?= sudo
 
-BINARIES   := ree0xq-server ree0xq-net ree0xq-cert ree0xq-chain ree0xq-id ree0xq-agility
-UNITS_SVC  := ree0xq-server.service ree0xq-net-live.service \
-              ree0xq-cert-host-scan.service ree0xq-id-inventory.service
-UNITS_TMR  := ree0xq-cert-host-scan.timer ree0xq-id-inventory.timer
+BINARIES   := dxq-server dxq-net dxq-cert dxq-chain dxq-id dxq-agility
+UNITS_SVC  := dxq-server.service dxq-net-live.service \
+              dxq-cert-host-scan.service dxq-id-inventory.service
+UNITS_TMR  := dxq-cert-host-scan.timer dxq-id-inventory.timer
 
 .PHONY: help test release acceptance loadtest \
         systemd-install systemd-uninstall \
@@ -28,7 +28,7 @@ UNITS_TMR  := ree0xq-cert-host-scan.timer ree0xq-id-inventory.timer
         packages packages-deb packages-rpm packages-clean
 
 help:
-	@echo "ree0xQ Makefile — common targets:"
+	@echo "dxQ Makefile — common targets:"
 	@grep -E '^[a-zA-Z][a-zA-Z0-9_-]*:.*##' Makefile | sort | \
 	    awk 'BEGIN{FS=":.*?## "}{printf "  \033[36m%-22s\033[0m %s\n",$$1,$$2}'
 
@@ -55,17 +55,17 @@ systemd-install: release ## install binaries + unit files (sudo)
 	@for u in $(UNITS_SVC) $(UNITS_TMR); do \
 	    $(SUDO) install -m 0644 dist/systemd/$$u $(SYSTEMDDIR)/$$u; \
 	done
-	@echo "→ creating ree0xq system user + state dirs"
-	@id ree0xq >/dev/null 2>&1 || $(SUDO) useradd -r -s /sbin/nologin ree0xq
-	@$(SUDO) install -d -m 0750 -o ree0xq -g ree0xq /var/lib/ree0xq /var/lib/ree0xq/ca
-	@$(SUDO) install -d -m 0750 -o ree0xq -g ree0xq /var/lib/ree0xq-net /var/lib/ree0xq-net/spool
+	@echo "→ creating dxq system user + state dirs"
+	@id dxq >/dev/null 2>&1 || $(SUDO) useradd -r -s /sbin/nologin dxq
+	@$(SUDO) install -d -m 0750 -o dxq -g dxq /var/lib/dxq /var/lib/dxq/ca
+	@$(SUDO) install -d -m 0750 -o dxq -g dxq /var/lib/dxq-net /var/lib/dxq-net/spool
 	@echo "→ systemctl daemon-reload"
 	@$(SUDO) systemctl daemon-reload
 	@echo
 	@echo "Installed. Operator-side next:"
-	@echo "  1. Drop in /etc/systemd/system/ree0xq-server.service.d/override.conf"
-	@echo "     with REE0XQ_DATABASE_URL + REE0XQ_ADMIN_TOKEN."
-	@echo "  2. sudo systemctl enable --now ree0xq-server"
+	@echo "  1. Drop in /etc/systemd/system/dxq-server.service.d/override.conf"
+	@echo "     with DXQ_DATABASE_URL + DXQ_ADMIN_TOKEN."
+	@echo "  2. sudo systemctl enable --now dxq-server"
 	@echo "  3. See docs/operator-deploy.md for the agent-side dance."
 
 systemd-uninstall: ## stop + disable + remove every unit and binary
@@ -83,10 +83,10 @@ systemd-uninstall: ## stop + disable + remove every unit and binary
 	done
 	@$(SUDO) systemctl daemon-reload
 	@echo
-	@echo "Removed. State dirs and the 'ree0xq' user are left alone — clean"
+	@echo "Removed. State dirs and the 'dxq' user are left alone — clean"
 	@echo "them up manually with:"
-	@echo "  sudo rm -rf /var/lib/ree0xq /var/lib/ree0xq-net"
-	@echo "  sudo userdel ree0xq"
+	@echo "  sudo rm -rf /var/lib/dxq /var/lib/dxq-net"
+	@echo "  sudo userdel dxq"
 
 check-systemd: ## systemd-analyze verify every unit
 	@for u in $(UNITS_SVC) $(UNITS_TMR); do \
@@ -97,12 +97,12 @@ check-systemd: ## systemd-analyze verify every unit
 verify-units: check-systemd ## alias for check-systemd
 
 # Packaging — produce .deb + .rpm for every shipping binary
-# (ree0xq-server, ree0xq-net, ree0xq-cert, ree0xq-id, ree0xq-chain,
-# ree0xq-agility). Requires `cargo install cargo-deb
+# (dxq-server, dxq-net, dxq-cert, dxq-id, dxq-chain,
+# dxq-agility). Requires `cargo install cargo-deb
 # cargo-generate-rpm` on the build host; the auto-deps warning
 # from cargo-deb on non-Debian hosts is benign — the package
 # still installs cleanly on Debian/Ubuntu.
-PACKAGE_CRATES := ree0xq-server ree0xq-net ree0xq-cert ree0xq-id ree0xq-chain ree0xq-agility
+PACKAGE_CRATES := dxq-server dxq-net dxq-cert dxq-id dxq-chain dxq-agility
 
 packages: release packages-deb packages-rpm ## produce .deb + .rpm for every binary
 

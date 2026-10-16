@@ -1,0 +1,40 @@
+# dxq-id inventory-scan — periodic offline HSM inventory.
+#
+# Reads an operator-maintained JSON file (HSM slots + keys)
+# and POSTs one event per key. The JSON is operator-supplied
+# because real HSMs need vendor-specific export scripts; this
+# unit just feeds whatever the operator put on disk.
+#
+# Operator config:
+#   Environment=DXQ_ID_INVENTORY=/etc/dxq/hsm-inventory.json
+#   Environment=DXQ_ID_COLLECTOR=https://dxq.internal:8090/v1/events
+
+[Unit]
+Description=dxQ offline HSM inventory ingestion
+After=network-online.target dxq-server.service
+
+[Service]
+Type=oneshot
+User=dxq
+Group=dxq
+Environment=RUST_LOG=info,dxq_id=info
+
+ExecStart=/usr/local/bin/dxq-id inventory-scan \
+    --input ${DXQ_ID_INVENTORY} \
+    --collector ${DXQ_ID_COLLECTOR}
+
+NoNewPrivileges=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+SystemCallArchitectures=native
+SystemCallFilter=@system-service

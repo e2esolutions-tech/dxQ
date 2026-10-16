@@ -1,0 +1,78 @@
+# dxq-server — collector + REST API + recommendations engine.
+#
+# Production-default systemd unit. Designed to run as a dedicated
+# system user; no extra capabilities; sandboxed via the standard
+# systemd-235+ hardening directives. Operators tweak resource
+# limits + the listen / database URL via a drop-in at
+# /etc/systemd/system/dxq-server.service.d/override.conf.
+#
+# Install:
+#   install -m 0644 dxq-server.service /etc/systemd/system/
+#   install -m 0755 dxq-server /usr/local/bin/
+#   useradd -r -s /sbin/nologin dxq
+#   install -d -m 0750 -o dxq -g dxq /var/lib/dxq /var/lib/dxq/ca
+#   systemctl daemon-reload
+#   systemctl enable --now dxq-server
+
+[Unit]
+Description=dxQ collector + REST API (V1 .. V5)
+After=network-online.target postgresql.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=dxq
+Group=dxq
+WorkingDirectory=/var/lib/dxq
+
+# dxQ-specific config — override these in a drop-in.
+Environment=RUST_LOG=info,dxq_server=info,sqlx=warn
+# Operators set DXQ_DATABASE_URL here to enable the
+# Postgres backend. Without it the server falls back to
+# in-memory (fine for evaluation, not for production).
+# Environment=DXQ_DATABASE_URL=postgres://dxq:dxq@127.0.0.1:5432/dxq
+# Environment=DXQ_ADMIN_TOKEN=...
+
+ExecStart=/usr/local/bin/dxq-server \
+    --listen 0.0.0.0:8090 \
+    --ca-dir /var/lib/dxq/ca
+
+# Restart unconditionally; exponential backoff on rapid
+# failures so a broken DB doesn't get a hammering.
+Restart=on-failure
+RestartSec=5s
+StartLimitInterval=60s
+StartLimitBurst=10
+
+# Hardening (systemd ≥ 247). Drop every capability — the
+# server never needs CAP_NET_BIND_SERVICE on the default
+# >1024 port.
+NoNewPrivileges=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+LockPersonality=true
+MemoryDenyWriteExecute=true
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+
+# The CA dir lives at /var/lib/dxq/ca and is the only
+# writable location the unit needs.
+ReadWritePaths=/var/lib/dxq
+
+# Reasonable defaults; operators bump for high-rate ingest.
+LimitNOFILE=65536
+TasksMax=512
+
+[Install]
+WantedBy=multi-user.target

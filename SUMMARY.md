@@ -1,6 +1,6 @@
-# ree0xQ — Project Summary
+# dxQ — Project Summary
 
-A one-page overview of what ree0xQ is, what was built, and what
+A one-page overview of what dxQ is, what was built, and what
 it measured. For the full design see [README.md](README.md) and
 [ARCHITECTURE.md](ARCHITECTURE.md); for the detailed work log see
 [CHANGELOG.md](CHANGELOG.md).
@@ -17,7 +17,7 @@ on exactly the high-assurance links that matter most.
 
 ## The idea
 
-ree0xQ treats quantum-risk posture as a **three-axis** problem
+dxQ treats quantum-risk posture as a **three-axis** problem
 instead of a one-axis label. Each asset is graded on:
 
 - **A — Algorithmic resistance:** is the primitive itself
@@ -75,7 +75,7 @@ QKD hardware and no commercial scanner:
 ## Outputs
 
 - **Open source** under the MIT License at
-  <https://github.com/e2esolutions-tech/ree0xQ> — schema,
+  <https://github.com/e2esolutions-tech/dxQ> — schema,
   implementation, ETSI 014 emulator and replay corpus, the
   Semgrep agility rule pack, and the hand-graded ground-truth
   corpus.

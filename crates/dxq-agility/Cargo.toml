@@ -1,0 +1,54 @@
+[package]
+name        = "dxq-agility"
+version     = { workspace = true }
+edition     = { workspace = true }
+rust-version = { workspace = true }
+license     = { workspace = true }
+description = "dxQ crypto-agility scanner + V5 PQ-migration recommendations engine"
+
+[dependencies]
+dxq-core   = { workspace = true }
+serde        = { workspace = true }
+serde_json   = { workspace = true }
+serde_yaml   = "0.9"
+anyhow       = { workspace = true }
+thiserror    = { workspace = true }
+tracing      = { workspace = true }
+tracing-subscriber = { workspace = true }
+chrono       = { workspace = true }
+walkdir      = "2"
+regex        = "1"
+clap         = { version = "4", features = ["derive"] }
+# V5 recommendation CLI fetches /v1/inventory.
+reqwest      = { version = "0.12", default-features = false, features = ["blocking", "json", "rustls-tls"] }
+
+[dev-dependencies]
+tempfile     = "3"
+dxq-server = { workspace = true }
+axum         = { workspace = true }
+tokio        = { workspace = true }
+
+[[bin]]
+name = "dxq-agility"
+path = "src/bin/agility.rs"
+
+[package.metadata.deb]
+maintainer = "e2e Solutions <info@e2esolutions.tech>"
+copyright = "2025-2026 e2e Solutions"
+license-file = ["../../LICENSE", "0"]
+extended-description = "Crypto-agility scanner + V5 PQ-migration recommendations engine. Reads the live inventory from a dxQ collector and produces ranked per-asset replacement candidates, a TLS-stack compatibility matrix, and the regulator deadline table."
+section = "net"
+priority = "optional"
+depends = "$auto"
+assets = [
+  ["target/release/dxq-agility", "usr/local/bin/", "755"],
+]
+
+[package.metadata.generate-rpm]
+name = "dxq-agility"
+version = "0.1.0~dev"
+license = "MIT"
+summary = "dxQ crypto-agility scanner + V5 recommendations CLI"
+assets = [
+  { source = "target/release/dxq-agility", dest = "/usr/local/bin/dxq-agility", mode = "755" },
+]

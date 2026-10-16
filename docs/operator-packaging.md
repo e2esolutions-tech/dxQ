@@ -1,6 +1,6 @@
-# ree0xQ — Packaging (`.deb` + `.rpm`)
+# dxQ — Packaging (`.deb` + `.rpm`)
 
-Every shipping ree0xQ binary ships as both a Debian `.deb`
+Every shipping dxQ binary ships as both a Debian `.deb`
 and a Red-Hat `.rpm`. The intent: drop the right package on
 an operator's host, `systemctl enable --now` the matching
 unit, and walk away.
@@ -22,12 +22,12 @@ needs neither `rpm` nor `rpmbuild` on the build host.
 
 | Crate          | Binary           | Systemd unit              | Notes |
 |----------------|------------------|---------------------------|-------|
-| `ree0xq-server` | `ree0xq-server`   | `ree0xq-server.service`    | Long-running collector + REST API + dashboard backend |
-| `ree0xq-net`    | `ree0xq-net`      | `ree0xq-net-live.service`  | Long-running passive TLS observer |
-| `ree0xq-cert`   | `ree0xq-cert`     | `ree0xq-cert-host-scan.{service,timer}` | Periodic host filesystem cert scan |
-| `ree0xq-id`     | `ree0xq-id`       | `ree0xq-id-inventory.{service,timer}`   | Periodic HSM / KMS / smart-card inventory |
-| `ree0xq-chain`  | `ree0xq-chain`    | (none — ad-hoc CLI)        | Blockchain address-inventory scanner |
-| `ree0xq-agility`| `ree0xq-agility`  | (none — ad-hoc CLI)        | V5 PQ-migration recommendations CLI |
+| `dxq-server` | `dxq-server`   | `dxq-server.service`    | Long-running collector + REST API + dashboard backend |
+| `dxq-net`    | `dxq-net`      | `dxq-net-live.service`  | Long-running passive TLS observer |
+| `dxq-cert`   | `dxq-cert`     | `dxq-cert-host-scan.{service,timer}` | Periodic host filesystem cert scan |
+| `dxq-id`     | `dxq-id`       | `dxq-id-inventory.{service,timer}`   | Periodic HSM / KMS / smart-card inventory |
+| `dxq-chain`  | `dxq-chain`    | (none — ad-hoc CLI)        | Blockchain address-inventory scanner |
+| `dxq-agility`| `dxq-agility`  | (none — ad-hoc CLI)        | V5 PQ-migration recommendations CLI |
 
 Every binary lands under `/usr/local/bin/`. Units land
 under `/usr/lib/systemd/system/` on RPM hosts and
@@ -54,9 +54,9 @@ make packages-rpm              # cargo build --release first, then cargo generat
 Per-crate (if you're iterating on one):
 
 ```bash
-cargo build --release -p ree0xq-server
-cargo deb           -p ree0xq-server --no-build
-cargo generate-rpm  -p crates/ree0xq-server
+cargo build --release -p dxq-server
+cargo deb           -p dxq-server --no-build
+cargo generate-rpm  -p crates/dxq-server
 ```
 
 Output paths:
@@ -79,59 +79,59 @@ upgrade is correct.
 ## Install — Debian / Ubuntu
 
 ```bash
-sudo apt install ./ree0xq-server_0.1.0-dev-1_amd64.deb \
-                 ./ree0xq-net_0.1.0-dev-1_amd64.deb \
-                 ./ree0xq-cert_0.1.0-dev-1_amd64.deb \
-                 ./ree0xq-id_0.1.0-dev-1_amd64.deb
+sudo apt install ./dxq-server_0.1.0-dev-1_amd64.deb \
+                 ./dxq-net_0.1.0-dev-1_amd64.deb \
+                 ./dxq-cert_0.1.0-dev-1_amd64.deb \
+                 ./dxq-id_0.1.0-dev-1_amd64.deb
 
-# State dirs (ree0xq-server)
-sudo useradd -r -s /sbin/nologin ree0xq
-sudo install -d -m 0750 -o ree0xq -g ree0xq /var/lib/ree0xq /var/lib/ree0xq/ca
+# State dirs (dxq-server)
+sudo useradd -r -s /sbin/nologin dxq
+sudo install -d -m 0750 -o dxq -g dxq /var/lib/dxq /var/lib/dxq/ca
 
 # Drop in env (collector URL, admin token, db url)
-sudo systemctl edit ree0xq-server
+sudo systemctl edit dxq-server
 
 # Bring it up
-sudo systemctl enable --now ree0xq-server
+sudo systemctl enable --now dxq-server
 ```
 
 ## Install — Fedora / RHEL / Rocky
 
 ```bash
-sudo dnf install ./ree0xq-server-0.1.0~dev-1.x86_64.rpm \
-                 ./ree0xq-net-0.1.0~dev-1.x86_64.rpm \
-                 ./ree0xq-cert-0.1.0~dev-1.x86_64.rpm \
-                 ./ree0xq-id-0.1.0~dev-1.x86_64.rpm
+sudo dnf install ./dxq-server-0.1.0~dev-1.x86_64.rpm \
+                 ./dxq-net-0.1.0~dev-1.x86_64.rpm \
+                 ./dxq-cert-0.1.0~dev-1.x86_64.rpm \
+                 ./dxq-id-0.1.0~dev-1.x86_64.rpm
 
 # State dirs and daemon-reload are handled by the package's
 # %post script.
 
-sudo systemctl edit ree0xq-server      # drop in env
-sudo systemctl enable --now ree0xq-server
+sudo systemctl edit dxq-server      # drop in env
+sudo systemctl enable --now dxq-server
 ```
 
 ## Uninstall
 
 Both `.deb` and `.rpm` pre-uninstall scripts stop and
 disable the matching units. State directories
-(`/var/lib/ree0xq*`) and the `ree0xq` system user are left
+(`/var/lib/dxq*`) and the `dxq` system user are left
 alone — clean them up manually with:
 
 ```bash
-sudo rm -rf /var/lib/ree0xq /var/lib/ree0xq-net
-sudo userdel ree0xq
+sudo rm -rf /var/lib/dxq /var/lib/dxq-net
+sudo userdel dxq
 ```
 
 ## Sanity-check a built package
 
 ```bash
 # RPM
-rpm -qpi target/generate-rpm/ree0xq-server-0.1.0~dev-1.x86_64.rpm
-rpm -qpl target/generate-rpm/ree0xq-server-0.1.0~dev-1.x86_64.rpm
+rpm -qpi target/generate-rpm/dxq-server-0.1.0~dev-1.x86_64.rpm
+rpm -qpl target/generate-rpm/dxq-server-0.1.0~dev-1.x86_64.rpm
 
 # Deb (needs dpkg on the inspecting host)
-dpkg -I target/debian/ree0xq-server_0.1.0-dev-1_amd64.deb
-dpkg -c target/debian/ree0xq-server_0.1.0-dev-1_amd64.deb
+dpkg -I target/debian/dxq-server_0.1.0-dev-1_amd64.deb
+dpkg -c target/debian/dxq-server_0.1.0-dev-1_amd64.deb
 ```
 
 ## Known limitations
@@ -144,8 +144,8 @@ dpkg -c target/debian/ree0xq-server_0.1.0-dev-1_amd64.deb
   Build the `.deb` on a Debian/Ubuntu CI runner if you need
   the exact shared-library deps resolved.
 
-- The `ree0xq-net-ebpf` crate's BPF object is not packaged
+- The `dxq-net-ebpf` crate's BPF object is not packaged
   yet — it requires a specific nightly toolchain and the
   packaging pipeline keeps the stable toolchain dependency.
   Operators who need the eBPF live mode build the BPF
-  object out-of-band per `crates/ree0xq-net-ebpf/README.md`.
+  object out-of-band per `crates/dxq-net-ebpf/README.md`.

@@ -1,14 +1,14 @@
 [workspace]
 resolver = "2"
 members = [
-    "crates/ree0xq-core",
-    "crates/ree0xq-server",
-    "crates/ree0xq-net",
-    "crates/ree0xq-cert",
-    "crates/ree0xq-chain",
-    "crates/ree0xq-id",
-    "crates/ree0xq-qkd",
-    "crates/ree0xq-agility",
+    "crates/dxq-core",
+    "crates/dxq-server",
+    "crates/dxq-net",
+    "crates/dxq-cert",
+    "crates/dxq-chain",
+    "crates/dxq-id",
+    "crates/dxq-qkd",
+    "crates/dxq-agility",
 ]
 
 [workspace.package]
@@ -17,8 +17,8 @@ edition       = "2021"
 rust-version  = "1.78"
 authors       = ["e2e Solutions <info@e2esolutions.tech>"]
 license       = "MIT"
-repository    = "https://github.com/e2esolutions-tech/ree0xQ"
-homepage      = "https://github.com/e2esolutions-tech/ree0xQ"
+repository    = "https://github.com/e2esolutions-tech/dxQ"
+homepage      = "https://github.com/e2esolutions-tech/dxQ"
 
 [workspace.dependencies]
 serde       = { version = "1", features = ["derive"] }
@@ -34,6 +34,6 @@ axum        = "0.7"
 tower       = "0.5"
 
 # Workspace-internal
-ree0xq-core    = { path = "crates/ree0xq-core" }
-ree0xq-server  = { path = "crates/ree0xq-server" }
-ree0xq-agility = { path = "crates/ree0xq-agility" }
+dxq-core    = { path = "crates/dxq-core" }
+dxq-server  = { path = "crates/dxq-server" }
+dxq-agility = { path = "crates/dxq-agility" }

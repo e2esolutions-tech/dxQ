@@ -4,7 +4,7 @@ import { LoadingError } from "../components/LoadingError";
 import { fetchCompat } from "../lib/api";
 import { usePolling } from "../lib/usePolling";
 import { safeHttpUrl } from "../lib/safeUrl";
-import type { SupportStatus } from "../types/ree0xq";
+import type { SupportStatus } from "../types/dxq";
 
 const COMPAT_INTERVAL_MS = 5 * 60_000;
 

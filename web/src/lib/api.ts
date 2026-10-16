@@ -1,8 +1,8 @@
-// Thin fetch wrapper for the ree0xq-server REST API.
+// Thin fetch wrapper for the dxq-server REST API.
 //
 // All calls are relative to the current origin so Vite's dev-server
 // proxy (see vite.config.ts) routes them to 127.0.0.1:8090. In
-// production the dashboard is typically served by ree0xq-server itself,
+// production the dashboard is typically served by dxq-server itself,
 // keeping URLs the same.
 
 import type {
@@ -16,7 +16,7 @@ import type {
   QkdLinksResponse,
   RecommendationsResponse,
   RoadmapProjection,
-} from "../types/ree0xq";
+} from "../types/dxq";
 
 async function getJson<T>(path: string): Promise<T> {
   const r = await fetch(path, {

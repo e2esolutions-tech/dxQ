@@ -1,4 +1,4 @@
-# `ree0xq-net` — Network Module Design
+# `dxq-net` — Network Module Design
 
 The first module to ship. Targets V1 (Q3 2026). V1 scope was narrow
 on purpose — TLS only; **SSH observation shipped in V6 (SEZ-30)** and
@@ -23,12 +23,12 @@ For each session it emits one [`crypto_inventory_event`](./crypto-event-schema.m
 - Application-layer bytes. The eBPF hooks fire on TLS handshake
   frames only.
 - Outbound DNS (Nizam already does that — its DNSSEC observations
-  forward into `ree0xq-server` separately).
-- Certificate inventory. That's `ree0xq-cert`'s job in V2.
+  forward into `dxq-server` separately).
+- Certificate inventory. That's `dxq-cert`'s job in V2.
 
 ## How it works
 
-1. Per host: a `ree0xq-net` agent binary runs as a systemd service.
+1. Per host: a `dxq-net` agent binary runs as a systemd service.
    Requires `CAP_BPF` + `CAP_NET_ADMIN`.
 2. Loads an eBPF program that hooks `sk_msg` for outgoing TLS
    `ClientHello` and incoming `ServerHello` frames. Filter is on
@@ -40,12 +40,12 @@ For each session it emits one [`crypto_inventory_event`](./crypto-event-schema.m
    server cert chain. Pushes into a per-CPU ring buffer.
 5. Userspace half drains the ring, dedupes against a recent-session
    cache (5-min TTL — implemented in
-   [`ree0xq_net::dedup::DedupCache`](../crates/ree0xq-net/src/dedup.rs);
+   [`dxq_net::dedup::DedupCache`](../crates/dxq-net/src/dedup.rs);
    default capacity 65 536 sessions, configurable per agent via
    `--dedup-ttl-secs` and `--dedup-capacity` on the CLI; pass
    `--dedup-ttl-secs 0` for forensic mode where every retransmit
    surfaces), maps cipher names → canonical algorithm names,
-   computes posture, emits to `ree0xq-server` over HTTPS.
+   computes posture, emits to `dxq-server` over HTTPS.
 
 ## eBPF library
 
@@ -101,12 +101,12 @@ not now.
 
 ## V1 acceptance criteria
 
-`ree0xq-net` ships when:
+`dxq-net` ships when:
 
 - One agent on one host can run for 10 minutes against a real
   HTTP/HTTPS workload without dropping events or exceeding 2 % CPU.
 - Every emitted event passes JSON-schema validation against
-  `ree0xq-core`.
+  `dxq-core`.
 - Posture scores are correct for the canonical hand-picked test
   cases (X25519+ECDSA-P256+AES-GCM = 40, full-Kyber+ML-DSA-65 =
   100).
@@ -118,12 +118,12 @@ templates, alerting hooks — is V2 conversation, not V1 acceptance.
 
 ## SSH observation (SEZ-30, V6)
 
-Beyond TLS, `ree0xq-net` passively observes SSH key exchange:
+Beyond TLS, `dxq-net` passively observes SSH key exchange:
 
 ```bash
 # capture SSH handshakes, then classify PQ-KEX adoption
 tcpdump -w ssh.pcap 'tcp port 22'
-ree0xq-net ssh --pcap ssh.pcap --collector http://127.0.0.1:8090
+dxq-net ssh --pcap ssh.pcap --collector http://127.0.0.1:8090
 ```
 
 It parses the SSH2 identification banner and the server

@@ -1,6 +1,6 @@
-# ree0xQ collector — single-host container image.
+# dxQ collector — single-host container image.
 #
-# Multi-stage build: a Rust builder stage compiles `ree0xq-server`
+# Multi-stage build: a Rust builder stage compiles `dxq-server`
 # from the workspace sources, then a slim Debian runtime carries
 # only the static binary, `ca-certificates`, and `tini` for PID 1.
 #
@@ -28,18 +28,18 @@ WORKDIR /src
 # in its own layer; the next time source files change we only
 # recompile what actually changed.
 COPY Cargo.toml ./
-COPY crates/ree0xq-core/Cargo.toml      crates/ree0xq-core/
-COPY crates/ree0xq-server/Cargo.toml    crates/ree0xq-server/
-COPY crates/ree0xq-net/Cargo.toml       crates/ree0xq-net/
-COPY crates/ree0xq-cert/Cargo.toml      crates/ree0xq-cert/
-COPY crates/ree0xq-chain/Cargo.toml     crates/ree0xq-chain/
-COPY crates/ree0xq-id/Cargo.toml        crates/ree0xq-id/
-COPY crates/ree0xq-qkd/Cargo.toml       crates/ree0xq-qkd/
-COPY crates/ree0xq-agility/Cargo.toml   crates/ree0xq-agility/
+COPY crates/dxq-core/Cargo.toml      crates/dxq-core/
+COPY crates/dxq-server/Cargo.toml    crates/dxq-server/
+COPY crates/dxq-net/Cargo.toml       crates/dxq-net/
+COPY crates/dxq-cert/Cargo.toml      crates/dxq-cert/
+COPY crates/dxq-chain/Cargo.toml     crates/dxq-chain/
+COPY crates/dxq-id/Cargo.toml        crates/dxq-id/
+COPY crates/dxq-qkd/Cargo.toml       crates/dxq-qkd/
+COPY crates/dxq-agility/Cargo.toml   crates/dxq-agility/
 
 # Now bring in the real sources and build the server binary.
 COPY crates ./crates
-RUN cargo build --release -p ree0xq-server --bin ree0xq-server
+RUN cargo build --release -p dxq-server --bin dxq-server
 
 
 FROM debian:${DEBIAN_VERSION}-slim AS runtime
@@ -50,24 +50,24 @@ RUN apt-get update \
         curl \
         tini \
     && rm -rf /var/lib/apt/lists/* \
-    && groupadd --system --gid 10001 ree0xq \
-    && useradd  --system --uid 10001 --gid ree0xq \
-                --home-dir /var/lib/ree0xq --shell /sbin/nologin \
-                ree0xq \
-    && mkdir -p /var/lib/ree0xq \
-    && chown ree0xq:ree0xq /var/lib/ree0xq
+    && groupadd --system --gid 10001 dxq \
+    && useradd  --system --uid 10001 --gid dxq \
+                --home-dir /var/lib/dxq --shell /sbin/nologin \
+                dxq \
+    && mkdir -p /var/lib/dxq \
+    && chown dxq:dxq /var/lib/dxq
 
-COPY --from=builder /src/target/release/ree0xq-server /usr/local/bin/ree0xq-server
+COPY --from=builder /src/target/release/dxq-server /usr/local/bin/dxq-server
 
-USER ree0xq
-WORKDIR /var/lib/ree0xq
+USER dxq
+WORKDIR /var/lib/dxq
 
-ENV RUST_LOG=info,ree0xq_server=info
+ENV RUST_LOG=info,dxq_server=info
 
 EXPOSE 8090
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
     CMD curl --fail --silent --show-error http://127.0.0.1:8090/healthz || exit 1
 
-ENTRYPOINT ["/usr/bin/tini", "--", "/usr/local/bin/ree0xq-server"]
+ENTRYPOINT ["/usr/bin/tini", "--", "/usr/local/bin/dxq-server"]
 CMD ["--listen", "0.0.0.0:8090"]

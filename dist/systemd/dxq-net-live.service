@@ -1,0 +1,64 @@
+# dxq-net — Phase 2.2 libpcap live observation agent.
+#
+# Captures TLS handshakes off a host network interface and
+# POSTs the resulting `crypto_inventory_event` records to a
+# collector URL. Spools to disk when the collector is
+# unreachable (SEZ-6's outage-buffering path).
+#
+# Requires CAP_NET_RAW for the libpcap path. The dxq
+# system user gets it ambient; no other elevated caps.
+#
+# Operator config (must override before enabling):
+#   Environment=DXQ_NET_IFACE=eth0
+#   Environment=DXQ_NET_COLLECTOR=https://dxq.internal:8090/v1/events
+#   Environment=DXQ_NET_SPOOL=/var/lib/dxq-net/spool
+#
+# Install:
+#   install -m 0644 dxq-net-live.service /etc/systemd/system/
+#   install -m 0755 dxq-net /usr/local/bin/
+#   install -d -m 0750 -o dxq -g dxq /var/lib/dxq-net /var/lib/dxq-net/spool
+#   systemctl daemon-reload
+#   systemctl enable --now dxq-net-live
+
+[Unit]
+Description=dxQ network observation agent (libpcap live, Phase 2.2)
+After=network-online.target dxq-server.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=dxq
+Group=dxq
+WorkingDirectory=/var/lib/dxq-net
+Environment=RUST_LOG=info,dxq_net=info
+
+ExecStart=/usr/local/bin/dxq-net live \
+    --iface ${DXQ_NET_IFACE} \
+    --collector ${DXQ_NET_COLLECTOR} \
+    --spool-dir ${DXQ_NET_SPOOL}
+
+Restart=on-failure
+RestartSec=5s
+StartLimitInterval=60s
+StartLimitBurst=10
+
+NoNewPrivileges=true
+# CAP_NET_RAW for libpcap; everything else dropped.
+CapabilityBoundingSet=CAP_NET_RAW
+AmbientCapabilities=CAP_NET_RAW
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=false
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+ReadWritePaths=/var/lib/dxq-net
+
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

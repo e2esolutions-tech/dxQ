@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import { fetchPostureHistory } from "../lib/api";
 import { qColorClass } from "../lib/posture";
 import { usePolling } from "../lib/usePolling";
-import type { PostureHistoryResponse } from "../types/ree0xq";
+import type { PostureHistoryResponse } from "../types/dxq";
 
 const TREND_INTERVAL_MS = 15_000;
 

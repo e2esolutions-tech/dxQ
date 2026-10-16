@@ -1,16 +1,16 @@
-# ree0xQ — multi-host operator deployment
+# dxQ — multi-host operator deployment
 
-Stand up ree0xQ across a fleet. Three host roles:
+Stand up dxQ across a fleet. Three host roles:
 
-- **collector host** — runs `ree0xq-server` + Postgres.
+- **collector host** — runs `dxq-server` + Postgres.
   One per region or one per tenant; typically the only
   host that's externally reachable.
-- **agent hosts** — run `ree0xq-net` (always-on network
-  observer) + `ree0xq-cert` + `ree0xq-id` (timer-driven
+- **agent hosts** — run `dxq-net` (always-on network
+  observer) + `dxq-cert` + `dxq-id` (timer-driven
   inventory scans). Many; one per system you care to
   measure.
-- **analyst workstations** — run `ree0xq-chain` /
-  `ree0xq-agility recommend / roadmap / compat /
+- **analyst workstations** — run `dxq-chain` /
+  `dxq-agility recommend / roadmap / compat /
   deadlines` interactively. Typically the CISO's laptop;
   one per analyst.
 
@@ -20,7 +20,7 @@ Topology:
                  ┌─────────────────────┐
                  │  collector host     │
                  │                     │
-                 │  ree0xq-server  ─── Postgres
+                 │  dxq-server  ─── Postgres
                  │      ▲              │
                  └──────┼──────────────┘
                         │ mTLS (8090) + bootstrap (8443)
@@ -28,9 +28,9 @@ Topology:
         │               │                  │
    ┌────┴───────┐  ┌────┴───────┐  ┌──────┴─────────┐
    │ agent host │  │ agent host │  │ agent host …   │
-   │ ree0xq-net  │  │ ree0xq-net  │  │ ree0xq-net      │
-   │ ree0xq-cert │  │ ree0xq-cert │  │ ree0xq-cert     │
-   │ ree0xq-id   │  │ ree0xq-id   │  │ ree0xq-id       │
+   │ dxq-net  │  │ dxq-net  │  │ dxq-net      │
+   │ dxq-cert │  │ dxq-cert │  │ dxq-cert     │
+   │ dxq-id   │  │ dxq-id   │  │ dxq-id       │
    └────────────┘  └────────────┘  └────────────────┘
 ```
 
@@ -42,7 +42,7 @@ no agent install, no inbound connections.
 
 | Where           | What                                                                   |
 |-----------------|------------------------------------------------------------------------|
-| Collector host  | Linux ≥ kernel 5.8 (matches ree0xq-net Phase 2.2 require), Postgres 15+, network reach from every agent. |
+| Collector host  | Linux ≥ kernel 5.8 (matches dxq-net Phase 2.2 require), Postgres 15+, network reach from every agent. |
 | Agent hosts     | Linux, `libpcap` runtime, kernel ≥ 5.8 for Phase 2.2 (Phase 2.0 pcap-file works on older). |
 | Analyst host    | Standard Linux + `cargo`-built binaries.                               |
 
@@ -50,31 +50,31 @@ no agent install, no inbound connections.
 
 ```bash
 # As root on the collector host.
-useradd -r -s /sbin/nologin ree0xq
-install -d -m 0750 -o ree0xq -g ree0xq /var/lib/ree0xq /var/lib/ree0xq/ca
+useradd -r -s /sbin/nologin dxq
+install -d -m 0750 -o dxq -g dxq /var/lib/dxq /var/lib/dxq/ca
 
 # Install the binary + systemd unit.
-install -m 0755 target/release/ree0xq-server  /usr/local/bin/
-install -m 0644 dist/systemd/ree0xq-server.service /etc/systemd/system/
+install -m 0755 target/release/dxq-server  /usr/local/bin/
+install -m 0644 dist/systemd/dxq-server.service /etc/systemd/system/
 
 # Configure DB + admin token.
-mkdir -p /etc/systemd/system/ree0xq-server.service.d
-cat > /etc/systemd/system/ree0xq-server.service.d/override.conf <<EOF
+mkdir -p /etc/systemd/system/dxq-server.service.d
+cat > /etc/systemd/system/dxq-server.service.d/override.conf <<EOF
 [Service]
-Environment=REE0XQ_DATABASE_URL=postgres://ree0xq:CHANGEME@127.0.0.1:5432/ree0xq
-Environment=REE0XQ_ADMIN_TOKEN=$(openssl rand -hex 32)
+Environment=DXQ_DATABASE_URL=postgres://dxq:CHANGEME@127.0.0.1:5432/dxq
+Environment=DXQ_ADMIN_TOKEN=$(openssl rand -hex 32)
 ExecStart=
-ExecStart=/usr/local/bin/ree0xq-server --listen 0.0.0.0:8090 \
-    --ca-dir /var/lib/ree0xq/ca \
+ExecStart=/usr/local/bin/dxq-server --listen 0.0.0.0:8090 \
+    --ca-dir /var/lib/dxq/ca \
     --tls --tls-bootstrap-listen 0.0.0.0:8443 \
-    --tls-san ree0xq.internal
+    --tls-san dxq.internal
 EOF
 
 systemctl daemon-reload
-systemctl enable --now ree0xq-server
+systemctl enable --now dxq-server
 
 # Confirm.
-curl -fsS --cacert /var/lib/ree0xq/ca/ca.crt https://ree0xq.internal:8443/healthz
+curl -fsS --cacert /var/lib/dxq/ca/ca.crt https://dxq.internal:8443/healthz
 ```
 
 The collector boots with a CA-signed server cert; agents
@@ -86,12 +86,12 @@ On the collector host, issue a one-time token per agent
 identity:
 
 ```bash
-# Save REE0XQ_ADMIN_TOKEN from the override above somewhere
+# Save DXQ_ADMIN_TOKEN from the override above somewhere
 # safe; you'll need it for every token mint.
-ADMIN=$(systemctl show -p Environment ree0xq-server | tr ' ' '\n' | grep REE0XQ_ADMIN_TOKEN | cut -d= -f2)
+ADMIN=$(systemctl show -p Environment dxq-server | tr ' ' '\n' | grep DXQ_ADMIN_TOKEN | cut -d= -f2)
 
-curl -sS --cacert /var/lib/ree0xq/ca/ca.crt \
-    https://ree0xq.internal:8443/v1/admin/bootstrap-tokens \
+curl -sS --cacert /var/lib/dxq/ca/ca.crt \
+    https://dxq.internal:8443/v1/admin/bootstrap-tokens \
     -H "X-Admin-Token: $ADMIN" \
     -d '{"agent_id":"agent-host-01"}'
 # → {"token":"<uuid>","agent_id":"agent-host-01","expires_at":"..."}
@@ -106,68 +106,68 @@ itself is the bootstrap secret.
 
 ```bash
 # As root on the agent.
-useradd -r -s /sbin/nologin ree0xq
-install -d -m 0750 -o ree0xq -g ree0xq /var/lib/ree0xq-net /var/lib/ree0xq-net/spool /etc/ree0xq
+useradd -r -s /sbin/nologin dxq
+install -d -m 0750 -o dxq -g dxq /var/lib/dxq-net /var/lib/dxq-net/spool /etc/dxq
 
-install -m 0755 target/release/ree0xq-net  /usr/local/bin/
-install -m 0755 target/release/ree0xq-cert /usr/local/bin/
-install -m 0755 target/release/ree0xq-id   /usr/local/bin/
+install -m 0755 target/release/dxq-net  /usr/local/bin/
+install -m 0755 target/release/dxq-cert /usr/local/bin/
+install -m 0755 target/release/dxq-id   /usr/local/bin/
 install -m 0644 dist/systemd/*.service /etc/systemd/system/
 install -m 0644 dist/systemd/*.timer   /etc/systemd/system/
 
 # Trust the collector's CA.
-scp collector:/var/lib/ree0xq/ca/ca.crt /etc/ree0xq/ca.crt
+scp collector:/var/lib/dxq/ca/ca.crt /etc/dxq/ca.crt
 
 # Redeem the bootstrap token for a per-agent cert.
 TOKEN='<paste from step 2>'
-curl -sS --cacert /etc/ree0xq/ca.crt \
-    https://ree0xq.internal:8443/v1/enrol \
+curl -sS --cacert /etc/dxq/ca.crt \
+    https://dxq.internal:8443/v1/enrol \
     -H "X-Bootstrap-Token: $TOKEN" \
     -d '{"agent_id":"agent-host-01"}' \
-    | tee /etc/ree0xq/enrol.json
-jq -r .cert_pem  < /etc/ree0xq/enrol.json > /etc/ree0xq/agent.crt
-jq -r .key_pem   < /etc/ree0xq/enrol.json > /etc/ree0xq/agent.key
-chmod 0640 /etc/ree0xq/agent.{crt,key}
-chown root:ree0xq /etc/ree0xq/agent.{crt,key}
+    | tee /etc/dxq/enrol.json
+jq -r .cert_pem  < /etc/dxq/enrol.json > /etc/dxq/agent.crt
+jq -r .key_pem   < /etc/dxq/enrol.json > /etc/dxq/agent.key
+chmod 0640 /etc/dxq/agent.{crt,key}
+chown root:dxq /etc/dxq/agent.{crt,key}
 
 # Configure the live-capture unit.
-mkdir -p /etc/systemd/system/ree0xq-net-live.service.d
-cat > /etc/systemd/system/ree0xq-net-live.service.d/override.conf <<EOF
+mkdir -p /etc/systemd/system/dxq-net-live.service.d
+cat > /etc/systemd/system/dxq-net-live.service.d/override.conf <<EOF
 [Service]
-Environment=REE0XQ_NET_IFACE=eth0
-Environment=REE0XQ_NET_COLLECTOR=https://ree0xq.internal:8090/v1/events
-Environment=REE0XQ_NET_SPOOL=/var/lib/ree0xq-net/spool
+Environment=DXQ_NET_IFACE=eth0
+Environment=DXQ_NET_COLLECTOR=https://dxq.internal:8090/v1/events
+Environment=DXQ_NET_SPOOL=/var/lib/dxq-net/spool
 EOF
 
 # Configure the cert host-scan timer.
-mkdir -p /etc/systemd/system/ree0xq-cert-host-scan.service.d
-cat > /etc/systemd/system/ree0xq-cert-host-scan.service.d/override.conf <<EOF
+mkdir -p /etc/systemd/system/dxq-cert-host-scan.service.d
+cat > /etc/systemd/system/dxq-cert-host-scan.service.d/override.conf <<EOF
 [Service]
-Environment=REE0XQ_CERT_COLLECTOR=https://ree0xq.internal:8090/v1/events
+Environment=DXQ_CERT_COLLECTOR=https://dxq.internal:8090/v1/events
 EOF
 
 # Configure the HSM inventory timer (optional; only on
 # hosts with HSMs the operator catalogued).
-if [ -f /etc/ree0xq/hsm-inventory.json ]; then
-    mkdir -p /etc/systemd/system/ree0xq-id-inventory.service.d
-    cat > /etc/systemd/system/ree0xq-id-inventory.service.d/override.conf <<EOF
+if [ -f /etc/dxq/hsm-inventory.json ]; then
+    mkdir -p /etc/systemd/system/dxq-id-inventory.service.d
+    cat > /etc/systemd/system/dxq-id-inventory.service.d/override.conf <<EOF
 [Service]
-Environment=REE0XQ_ID_INVENTORY=/etc/ree0xq/hsm-inventory.json
-Environment=REE0XQ_ID_COLLECTOR=https://ree0xq.internal:8090/v1/events
+Environment=DXQ_ID_INVENTORY=/etc/dxq/hsm-inventory.json
+Environment=DXQ_ID_COLLECTOR=https://dxq.internal:8090/v1/events
 EOF
 fi
 
 systemctl daemon-reload
-systemctl enable --now ree0xq-net-live
-systemctl enable --now ree0xq-cert-host-scan.timer
-[ -f /etc/ree0xq/hsm-inventory.json ] && \
-    systemctl enable --now ree0xq-id-inventory.timer
+systemctl enable --now dxq-net-live
+systemctl enable --now dxq-cert-host-scan.timer
+[ -f /etc/dxq/hsm-inventory.json ] && \
+    systemctl enable --now dxq-id-inventory.timer
 
 # Confirm — should show the agent's first events
 # arriving within a few seconds of any TLS traffic.
-curl -sS --cacert /etc/ree0xq/ca.crt \
-    --cert /etc/ree0xq/agent.crt --key /etc/ree0xq/agent.key \
-    https://ree0xq.internal:8090/v1/inventory | jq '.count'
+curl -sS --cacert /etc/dxq/ca.crt \
+    --cert /etc/dxq/agent.crt --key /etc/dxq/agent.key \
+    https://dxq.internal:8090/v1/inventory | jq '.count'
 ```
 
 ## 4. Analyst-workstation usage
@@ -176,24 +176,24 @@ No daemons, no install — just the binaries:
 
 ```bash
 # Pull the V5 recommendations for the whole fleet.
-ree0xq-agility recommend --inventory https://ree0xq.internal:8090/v1/inventory
+dxq-agility recommend --inventory https://dxq.internal:8090/v1/inventory
 
 # Project an org_q trajectory for a candidate plan.
-ree0xq-agility roadmap --inventory https://ree0xq.internal:8090/v1/inventory \
+dxq-agility roadmap --inventory https://dxq.internal:8090/v1/inventory \
     --plan migration-q1-2027.json
 
 # Check whether OpenSSL-3.x ships ML-DSA-65.
-ree0xq-agility compat --stack openssl-3.x --algo ML-DSA-65
+dxq-agility compat --stack openssl-3.x --algo ML-DSA-65
 
 # What PQ deadlines hit our jurisdiction in the next 12 months?
-ree0xq-agility deadlines --jurisdiction US --horizon-days 365
+dxq-agility deadlines --jurisdiction US --horizon-days 365
 ```
 
 ## 5. Day-2 operations
 
 - **Cert rotation.** Re-mint a bootstrap token on the
   collector, run step 3's enrolment block on the agent,
-  reload `ree0xq-net-live`. The new cert is in place
+  reload `dxq-net-live`. The new cert is in place
   before the old one expires.
 - **Adding an agent.** Steps 2–3, no collector change.
 - **Removing an agent.** Stop and disable the unit on the
@@ -201,7 +201,7 @@ ree0xq-agility deadlines --jurisdiction US --horizon-days 365
   of the latest-per-asset map naturally as the cert
   expires.
 - **Cycling the CA.** Out of scope for V1. Plan: bring up
-  a second `ree0xq-server` on a new CA, enrol all agents
+  a second `dxq-server` on a new CA, enrol all agents
   against it, decommission the old one.
 
 ## 5a. BLOCKED-asset webhook alerts
@@ -216,9 +216,9 @@ subsequent still-blocked observation.
 Configure the URL via the flag or its environment variable:
 
 ```ini
-# In the ree0xq-server unit override (step 1).
-Environment=REE0XQ_ALERT_WEBHOOK=https://alerts.internal/ree0xq
-# Equivalent CLI flag: --alert-webhook https://alerts.internal/ree0xq
+# In the dxq-server unit override (step 1).
+Environment=DXQ_ALERT_WEBHOOK=https://alerts.internal/dxq
+# Equivalent CLI flag: --alert-webhook https://alerts.internal/dxq
 ```
 
 Leave it unset to disable alerting (the default). Delivery is
@@ -252,15 +252,15 @@ constant `event` field if the same endpoint serves other hooks.
 ```bash
 # Each unit should pass systemd-analyze security with
 # at least a SAFE rating.
-systemd-analyze security ree0xq-server.service
-systemd-analyze security ree0xq-net-live.service
+systemd-analyze security dxq-server.service
+systemd-analyze security dxq-net-live.service
 ```
 
 The shipped units drop every capability except
-`CAP_NET_RAW` (ree0xq-net-live), use the `ree0xq` system
+`CAP_NET_RAW` (dxq-net-live), use the `dxq` system
 user, restrict the writable filesystem to
-`/var/lib/ree0xq*`, and filter syscalls to
+`/var/lib/dxq*`, and filter syscalls to
 `@system-service` minus `@privileged @resources`.
 Operators tightening further can layer
-`ReadOnlyPaths=/etc/ree0xq/agent.key` and similar in the
+`ReadOnlyPaths=/etc/dxq/agent.key` and similar in the
 drop-in.
