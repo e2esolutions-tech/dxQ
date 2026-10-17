@@ -1,5 +1,7 @@
 # dxQ — Crypto-Posture Observability
 
+**The dimension of quantum readiness.**
+
 > *Previously named **Sezar**; the published preprint and the
 > archived study artifacts under `studies/` retain that name. Old
 > repository URLs redirect.*
