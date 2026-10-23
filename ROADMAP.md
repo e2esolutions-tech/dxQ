@@ -125,6 +125,11 @@ network agent beyond TLS. All four bites shipped; schema is now v1.2.
 Out of V6: Kubernetes/cert-manager inventory, DNSSEC feed, CBOM
 export — candidates for V7 once V6 data starts accumulating.
 
+**Clients.** Alongside the React web dashboard, `dxq-desktop`
+(SEZ-34) is a native, pure-Rust egui monitor over the read-only REST
+API — a standalone crate (not a workspace member; needs GUI libraries
+to link/run). mTLS client-cert collectors are a documented follow-up.
+
 ## Out of scope for the foreseeable future
 
 - **Building our own HSM / CA / blockchain.** Other people make

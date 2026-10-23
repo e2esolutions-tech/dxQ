@@ -64,6 +64,7 @@ them out as **dxQ** keeps both products honest:
 | `dxq-agility`  | Crypto-agility scan + PQ-migration advice        | Semgrep over source/pkg      |
 | `dxq-core`     | Shared event schema + posture-rollup library     | (n/a — library)              |
 | `dxq-server`   | Collector + REST API + dashboard backend         | (n/a — service)              |
+| `dxq-desktop`  | Native (egui) desktop monitor over the REST API  | (n/a — client)               |
 
 All of the above have shipped across the V1-V5 milestones; see
 [ROADMAP.md](./ROADMAP.md) for what landed in each.

@@ -32,6 +32,11 @@ under development and the tag scheme will land with the V1 cut.
   Tranco rescan rig (`studies/study4`); server posture history
   (`GET /v1/posture/history`, Postgres-durable) with a dashboard
   trend chart; BLOCKED-asset webhook alerting (`--alert-webhook`).
+- **`dxq-desktop` — native desktop monitor** (SEZ-34). A pure-Rust
+  egui/eframe client that polls the collector's read-only REST API
+  and renders posture, inventory, the BLOCKED set, and the `org_q`
+  trend. Standalone crate (not a workspace member; needs GUI libs to
+  link/run). Observer only; shares `dxq-core::AssetKind`.
 - **Operator polish — systemd units + multi-host deploy
   runbook** (SEZ-24). `dist/systemd/` ships
   production-default unit files for the four
