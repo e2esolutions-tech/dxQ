@@ -24,6 +24,20 @@ struct Args {
     /// Base URL of the dxQ collector REST API.
     #[arg(long, env = "DXQ_COLLECTOR", default_value = "http://127.0.0.1:8090")]
     collector: String,
+
+    /// Client certificate (PEM) for mTLS collectors. Requires
+    /// --client-key. Signed by the collector's internal CA.
+    #[arg(long, env = "DXQ_CLIENT_CERT")]
+    client_cert: Option<std::path::PathBuf>,
+
+    /// Client private key (PEM) for mTLS. Requires --client-cert.
+    #[arg(long, env = "DXQ_CLIENT_KEY")]
+    client_key: Option<std::path::PathBuf>,
+
+    /// CA certificate (PEM) to trust the collector's server cert
+    /// (the internal CA for a self-hosted collector).
+    #[arg(long, env = "DXQ_CA_CERT")]
+    ca_cert: Option<std::path::PathBuf>,
 }
 
 fn main() -> eframe::Result<()> {
@@ -43,6 +57,12 @@ fn main() -> eframe::Result<()> {
     };
 
     let collector = args.collector;
+    let tls = client::TlsConfig {
+        client_cert: args.client_cert,
+        client_key: args.client_key,
+        ca_cert: args.ca_cert,
+    };
+    let secured = tls.is_mtls();
     eframe::run_native(
         "dxq-desktop",
         options,
@@ -51,8 +71,8 @@ fn main() -> eframe::Result<()> {
             // data arrives so the UI stays live while idle.
             let ctx = cc.egui_ctx.clone();
             let (tx, rx) = std::sync::mpsc::channel();
-            client::spawn_poller(collector.clone(), tx, move || ctx.request_repaint());
-            Ok(Box::new(DesktopApp::new(collector, rx)))
+            client::spawn_poller(collector.clone(), tls, tx, move || ctx.request_repaint());
+            Ok(Box::new(DesktopApp::new(collector, secured, rx)))
         }),
     )
 }

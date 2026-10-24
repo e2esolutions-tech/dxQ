@@ -6,12 +6,13 @@
 //! [`crate::client`] via an `mpsc` channel; the app keeps the most
 //! recent [`Snapshot`] and renders it.
 
+use std::collections::{BTreeMap, BTreeSet};
 use std::sync::mpsc::Receiver;
 use std::time::Duration;
 
 use eframe::egui::{self, Color32, Pos2, Sense, Stroke, Vec2};
 
-use crate::client::{InventoryItem, Snapshot};
+use crate::client::{CompatEntry, InventoryItem, RecommendationItem, Snapshot};
 
 /// Quantum-readiness tier for an asset / org `q` in [0,1]. Thresholds
 /// mirror the web dashboard: low q = urgent (classical, migrate now),
@@ -53,19 +54,44 @@ enum View {
     Inventory,
     Blocked,
     Trend,
+    Recommendations,
+    Compat,
+}
+
+/// Colour for a recommendation `cost` class (kebab-case wire value).
+fn cost_color(cost: &str) -> Color32 {
+    match cost {
+        "trivial" | "low" => Tier::Ready.color(),
+        "medium" => Tier::Plan.color(),
+        "high" => Tier::Urgent.color(),
+        _ => Color32::GRAY,
+    }
+}
+
+/// Colour for a compat `status` (kebab-case wire value).
+fn status_color(status: &str) -> Color32 {
+    match status {
+        "supported" => Tier::Ready.color(),
+        "experimental" => Tier::Plan.color(),
+        "not-implemented" => Tier::Urgent.color(),
+        _ => Color32::GRAY,
+    }
 }
 
 pub struct DesktopApp {
     collector: String,
+    /// Whether the poller is using an mTLS client identity.
+    secured: bool,
     rx: Receiver<Snapshot>,
     snap: Snapshot,
     view: View,
 }
 
 impl DesktopApp {
-    pub fn new(collector: String, rx: Receiver<Snapshot>) -> Self {
+    pub fn new(collector: String, secured: bool, rx: Receiver<Snapshot>) -> Self {
         Self {
             collector,
+            secured,
             rx,
             snap: Snapshot::default(),
             view: View::Posture,
@@ -105,6 +131,10 @@ impl eframe::App for DesktopApp {
                     }
                     ui.separator();
                     ui.monospace(&self.collector);
+                    if self.secured {
+                        ui.separator();
+                        ui.colored_label(Tier::Ready.color(), "mTLS");
+                    }
                 });
             });
         });
@@ -128,6 +158,12 @@ impl eframe::App for DesktopApp {
                 },
             );
             ui.selectable_value(&mut self.view, View::Trend, "Trend");
+            ui.selectable_value(
+                &mut self.view,
+                View::Recommendations,
+                format!("Recommendations ({})", self.snap.recommendations.len()),
+            );
+            ui.selectable_value(&mut self.view, View::Compat, "Compat matrix");
         });
 
         egui::CentralPanel::default().show(ctx, |ui| match self.view {
@@ -137,6 +173,8 @@ impl eframe::App for DesktopApp {
                 inventory_table(ui, &self.snap.blocked, "No BLOCKED assets — nothing forced into migration.")
             }
             View::Trend => trend_view(ui, &self.snap),
+            View::Recommendations => recommendations_view(ui, &self.snap.recommendations),
+            View::Compat => compat_view(ui, &self.snap.compat),
         });
 
         // Stay awake so the poller's data (and the liveness label)
@@ -286,6 +324,87 @@ fn trend_view(ui: &mut egui::Ui, snap: &Snapshot) {
     ui.weak(format!("{} points · latest q = {:.2}", n, last));
 }
 
+fn recommendations_view(ui: &mut egui::Ui, items: &[RecommendationItem]) {
+    if items.is_empty() {
+        ui.weak("No migration recommendations — every asset is already at a recommended primitive.");
+        return;
+    }
+    egui::ScrollArea::vertical().show(ui, |ui| {
+        for it in items {
+            let host = it.host.as_deref().unwrap_or("—");
+            egui::CollapsingHeader::new(format!(
+                "{}  ·  {}  ·  {}",
+                asset_kind_label(&it.asset_kind),
+                it.identity,
+                host
+            ))
+            .default_open(true)
+            .show(ui, |ui| {
+                ui.weak(format!("current: {}", it.current_primitives.join(", ")));
+                for r in &it.recommendations {
+                    ui.horizontal_wrapped(|ui| {
+                        ui.monospace(&r.replaces);
+                        ui.label("→");
+                        ui.monospace(&r.replacement);
+                        ui.colored_label(cost_color(&r.cost), format!("[{}]", r.cost));
+                    });
+                    ui.label(&r.rationale);
+                    for c in &r.caveats {
+                        ui.weak(format!("· {c}"));
+                    }
+                    ui.add_space(4.0);
+                }
+            });
+        }
+    });
+}
+
+fn compat_view(ui: &mut egui::Ui, entries: &[CompatEntry]) {
+    if entries.is_empty() {
+        ui.weak("Compatibility matrix is empty.");
+        return;
+    }
+    // Pivot into stacks × algorithms, like the web matrix.
+    let stacks: BTreeSet<&str> = entries.iter().map(|e| e.stack.as_str()).collect();
+    let algos: BTreeSet<&str> = entries.iter().map(|e| e.algorithm.as_str()).collect();
+    let mut cell: BTreeMap<(&str, &str), &CompatEntry> = BTreeMap::new();
+    for e in entries {
+        cell.insert((e.stack.as_str(), e.algorithm.as_str()), e);
+    }
+
+    ui.weak("Which TLS stacks ship which PQ algorithms. Hover a cell for the min version.");
+    ui.add_space(4.0);
+    egui::ScrollArea::both().show(ui, |ui| {
+        egui::Grid::new("compat-grid")
+            .striped(true)
+            .spacing([14.0, 4.0])
+            .show(ui, |ui| {
+                ui.strong("stack \\ algorithm");
+                for a in &algos {
+                    ui.strong(*a);
+                }
+                ui.end_row();
+                for s in &stacks {
+                    ui.monospace(*s);
+                    for a in &algos {
+                        match cell.get(&(*s, *a)) {
+                            None => {
+                                ui.weak("—");
+                            }
+                            Some(e) => {
+                                let label = ui.colored_label(status_color(&e.status), &e.status);
+                                if let Some(v) = &e.min_version {
+                                    label.on_hover_text(format!("min {v}"));
+                                }
+                            }
+                        }
+                    }
+                    ui.end_row();
+                }
+            });
+    });
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -317,5 +436,22 @@ mod tests {
     fn asset_kind_label_is_snake_case() {
         assert_eq!(asset_kind_label(&dxq_core::AssetKind::SshSession), "ssh_session");
         assert_eq!(asset_kind_label(&dxq_core::AssetKind::X509Cert), "x509_cert");
+    }
+
+    #[test]
+    fn cost_colors_track_severity() {
+        assert_eq!(cost_color("trivial"), Tier::Ready.color());
+        assert_eq!(cost_color("low"), Tier::Ready.color());
+        assert_eq!(cost_color("medium"), Tier::Plan.color());
+        assert_eq!(cost_color("high"), Tier::Urgent.color());
+        assert_eq!(cost_color("???"), Color32::GRAY);
+    }
+
+    #[test]
+    fn status_colors_track_support() {
+        assert_eq!(status_color("supported"), Tier::Ready.color());
+        assert_eq!(status_color("experimental"), Tier::Plan.color());
+        assert_eq!(status_color("not-implemented"), Tier::Urgent.color());
+        assert_eq!(status_color("unknown"), Color32::GRAY);
     }
 }

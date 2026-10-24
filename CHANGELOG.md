@@ -37,6 +37,12 @@ under development and the tag scheme will land with the V1 cut.
   and renders posture, inventory, the BLOCKED set, and the `org_q`
   trend. Standalone crate (not a workspace member; needs GUI libs to
   link/run). Observer only; shares `dxq-core::AssetKind`.
+- **`dxq-desktop` — mTLS + recommendations/compat views** (SEZ-35).
+  Client-cert auth for the mTLS collector listener
+  (`--client-cert`/`--client-key`/`--ca-cert`, with an mTLS header
+  badge), plus two new views at parity with the web dashboard: the
+  per-asset PQ migration **Recommendations** and the TLS-stack ×
+  algorithm **Compat matrix**.
 - **Operator polish — systemd units + multi-host deploy
   runbook** (SEZ-24). `dist/systemd/` ships
   production-default unit files for the four

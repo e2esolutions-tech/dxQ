@@ -11,9 +11,14 @@ read-only REST API and renders the live crypto-posture:
 - **BLOCKED** — the assets whose crypto can't be rotated in place
   (agility `Locked`/`Frozen`).
 - **Trend** — `org_q` over time with a BLOCKED-count overlay.
+- **Recommendations** — per-asset PQ migration advice
+  (`replaces → replacement`, cost class, rationale, caveats).
+- **Compat matrix** — TLS-stack × algorithm support grid, colour-coded
+  by status.
 
 It is an **observer**: it only reads (`/v1/posture`, `/v1/inventory`,
-`/v1/blocked`, `/v1/posture/history`). It never ingests or mutates.
+`/v1/blocked`, `/v1/posture/history`, `/v1/recommendations`,
+`/v1/agility/compat`). It never ingests or mutates.
 
 ## Build & run
 
@@ -26,8 +31,24 @@ DXQ_COLLECTOR=https://dxq.internal:8443 cargo run
 
 Default collector: `http://127.0.0.1:8090`. HTTPS collectors with a
 publicly-trusted server certificate work out of the box (rustls +
-webpki roots, `ring` provider). Client-certificate (mTLS) collectors
-are not supported yet.
+webpki roots, `ring` provider).
+
+### mTLS collectors
+
+The collector's main `/v1` surface sits behind an mTLS listener. Point
+the client at a per-agent certificate (signed by the collector's
+internal CA) plus the CA cert to verify the server:
+
+```bash
+cargo run -- \
+  --collector https://dxq.internal:8443 \
+  --client-cert /etc/dxq/agent.crt \
+  --client-key  /etc/dxq/agent.key \
+  --ca-cert     /etc/dxq/ca.crt
+# env equivalents: DXQ_CLIENT_CERT / DXQ_CLIENT_KEY / DXQ_CA_CERT
+```
+
+The header shows an **mTLS** badge when a client identity is in use.
 
 ## Why it is its own workspace
 

@@ -10,6 +10,7 @@
 //! deserializes straight into [`dxq_core::AssetKind`] so the desktop
 //! client shares the schema's closed enum rather than re-spelling it.
 
+use std::path::PathBuf;
 use std::sync::mpsc::Sender;
 use std::time::Duration;
 
@@ -19,6 +20,24 @@ use serde::Deserialize;
 /// Poll cadence. Matches the web dashboard's "feels live" interval
 /// without loading the collector.
 pub const POLL_INTERVAL: Duration = Duration::from_secs(5);
+
+/// Optional TLS material for reaching the collector. The main `/v1`
+/// surface sits behind an mTLS listener, so a production collector
+/// needs a client cert + key (signed by the internal CA) and the CA
+/// cert to verify the server. All `None` → plain HTTP / server-auth
+/// HTTPS against a publicly-trusted cert.
+#[derive(Debug, Clone, Default)]
+pub struct TlsConfig {
+    pub client_cert: Option<PathBuf>,
+    pub client_key: Option<PathBuf>,
+    pub ca_cert: Option<PathBuf>,
+}
+
+impl TlsConfig {
+    pub fn is_mtls(&self) -> bool {
+        self.client_cert.is_some() || self.client_key.is_some()
+    }
+}
 
 /// `GET /v1/posture`.
 #[derive(Debug, Clone, Deserialize)]
@@ -64,6 +83,53 @@ pub struct PostureHistoryResponse {
     pub snapshots: Vec<PostureSnapshot>,
 }
 
+/// One replacement suggestion from `GET /v1/recommendations`.
+#[derive(Debug, Clone, Deserialize)]
+pub struct Recommendation {
+    pub replaces: String,
+    pub replacement: String,
+    pub rationale: String,
+    /// `trivial` | `low` | `medium` | `high` (kebab-case on the wire).
+    pub cost: String,
+    #[serde(default)]
+    pub caveats: Vec<String>,
+}
+
+/// Per-asset recommendation row.
+#[derive(Debug, Clone, Deserialize)]
+pub struct RecommendationItem {
+    pub asset_kind: AssetKind,
+    pub identity: String,
+    #[serde(default)]
+    pub host: Option<String>,
+    #[serde(default)]
+    pub current_primitives: Vec<String>,
+    #[serde(default)]
+    pub recommendations: Vec<Recommendation>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct RecommendationsResponse {
+    pub items: Vec<RecommendationItem>,
+}
+
+/// One cell of the `GET /v1/agility/compat` TLS-stack × algorithm
+/// matrix.
+#[derive(Debug, Clone, Deserialize)]
+pub struct CompatEntry {
+    pub stack: String,
+    pub algorithm: String,
+    /// `supported` | `experimental` | `not-implemented` | `unknown`.
+    pub status: String,
+    #[serde(default)]
+    pub min_version: Option<String>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct CompatResponse {
+    pub items: Vec<CompatEntry>,
+}
+
 /// Everything one poll gathered, or the error that poll hit. The GUI
 /// always holds the most recent `Snapshot`.
 #[derive(Debug, Clone, Default)]
@@ -72,6 +138,8 @@ pub struct Snapshot {
     pub inventory: Vec<InventoryItem>,
     pub blocked: Vec<InventoryItem>,
     pub history: Vec<PostureSnapshot>,
+    pub recommendations: Vec<RecommendationItem>,
+    pub compat: Vec<CompatEntry>,
     /// Human-readable error from the last poll, if it failed.
     pub error: Option<String>,
     /// Monotonic poll counter, so the UI can show liveness.
@@ -106,14 +174,57 @@ fn build_snapshot(client: &reqwest::blocking::Client, base: &str) -> anyhow::Res
     let blocked: InventoryResponse = get_json(client, &format!("{base}/v1/blocked"))?;
     let history: PostureHistoryResponse =
         get_json(client, &format!("{base}/v1/posture/history"))?;
+    let recs: RecommendationsResponse = get_json(client, &format!("{base}/v1/recommendations"))?;
+    let compat: CompatResponse = get_json(client, &format!("{base}/v1/agility/compat"))?;
     Ok(Snapshot {
         posture: Some(posture),
         inventory: inventory.items,
         blocked: blocked.items,
         history: history.snapshots,
+        recommendations: recs.items,
+        compat: compat.items,
         error: None,
         generation: 0,
     })
+}
+
+/// Build the blocking HTTP client, wiring in mTLS material when the
+/// operator supplied it. Fails loudly (surfaced in the UI) on a bad
+/// cert/key/CA rather than silently dropping to an unauthenticated
+/// client.
+fn build_client(tls: &TlsConfig) -> anyhow::Result<reqwest::blocking::Client> {
+    let mut b = reqwest::blocking::Client::builder()
+        .timeout(Duration::from_secs(10))
+        .user_agent(concat!("dxq-desktop/", env!("CARGO_PKG_VERSION")));
+
+    if let Some(ca) = &tls.ca_cert {
+        let pem = std::fs::read(ca)
+            .map_err(|e| anyhow::anyhow!("read CA cert {}: {e}", ca.display()))?;
+        let cert = reqwest::Certificate::from_pem(&pem)
+            .map_err(|e| anyhow::anyhow!("parse CA cert: {e}"))?;
+        b = b.add_root_certificate(cert);
+    }
+
+    match (&tls.client_cert, &tls.client_key) {
+        (Some(cert), Some(key)) => {
+            // reqwest's rustls Identity wants cert chain + key in one
+            // PEM buffer; concatenate the two files.
+            let mut pem = std::fs::read(cert)
+                .map_err(|e| anyhow::anyhow!("read client cert {}: {e}", cert.display()))?;
+            pem.push(b'\n');
+            pem.extend_from_slice(
+                &std::fs::read(key)
+                    .map_err(|e| anyhow::anyhow!("read client key {}: {e}", key.display()))?,
+            );
+            let id = reqwest::Identity::from_pem(&pem)
+                .map_err(|e| anyhow::anyhow!("build client identity (cert+key): {e}"))?;
+            b = b.identity(id);
+        }
+        (None, None) => {}
+        _ => anyhow::bail!("mTLS needs BOTH --client-cert and --client-key"),
+    }
+
+    b.build().map_err(|e| anyhow::anyhow!("build HTTP client: {e}"))
 }
 
 fn get_json<T: for<'de> Deserialize<'de>>(
@@ -130,16 +241,25 @@ fn get_json<T: for<'de> Deserialize<'de>>(
 
 /// Spawn the detached poll loop. `repaint` is called after every poll
 /// so egui wakes and renders the fresh snapshot even while idle.
-pub fn spawn_poller<F>(base: String, tx: Sender<Snapshot>, repaint: F)
+pub fn spawn_poller<F>(base: String, tls: TlsConfig, tx: Sender<Snapshot>, repaint: F)
 where
     F: Fn() + Send + 'static,
 {
     std::thread::spawn(move || {
-        let client = reqwest::blocking::Client::builder()
-            .timeout(Duration::from_secs(10))
-            .user_agent(concat!("dxq-desktop/", env!("CARGO_PKG_VERSION")))
-            .build()
-            .unwrap_or_default();
+        let client = match build_client(&tls) {
+            Ok(c) => c,
+            Err(e) => {
+                // Surface the TLS/setup error once and stop; the UI
+                // shows it in the header banner.
+                let _ = tx.send(Snapshot {
+                    error: Some(e.to_string()),
+                    generation: 1,
+                    ..Default::default()
+                });
+                repaint();
+                return;
+            }
+        };
         let mut generation = 0u64;
         loop {
             generation += 1;
@@ -190,5 +310,33 @@ mod tests {
         assert_eq!(h.snapshots.len(), 2);
         assert!((h.snapshots[1].org_q - 0.6).abs() < 1e-6);
         assert_eq!(h.snapshots[0].blocked_count, 1);
+    }
+
+    #[test]
+    fn deserializes_recommendations() {
+        let j = r#"{"count":1,"items":[{
+            "source_module":"dxq-cert","asset_kind":"x509_cert",
+            "identity":"sha256:ab","host":null,
+            "current_primitives":["RSA-2048"],
+            "recommendations":[{"replaces":"RSA-2048","replacement":"ML-DSA-65",
+              "rationale":"PQ signature","cost":"medium","caveats":["chain depth"]}]}]}"#;
+        let r: RecommendationsResponse = serde_json::from_str(j).unwrap();
+        assert_eq!(r.items.len(), 1);
+        let it = &r.items[0];
+        assert_eq!(it.asset_kind, AssetKind::X509Cert);
+        assert_eq!(it.recommendations[0].cost, "medium");
+        assert_eq!(it.recommendations[0].replacement, "ML-DSA-65");
+    }
+
+    #[test]
+    fn deserializes_compat_with_kebab_status() {
+        let j = r#"{"count":2,"items":[
+            {"stack":"openssl-3.x","algorithm":"ML-KEM-768","status":"supported","min_version":"3.5"},
+            {"stack":"go-crypto-tls","algorithm":"ML-DSA-65","status":"not-implemented","min_version":null}]}"#;
+        let c: CompatResponse = serde_json::from_str(j).unwrap();
+        assert_eq!(c.items.len(), 2);
+        assert_eq!(c.items[0].status, "supported");
+        assert_eq!(c.items[1].status, "not-implemented");
+        assert_eq!(c.items[0].min_version.as_deref(), Some("3.5"));
     }
 }
